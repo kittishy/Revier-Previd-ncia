@@ -113,12 +113,29 @@ nav {
   transition: color .2s, background .2s;
 }
 
-.nav-links a:hover {
-  color: var(--or);
-  background: rgba(232,81,10,.08);
-}
+ .nav-links a:hover {
+   color: var(--or);
+   background: rgba(232,81,10,.08);
+ }
 
-.nav-badge {
+ .nav-back {
+   font-size: .72rem;
+   font-weight: 600;
+   letter-spacing: .1em;
+   text-transform: uppercase;
+   color: rgba(255,255,255,.4);
+   text-decoration: none;
+   transition: color .2s;
+   display: flex;
+   align-items: center;
+   gap: 6px;
+ }
+
+ .nav-back:hover {
+   color: var(--or);
+ }
+
+ .nav-badge {
   font-size: .68rem;
   font-weight: 700;
   letter-spacing: .12em;
@@ -1814,33 +1831,35 @@ footer {
       <div class="nav-wordmark">REVIER <span>BROKERS</span></div>
     </div>
   </a>
-  <ul class="nav-links">
-    <li><a href="#fundamentos">Abra a dor</a></li>
-    <li><a href="#produtos">Acerta o produto</a></li>
-    <li><a href="#tributacao">Escolhe o IR</a></li>
-    <li><a href="#fundos">Ajusta o risco</a></li>
-    <li><a href="#venda">Conduz a venda</a></li>
-    <li><a href="#objecoes">Vira a objeção</a></li>
-    <li><a href="#operadoras">Puxa a seguradora</a></li>
-    <li><a href="#checklist">Entra pronto</a></li>
-  </ul>
+   <ul class="nav-links">
+     <li><a href="../index.html" class="nav-back">← Portal</a></li>
+     <li><a href="#fundamentos">Abra a dor</a></li>
+     <li><a href="#produtos">Acerta o produto</a></li>
+     <li><a href="#tributacao">Escolhe o IR</a></li>
+     <li><a href="#fundos">Ajusta o risco</a></li>
+     <li><a href="#venda">Conduz a venda</a></li>
+     <li><a href="#objecoes">Vira a objeção</a></li>
+     <li><a href="#operadoras">Puxa a seguradora</a></li>
+     <li><a href="#checklist">Entra pronto</a></li>
+   </ul>
   <div class="nav-badge">Guia Interno</div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#fundamentos" class="mobile-link">01 · Abra pela dor do INSS</a>
-  <a href="#produtos" class="mobile-link">02 · Não troque PGBL por VGBL</a>
-  <a href="#tributacao" class="mobile-link">03 · Escolha o IR sem erro</a>
-  <a href="#fundos" class="mobile-link">04 · Acerte o risco do fundo</a>
-  <a href="#venda" class="mobile-link">05 · Conduza a conversa</a>
-  <a href="#objecoes" class="mobile-link">06 · Vire a objeção</a>
-  <a href="#operadoras" class="mobile-link">07 · Puxe a seguradora certa</a>
-  <a href="#checklist" class="mobile-link">08 · Entre pronto</a>
-</div>
+ <!-- Mobile menu -->
+ <div class="mobile-menu" id="mobileMenu">
+   <a href="../index.html" class="mobile-link">← Voltar ao Portal</a>
+   <a href="#fundamentos" class="mobile-link">01 · Abra pela dor do INSS</a>
+   <a href="#produtos" class="mobile-link">02 · Não troque PGBL por VGBL</a>
+   <a href="#tributacao" class="mobile-link">03 · Escolha o IR sem erro</a>
+   <a href="#fundos" class="mobile-link">04 · Acerte o risco do fundo</a>
+   <a href="#venda" class="mobile-link">05 · Conduza a conversa</a>
+   <a href="#objecoes" class="mobile-link">06 · Vire a objeção</a>
+   <a href="#operadoras" class="mobile-link">07 · Puxe a seguradora certa</a>
+   <a href="#checklist" class="mobile-link">08 · Entre pronto</a>
+ </div>
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero">
