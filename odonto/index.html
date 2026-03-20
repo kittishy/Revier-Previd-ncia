@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revier · Guia Completo de Odontologia</title>
+<meta name="description" content="Guia completo de odontologia — PF e PME — para corretores da Revier Brokers. Planos Amil Dental, OdontoPrev, SulAmérica e Porto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;--light:#F4F6FB;--border:#E5E7EB;--white:#fff}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Barlow',sans-serif;font-weight:400;color:var(--ink);background:var(--white);overflow-x:hidden;cursor:default}
+::selection{background:var(--or);color:#fff}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--dk)}
+::-webkit-scrollbar-thumb{background:var(--or);border-radius:2px}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(10,12,18,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);transition:all .3s}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-hex{width:28px;height:28px;background:var(--or);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);flex-shrink:0}
+.nav-wordmark{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:.06em;color:#fff}
+.nav-wordmark span{color:var(--or)}
+.nav-links{display:flex;gap:6px;list-style:none}
+.nav-links a{display:block;padding:6px 12px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;border-radius:2px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--or);background:rgba(232,81,10,.08)}
+.nav-back{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:var(--or)}
+.nav-badge{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--or);color:#fff;padding:5px 12px;border-radius:2px}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;z-index:300}
+.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.7);border-radius:2px;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,12,18,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);z-index:190;padding:16px 0 24px;flex-direction:column}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:12px 24px;font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;border-left:2px solid transparent;transition:all .15s}
+.mobile-menu a:hover{color:var(--or);border-left-color:var(--or);background:rgba(232,81,10,.05)}
+.hero{min-height:100vh;background:var(--dk);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 60px}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(232,81,10,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(232,81,10,.06) 1px,transparent 1px);background-size:64px 64px}
+.hero-blocks{position:absolute;top:0;right:0;width:380px;height:100vh;display:grid;grid-template-rows:1fr 1fr 1fr;pointer-events:none}
+.hero-blocks>div:nth-child(1){background:var(--tl);opacity:.18}
+.hero-blocks>div:nth-child(2){background:var(--bl);opacity:.14}
+.hero-blocks>div:nth-child(3){background:var(--or);opacity:.10}
+.hero-glow{position:absolute;left:-10%;top:20%;width:70vw;height:70vh;background:radial-gradient(ellipse,rgba(11,158,160,.10) 0%,transparent 65%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--tl);border:1px solid rgba(11,158,160,.3);border-radius:100px;padding:5px 14px;margin-bottom:24px;background:rgba(11,158,160,.06)}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--tl);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+h1.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4.5rem,9vw,7.5rem);font-weight:900;line-height:.88;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:24px}
+h1.hero-title em{font-style:normal;color:var(--tl);display:block}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.5);font-weight:300;line-height:1.7;max-width:520px;margin-bottom:40px}
+.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--or);color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
+.btn-primary:hover{background:var(--or2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,81,10,.35)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
+.btn-ghost:hover{border-color:var(--or);color:var(--or)}
+.hero-toc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:28px;backdrop-filter:blur(8px)}
+.hero-toc-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.hero-toc-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
+.toc-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);text-decoration:none;transition:all .15s}
+.toc-item:last-child{border-bottom:none}
+.toc-item:hover .toc-label{color:var(--or)}
+.toc-item:hover .toc-num{border-color:var(--or);color:var(--or)}
+.toc-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;width:28px;height:28px;border:1px solid rgba(255,255,255,.12);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);flex-shrink:0;transition:all .15s}
+.toc-label{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.55);transition:color .15s}
+.section{padding:100px 0;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.section-dark{background:var(--dk);border-bottom-color:rgba(255,255,255,.06)}
+.section-light{background:var(--light)}
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--or);margin-bottom:12px}
+.sec-label-dark{color:rgba(255,255,255,.35)}
+.sec-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;background:var(--or);color:#fff;width:22px;height:22px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;color:var(--ink);margin-bottom:16px}
+h2.sec-title-light{color:#fff}
+.sec-lead{font-size:1rem;color:var(--muted);font-weight:300;font-style:italic;line-height:1.7;max-width:620px;margin-bottom:48px;padding-left:14px;border-left:2px solid var(--or)}
+.sec-lead-light{color:rgba(255,255,255,.45);border-left-color:rgba(232,81,10,.5)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:64px}
+.fund-text p{font-size:.95rem;line-height:1.75;color:#374151;margin-bottom:16px}
+.fund-text p strong{color:var(--ink);font-weight:700}
+.inss-callout{background:var(--dk);border-radius:8px;padding:28px;position:relative;overflow:hidden}
+.inss-callout::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--tl),var(--bl))}
+.inss-callout-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--tl);margin-bottom:10px}
+.inss-callout p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.65}
+.inss-callout strong{color:#fff}
+.motivos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.motivo-card{background:var(--light);border-radius:6px;padding:28px 24px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.motivo-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.motivo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.mc-teal::before{background:var(--tl)}.mc-blue::before{background:var(--bl)}.mc-orange::before{background:var(--or)}
+.motivo-icon{font-size:2rem;margin-bottom:14px;display:block}
+.motivo-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.mt-teal{color:var(--tl)}.mt-blue{color:var(--bl)}.mt-orange{color:var(--or)}
+.motivo-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;color:var(--ink)}
+.motivo-card p{font-size:.87rem;color:var(--muted);line-height:1.6}
+.data-table{width:100%;border-collapse:collapse;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.data-table thead tr{background:var(--nv)}
+.data-table th{padding:14px 18px;text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.data-table td{padding:13px 18px;font-size:.9rem;color:#374151;border-top:1px solid var(--border);background:#fff}
+.data-table tr:hover td{background:#fafbff}
+.data-table td strong{color:var(--ink);font-weight:700}
+.td-green{color:var(--gn)!important;font-weight:700!important}
+.td-orange{color:var(--or)!important;font-weight:700!important}
+.td-teal{color:var(--tl)!important;font-weight:700!important}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:6px}
+.table-scroll .data-table{min-width:600px}
+.vs-layout{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:stretch;margin-bottom:40px}
+.vs-card{background:#fff;border-radius:8px;padding:32px;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s}
+.vs-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.1)}
+.vs-card-bar{height:4px;margin:-32px -32px 24px;border-radius:8px 8px 0 0}
+.vs-card-bar-teal{background:linear-gradient(90deg,var(--tl),var(--bl))}
+.vs-card-bar-orange{background:linear-gradient(90deg,var(--or),var(--yl))}
+.vs-card-sub{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.vs-card h3{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:6px}
+.vc-teal{color:var(--tl)}.vc-orange{color:var(--or)}.vc-blue{color:var(--bl)}
+.vs-card .vs-desc{font-size:.82rem;color:var(--muted);margin-bottom:20px;font-style:italic}
+.vs-bullets{list-style:none}
+.vs-bullets li{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:#374151;line-height:1.5;margin-bottom:10px}
+.vs-bullets li::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.vb-teal li::before{background:var(--tl)}.vb-orange li::before{background:var(--or)}.vb-blue li::before{background:var(--bl)}
+.vs-middle{display:flex;align-items:center;justify-content:center}
+.vs-badge{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:900;color:var(--muted);border:2px solid var(--border);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+.gold-rule{background:var(--tl);border-radius:8px;padding:28px 32px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-bottom:32px}
+.gold-rule-icon{font-size:2.5rem}
+.gold-rule-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:6px}
+.gold-rule p{font-size:.95rem;color:#fff;line-height:1.65}
+.gold-rule strong{font-weight:700}
+.script-box{background:var(--dk);border-radius:6px;padding:24px 28px;position:relative;overflow:hidden;margin-top:24px}
+.script-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gn)}
+.script-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gn);margin-bottom:10px}
+.script-box p{font-size:.92rem;color:rgba(255,255,255,.75);font-style:italic;line-height:1.65}
+.rec-box{background:linear-gradient(135deg,rgba(11,158,160,.08) 0%,rgba(26,62,200,.05) 100%);border:1px solid rgba(11,158,160,.2);border-radius:8px;padding:24px 28px;margin-top:24px}
+.rec-box-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--tl);margin-bottom:8px}
+.rec-box p{font-size:.92rem;color:var(--ink);line-height:1.65}
+.venda-steps{display:flex;flex-direction:column;gap:0;margin-bottom:40px;position:relative}
+.venda-steps::before{content:'';position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:linear-gradient(180deg,var(--gn),rgba(22,163,74,.1))}
+.venda-step{display:flex;gap:20px;padding:0 0 28px;position:relative}
+.venda-step-num{width:40px;height:40px;border-radius:50%;background:var(--gn);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
+.venda-step-body{flex:1;padding-top:6px}
+.venda-step-body h4{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.step-script{background:#fff;border-radius:4px;padding:14px 18px;border-left:3px solid var(--gn);font-size:.88rem;color:#374151;font-style:italic;line-height:1.6;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.feature-box{border-radius:8px;padding:28px}
+.fb-green{background:#F0FDF4;border:1px solid rgba(22,163,74,.2)}
+.fb-blue{background:#EFF6FF;border:1px solid rgba(26,62,200,.15)}
+.fb-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.fb-green .fb-label{color:var(--gn)}.fb-blue .fb-label{color:var(--bl)}
+.feature-box p{font-size:.9rem;color:#374151;line-height:1.65}
+.feature-box strong{color:var(--ink);font-weight:700}
+.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.obj-item{border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s}
+.obj-item:hover{box-shadow:0 6px 24px rgba(0,0,0,.1)}
+.obj-q{background:var(--ink);padding:14px 18px;font-size:.88rem;font-weight:600;color:#fff;display:flex;gap:10px;align-items:flex-start}
+.obj-q-icon{flex-shrink:0;font-size:1rem;margin-top:1px}
+.obj-a{background:var(--light);padding:14px 18px;border-left:3px solid var(--gn)}
+.obj-a-tag{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gn);margin-bottom:5px}
+.obj-a p{font-size:.85rem;color:#374151;line-height:1.6}
+.obj-a strong{color:var(--ink)}
+.ops-layout{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
+.rank-list{display:flex;flex-direction:column;gap:12px}
+.rank-item{background:#fff;border-radius:6px;padding:18px 20px;display:flex;align-items:center;gap:18px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:all .2s}
+.rank-item:hover{transform:translateX(4px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.rank-medal{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:900;min-width:36px;text-align:center;line-height:1}
+.rm-gold{color:var(--yl);text-shadow:0 0 20px rgba(245,200,0,.4)}.rm-silver{color:#94A3B8}.rm-bronze{color:#CD7F32}.rm-gray{color:var(--border)}
+.rank-name{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.rank-desc{font-size:.82rem;color:var(--muted)}
+.ops-sidebar{display:flex;flex-direction:column;gap:20px}
+.cert-card{background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.cert-card::before{content:'';display:block;height:3px;margin:-24px -24px 18px;border-radius:8px 8px 0 0}
+.cc-teal::before{background:linear-gradient(90deg,var(--tl),var(--bl))}
+.cc-green::before{background:linear-gradient(90deg,var(--gn),var(--tl))}
+.cert-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.cert-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.cert-card p{font-size:.85rem;color:var(--muted);line-height:1.6}
+.cert-card p+p{margin-top:6px}
+.cert-card strong{color:var(--ink)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
+.stat-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;transition:all .2s}
+.stat-box:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
+.stat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--tl),var(--bl))}
+.stat-val{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;color:var(--tl);line-height:1;margin-bottom:8px}
+.stat-label{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4}
+.check-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
+.check-col-title{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.check-col-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
+.check-list{display:flex;flex-direction:column;gap:10px}
+.check-row{display:flex;align-items:flex-start;gap:12px}
+.check-box-el{width:18px;height:18px;border:1.5px solid rgba(232,81,10,.4);border-radius:3px;flex-shrink:0;margin-top:2px;position:relative;transition:all .2s}
+.check-row:hover .check-box-el{border-color:var(--or);background:rgba(232,81,10,.08)}
+.check-text{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.5}
+.define-list{display:flex;flex-direction:column;gap:10px}
+.define-row{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:12px 16px;display:flex;align-items:center;gap:14px;transition:background .2s}
+.define-row:hover{background:rgba(255,255,255,.07)}
+.define-arrow{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;min-width:72px;padding:3px 8px;border-radius:2px;text-align:center}
+.da-orange{background:rgba(232,81,10,.15);color:var(--or)}
+.da-teal{background:rgba(11,158,160,.15);color:var(--tl)}
+.da-blue{background:rgba(26,62,200,.2);color:#93c5fd}
+.da-green{background:rgba(22,163,74,.15);color:#86efac}
+.define-val{font-size:.88rem;color:rgba(255,255,255,.6)}
+.port-box{background:rgba(22,163,74,.08);border:1px solid rgba(22,163,74,.2);border-radius:8px;padding:28px 32px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.port-icon{font-size:2.5rem}
+.port-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gn);margin-bottom:6px}
+.port-box p{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.65}
+.port-box strong{color:#fff}
+footer{background:#060810;padding:60px 0 32px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-top{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.footer-brand .nav-wordmark{font-size:1.6rem;margin-bottom:6px}
+.footer-brand p{font-size:.82rem;color:rgba(255,255,255,.3);line-height:1.65;margin-top:8px}
+.footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:.85rem;color:rgba(255,255,255,.4);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--or)}
+.footer-contact p{font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:6px}
+.footer-contact strong{color:rgba(255,255,255,.7)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 40px 0;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.2);letter-spacing:.06em}
+.footer-stripes{display:flex;gap:4px}
+.footer-stripes span{display:block;width:16px;height:4px;border-radius:1px}
+/* RESPONSIVE */
+@media(max-width:900px){
+nav{padding:0 20px}.nav-links{display:none}.nav-badge{display:none}.nav-hamburger{display:flex}
+.container{padding:0 20px}.section{padding:64px 0}
+.hero{padding:88px 0 52px}.hero-inner{grid-template-columns:1fr;gap:0;padding:0 20px}.hero-toc{display:none}.hero-blocks{width:120px;opacity:.5}
+.hero-tag{font-size:.68rem}h1.hero-title{font-size:clamp(3.2rem,12vw,5rem)}.hero-sub{font-size:.92rem;margin-bottom:32px}
+.hero-cta-row{gap:10px}.btn-primary,.btn-ghost{padding:12px 20px;font-size:.78rem}
+h2.sec-title{font-size:clamp(2rem,8vw,3rem)}.sec-lead{font-size:.9rem;margin-bottom:32px}
+.fund-grid,.feature-row,.ops-layout,.check-layout,.footer-top{grid-template-columns:1fr}
+.vs-layout{grid-template-columns:1fr}.vs-middle{display:none}
+.motivos-grid,.obj-grid{grid-template-columns:1fr;gap:14px}
+.stats-row{grid-template-columns:1fr 1fr;gap:12px}.stat-val{font-size:1.9rem}
+.gold-rule,.port-box{grid-template-columns:1fr;gap:12px;padding:22px 20px}
+.rank-item{padding:14px 16px;gap:14px}.rank-medal{font-size:1.4rem;min-width:28px}
+.hero-blocks{display:none}
+.venda-steps::before{left:16px}.venda-step-num{width:32px;height:32px;font-size:.9rem}.venda-step{gap:14px}
+footer{padding:40px 0 20px}.footer-bottom{padding:16px 20px 0;flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+.container{padding:0 16px}.section{padding:52px 0}
+.hero{padding:80px 0 44px}.hero-inner{padding:0 16px}
+h1.hero-title{font-size:clamp(2.8rem,14vw,3.8rem);line-height:.9}.hero-sub{font-size:.88rem}
+.hero-cta-row{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}
+h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padding-left:10px}
+.stats-row{grid-template-columns:1fr 1fr;gap:10px}.stat-box{padding:18px 12px}.stat-val{font-size:1.7rem}.stat-label{font-size:.72rem}
+.motivo-card,.vs-card,.cert-card,.feature-box{padding:20px 18px}
+.obj-q{font-size:.82rem;padding:12px 14px}.obj-a{padding:12px 14px}.obj-a p{font-size:.82rem}
+.table-scroll{margin:0 -16px;border-radius:0}
+.rank-item{padding:12px 14px;gap:10px}.rank-name{font-size:.9rem}.rank-desc{font-size:.76rem}
+.gold-rule{padding:18px 16px}.gold-rule p{font-size:.85rem}
+.script-box{padding:18px 20px}.script-box p{font-size:.85rem}
+.rec-box{padding:18px 20px}
+.step-script{font-size:.82rem;padding:12px 14px}
+.check-col-title{font-size:.68rem}.check-text{font-size:.85rem}
+.define-row{padding:10px 12px;gap:10px}.define-arrow{min-width:60px;font-size:.65rem;padding:3px 6px}.define-val{font-size:.82rem}
+.port-box{padding:18px 16px}.port-box p{font-size:.85rem}
+.footer-top{padding:0 16px;gap:28px}.footer-bottom{padding:16px 16px 0}.footer-bottom p{font-size:.7rem}
+.sec-label{font-size:.66rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-hex"></div>
+    <div class="nav-wordmark">REVIER <span>BROKERS</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html" class="nav-back">← Portal</a></li>
+    <li><a href="#odonto-intro">O que é</a></li>
+    <li><a href="#tipos">Planos</a></li>
+    <li><a href="#contratacao">PF × PME</a></li>
+    <li><a href="#preco">Preço</a></li>
+    <li><a href="#venda">Venda</a></li>
+    <li><a href="#objecoes">Objeções</a></li>
+    <li><a href="#operadoras">Operadoras</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+  </ul>
+  <div class="nav-badge">Guia Interno</div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html" class="mobile-link">← Voltar ao Portal</a>
+  <a href="#odonto-intro" class="mobile-link">01 · O que é</a>
+  <a href="#tipos" class="mobile-link">02 · Tipos de Plano</a>
+  <a href="#contratacao" class="mobile-link">03 · PF × PME</a>
+  <a href="#preco" class="mobile-link">04 · Preço e Comissão</a>
+  <a href="#venda" class="mobile-link">05 · Como Vender</a>
+  <a href="#objecoes" class="mobile-link">06 · Objeções</a>
+  <a href="#operadoras" class="mobile-link">07 · Operadoras</a>
+  <a href="#checklist" class="mobile-link">08 · Checklist</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-blocks"><div></div><div></div><div></div></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Material Exclusivo · Equipe Revier</div>
+      <h1 class="hero-title">Guia de<br><em>Odontologia</em></h1>
+      <p class="hero-sub">PF e PME — tudo que você precisa para vender planos odontológicos com confiança. Foco em Amil Dental, a operadora que mais vende.</p>
+      <div class="hero-cta-row">
+        <a href="#odonto-intro" class="btn-primary">Começar a estudar →</a>
+        <a href="#checklist" class="btn-ghost">Ver checklist</a>
+      </div>
+    </div>
+    <div class="hero-toc">
+      <div class="hero-toc-title">Índice</div>
+      <a class="toc-item" href="#odonto-intro"><div class="toc-num">01</div><div class="toc-label">O que é plano odontológico?</div></a>
+      <a class="toc-item" href="#tipos"><div class="toc-num">02</div><div class="toc-label">Tipos de plano + Linha Amil</div></a>
+      <a class="toc-item" href="#contratacao"><div class="toc-num">03</div><div class="toc-label">PF × PME — como contratar</div></a>
+      <a class="toc-item" href="#preco"><div class="toc-num">04</div><div class="toc-label">Precificação e comissão</div></a>
+      <a class="toc-item" href="#venda"><div class="toc-num">05</div><div class="toc-label">Como vender — Método Revier</div></a>
+      <a class="toc-item" href="#objecoes"><div class="toc-num">06</div><div class="toc-label">Objeções e respostas</div></a>
+      <a class="toc-item" href="#operadoras"><div class="toc-num">07</div><div class="toc-label">Operadoras parceiras</div></a>
+      <a class="toc-item" href="#checklist"><div class="toc-num">08</div><div class="toc-label">Checklist de reunião</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 O QUE É -->
+<section class="section" id="odonto-intro">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">01</div> Fundamentos</div>
+    <h2 class="sec-title">O que é plano<br>odontológico?</h2>
+    <p class="sec-lead">"Quem cuida do sorriso cuida do patrimônio. Na empresa, retém talento. Na pessoa física, evita gastar R$ 3.000 num canal de emergência."</p>
+    <div class="fund-grid">
+      <div class="fund-text reveal">
+        <p>Plano odontológico é um produto regulado pela <strong>ANS</strong> que cobre consultas, procedimentos preventivos, restaurações e, dependendo do plano, ortodontia, próteses e implantes. Existem duas modalidades de contratação:</p>
+        <p><strong>Pessoa Física (PF):</strong> Plano individual ou familiar contratado diretamente pela pessoa. Preços a partir de R$ 29,90/mês. Ideal para quem não tem CNPJ ou quer um plano só para si e dependentes.</p>
+        <p><strong>Pessoa Jurídica (PME):</strong> Plano empresarial contratado pelo CNPJ — a partir de 2 vidas. Preços menores por vida (a partir de R$ 19,70/mês na Amil), carências reduzidas e condições especiais. <strong>É aqui que está a maior comissão recorrente.</strong></p>
+      </div>
+      <div class="inss-callout reveal reveal-delay-1">
+        <div class="inss-callout-label">💡 Contexto que vende</div>
+        <p>Problemas dentários são a <strong>3ª causa de falta no trabalho</strong> no Brasil. Uma empresa com 50 funcionários perde em média <strong>R$ 15.000/ano</strong> com absenteísmo relacionado a dor de dente. O plano odonto custa menos que R$ 2/dia por funcionário — o ROI se paga no primeiro mês.</p>
+      </div>
+    </div>
+    <div class="motivos-grid">
+      <div class="motivo-card mc-teal reveal">
+        <span class="motivo-icon">🦷</span>
+        <div class="motivo-tag mt-teal">Benefício Principal</div>
+        <h3>Retenção de Talentos</h3>
+        <p>Odonto é o 2º benefício mais valorizado pelos funcionários, atrás apenas do plano de saúde. Oferecer odonto aumenta a satisfação e reduz turnover.</p>
+      </div>
+      <div class="motivo-card mc-blue reveal reveal-delay-1">
+        <span class="motivo-icon">📉</span>
+        <div class="motivo-tag mt-blue">Produtividade</div>
+        <h3>Menos Faltas</h3>
+        <p>Funcionário com dor de dente falta, produz menos e contamina o clima da equipe. Prevenção odontológica reduz absenteísmo em até 30%.</p>
+      </div>
+      <div class="motivo-card mc-orange reveal reveal-delay-2">
+        <span class="motivo-icon">💰</span>
+        <div class="motivo-tag mt-orange">Custo-Benefício</div>
+        <h3>Barato e Eficaz</h3>
+        <p>Planos odonto custam a partir de <strong>R$ 19,70/vida/mês</strong> no PME (Amil 205 Combo). Mesmo no PF, a partir de R$ 29,90 (Amil Kids). É o produto com melhor relação custo-impacto do mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 TIPOS DE PLANO -->
+<section class="section section-light" id="tipos">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">02</div> Tipos de Plano</div>
+    <h2 class="sec-title">Tipos de plano<br>+ Linha Amil Dental</h2>
+    <p class="sec-lead">"Não existe plano ruim — existe plano errado pro perfil do cliente. Amil é a porta de entrada mais fácil — domine a grade e venda mais."</p>
+    <div class="vs-layout reveal">
+      <div class="vs-card">
+        <div class="vs-card-bar vs-card-bar-teal"></div>
+        <div class="vs-card-sub">Entrada — menor custo</div>
+        <h3 class="vc-teal">Básico</h3>
+        <p class="vs-desc">Cobertura essencial — ROL ANS mínimo</p>
+        <ul class="vs-bullets vb-teal">
+          <li>Consultas e urgências</li>
+          <li>Restaurações e extrações simples</li>
+          <li>Radiografias e profilaxia</li>
+          <li>Sem carência para procedimentos básicos</li>
+        </ul>
+      </div>
+      <div class="vs-middle"><div class="vs-badge">VS</div></div>
+      <div class="vs-card">
+        <div class="vs-card-bar vs-card-bar-orange"></div>
+        <div class="vs-card-sub">Mais procurado</div>
+        <h3 class="vc-orange">Intermediário</h3>
+        <p class="vs-desc">Básico + endodontia + periodontia</p>
+        <ul class="vs-bullets vb-orange">
+          <li>Tudo do básico +</li>
+          <li><strong>Tratamento de canal</strong> (endodontia)</li>
+          <li><strong>Tratamento de gengiva</strong> (periodontia)</li>
+          <li>Carência de 6 meses para endo/perio</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gold-rule reveal">
+      <div class="gold-rule-icon">👑</div>
+      <div>
+        <div class="gold-rule-label">Plano Completo — o top de linha</div>
+        <p>Inclui tudo do intermediário + <strong>ortodontia</strong> (aparelho), <strong>próteses</strong> e <strong>implantes</strong>. Carência de 12 meses para orto. É o plano de maior ticket — e maior comissão. Ideal para empresas que querem oferecer o melhor benefício.</p>
+      </div>
+    </div>
+    <div class="reveal table-scroll">
+      <table class="data-table">
+        <thead><tr><th>Cobertura</th><th>Básico</th><th>Intermediário</th><th>Completo</th></tr></thead>
+        <tbody>
+          <tr><td>Consultas e urgências</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>Restaurações e extrações</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>Radiografias e profilaxia</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>Endodontia (canal)</td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>Periodontia (gengiva)</td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>Ortodontia (aparelho)</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td></tr>
+          <tr><td>Próteses</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td></tr>
+          <tr><td>Implantes</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td></tr>
+          <tr><td><strong>Ticket médio</strong></td><td><strong>R$ 25–35/vida</strong></td><td><strong>R$ 40–55/vida</strong></td><td><strong>R$ 70–120/vida</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="sec-title" style="margin-top:64px;">Linha Amil Dental<br>— Tabela Completa</h2>
+    <p class="sec-lead">"Amil é a operadora que mais vende e mais fácil de cotar. Decore essa tabela."</p>
+    <div class="reveal table-scroll">
+      <table class="data-table">
+        <thead><tr><th>Plano Amil</th><th>Cobertura</th><th>PF (mensal)</th><th>PME 2-5 vidas</th><th>PME 6-29 vidas</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Dental 205</strong></td><td>Básico — 230+ procedimentos, consultas, restaurações, canal, gengiva, extração de siso</td><td>R$ 42,50</td><td>R$ 28,90</td><td class="td-green">R$ 24,90</td></tr>
+          <tr><td><strong>Dental 205 Combo</strong></td><td>Mesmo Dental 205 com desconto combo</td><td>—</td><td>—</td><td class="td-green">R$ 19,70</td></tr>
+          <tr><td><strong>Dental Kids (K25)</strong></td><td>Crianças 0-14 anos — cobertura pediátrica</td><td>R$ 29,90</td><td>—</td><td>—</td></tr>
+          <tr><td><strong>Dental E50</strong></td><td>Básico + <strong>clareamento</strong> (gel + moldeira)</td><td>R$ 75,94</td><td>R$ 47,26</td><td>—</td></tr>
+          <tr><td><strong>Dental E60</strong></td><td>Básico + <strong>prótese clínica</strong></td><td>R$ 135,50</td><td>R$ 70,55</td><td>—</td></tr>
+          <tr><td><strong>Dental E80</strong></td><td>Básico + <strong>ortodontia completa</strong> (aparelho)</td><td class="td-orange">R$ 110,90</td><td class="td-orange">—</td><td>—</td></tr>
+          <tr><td><strong>Dental E90</strong></td><td>Básico + próteses + facetas + clareamento</td><td>R$ 166,87</td><td>R$ 83,50</td><td>—</td></tr>
+          <tr><td><strong>Dental E170</strong></td><td>Tudo: prótese estética + ortodontia</td><td class="td-teal">R$ 187,77</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rec-box reveal" style="margin-top:24px;">
+      <div class="rec-box-label">🎯 Recomendação Revier — qual indicar?</div>
+      <p><strong>PF que quer só o essencial:</strong> Dental 205 (R$ 42,50) — cobre 230+ procedimentos incluindo canal e siso.<br><strong>PF que quer aparelho:</strong> Dental E80 (R$ 110,90) — ortodontia completa.<br><strong>PME até 5 vidas:</strong> Dental 205 PME (R$ 28,90/vida) — melhor custo-benefício.<br><strong>PME 6+ vidas:</strong> Dental 205 Combo (R$ 19,70/vida) — menor preço do mercado.<br><strong>Sem reajuste por idade:</strong> Amil Dental não tem reajuste por faixa etária em nenhum plano.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PF × PME -->
+<section class="section" id="contratacao">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">03</div> Contratação</div>
+    <h2 class="sec-title">PF × PME —<br>Como Contratar</h2>
+    <p class="sec-lead">"PME é filé mignon. PF é entrada rápida. Saiba vender os dois e nunca perca um lead."</p>
+    <div class="vs-layout reveal">
+      <div class="vs-card">
+        <div class="vs-card-bar vs-card-bar-teal"></div>
+        <div class="vs-card-sub">Individual / Familiar</div>
+        <h3 class="vc-teal">PF</h3>
+        <p class="vs-desc">Pessoa Física — contratação direta</p>
+        <ul class="vs-bullets vb-teal">
+          <li>Contratação <strong>online em 5 minutos</strong> — só CPF</li>
+          <li>Pagamento anual no cartão = <strong>carência zero</strong></li>
+          <li>Pode incluir dependentes (cônjuge + filhos)</li>
+          <li>Preço fixo — <strong>sem reajuste por idade</strong> na Amil</li>
+          <li>Comissão: 15-20% sobre a mensalidade</li>
+        </ul>
+      </div>
+      <div class="vs-middle"><div class="vs-badge">VS</div></div>
+      <div class="vs-card">
+        <div class="vs-card-bar vs-card-bar-orange"></div>
+        <div class="vs-card-sub">Empresarial — 2 a 29 vidas</div>
+        <h3 class="vc-orange">PME</h3>
+        <p class="vs-desc">Pessoa Jurídica — CNPJ ou MEI</p>
+        <ul class="vs-bullets vb-orange">
+          <li>A partir de <strong>2 vidas</strong> (dono + 1 funcionário)</li>
+          <li>Preço por vida <strong>até 50% menor</strong> que PF</li>
+          <li>Carência reduzida ou zero (30+ vidas)</li>
+          <li>Documentação: CNPJ + relação de beneficiários</li>
+          <li>Comissão: 10-15% recorrente mensal</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gold-rule reveal">
+      <div class="gold-rule-icon">💡</div>
+      <div>
+        <div class="gold-rule-label">Dica de ouro — MEI também é PME</div>
+        <p>MEI com CNPJ ativo pode contratar plano PME a partir de <strong>2 vidas</strong> (titular + 1 dependente). Muitos clientes PF não sabem que podem abrir MEI e pagar <strong>até metade do preço</strong>. Use esse argumento para converter PF em PME.</p>
+      </div>
+    </div>
+    <div class="fund-grid">
+      <div class="reveal">
+        <div class="inss-callout" style="margin-bottom:20px;">
+          <div class="inss-callout-label">⏳ Carências por procedimento</div>
+          <p><strong>Básico (consultas, restaurações):</strong> sem carência<br><strong>Endodontia e periodontia:</strong> 6 meses<br><strong>Ortodontia:</strong> 12 meses<br><strong>Próteses e implantes:</strong> 12 a 24 meses<br><br>💡 <strong>Amil PF com pagamento anual:</strong> carência zero para todos os procedimentos — uso em 24h!</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="rec-box">
+          <div class="rec-box-label">📋 Documentação necessária</div>
+          <p><strong>PF:</strong> CPF, RG, comprovante de endereço. Contratação online em 5 minutos.</p>
+          <p style="margin-top:8px;"><strong>PME:</strong> CNPJ ativo, contrato social ou último faturamento, relação de beneficiários (nome, CPF, data de nascimento). Implantação em 5 a 15 dias úteis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PRECIFICAÇÃO E COMISSÃO -->
+<section class="section section-dark" id="preco">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num" style="background:rgba(232,81,10,.15);color:var(--or);">04</div> <span style="color:rgba(255,255,255,.35);">Precificação</span></div>
+    <h2 class="sec-title sec-title-light">Preço Real<br>e Comissão</h2>
+    <p class="sec-lead sec-lead-light">"Saber o preço de cor — PF e PME — é o que separa o corretor que fecha do que 'vai ver e retorna'."</p>
+    <div class="fund-grid" style="margin-bottom:40px;">
+      <div class="fund-text reveal">
+        <p style="color:rgba(255,255,255,.7);">A <strong style="color:#fff;">Amil Dental</strong> é a operadora com melhor relação preço/cobertura e a mais fácil de vender. Não tem reajuste por faixa etária — o preço é o mesmo para qualquer idade.</p>
+        <p style="color:rgba(255,255,255,.7);">Comissão PF: <strong style="color:var(--gn);">15-20%</strong> sobre a mensalidade. Comissão PME: <strong style="color:var(--gn);">10-15%</strong> recorrente. Algumas operadoras pagam bônus por produção trimestral.</p>
+      </div>
+      <div class="inss-callout reveal reveal-delay-1" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);">
+        <div class="inss-callout-label" style="color:var(--yl);">📊 Comparativo PF × PME — Amil 205</div>
+        <p><strong>PF Individual:</strong> R$ 42,50/mês<br><strong>PME 2-5 vidas:</strong> R$ 28,90/mês (-32%)<br><strong>PME 6-29 vidas:</strong> R$ 24,90/mês (-41%)<br><strong>PME 6+ Combo:</strong> <strong style="color:var(--gn);">R$ 19,70/mês (-54%)</strong><br><br>Mesma cobertura. Mesmo plano. Só muda o CNPJ.</p>
+      </div>
+    </div>
+    <div class="reveal table-scroll">
+      <table class="data-table">
+        <thead><tr><th>Operadora</th><th>Plano</th><th>PF/mês</th><th>PME/mês</th><th>Diferencial</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Amil</strong></td><td>Dental 205</td><td>R$ 42,50</td><td class="td-green">R$ 24,90</td><td>Maior rede, sem reajuste etário</td></tr>
+          <tr><td><strong>Amil</strong></td><td>Dental E80 (orto)</td><td class="td-orange">R$ 110,90</td><td>—</td><td>Ortodontia completa PF</td></tr>
+          <tr><td><strong>OdontoPrev</strong></td><td>Bem-Estar DOC</td><td>R$ 48,90</td><td class="td-green">R$ 27,90</td><td>Líder de mercado, rede ampla</td></tr>
+          <tr><td><strong>SulAmérica</strong></td><td>Mais DOC</td><td>R$ 49,90</td><td class="td-green">R$ 27,90</td><td>Cross-sell com saúde SulAmérica</td></tr>
+          <tr><td><strong>Porto</strong></td><td>Bronze 10</td><td>R$ 23,32</td><td class="td-green">R$ 17,90</td><td>Menor preço básico do mercado</td></tr>
+          <tr><td><strong>Porto</strong></td><td>Ouro 10 (orto+prót)</td><td>R$ 133,48</td><td>R$ 107,88</td><td>Completo com bom custo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="script-box reveal" style="margin-top:32px;">
+      <div class="script-label">💰 Cenários de comissão mensal</div>
+      <p style="font-style:normal;">1 PF Amil E80 (orto) = R$ 110,90 × 15% = <strong>R$ 16,63/mês</strong><br>10 vidas PME Amil 205 = R$ 249 × 12% = <strong>R$ 29,88/mês</strong><br>25 vidas PME Amil 205 Combo = R$ 492,50 × 12% = <strong>R$ 59,10/mês</strong><br>Mix: 5 PFs + 3 PMEs de 10 vidas = <strong>R$ ~180/mês recorrente</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 COMO VENDER -->
+<section class="section section-light" id="venda">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">05</div> Técnica de Venda</div>
+    <h2 class="sec-title">Como Vender —<br>Método Revier</h2>
+    <p class="sec-lead">"Corretor bom não empurra plano. Corretor bom descobre a dor da empresa e apresenta a solução que cabe no bolso."</p>
+    <div class="venda-steps reveal">
+      <div class="venda-step">
+        <div class="venda-step-num">1</div>
+        <div class="venda-step-body">
+          <h4>Descubra o cenário atual</h4>
+          <div class="step-script">"Quantos funcionários a empresa tem hoje? Já oferecem algum benefício odonto ou saúde?"</div>
+        </div>
+      </div>
+      <div class="venda-step">
+        <div class="venda-step-num">2</div>
+        <div class="venda-step-body">
+          <h4>Mapeie a dor</h4>
+          <div class="step-script">"Os funcionários reclamam de algo no plano atual? Tem muita falta por problema de dente? Qual o budget por vida que a empresa consegue investir?"</div>
+        </div>
+      </div>
+      <div class="venda-step">
+        <div class="venda-step-num">3</div>
+        <div class="venda-step-body">
+          <h4>Peça o contrato atual</h4>
+          <div class="step-script">"Se já tem plano com outra operadora, posso fazer uma análise comparativa gratuita. Me manda o contrato e a última fatura que te mostro onde dá pra melhorar."</div>
+        </div>
+      </div>
+      <div class="venda-step">
+        <div class="venda-step-num">4</div>
+        <div class="venda-step-body">
+          <h4>Apresente com números</h4>
+          <div class="step-script">"Olha, pra uma empresa do seu porte, um plano intermediário sai por menos de R$ 2 por dia por funcionário. Isso é metade de um cafezinho — e evita faltas, melhora o clima e retém gente."</div>
+        </div>
+      </div>
+      <div class="venda-step">
+        <div class="venda-step-num">5</div>
+        <div class="venda-step-body">
+          <h4>Feche com urgência</h4>
+          <div class="step-script">"Cuidar do sorriso do seu time custa menos do que você imagina — e faz toda a diferença na retenção. Posso gerar a proposta agora e a implantação sai em 5 dias."</div>
+        </div>
+      </div>
+    </div>
+    <div class="feature-row reveal">
+      <div class="feature-box fb-green">
+        <div class="fb-label">✅ Cross-sell obrigatório</div>
+        <p>Já vendeu odonto? Oferece saúde. Já vendeu saúde? Oferece odonto. <strong>Cross-sell é a maior oportunidade da Revier.</strong> Cliente com 2 produtos cancela 70% menos.</p>
+      </div>
+      <div class="feature-box fb-blue">
+        <div class="fb-label">📋 Dica de Ouro: Atenção ao Saúde</div>
+        <p>Ao fazer upsell para clientes da Revier que já têm plano de saúde, sempre <strong>verifique o contrato de saúde primeiro</strong>. Algumas operadoras dão o plano odonto de graça como benefício atrelado. Avisar o cliente que ele já tem esse direito sem custo gera enorme confiança e valor consultivo!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 OBJEÇÕES -->
+<section class="section" id="objecoes">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">06</div> Objeções</div>
+    <h2 class="sec-title">Objeções e<br>Respostas Prontas</h2>
+    <p class="sec-lead">"Toda objeção é uma pergunta disfarçada. Responda com dados, não com opinião."</p>
+    <div class="obj-grid">
+      <div class="obj-item reveal">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Plano odonto é supérfluo"</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Problemas dentários são a <strong>3ª causa de falta no trabalho</strong>. Funcionário com dor de dente produz menos, falta mais e pode até processar a empresa por negligência. Odonto reduz absenteísmo em até 30% e melhora a <strong>retenção de talentos</strong>.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal reveal-delay-1">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Já tenho plano com outra operadora"</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Ótimo! Me manda o contrato atual e a última fatura. Eu faço uma <strong>análise comparativa gratuita</strong> de cobertura, carência e preço. Se o seu plano for melhor, eu mesmo digo. Se não for, você economiza sem perder nada.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"É muito caro"</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Vamos fazer a conta: um plano básico sai por <strong>menos de R$ 2 por dia por funcionário</strong>. É menos que um café. Agora compara com o custo de uma falta por dor de dente, uma urgência sem cobertura, ou perder um bom funcionário pra uma empresa que oferece o benefício.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal reveal-delay-1">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Os funcionários não usam"</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Quando o plano é <strong>sem coparticipação</strong>, a utilização média sobe de 40% para 75%. Além disso, posso te mandar os <strong>dados de utilização mensal</strong> — você acompanha se o investimento está valendo. Plano sem uso pode ser ajustado ou trocado sem multa.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Vou pensar"</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Claro! Só pra eu te ajudar melhor: <strong>o que ainda falta pra você decidir?</strong> É preço, cobertura ou timing? Posso te mandar um comparativo por e-mail com 3 opções de operadora — assim você pensa com dados na mão.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal reveal-delay-1">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Minha empresa é pequena" (Objeção PME)</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>PME começa com <strong>apenas 2 vidas</strong>. É literalmente o dono e mais um funcionário, ou o MEI e a esposa. As melhores condições do mercado foram feitas justamente para empresas pequenas.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Não preciso, escovo bem os dentes" (Objeção PF)</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Higiene ajuda, mas não evita siso inflamado, queda, retração gengival ou necessidade de canal. Uma única urgência pra tratar canal no particular custa <strong>entre R$ 800 e R$ 1.500</strong>. Com o plano de R$ 42/mês, você faz tudo sem pagar nada a mais.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"O plano não cobre o que preciso"</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>A ANS define uma <strong>cobertura mínima obrigatória</strong> — o ROL. Qualquer plano regulado cobre pelo menos isso. Se a necessidade é ortodontia ou implante, existe o plano completo. Me diz exatamente o que precisa e eu monto a proposta sob medida.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 OPERADORAS -->
+<section class="section section-light" id="operadoras">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">07</div> Operadoras</div>
+    <h2 class="sec-title">Operadoras<br>Parceiras</h2>
+    <p class="sec-lead">"Conheça cada operadora como se fosse seu produto. O corretor que domina a grade vende mais."</p>
+    <div class="ops-layout">
+      <div class="rank-list">
+        <div class="rank-item reveal" style="border:1px solid rgba(232,81,10,.3);background:rgba(232,81,10,.03);">
+          <div class="rank-medal rm-gold" style="font-size:2.2rem;">1</div>
+          <div>
+            <div class="rank-name" style="font-size:1.2rem;color:var(--or);">Amil Dental — O Carro Chefe</div>
+            <div class="rank-desc" style="color:var(--ink);font-weight:500;">A operadora que <strong>vende mais fácil</strong> e dá menos dor de cabeça.</div>
+            <ul style="margin-top:8px;padding-left:18px;font-size:.85rem;color:#374151;line-height:1.5;">
+              <li><strong>Preço:</strong> Muito agressivo no PME (R$ 19,70) e ótimo no PF.</li>
+              <li><strong>Sem reajuste etário:</strong> Preço fixo pra qualquer idade.</li>
+              <li><strong>Rede Credenciada:</strong> Mais de 14 mil Dentistas no Brasil inteiro.</li>
+              <li><strong>Carência ZERO:</strong> No PF pagamento anual cartão ou PJ 30+ vidas.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rank-item reveal reveal-delay-1">
+          <div class="rank-medal rm-silver">2</div>
+          <div>
+            <div class="rank-name">OdontoPrev</div>
+            <div class="rank-desc">Líder histórica de mercado. Excelente para PME com muitas vidas e grandes corporações — desconto agressivo por volume.</div>
+          </div>
+        </div>
+        <div class="rank-item reveal reveal-delay-2">
+          <div class="rank-medal rm-bronze">3</div>
+          <div>
+            <div class="rank-name">SulAmérica Odonto</div>
+            <div class="rank-desc">Foco no cross-sell com saúde SulAmérica. Boa cobertura e rede premium.</div>
+          </div>
+        </div>
+        <div class="rank-item reveal reveal-delay-3">
+          <div class="rank-medal rm-gray">4</div>
+          <div>
+            <div class="rank-name">Porto Odonto</div>
+            <div class="rank-desc">Planos "Bronze, Prata e Ouro". Preço base agressivo no PME (R$ 17,90) mas cobertura mais enxuta no plano de entrada.</div>
+          </div>
+        </div>
+      </div>
+      <div class="ops-sidebar">
+        <div class="cert-card cc-teal">
+          <div class="cert-tag">Dica de ouro</div>
+          <h3>Cross-sell de operadora</h3>
+          <p>Se o cliente já tem <strong>saúde com uma operadora</strong>, ofereça o odonto da mesma marca. Facilita a administração, reduz burocracia e muitas vezes dá <strong>desconto por combo</strong>.</p>
+          <p>Ex: saúde SulAmérica + odonto SulAmérica = até <strong>10% de desconto</strong> na mensalidade combinada.</p>
+        </div>
+        <div class="cert-card cc-green">
+          <div class="cert-tag">Regulação</div>
+          <h3>ANS — Regulador</h3>
+          <p>Todos os planos odontológicos são regulados pela <strong>ANS</strong>. A cobertura mínima obrigatória (ROL) garante que nenhum beneficiário fique sem atendimento básico.</p>
+          <p>Planos que não respeitam o ROL podem ser <strong>denunciados e suspensos</strong>. Use isso como argumento de segurança.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 CHECKLIST -->
+<section class="section section-dark" id="checklist">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num" style="background:rgba(232,81,10,.15);color:var(--or);">08</div> <span style="color:rgba(255,255,255,.35);">Checklist</span></div>
+    <h2 class="sec-title sec-title-light">Checklist de<br>Reunião</h2>
+    <p class="sec-lead sec-lead-light">"Nunca entre numa reunião sem saber exatamente o que perguntar. Essa lista é sua cola de R$ 1 milhão."</p>
+    <div class="stats-row reveal">
+      <div class="stat-box"><div class="stat-val">10–15%</div><div class="stat-label">Comissão sobre a mensalidade</div></div>
+      <div class="stat-box"><div class="stat-val">2</div><div class="stat-label">Vidas mínimas para PME</div></div>
+      <div class="stat-box"><div class="stat-val">0</div><div class="stat-label">Carência no básico</div></div>
+      <div class="stat-box"><div class="stat-val">ANS</div><div class="stat-label">Órgão regulador</div></div>
+    </div>
+    <div class="check-layout reveal">
+      <div>
+        <div class="check-col-title">Perguntas que você precisa responder</div>
+        <div class="check-list">
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">É PF individual ou familiar (MEI)?</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Quantos funcionários a empresa tem? (PME)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Já tem plano? Mande o contrato e fatura.</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Precisa de ortodontia (Amil E80)?</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Gera boleto anual ou prefere mensal (PF)?</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Tem plano de saúde? Qual? (cross-sell)</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="check-col-title" style="color:rgba(255,255,255,.35);">Com as respostas, você define</div>
+        <div class="define-list">
+          <div class="define-row"><div class="define-arrow da-teal">OPERADORA</div><div class="define-val">Amil, OdontoPrev, SulAmérica, Porto ou Bradesco</div></div>
+          <div class="define-row"><div class="define-arrow da-orange">PLANO</div><div class="define-val">Básico, Intermediário ou Completo</div></div>
+          <div class="define-row"><div class="define-arrow da-blue">COPART.</div><div class="define-val">Com ou sem coparticipação</div></div>
+          <div class="define-row"><div class="define-arrow da-green">UPSELL</div><div class="define-val">Saúde, vida ou previdência — sempre ofereça</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="port-box reveal">
+      <div class="port-icon">🚀</div>
+      <div>
+        <div class="port-label">Cross-sell e Upsell — sua maior oportunidade</div>
+        <p>Já vendeu odonto? <strong>Oferece saúde.</strong> Já vendeu saúde? <strong>Oferece odonto.</strong> Cliente com dois produtos na mesma corretora cancela 70% menos.</p>
+        <p style="margin-top:8px;">🚨 <strong>Cuidado:</strong> Sempre verifique se a operadora do plano de saúde atual do cliente já oferece o odonto de forma conjunta/gratuita, para evitar vender separadamente algo que pode vir como benefício do saúde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo" style="text-decoration:none;margin-bottom:8px;">
+        <div class="nav-hex"></div>
+        <div class="nav-wordmark" style="font-size:1.4rem;">REVIER <span>BROKERS</span></div>
+      </div>
+      <p>Corretora especializada em planos de saúde, odonto, vida e seguros. Material de uso interno exclusivo para a equipe comercial.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Seções do Guia</div>
+      <ul class="footer-links">
+        <li><a href="#odonto-intro">O que é odonto</a></li>
+        <li><a href="#tipos">Tipos de plano</a></li>
+        <li><a href="#contratacao">Contratação PME</a></li>
+        <li><a href="#preco">Preço e comissão</a></li>
+        <li><a href="#venda">Como vender</a></li>
+        <li><a href="#objecoes">Objeções</a></li>
+        <li><a href="#operadoras">Operadoras</a></li>
+        <li><a href="#checklist">Checklist</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <div class="footer-col-title">Contato</div>
+      <p><strong>Email:</strong> contato@reviercorretora.com.br</p>
+      <p><strong>Telefone:</strong> (11) 5555-9350</p>
+      <p><strong>CNPJ:</strong> 42.621.875/0001-50</p>
+      <p><strong>Endereço:</strong> Av. Queiros Filho, 553<br>Sala 12 — Santo André/SP</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Material de uso interno · Não distribuir externamente · Revier Brokers © 2026</p>
+    <div class="footer-stripes">
+      <span style="background:var(--or);"></span>
+      <span style="background:var(--bl);"></span>
+      <span style="background:var(--yl);"></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const revealEls=document.querySelectorAll('.reveal');
+const revealObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+revealEls.forEach(el=>revealObs.observe(el));
+
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a[href^="#"]');
+window.addEventListener('scroll',()=>{let current='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)current=s.id;});navLinks.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+current?'var(--or)':'';});},{passive:true});
+
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{const isOpen=mobileMenu.classList.toggle('open');hamburger.classList.toggle('open',isOpen);document.body.style.overflow=isOpen?'hidden':'';});
+document.querySelectorAll('.mobile-link').forEach(link=>{link.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');document.body.style.overflow='';});});
+document.addEventListener('click',(e)=>{if(mobileMenu.classList.contains('open')&&!mobileMenu.contains(e.target)&&!hamburger.contains(e.target)){mobileMenu.classList.remove('open');hamburger.classList.remove('open');document.body.style.overflow='';}});
+</script>
+</body>
+</html>
