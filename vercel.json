@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/previdencia",
+      "destination": "/revier-previdencia",
+      "permanent": true
+    }
+  ]
+}
