@@ -1818,6 +1818,38 @@ footer {
   /* aliq rows */
   .aliq-row { font-size: .82rem; }
   .aliq-badge { font-size: .82rem; padding: 2px 8px; }
+
+  /* Prioridade box */
+  .prioridade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+  .prio-card { border-radius: 8px; padding: 28px 24px; position: relative; overflow: hidden; transition: transform .2s, box-shadow .2s; }
+  .prio-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
+  .prio-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .prio-card.prio-pme::before { background: var(--gn); }
+  .prio-card.prio-pf::before { background: var(--bl); }
+  .prio-card.prio-adesao::before { background: var(--yl); }
+  .prio-card.prio-adesao { background: #fefce8; }
+  .prio-top { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .prio-badge { font-size: .65rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+  .prio-pme .prio-badge { background: rgba(22,163,74,.12); color: var(--gn); }
+  .prio-pf .prio-badge { background: rgba(26,62,200,.12); color: var(--bl); }
+  .prio-adesao .prio-badge { background: rgba(245,200,0,.25); color: #a16207; }
+  .prio-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; line-height: 1; }
+  .prio-pme .prio-num { color: var(--gn); }
+  .prio-pf .prio-num { color: var(--bl); }
+  .prio-adesao .prio-num { color: #a16207; }
+  .prio-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; color: var(--ink); }
+  .prio-card p { font-size: .87rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+  .prio-ul { list-style: none; }
+  .prio-ul li { font-size: .83rem; color: #374151; padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 8px; }
+  .prio-ul li:last-child { border-bottom: none; }
+  .prio-ul li::before { content: '→'; color: var(--or); font-weight: 700; flex-shrink: 0; }
+  .prio-destaque { background: rgba(232,81,10,.06); border: 1px solid rgba(232,81,10,.2); border-radius: 6px; padding: 16px 20px; margin-top: 16px; }
+  .prio-destaque p { font-size: .85rem; color: var(--ink); font-weight: 500; margin: 0; }
+  .prio-card.prio-adesao .prio-destaque { background: rgba(245,200,0,.1); border-color: rgba(245,200,0,.3); }
+}
+
+@media (max-width: 768px) {
+  .prioridade-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1832,7 +1864,7 @@ footer {
     </div>
    </a>
    <ul class="nav-links">
-      <li><a href="../index.html" class="nav-back">← Portal</a></li>
+      <li><a href="../../index.html" class="nav-back">← Portal</a></li>
       <li><a href="#fundamentos">Abra a dor</a></li>
      <li><a href="#produtos">Acerta o produto</a></li>
      <li><a href="#tributacao">Escolhe o IR</a></li>
@@ -1840,6 +1872,7 @@ footer {
      <li><a href="#venda">Conduz a venda</a></li>
      <li><a href="#objecoes">Vira a objeção</a></li>
      <li><a href="#operadoras">Puxa a seguradora</a></li>
+     <li><a href="#prioridade">Define o tipo</a></li>
      <li><a href="#checklist">Entra pronto</a></li>
    </ul>
   <div class="nav-badge">Guia Interno</div>
@@ -1850,7 +1883,7 @@ footer {
 
  <!-- Mobile menu -->
  <div class="mobile-menu" id="mobileMenu">
-   <a href="../index.html" class="mobile-link">← Voltar ao Portal</a>
+   <a href="../../index.html" class="mobile-link">← Voltar ao Portal</a>
    <a href="#fundamentos" class="mobile-link">01 · Abra pela dor do INSS</a>
    <a href="#produtos" class="mobile-link">02 · Não troque PGBL por VGBL</a>
    <a href="#tributacao" class="mobile-link">03 · Escolha o IR sem erro</a>
@@ -1858,7 +1891,8 @@ footer {
    <a href="#venda" class="mobile-link">05 · Conduza a conversa</a>
    <a href="#objecoes" class="mobile-link">06 · Vire a objeção</a>
    <a href="#operadoras" class="mobile-link">07 · Puxe a seguradora certa</a>
-   <a href="#checklist" class="mobile-link">08 · Entre pronto</a>
+   <a href="#prioridade" class="mobile-link">08 · PME × PF × Adesão</a>
+   <a href="#checklist" class="mobile-link">09 · Entre pronto</a>
  </div>
 
 <!-- ═══════════════ HERO ═══════════════ -->
@@ -1912,8 +1946,12 @@ footer {
         <div class="toc-num">07</div>
         <div class="toc-label">Puxe a seguradora certa</div>
       </a>
-      <a class="toc-item" href="#checklist">
+      <a class="toc-item" href="#prioridade">
         <div class="toc-num">08</div>
+        <div class="toc-label">PME × PF × Adesão</div>
+      </a>
+      <a class="toc-item" href="#checklist">
+        <div class="toc-num">09</div>
         <div class="toc-label">Entre pronto na reunião</div>
       </a>
     </div>
@@ -2121,7 +2159,7 @@ footer {
 
     <div class="script-box reveal">
       <div class="script-label">💬 Fala simples para usar</div>
-      <p>"É o seguinte: quanto mais tempo o dinheiro fica, menos IR você paga. Passou de 10 anos, cai para 10%. Se resgatar antes, pode. Só paga mais imposto."</p>
+      <p>"É o seguinte: quanto mais tempo o dinheiro fica, menos IR você paga. Passou de 10 anos, cai para o menor valor possível. Se resgatar antes, pode. Só paga mais imposto."</p>
     </div>
   </div>
 </section>
@@ -2396,10 +2434,108 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════ 08 CHECKLIST ═══════════════ -->
+<!-- ═══════════════ 08 PRIORIDADE PME × PF × ADESÃO ═══════════════ -->
+<section class="section" id="prioridade">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">08</div> Tipo de Contratação</div>
+    <h2 class="sec-title">PME é priority —<br>PF é fallback, Adesão é último caso</h2>
+    <p class="sec-lead">"A ordem é clara: PME primeiro, PF se não tiver CNPJ, Adesão só se não houver outra saída. Cada opção tem seu lugar — e o seu trabalho é saber qual ocupa."</p>
+
+    <div class="prioridade-grid">
+      <div class="prio-card prio-pme reveal">
+        <div class="prio-top">
+          <div class="prio-num">01</div>
+          <div class="prio-badge">★ Prioridade Máxima</div>
+        </div>
+        <h3>PME / Empresarial</h3>
+        <p>Quando o cliente tem CNPJ, a contratação por empresa é sempre o melhor caminho — para ele e para você.</p>
+        <ul class="prio-ul">
+          <li>Mesalidade até 40% mais baixa que PF</li>
+          <li>Comissão mais alta</li>
+          <li>Processo de venda mais rápido</li>
+          <li>Menor taxa de cancelamento</li>
+          <li>Cliente filtra sozinho (tem empresa)</li>
+          <li>Dedução fiscal como despesa empresarial</li>
+        </ul>
+        <div class="prio-destaque">
+          <p>Para o corretor: PME é onde você escala commission. Uma empresa de 20 vidas rende mais que 20 PFs isolados.</p>
+        </div>
+      </div>
+
+      <div class="prio-card prio-pf reveal reveal-delay-1">
+        <div class="prio-top">
+          <div class="prio-num">02</div>
+          <div class="prio-badge">Alternativa</div>
+        </div>
+        <h3>PF / Pessoa Física</h3>
+        <p>Sem CNPJ? A opção PF entra — mas saiba que é mais cara para o cliente e menos rentável para você.</p>
+        <ul class="prio-ul">
+          <li>Mesalidade mais alta (até +40%)</li>
+          <li>Comissão menor que PME</li>
+          <li>Sem beneficio fiscal para empresa</li>
+          <li>Processo mais demorado</li>
+          <li>Cliente mais resistente ao preço</li>
+        </ul>
+        <div class="prio-destaque">
+          <p>Mesmo sendo mais caro, PF ainda é <strong>muito melhor que Adesão</strong>. Ofereça PF quando o cliente não tem CNPJ — é menos dor de cabeça no pós-venda.</p>
+        </div>
+      </div>
+
+      <div class="prio-card prio-adesao reveal reveal-delay-2">
+        <div class="prio-top">
+          <div class="prio-num">03</div>
+          <div class="prio-badge">Último Recurso</div>
+        </div>
+        <h3>Adesão / Coletivo</h3>
+        <p>As operadoras aceitam — mas para o corretor é <strong>trabalho dobrado com retorno inferior</strong>.</p>
+        <ul class="prio-ul">
+          <li>Burocracia excessiva na implantação</li>
+          <li>Comissão menor e irregular</li>
+          <li>Vínculo com entidade de classe necessário</li>
+          <li>Reajuste menos previsível</li>
+          <li>Rede credenciada pode ser limitada</li>
+          <li><strong>Muitas dores de cabeça no pós-venda</strong></li>
+        </ul>
+        <div class="prio-destaque">
+          <p>Adesão é para não perder o cliente. É o caminho com mais atrito e menor recompensa — <strong>não compensa o esforço se houver outra opção</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="gold-rule reveal" style="background: var(--nv);">
+      <div class="gold-rule-icon">⚡</div>
+      <div>
+        <div class="gold-rule-label">Regra de Prioridade para a Conversa</div>
+        <p><strong>"Você tem CNPJ?"</strong> → Se sim, vai para PME. <strong>"Então a gente faz pelo CNPJ, sai mais barato e a comissão fica melhor."</strong><br><br>
+        <strong>"Não tem CNPJ?"</strong> → <strong>"Sem problema. A gente faz pelo seu nome, fica um pouco mais caro, mas é mais seguro que Adesão."</strong><br><br>
+        <strong>"Só aceita Adesão?"</strong> → <strong>"Combinado. Mas preciso te avisar: Adesão tem mais burocracia e menos rede. Se no futuro você abrir um CNPJ, a gente migra."</strong></p>
+      </div>
+    </div>
+
+    <div class="feature-row" style="margin-top: 32px;">
+      <div class="feature-box fb-green reveal">
+        <div class="fb-label">Por que Operadoras Preferem PME</div>
+        <p>PME tem <strong>diluição de risco</strong> — quanto mais vidas, menor o impacto de sinistros individuais. O coletivo é mais previsível para a operadora do que PF isolado. Além disso, a <strong>empresa é o tomador</strong>, o que facilita cobrança e renovação.</p>
+      </div>
+      <div class="feature-box fb-blue reveal reveal-delay-1">
+        <div class="fb-label">Por que Corretoras Preferem PME</div>
+        <p><strong>Comissão</strong> maior, <strong>volume</strong> por contrato (20 vidas = 1 venda só), <strong>ticket médio</strong> superior, <strong>renovação mais previsível</strong> e menos dor de cabeça com suporte pós-venda do que PF ou Adesão.</p>
+      </div>
+    </div>
+
+    <div class="rec-box reveal" style="margin-top: 32px;">
+      <div class="rec-box-label">Resumo para Anotar</div>
+      <p><strong>PME = Prioridade máxima.</strong> Quando o cliente tem CNPJ (inclusive MEI com mais de 6 meses), esse é o caminho. Mais barato para ele, mais rentável para você.<br>
+      <strong>PF = Alternativa válida.</strong> Quando não há CNPJ, PF é a opção. Sim, é mais caro — mas é mais simples e menos problemático que Adesão.<br>
+      <strong>Adesão = Último caso.</strong> Use apenas quando PME e PF não são possíveis. Não invista tempo prospectando Adesão — use para reter clientes que não têm outra opção.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 09 CHECKLIST ═══════════════ -->
 <section class="section section-dark" id="checklist">
   <div class="container">
-    <div class="sec-label"><div class="sec-num" style="background:rgba(232,81,10,.15); color:var(--or);">08</div> <span style="color:rgba(255,255,255,.35);">Pré-reunião</span></div>
+    <div class="sec-label"><div class="sec-num" style="background:rgba(232,81,10,.15); color:var(--or);">09</div> <span style="color:rgba(255,255,255,.35);">Pré-reunião</span></div>
     <h2 class="sec-title sec-title-light">Entre pronto<br>na reunião</h2>
     <p class="sec-lead sec-lead-light">"Quem chega sem pergunta vira tirador de dúvida. Quem chega pronto conduz a venda."</p>
 
@@ -2514,6 +2650,7 @@ footer {
         <li><a href="#venda">Como Vender</a></li>
         <li><a href="#objecoes">Objeções</a></li>
         <li><a href="#operadoras">Operadoras</a></li>
+        <li><a href="#prioridade">PME × PF</a></li>
         <li><a href="#checklist">Checklist</a></li>
       </ul>
     </div>
@@ -2536,69 +2673,7 @@ footer {
 </footer>
 
 <script>
-// ── Scroll reveal
-const revealEls = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  });
-}, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
-revealEls.forEach(el => revealObs.observe(el));
-
-// ── Bar fill animation
-const bars = document.querySelectorAll('.bar-fill[data-width]');
-const barObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.width = e.target.dataset.width + '%';
-      barObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-bars.forEach(b => barObs.observe(b));
-
-// ── Nav active on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) current = s.id;
-  });
-  navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--or)' : '';
-  });
-}, { passive: true });
-
-// ── Hamburger menu
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-hamburger.addEventListener('click', () => {
-  const isOpen = mobileMenu.classList.toggle('open');
-  hamburger.classList.toggle('open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-});
-
-// Close mobile menu when a link is clicked
-document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
-
-// Close on outside click
-document.addEventListener('click', (e) => {
-  if (mobileMenu.classList.contains('open') &&
-      !mobileMenu.contains(e.target) &&
-      !hamburger.contains(e.target)) {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-});
 </script>
+<script src="script.js"></script>
 </body>
 </html>

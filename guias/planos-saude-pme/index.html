@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revier · Planos de Saúde PME na Prática</title>
+<meta name="description" content="Guia completo de planos de saúde PME para corretores da Revier Brokers. Amil, Bradesco Saúde, SulAmérica, Unimed, Notre Dame Intermédica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;--light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#1A3EC8;--ac2:#4F6ADB}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Barlow',sans-serif;font-weight:400;color:var(--ink);background:var(--white);overflow-x:hidden;cursor:default}
+::selection{background:var(--ac);color:#fff}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--dk)}
+::-webkit-scrollbar-thumb{background:var(--ac);border-radius:2px}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(10,12,18,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);transition:all .3s}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-hex{width:28px;height:28px;background:var(--or);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);flex-shrink:0}
+.nav-wordmark{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:.06em;color:#fff}
+.nav-wordmark span{color:var(--or)}
+.nav-links{display:flex;gap:6px;list-style:none}
+.nav-links a{display:block;padding:6px 12px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;border-radius:2px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--or);background:rgba(232,81,10,.08)}
+.nav-back{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:var(--or)}
+.nav-badge{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--ac);color:#fff;padding:5px 12px;border-radius:2px}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;z-index:300}
+.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.7);border-radius:2px;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,12,18,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);z-index:190;padding:16px 0 24px;flex-direction:column}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:12px 24px;font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;border-left:2px solid transparent;transition:all .15s}
+.mobile-menu a:hover{color:var(--or);border-left-color:var(--or);background:rgba(232,81,10,.05)}
+.hero{min-height:100vh;background:var(--dk);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 60px}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(26,62,200,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,62,200,.06) 1px,transparent 1px);background-size:64px 64px}
+.hero-blocks{position:absolute;top:0;right:0;width:380px;height:100vh;display:grid;grid-template-rows:1fr 1fr 1fr;pointer-events:none}
+.hero-blocks>div:nth-child(1){background:var(--bl);opacity:.18}
+.hero-blocks>div:nth-child(2){background:var(--nv);opacity:.14}
+.hero-blocks>div:nth-child(3){background:var(--or);opacity:.10}
+.hero-glow{position:absolute;left:-10%;top:20%;width:70vw;height:70vh;background:radial-gradient(ellipse,rgba(26,62,200,.10) 0%,transparent 65%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ac2);border:1px solid rgba(26,62,200,.3);border-radius:100px;padding:5px 14px;margin-bottom:24px;background:rgba(26,62,200,.06)}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ac2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+h1.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4.5rem,9vw,7.5rem);font-weight:900;line-height:.88;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:24px}
+h1.hero-title em{font-style:normal;color:var(--ac2);display:block}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.5);font-weight:300;line-height:1.7;max-width:520px;margin-bottom:40px}
+.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
+.btn-primary:hover{background:var(--ac2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(26,62,200,.35)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
+.btn-ghost:hover{border-color:var(--ac2);color:var(--ac2)}
+.hero-toc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:28px;backdrop-filter:blur(8px)}
+.hero-toc-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.hero-toc-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
+.toc-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);text-decoration:none;transition:all .15s}
+.toc-item:last-child{border-bottom:none}
+.toc-item:hover .toc-label{color:var(--ac2)}
+.toc-item:hover .toc-num{border-color:var(--ac2);color:var(--ac2)}
+.toc-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;width:28px;height:28px;border:1px solid rgba(255,255,255,.12);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);flex-shrink:0;transition:all .15s}
+.toc-label{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.55);transition:color .15s}
+.section{padding:100px 0;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.section-dark{background:var(--dk);border-bottom-color:rgba(255,255,255,.06)}
+.section-light{background:var(--light)}
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--or);margin-bottom:12px}
+.sec-label-dark{color:rgba(255,255,255,.35)}
+.sec-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;background:var(--or);color:#fff;width:22px;height:22px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;color:var(--ink);margin-bottom:16px}
+h2.sec-title-light{color:#fff}
+.sec-lead{font-size:1rem;color:var(--muted);font-weight:300;font-style:italic;line-height:1.7;max-width:620px;margin-bottom:48px;padding-left:14px;border-left:2px solid var(--ac)}
+.sec-lead-light{color:rgba(255,255,255,.45);border-left-color:rgba(26,62,200,.5)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:64px}
+.fund-text p{font-size:.95rem;line-height:1.75;color:#374151;margin-bottom:16px}
+.fund-text p strong{color:var(--ink);font-weight:700}
+.inss-callout{background:var(--dk);border-radius:8px;padding:28px;position:relative;overflow:hidden}
+.inss-callout::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--bl),var(--ac2))}
+.inss-callout-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:10px}
+.inss-callout p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.65}
+.inss-callout strong{color:#fff}
+.motivos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.motivo-card{background:var(--light);border-radius:6px;padding:28px 24px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.motivo-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.motivo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.mc-blue::before{background:var(--bl)}.mc-orange::before{background:var(--or)}.mc-teal::before{background:var(--tl)}
+.motivo-icon{font-size:2rem;margin-bottom:14px;display:block}
+.motivo-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.mt-blue{color:var(--bl)}.mt-orange{color:var(--or)}.mt-teal{color:var(--tl)}
+.motivo-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;color:var(--ink)}
+.motivo-card p{font-size:.87rem;color:var(--muted);line-height:1.6}
+.data-table{width:100%;border-collapse:collapse;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.data-table thead tr{background:var(--nv)}
+.data-table th{padding:14px 18px;text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.data-table td{padding:13px 18px;font-size:.9rem;color:#374151;border-top:1px solid var(--border);background:#fff}
+.data-table tr:hover td{background:#fafbff}
+.data-table td strong{color:var(--ink);font-weight:700}
+.td-green{color:var(--gn)!important;font-weight:700!important}
+.td-orange{color:var(--or)!important;font-weight:700!important}
+.td-blue{color:var(--bl)!important;font-weight:700!important}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:6px}
+.table-scroll .data-table{min-width:600px}
+.vs-layout{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:stretch;margin-bottom:40px}
+.vs-card{background:#fff;border-radius:8px;padding:32px;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s}
+.vs-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.1)}
+.vs-card-bar{height:4px;margin:-32px -32px 24px;border-radius:8px 8px 0 0}
+.vs-card-bar-blue{background:linear-gradient(90deg,var(--bl),var(--ac2))}
+.vs-card-bar-orange{background:linear-gradient(90deg,var(--or),var(--yl))}
+.vs-card-sub{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.vs-card h3{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:6px}
+.vc-blue{color:var(--bl)}.vc-orange{color:var(--or)}
+.vs-card .vs-desc{font-size:.82rem;color:var(--muted);margin-bottom:20px;font-style:italic}
+.vs-bullets{list-style:none}
+.vs-bullets li{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:#374151;line-height:1.5;margin-bottom:10px}
+.vs-bullets li::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.vb-blue li::before{background:var(--bl)}.vb-orange li::before{background:var(--or)}
+.vs-middle{display:flex;align-items:center;justify-content:center}
+.vs-badge{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:900;color:var(--muted);border:2px solid var(--border);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+.gold-rule{background:var(--bl);border-radius:8px;padding:28px 32px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-bottom:32px}
+.gold-rule-icon{font-size:2.5rem}
+.gold-rule-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:6px}
+.gold-rule p{font-size:.95rem;color:#fff;line-height:1.65}
+.gold-rule strong{font-weight:700}
+.script-box{background:var(--dk);border-radius:6px;padding:24px 28px;position:relative;overflow:hidden;margin-top:24px}
+.script-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gn)}
+.script-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gn);margin-bottom:10px}
+.script-box p{font-size:.92rem;color:rgba(255,255,255,.75);font-style:italic;line-height:1.65}
+.rec-box{background:linear-gradient(135deg,rgba(26,62,200,.08) 0%,rgba(79,106,219,.05) 100%);border:1px solid rgba(26,62,200,.2);border-radius:8px;padding:24px 28px;margin-top:24px}
+.rec-box-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--bl);margin-bottom:8px}
+.rec-box p{font-size:.92rem;color:var(--ink);line-height:1.65}
+.venda-steps{display:flex;flex-direction:column;gap:0;margin-bottom:40px;position:relative}
+.venda-steps::before{content:'';position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:linear-gradient(180deg,var(--bl),rgba(26,62,200,.1))}
+.venda-step{display:flex;gap:20px;padding:0 0 28px;position:relative}
+.venda-step-num{width:40px;height:40px;border-radius:50%;background:var(--bl);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
+.venda-step-body{flex:1;padding-top:6px}
+.venda-step-body h4{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.step-script{background:#fff;border-radius:4px;padding:14px 18px;border-left:3px solid var(--bl);font-size:.88rem;color:#374151;font-style:italic;line-height:1.6;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.feature-box{border-radius:8px;padding:28px}
+.fb-blue{background:#EFF6FF;border:1px solid rgba(26,62,200,.15)}
+.fb-green{background:#F0FDF4;border:1px solid rgba(22,163,74,.2)}
+.fb-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.fb-blue .fb-label{color:var(--bl)}.fb-green .fb-label{color:var(--gn)}
+.feature-box p{font-size:.9rem;color:#374151;line-height:1.65}
+.feature-box strong{color:var(--ink);font-weight:700}
+.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.obj-item{border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s}
+.obj-item:hover{box-shadow:0 6px 24px rgba(0,0,0,.1)}
+.obj-q{background:var(--ink);padding:14px 18px;font-size:.88rem;font-weight:600;color:#fff;display:flex;gap:10px;align-items:flex-start}
+.obj-q-icon{flex-shrink:0;font-size:1rem;margin-top:1px}
+.obj-a{background:var(--light);padding:14px 18px;border-left:3px solid var(--bl)}
+.obj-a-tag{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--bl);margin-bottom:5px}
+.obj-a p{font-size:.85rem;color:#374151;line-height:1.6}
+.obj-a strong{color:var(--ink)}
+.ops-layout{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
+.rank-list{display:flex;flex-direction:column;gap:12px}
+.rank-item{background:#fff;border-radius:6px;padding:18px 20px;display:flex;align-items:center;gap:18px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:all .2s}
+.rank-item:hover{transform:translateX(4px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.rank-medal{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:900;min-width:36px;text-align:center;line-height:1}
+.rm-gold{color:var(--yl);text-shadow:0 0 20px rgba(245,200,0,.4)}.rm-silver{color:#94A3B8}.rm-bronze{color:#CD7F32}.rm-gray{color:var(--border)}
+.rank-name{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.rank-desc{font-size:.82rem;color:var(--muted)}
+.ops-sidebar{display:flex;flex-direction:column;gap:20px}
+.cert-card{background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.cert-card::before{content:'';display:block;height:3px;margin:-24px -24px 18px;border-radius:8px 8px 0 0}
+.cc-blue::before{background:linear-gradient(90deg,var(--bl),var(--ac2))}
+.cc-green::before{background:linear-gradient(90deg,var(--gn),var(--tl))}
+.cert-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.cert-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.cert-card p{font-size:.85rem;color:var(--muted);line-height:1.6}
+.cert-card p+p{margin-top:6px}
+.cert-card strong{color:var(--ink)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
+.stat-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;transition:all .2s}
+.stat-box:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
+.stat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--bl),var(--ac2))}
+.stat-val{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;color:var(--ac2);line-height:1;margin-bottom:8px}
+.stat-label{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4}
+.check-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
+.check-col-title{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.check-col-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
+.check-list{display:flex;flex-direction:column;gap:10px}
+.check-row{display:flex;align-items:flex-start;gap:12px}
+.check-box-el{width:18px;height:18px;border:1.5px solid rgba(26,62,200,.4);border-radius:3px;flex-shrink:0;margin-top:2px;position:relative;transition:all .2s}
+.check-row:hover .check-box-el{border-color:var(--ac);background:rgba(26,62,200,.08)}
+.check-text{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.5}
+footer{background:#060810;padding:60px 0 32px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-top{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.footer-brand .nav-wordmark{font-size:1.6rem;margin-bottom:6px}
+.footer-brand p{font-size:.82rem;color:rgba(255,255,255,.3);line-height:1.65;margin-top:8px}
+.footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:.85rem;color:rgba(255,255,255,.4);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--or)}
+.footer-contact p{font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:6px}
+.footer-contact strong{color:rgba(255,255,255,.7)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 40px 0;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.2);letter-spacing:.06em}
+@media(max-width:900px){
+nav{padding:0 20px}.nav-links{display:none}.nav-badge{display:none}.nav-hamburger{display:flex}
+.container{padding:0 20px}.section{padding:64px 0}
+.hero{padding:88px 0 52px}.hero-inner{grid-template-columns:1fr;gap:0;padding:0 20px}.hero-toc{display:none}.hero-blocks{width:120px;opacity:.5}
+h1.hero-title{font-size:clamp(3.2rem,12vw,5rem)}.hero-sub{font-size:.92rem;margin-bottom:32px}
+.hero-cta-row{gap:10px}.btn-primary,.btn-ghost{padding:12px 20px;font-size:.78rem}
+h2.sec-title{font-size:clamp(2rem,8vw,3rem)}.sec-lead{font-size:.9rem;margin-bottom:32px}
+.fund-grid,.feature-row,.ops-layout,.check-layout,.footer-top{grid-template-columns:1fr}
+.vs-layout{grid-template-columns:1fr}.vs-middle{display:none}
+.motivos-grid,.obj-grid{grid-template-columns:1fr;gap:14px}
+.stats-row{grid-template-columns:1fr 1fr;gap:12px}.stat-val{font-size:1.9rem}
+.gold-rule{grid-template-columns:1fr;gap:12px;padding:22px 20px}
+.hero-blocks{display:none}
+.venda-steps::before{left:16px}.venda-step-num{width:32px;height:32px;font-size:.9rem}.venda-step{gap:14px}
+footer{padding:40px 0 20px}.footer-bottom{padding:16px 20px 0;flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+.container{padding:0 16px}.section{padding:52px 0}
+h1.hero-title{font-size:clamp(2.8rem,14vw,3.8rem)}.hero-sub{font-size:.88rem}
+.hero-cta-row{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}
+h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padding-left:10px}
+.stats-row{grid-template-columns:1fr 1fr;gap:10px}.stat-box{padding:18px 12px}.stat-val{font-size:1.7rem}
+.motivo-card,.vs-card,.cert-card,.feature-box{padding:20px 18px}
+.obj-q{font-size:.82rem;padding:12px 14px}.obj-a{padding:12px 14px}.obj-a p{font-size:.82rem}
+.table-scroll{margin:0 -16px;border-radius:0}
+.rank-item{padding:12px 14px;gap:10px}.rank-name{font-size:.9rem}.rank-desc{font-size:.76rem}
+.gold-rule{padding:18px 16px}.gold-rule p{font-size:.85rem}
+.script-box{padding:18px 20px}.script-box p{font-size:.85rem}
+.step-script{font-size:.82rem;padding:12px 14px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-hex"></div>
+    <div class="nav-wordmark">REVIER <span>BROKERS</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../../index.html" class="nav-back">← Portal</a></li>
+    <li><a href="#fundamentos">Fundamentos</a></li>
+    <li><a href="#tipos">Modalidades</a></li>
+    <li><a href="#contratacao">Contratação</a></li>
+    <li><a href="#preco">Preço</a></li>
+    <li><a href="#venda">Fechamento</a></li>
+    <li><a href="#objecoes">Objeções</a></li>
+    <li><a href="#operadoras">Operadora</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+  </ul>
+  <div class="nav-badge">Guia Interno</div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../../index.html">← Voltar ao Portal</a>
+  <a href="#fundamentos">01 · Por que PME fecha</a>
+  <a href="#tipos">02 · Modalidades e coberturas</a>
+  <a href="#contratacao">03 · Contratação sem erro</a>
+  <a href="#preco">04 · Preço e comissão</a>
+  <a href="#venda">05 · Conduza a venda</a>
+  <a href="#objecoes">06 · Vire a objeção</a>
+  <a href="#operadoras">07 · Puxe a operadora certa</a>
+  <a href="#checklist">08 · Entre pronto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-blocks"><div></div><div></div><div></div></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Material Exclusivo · Equipe Revier</div>
+      <h1 class="hero-title">Guia de<br><em>Saúde PME</em></h1>
+      <p class="hero-sub">PME é onde a comissão escala. Uma empresa com 20 vidas vale mais que dez PFs isolados. Aqui você sai sabendo qualificar, cotar e fechar sem enrolar.</p>
+      <div class="hero-cta-row">
+        <a href="#fundamentos" class="btn-primary">Abrir o guia →</a>
+        <a href="#checklist" class="btn-ghost">Ver checklist</a>
+      </div>
+    </div>
+    <div class="hero-toc">
+      <div class="hero-toc-title">Índice</div>
+      <a class="toc-item" href="#fundamentos"><div class="toc-num">01</div><div class="toc-label">Por que PME fecha mais rápido</div></a>
+      <a class="toc-item" href="#tipos"><div class="toc-num">02</div><div class="toc-label">Modalidades e coberturas-chave</div></a>
+      <a class="toc-item" href="#contratacao"><div class="toc-num">03</div><div class="toc-label">Contratação passo a passo</div></a>
+      <a class="toc-item" href="#preco"><div class="toc-num">04</div><div class="toc-label">Preço e comissão na ponta da língua</div></a>
+      <a class="toc-item" href="#venda"><div class="toc-num">05</div><div class="toc-label">Conduza a venda sem parecer script</div></a>
+      <a class="toc-item" href="#objecoes"><div class="toc-num">06</div><div class="toc-label">Vire a objeção no papo reto</div></a>
+      <a class="toc-item" href="#operadoras"><div class="toc-num">07</div><div class="toc-label">Puxe a operadora certa</div></a>
+      <a class="toc-item" href="#checklist"><div class="toc-num">08</div><div class="toc-label">Checklist de reunião PME</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 FUNDAMENTOS -->
+<section class="section" id="fundamentos">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">01</div> Estratégia</div>
+    <h2 class="sec-title">Por que PME fecha<br>mais rápido que PF</h2>
+    <p class="sec-lead">"Uma empresa com 15 funcionários rende muito mais comissão que dezenas de PFs isolados. Qualifique certo e o ticket vem junto."</p>
+    <div class="fund-grid">
+      <div class="fund-text reveal">
+        <p>Plano de saúde PME é regulado pela <strong>ANS</strong> (Agência Nacional de Saúde Suplementar) e destinado a pessoas jurídicas com <strong>2 a 499 vidas</strong>. Acima disso, vira grande empresa e muda o jogo.</p>
+        <p>O empregador é o <strong>titular do contrato</strong> e decide plano, cobertura e quem inclui. O funcionário é beneficiário. Em muitos contratos, o RH cobre 100% do titular e divide o dependente com o colaborador.</p>
+        <p>A lógica que destravar venda: empresa não compra plano de saúde. <strong>Empresa compra produtividade, retenção e compliance trabalhista</strong>. A CCT (convenção coletiva) da categoria pode até exigir o benefício.</p>
+        <p><strong>MEI e autônomo:</strong> com CNPJ ativo e pelo menos mais 1 vida (sócio ou funcionário CLT), já entra no PME. Isso abre muita porta em clientes PF que têm empresa.</p>
+      </div>
+      <div class="inss-callout reveal reveal-delay-1">
+        <div class="inss-callout-label">📊 Números que pesam na conversa</div>
+        <p><strong>47 milhões</strong> de brasileiros têm plano de saúde privado. Menos de <strong>25%</strong> das micro e pequenas empresas oferecem o benefício — ou seja, o mercado está aberto. A CCT da maioria das categorias em SP já exige plano como benefício mínimo.</p>
+      </div>
+    </div>
+    <div class="motivos-grid">
+      <div class="motivo-card mc-blue reveal">
+        <span class="motivo-icon">🏢</span>
+        <div class="motivo-tag mt-blue">Retenção de equipe</div>
+        <h3>Benefício que segura time</h3>
+        <p>Saúde é o segundo benefício mais valorizado pelos funcionários, atrás só do salário. Empresa que oferece retém mais e paga menos rescisão e reposição.</p>
+      </div>
+      <div class="motivo-card mc-orange reveal reveal-delay-1">
+        <span class="motivo-icon">⚖️</span>
+        <div class="motivo-tag mt-orange">Compliance</div>
+        <h3>CCT exige em muitas categorias</h3>
+        <p>Comércio, construção civil, metalúrgicos e serviços em SP têm convenção que obriga plano de saúde. Empresa sem o benefício pode levar multa em fiscalização.</p>
+      </div>
+      <div class="motivo-card mc-teal reveal reveal-delay-2">
+        <span class="motivo-icon">💰</span>
+        <div class="motivo-tag mt-teal">Dedução no IR</div>
+        <h3>Abate no imposto da empresa</h3>
+        <p>Empresas no Lucro Real podem deduzir o custo do plano de saúde do IRPJ e CSLL. Isso reduz o custo real do benefício em até 34% para algumas empresas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 MODALIDADES -->
+<section class="section section-light" id="tipos">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">02</div> Grade</div>
+    <h2 class="sec-title">Modalidades e coberturas<br>que destravam a venda</h2>
+    <p class="sec-lead">"Quem sabe a diferença entre coparticipação e sem coparticipação não fica sem resposta na reunião de RH."</p>
+    <div class="vs-layout reveal">
+      <div class="vs-card">
+        <div class="vs-card-bar vs-card-bar-blue"></div>
+        <div class="vs-card-sub">Mais previsível para a empresa</div>
+        <h3 class="vc-blue">Sem Copart.</h3>
+        <p class="vs-desc">Mensalidade fixa, sem surpresa na nota</p>
+        <ul class="vs-bullets vb-blue">
+          <li>Empresa sabe exatamente o que vai pagar</li>
+          <li>Funcionário usa sem medo de custo adicional</li>
+          <li>Mensalidade mais alta, mas custo total previsível</li>
+          <li>Melhor para empresa que quer benefício completo</li>
+          <li>Mais fácil de vender para RH que já tem budget</li>
+        </ul>
+      </div>
+      <div class="vs-middle"><div class="vs-badge">VS</div></div>
+      <div class="vs-card">
+        <div class="vs-card-bar vs-card-bar-orange"></div>
+        <div class="vs-card-sub">Menor mensalidade</div>
+        <h3 class="vc-orange">Com Copart.</h3>
+        <p class="vs-desc">Funcionário paga parte ao usar</p>
+        <ul class="vs-bullets vb-orange">
+          <li>Mensalidade 15–30% mais barata para a empresa</li>
+          <li>Coparticipação: R$ 15–50 por consulta ou 30% do procedimento</li>
+          <li>Reduz uso desnecessário do plano</li>
+          <li>Pode gerar reclamação se o funcionário não foi avisado</li>
+          <li>Indicado para empresa que quer custo baixo e aceita explicar ao time</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gold-rule reveal">
+      <div class="gold-rule-icon">🗺️</div>
+      <div>
+        <div class="gold-rule-label">Abrangência da rede — pergunta que define o plano</div>
+        <p><strong>Regional:</strong> cobre só o estado ou região — mais barato, rede menor. <strong>Nacional:</strong> cobre todo o Brasil — indicado para empresa com funcionários em várias cidades ou que viajam. <strong>Diferença de preço:</strong> nacional custa em média 20-35% a mais que regional.</p>
+      </div>
+    </div>
+    <div class="reveal table-scroll">
+      <table class="data-table">
+        <thead><tr><th>Cobertura ANS Obrigatória</th><th>Ambulatorial</th><th>Hospitalar s/ Obstetrícia</th><th>Hospitalar c/ Obstetrícia</th><th>Referência</th></tr></thead>
+        <tbody>
+          <tr><td>Consultas médicas</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>Exames básicos</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>Internação + cirurgia</td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>UTI</td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>Parto</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
+          <tr><td>Psicologia / Psiquiatria</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td></tr>
+          <tr><td>Home care</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td></tr>
+          <tr><td><strong>Mensalidade média / vida (SP)</strong></td><td><strong>R$ 180–280</strong></td><td><strong>R$ 320–480</strong></td><td><strong>R$ 380–580</strong></td><td><strong>R$ 480–800+</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rec-box reveal">
+      <div class="rec-box-label">🎯 Regra do corredor de PME</div>
+      <p><strong>Micro (2-9 vidas):</strong> Ambulatorial + Hospitalar s/ Obstetrícia resolve quase sempre. <strong>PME (10-49 vidas):</strong> Hospitalar c/ Obstetrícia já entra com mais naturalidade — time com mulheres em idade fértil. <strong>Médio porte (50+):</strong> Referência ou plano Executivo, dependendo do cargo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 CONTRATAÇÃO -->
+<section class="section" id="contratacao">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">03</div> Processo</div>
+    <h2 class="sec-title">Contratação passo<br>a passo sem enrolar</h2>
+    <p class="sec-lead">"Empresa não cancela reunião por complexidade. Cancela por corretor que não soube conduzir o processo."</p>
+    <div class="vs-layout reveal">
+      <div class="vs-card">
+        <div class="vs-card-bar vs-card-bar-blue"></div>
+        <div class="vs-card-sub">Carência padrão ANS</div>
+        <h3 class="vc-blue">Carências</h3>
+        <p class="vs-desc">O que pesa na decisão do cliente</p>
+        <ul class="vs-bullets vb-blue">
+          <li><strong>Urgência e emergência:</strong> 24h</li>
+          <li><strong>Consultas e exames ambulatoriais:</strong> 30 dias</li>
+          <li><strong>Internações:</strong> 180 dias</li>
+          <li><strong>Parto a termo:</strong> 300 dias</li>
+          <li><strong>Doenças preexistentes:</strong> até 24 meses (com DPS)</li>
+          <li>Portabilidade: pode zerar carências</li>
+        </ul>
+      </div>
+      <div class="vs-middle"><div class="vs-badge">📋</div></div>
+      <div class="vs-card">
+        <div class="vs-card-bar vs-card-bar-orange"></div>
+        <div class="vs-card-sub">Documentos que você vai pedir</div>
+        <h3 class="vc-orange">Docs PME</h3>
+        <p class="vs-desc">Levante antes da reunião para agilizar</p>
+        <ul class="vs-bullets vb-orange">
+          <li>CNPJ ativo (Receita Federal)</li>
+          <li>Contrato social ou última alteração</li>
+          <li>Faturamento dos últimos 12 meses (opcional, para grandes)</li>
+          <li>Relação de beneficiários: nome, CPF, data de nascimento, grau de parentesco</li>
+          <li>Cópia do plano atual + última fatura (se houver troca)</li>
+          <li>Convenção coletiva da categoria (se CCT exigir)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gold-rule reveal">
+      <div class="gold-rule-icon">⚡</div>
+      <div>
+        <div class="gold-rule-label">Portabilidade — sua arma de troca</div>
+        <p>Cliente com plano há mais de 2 anos pode portar para outra operadora <strong>sem cumprir carências</strong>. Isso derruba a maior objeção de troca. Regra ANS: prazo de cobertura e faixa etária devem ser equivalentes ou superiores.</p>
+      </div>
+    </div>
+    <div class="fund-grid">
+      <div class="reveal">
+        <div class="inss-callout">
+          <div class="inss-callout-label">⏱️ Tabela etária — como funciona no PME</div>
+          <p>A ANS divide em <strong>10 faixas etárias</strong>. Última faixa (59+) pode custar até <strong>6x</strong> a primeira (0-18 anos). Empresas com funcionários mais velhos pagam mais. Quando apresentar proposta com muitos colaboradores acima de 50, <strong>avise antes do custo</strong> — surpresa no PME derruba fechamento.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="rec-box" style="margin-top:0;">
+          <div class="rec-box-label">📅 Prazo de implantação</div>
+          <p><strong>Após assinatura do contrato e entrega dos documentos:</strong></p>
+          <p><strong>Operadoras grandes (Amil, Bradesco, SulAmérica):</strong> 5 a 10 dias úteis.</p>
+          <p><strong>Operadoras regionais (Unimed, Notre Dame):</strong> 10 a 20 dias úteis.</p>
+          <p>Carteirinha: física em até 30 dias. Digital: disponível em 24-48h após ativação.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PREÇO -->
+<section class="section section-dark" id="preco">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num" style="background:rgba(26,62,200,.2);color:var(--ac2);">04</div> <span class="sec-label-dark">Preço</span></div>
+    <h2 class="sec-title sec-title-light">Preço e comissão<br>na ponta da língua</h2>
+    <p class="sec-lead sec-lead-light">"Corretor que não sabe preço de cabeça sempre parece inseguro. E insegurança não fecha PME."</p>
+    <div class="stats-row">
+      <div class="stat-box reveal">
+        <div class="stat-val">R$180</div>
+        <div class="stat-label">Entrada ambulatorial PME 2-9 vidas (SP)</div>
+      </div>
+      <div class="stat-box reveal reveal-delay-1">
+        <div class="stat-val">R$420</div>
+        <div class="stat-label">Ticket médio hospitalar 10-49 vidas (SP)</div>
+      </div>
+      <div class="stat-box reveal reveal-delay-2">
+        <div class="stat-val">Variável</div>
+        <div class="stat-label">Comissão do corretor PME</div>
+      </div>
+      <div class="stat-box reveal reveal-delay-3">
+        <div class="stat-val">Pós-venda</div>
+        <div class="stat-label">Comissão após implantação</div>
+      </div>
+    </div>
+    <div class="reveal table-scroll">
+      <table class="data-table">
+        <thead><tr><th>Operadora</th><th>Porte</th><th>Plano</th><th>Faixa de Preço/vida</th><th>Comissão Corretor</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Amil</strong></td><td>2-99 vidas</td><td>400 / Fácil Hospitalar</td><td class="td-green">R$ 280–550</td><td>Sob consulta</td></tr>
+          <tr><td><strong>Bradesco Saúde</strong></td><td>3-99 vidas</td><td>Flex / Plus</td><td>R$ 320–680</td><td>Sob consulta</td></tr>
+          <tr><td><strong>SulAmérica</strong></td><td>2-99 vidas</td><td>Exato / Sênior</td><td>R$ 300–620</td><td>Sob consulta</td></tr>
+          <tr><td><strong>Unimed</strong></td><td>2-99 vidas</td><td>Regional</td><td>R$ 260–520</td><td>Sob consulta</td></tr>
+          <tr><td><strong>Notre Dame</strong></td><td>2-49 vidas</td><td>PME</td><td class="td-green">R$ 220–480</td><td>Sob consulta</td></tr>
+          <tr><td><strong>Hapvida / GN1</strong></td><td>2-99 vidas</td><td>PME</td><td class="td-green">R$ 180–380</td><td>Sob consulta</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="script-box reveal">
+      <div class="script-label">💰 Por que focar no PME</div>
+      <p style="font-style:normal;">Vender saúde PME é garantir uma base de clientes corporativa com alta retenção. O ticket médio é o mais elevado da categoria e a fidelização é natural.<br>
+      Cada nova empresa na sua base contribui para um faturamento sólido para o seu negócio.<br><br>
+      Um PME de 50 vidas bem colocado rende muito mais que o esforço individual de 100 PFs. Qualifique o porte antes de cotar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 VENDA -->
+<section class="section section-light" id="venda">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">05</div> Fechamento</div>
+    <h2 class="sec-title">Conduza a venda<br>sem parecer script</h2>
+    <p class="sec-lead">"PME não fecha no impulso. Fecha quando a empresa entende que o benefício custa menos do que o problema que evita."</p>
+    <div class="venda-steps reveal">
+      <div class="venda-step">
+        <div class="venda-step-num">1</div>
+        <div class="venda-step-body">
+          <h4>Qualifique antes de cotar</h4>
+          <div class="step-script">"Quantas vidas seriam no plano? Tem dependentes? E hoje vocês têm algum benefício de saúde para o time ou está tudo no particular?"</div>
+        </div>
+      </div>
+      <div class="venda-step">
+        <div class="venda-step-num">2</div>
+        <div class="venda-step-body">
+          <h4>Mapeie a dor real do RH</h4>
+          <div class="step-script">"O que mais incomoda hoje — falta por doença, demora em atendimento ou custo de urgência que vai pro particular? Você recebe muito isso do time?"</div>
+        </div>
+      </div>
+      <div class="venda-step">
+        <div class="venda-step-num">3</div>
+        <div class="venda-step-body">
+          <h4>Pede o plano atual para comparar</h4>
+          <div class="step-script">"Se já tem plano, me manda a última fatura e o contrato. Em 24h eu te mostro onde está pagando demais ou deixando cobertura de lado."</div>
+        </div>
+      </div>
+      <div class="venda-step">
+        <div class="venda-step-num">4</div>
+        <div class="venda-step-body">
+          <h4>Apresenta duas opções, não uma</h4>
+          <div class="step-script">"Trouxe duas opções: a entrada que cabe no orçamento de hoje e a completa que resolve por mais tempo. Qual faz mais sentido começar?"</div>
+        </div>
+      </div>
+      <div class="venda-step">
+        <div class="venda-step-num">5</div>
+        <div class="venda-step-body">
+          <h4>Fecha no próximo passo concreto</h4>
+          <div class="step-script">"Se a proposta faz sentido, eu preciso da relação de beneficiários e do CNPJ atualizado para gerar o contrato. Isso é rápido de levantar e a gente não perde o prazo da CCT."</div>
+        </div>
+      </div>
+    </div>
+    <div class="feature-row reveal">
+      <div class="feature-box fb-blue">
+        <div class="fb-label">🔄 Cross obrigatório</div>
+        <p>Vendeu saúde PME? Puxa <strong>odonto PME</strong> em seguida — o custo adicional por vida é pequeno e a renovação fica mais difícil de acontecer com dois produtos. Também verifique se a CCT da categoria exige odonto.</p>
+      </div>
+      <div class="feature-box fb-green">
+        <div class="fb-label">📋 Avise sobre reajuste anual</div>
+        <p>PME tem reajuste anual por sinistralidade + IPCA. <strong>Avise isso antes de fechar</strong>. Empresa que descobre na hora do reajuste cancela. Empresa que foi avisada entende e renova.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 OBJEÇÕES -->
+<section class="section" id="objecoes">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">06</div> Virada</div>
+    <h2 class="sec-title">Vire a objeção<br>no papo reto</h2>
+    <p class="sec-lead">"Objeção de PME quase sempre é sobre preço ou processo. Quem tem dado na mão vira a conversa rápido."</p>
+    <div class="obj-grid">
+      <div class="obj-item reveal">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Está muito caro para o nosso porte."</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Entendido. Quanto custa hoje uma demissão por doença não tratada ou 3 dias de falta de um funcionário? O plano básico fica abaixo de R$ 10/dia por vida. Você paga mais que isso em hora extra.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal reveal-delay-1">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Meus funcionários não usam esse tipo de benefício."</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Justo. Mas quando precisam, o custo vai para o bolso deles — e o absenteísmo vai para o seu. Plano com coparticipação controla o uso e a mensalidade fica mais baixa ainda.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Já tentei e a operadora rejeitou por sinistralidade."</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Isso acontece. Mas cada operadora tem critério diferente. Me conta o histórico e eu vejo qual aceita hoje. Tem operadoras que trabalham com PME de alto uso e dão condição mesmo assim.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal reveal-delay-1">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Não é obrigação minha dar isso."</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Legalmente depende da categoria. Mas como benefício, o retorno vem em retenção e produtividade. Me fala o segmento que eu verifico o que a CCT diz — você pode estar exposto sem saber.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Vou pensar e te retorno."</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Claro. Mas me fala o que pesou mais — preço, cobertura ou outra coisa? Se eu souber o que travou, eu volto com uma proposta que resolve direto o ponto que importa.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal reveal-delay-1">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"O plano atual já foi negociado com desconto."</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Ótimo ponto. Me manda o contrato e a última fatura. Desconto é bom, mas se a rede encolheu ou a cobertura piorou, o desconto custou caro sem você perceber.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Minha empresa tem só 3 pessoas."</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Com 2 vidas já entra no PME. Para um escritório de 3 pessoas, a diferença de preço por vida entre PF e PME pode passar de 30%. Compensa verificar antes de manter no PF.</p>
+        </div>
+      </div>
+      <div class="obj-item reveal reveal-delay-1">
+        <div class="obj-q"><span class="obj-q-icon">❌</span>"Já tenho um corretor que cuida disso."</div>
+        <div class="obj-a">
+          <div class="obj-a-tag">Resposta</div>
+          <p>Sem problema. Mas quando foi a última vez que ele trouxe uma revisão de contrato ou comparação de mercado? Eu faço isso sem custo. Se o que tem está melhor, você fica onde está.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 OPERADORAS -->
+<section class="section section-light" id="operadoras">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num">07</div> Operadora</div>
+    <h2 class="sec-title">Puxe a operadora<br>certa para cada PME</h2>
+    <p class="sec-lead">"Você não precisa vender todas. Precisa saber qual encaixa melhor no porte e no perfil do cliente."</p>
+    <div class="ops-layout">
+      <div class="rank-list">
+        <div class="rank-item reveal" style="border:1px solid rgba(26,62,200,.3);background:rgba(26,62,200,.03);">
+          <div class="rank-medal rm-gold" style="font-size:2.2rem;">1</div>
+          <div>
+            <div class="rank-name" style="color:var(--bl);">Amil — mais fácil de cotar e implantar</div>
+            <div class="rank-desc">Rede nacional ampla. Plano 400 e Fácil entram em qualquer PME de 2+ vidas. Cotação online. Indicado para empresa que precisa de rede grande ou tem funcionários em múltiplos estados.</div>
+          </div>
+        </div>
+        <div class="rank-item reveal reveal-delay-1">
+          <div class="rank-medal rm-silver">2</div>
+          <div>
+            <div class="rank-name">Bradesco Saúde — nome que fecha reunião</div>
+            <div class="rank-desc">A marca Bradesco abre porta em PME mais conservador. Produto Flex tem boa cobertura no intermediário. Integra bem com produtos financeiros Bradesco que o cliente já pode ter.</div>
+          </div>
+        </div>
+        <div class="rank-item reveal reveal-delay-2">
+          <div class="rank-medal rm-silver">3</div>
+          <div>
+            <div class="rank-name">SulAmérica — melhor para cross com outros produtos</div>
+            <div class="rank-desc">Forte no SE e CO. Bom para quem já tem odonto ou vida SulAmérica — desconto combo. Plano Exato tem boa relação custo-benefício para PME de 10-49 vidas.</div>
+          </div>
+        </div>
+        <div class="rank-item reveal reveal-delay-3">
+          <div class="rank-medal rm-bronze">4</div>
+          <div>
+            <div class="rank-name">Notre Dame Intermédica — melhor preço SP/MG</div>
+            <div class="rank-desc">Rede forte em São Paulo e Minas. Preço abaixo das nacionais em PME pequeno (2-20 vidas). Bom para empresa que quer custo baixo e fica concentrada em uma cidade.</div>
+          </div>
+        </div>
+        <div class="rank-item reveal">
+          <div class="rank-medal rm-gray">5</div>
+          <div>
+            <div class="rank-name">Hapvida / GN1 — preço mais baixo do mercado</div>
+            <div class="rank-desc">Modelo de rede própria — hospitais e clínicas da operadora. Menor custo, mas rede fechada. Indicado para empresa que prioriza preço e está em cidade com boa cobertura Hapvida.</div>
+          </div>
+        </div>
+        <div class="rank-item reveal">
+          <div class="rank-medal rm-gray">6</div>
+          <div>
+            <div class="rank-name">Unimed — força regional</div>
+            <div class="rank-desc">Varia muito por cooperativa. Unimed Paulistana (SP) e Unimed BH têm produto forte. Verifique a cooperativa local. Funciona bem para empresa que quer plano da marca reconhecida na cidade.</div>
+          </div>
+        </div>
+      </div>
+      <div class="ops-sidebar">
+        <div class="cert-card cc-blue reveal">
+          <div class="cert-tag">Tabela etária ANS</div>
+          <h3>10 Faixas de Preço</h3>
+          <p>A ANS determina 10 faixas etárias. A diferença entre a faixa 1 (0-18 anos) e a faixa 10 (59+) pode ser de até 6x. Mostre isso para o RH quando a empresa tiver perfil etário mais alto — evita surpresa na fatura.</p>
+        </div>
+        <div class="cert-card cc-green reveal reveal-delay-1">
+          <div class="cert-tag">Sinistralidade</div>
+          <h3>Taxa ideal: abaixo de 75%</h3>
+          <p>Sinistralidade é o percentual da mensalidade gasto em atendimentos. Acima de 75%, a operadora pode não renovar ou reajustar alto. PME com funcionários mais velhos ou histórico de uso intenso pode ter sinistralidade problemática.</p>
+          <p><strong>Dica:</strong> pergunte sempre se houve alguma recusa de renovação anterior.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 CHECKLIST -->
+<section class="section section-dark" id="checklist">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num" style="background:rgba(26,62,200,.2);color:var(--ac2);">08</div> <span class="sec-label-dark">Pré-Reunião</span></div>
+    <h2 class="sec-title sec-title-light">Checklist de reunião<br>PME — entre pronto</h2>
+    <p class="sec-lead sec-lead-light">"Reunião de PME sem informação é visita. Reunião com dado é proposta. Proposta fecha."</p>
+    <div class="check-layout">
+      <div>
+        <div class="check-col-title">📋 Levante antes de ligar</div>
+        <div class="check-list">
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">CNPJ e razão social (Receita Federal)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Porte: número estimado de funcionários CLT</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Segmento e CCT da categoria dos funcionários</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Tem plano atual? Qual operadora?</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Data de vencimento/renovação do contrato atual</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Abrangência necessária (regional ou nacional)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Decisor é o dono, sócio ou RH?</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="check-col-title">📁 Docs para fechar</div>
+        <div class="check-list">
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">CNPJ ativo (cartão CNPJ Receita)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Contrato social ou última alteração</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Relação de beneficiários (nome, CPF, data nasc.)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Grau de parentesco dos dependentes</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Última fatura do plano atual (se troca)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Contrato atual assinado (para portabilidade)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">DPS (Declaração de Saúde) assinada por cada vida</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="rec-box" style="border-color:rgba(26,62,200,.3);background:rgba(26,62,200,.06);">
+      <div class="rec-box-label" style="color:var(--ac2);">🎯 Regra de ouro do PME</div>
+      <p style="color:rgba(255,255,255,.7);">Nunca apresente proposta sem saber o perfil etário dos funcionários. Preço sem tabela etária é chute. Chute em PME vira reajuste surpresa e cancelamento no segundo ano.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-hex" style="width:24px;height:24px;margin-bottom:8px;"></div>
+      <div class="nav-wordmark">REVIER <span>BROKERS</span></div>
+      <p>Portal de treinamento interno para a equipe comercial da Revier Corretora de Seguros.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Outros Guias</div>
+      <ul class="footer-links">
+        <li><a href="../revier-previdencia/index.html">Previdência Privada</a></li>
+        <li><a href="../odonto/index.html">Odonto</a></li>
+        <li><a href="../seguro-vida/index.html">Seguro de Vida</a></li>
+        <li><a href="../seguro-auto/index.html">Seguro Auto</a></li>
+        <li><a href="../../index.html">← Voltar ao Portal</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <div class="footer-col-title">Contato Revier</div>
+      <p><strong>Revier Corretora de Seguros Ltda.</strong></p>
+      <p>CNPJ 42.621.875/0001-50</p>
+      <p>contato@reviercorretora.com.br</p>
+      <p>(11) 5555-9350</p>
+      <p>Santo André, SP</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Revier Brokers — Uso exclusivo equipe interna</p>
+    <p>Material educacional. Não substitui análise técnica individual.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var revEls=document.querySelectorAll('.reveal');
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  revEls.forEach(function(el){obs.observe(el);});
+  var burger=document.getElementById('hamburger');
+  var menu=document.getElementById('mobileMenu');
+  if(burger&&menu){
+    burger.addEventListener('click',function(){
+      burger.classList.toggle('open');
+      menu.classList.toggle('open');
+      document.body.style.overflow=menu.classList.contains('open')?'hidden':'';
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        burger.classList.remove('open');
+        menu.classList.remove('open');
+        document.body.style.overflow='';
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
