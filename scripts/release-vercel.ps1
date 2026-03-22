@@ -2,7 +2,11 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$Message,
 
-    [switch]$Prod
+    [switch]$Prod,
+
+    [string]$Project = "revier-portal",
+
+    [string]$Scope = "julia-santinis-projects"
 )
 
 $ErrorActionPreference = "Stop"
@@ -33,6 +37,7 @@ if (-not $status) {
 
 Run-Step "git pull --rebase origin $branch"
 Run-Step "git push origin $branch"
+Run-Step "vercel link --yes --project $Project --scope $Scope"
 
 if ($Prod) {
     Run-Step "vercel deploy --prod -y"
