@@ -8,6 +8,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<script>
+(function () {
+  try {
+    if (localStorage.getItem('revier_theme') === 'light') {
+      document.documentElement.classList.add('light-mode');
+    }
+  } catch (e) {}
+})();
+</script>
 <style>
 :root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;--light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#1A3EC8;--ac2:#4F6ADB}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -235,9 +244,35 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
 .script-box{padding:18px 20px}.script-box p{font-size:.85rem}
 .step-script{font-size:.82rem;padding:12px 14px}
 }
+#read-progress{position:fixed;top:60px;left:0;height:3px;width:0;background:var(--or);box-shadow:0 0 8px rgba(232,81,10,.5);z-index:199;transition:width .1s linear;pointer-events:none}
+.nav-theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:30px;border:1px solid rgba(255,255,255,.12);border-radius:2px;background:rgba(255,255,255,.04);color:#fff;font-size:1rem;font-weight:700;line-height:1;cursor:pointer;transition:color .2s,border-color .2s,background .2s,transform .2s}
+.nav-theme-toggle:hover{color:var(--or);border-color:rgba(232,81,10,.28);background:rgba(232,81,10,.08);transform:translateY(-1px)}
+.quick-summary{margin:0 0 18px;background:var(--or);color:#fff}
+.summary-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border:0;background:transparent;color:inherit;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.summary-arrow{display:inline-flex;transition:transform .35s ease}
+.quick-summary.is-open .summary-arrow{transform:rotate(180deg)}
+.summary-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;background:rgba(255,255,255,.08)}
+.summary-list{list-style:none;padding:0 24px 18px;display:grid;gap:10px}
+.summary-list li{position:relative;padding-left:18px;font-family:'Barlow',sans-serif;font-size:.9rem;font-weight:500;line-height:1.55;color:#fff}
+.summary-list li::before{content:'•';position:absolute;left:0;color:rgba(255,255,255,.9)}
+h2.sec-title[id]{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.section-link-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-top:6px;border:1px solid transparent;border-radius:2px;background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:800;line-height:1;opacity:0;cursor:pointer;transition:opacity .2s,color .2s,border-color .2s,background .2s,transform .2s}
+h2.sec-title:hover .section-link-btn,h2.sec-title:focus-within .section-link-btn{opacity:1}
+.section-link-btn:hover,.section-link-btn.copied{color:var(--or);border-color:rgba(232,81,10,.24);background:rgba(232,81,10,.08);transform:translateY(-1px)}
+html.light-mode{--page-bg:var(--dk);--page-surface:#10141c;--page-surface-soft:#151923;--page-text:var(--light);--page-muted:rgba(244,246,251,.72);--page-border:rgba(255,255,255,.08)}
+html.light-mode body{background:var(--page-bg);color:var(--page-text)}
+html.light-mode .hero,html.light-mode .section,html.light-mode .section-light,html.light-mode .section-dark,html.light-mode footer{background:var(--page-bg)}
+html.light-mode .hero-toc,html.light-mode .motivo-card,html.light-mode .vs-card,html.light-mode .data-table td,html.light-mode .gold-rule,html.light-mode .feature-box,html.light-mode .obj-item,html.light-mode .obj-a,html.light-mode .rank-item,html.light-mode .cert-card,html.light-mode .check-row,html.light-mode .stat-box,html.light-mode .rec-box,html.light-mode .script-box,html.light-mode .footer-top,html.light-mode .summary-panel{background:var(--page-surface)}
+html.light-mode .data-table thead tr,html.light-mode .footer-bottom{background:var(--page-surface-soft)}
+html.light-mode h1.hero-title,html.light-mode h2.sec-title,html.light-mode .nav-wordmark,html.light-mode .motivo-card h3,html.light-mode .vs-card h3,html.light-mode .cert-card h3,html.light-mode .rank-name,html.light-mode .footer-col-title{color:var(--page-text)}
+html.light-mode .hero-sub,html.light-mode .sec-lead,html.light-mode .motivo-card p,html.light-mode .vs-card .vs-desc,html.light-mode .vs-bullets li,html.light-mode .fund-text p,html.light-mode .data-table td,html.light-mode .rank-desc,html.light-mode .cert-card p,html.light-mode .feature-box p,html.light-mode .obj-a p,html.light-mode .check-text,html.light-mode .footer-brand p,html.light-mode .footer-links a,html.light-mode .nav-links a,html.light-mode .nav-back,html.light-mode .summary-list li{color:var(--page-muted)}
+html.light-mode .nav-links a:hover,html.light-mode .nav-back:hover,html.light-mode .footer-links a:hover{color:var(--or)}
+html.light-mode .section-link-btn,html.light-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
+html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied,html.light-mode .nav-theme-toggle:hover{color:var(--or);border-color:rgba(232,81,10,.22);background:rgba(232,81,10,.08)}
 </style>
 </head>
 <body>
+<div id="read-progress"></div>
 
 <nav>
   <a href="#" class="nav-logo">
@@ -255,9 +290,24 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
     <li><a href="#operadoras">Operadora</a></li>
     <li><a href="#checklist">Checklist</a></li>
   </ul>
+  <button class="nav-theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">☽</button>
   <div class="nav-badge">Guia Interno</div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<section class="quick-summary" data-summary-key="summary_planos-saude-pme">
+  <button class="summary-toggle" type="button" aria-expanded="false">
+    <span>RESUMO RÁPIDO — 30 SEGUNDOS</span>
+    <span class="summary-arrow" aria-hidden="true">▾</span>
+  </button>
+  <div class="summary-panel">
+    <ul class="summary-list">
+      <li>PME começa com 2 vidas, e MEI com CNPJ entra.</li>
+      <li>Empresa no Lucro Real deduz custo no IRPJ.</li>
+      <li>CCT de muitas categorias em SP já exige o benefício.</li>
+    </ul>
+  </div>
+</section>
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="../../index.html">← Voltar ao Portal</a>
@@ -785,6 +835,106 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
 <script>
 (function(){
   'use strict';
+  var root=document.documentElement;
+  var progress=document.getElementById('read-progress');
+  var themeToggle=document.getElementById('themeToggle');
+  var summary=document.querySelector('.quick-summary');
+  var summaryKey=summary && summary.getAttribute('data-summary-key');
+  var progressRaf=0;
+  function updateThemeToggle(){
+    if(themeToggle){ themeToggle.textContent=root.classList.contains('light-mode') ? '☀' : '☽'; }
+  }
+  function setTheme(nextDark){
+    root.classList.toggle('light-mode', nextDark);
+    try{ localStorage.setItem('revier_theme', nextDark ? 'dark' : 'light'); }catch(e){}
+    updateThemeToggle();
+  }
+  function updateProgress(){
+    progressRaf=0;
+    if(!progress){ return; }
+    var max=document.body.scrollHeight-window.innerHeight;
+    progress.style.width=(max>0 ? (window.scrollY/max)*100 : 0) + '%';
+  }
+  function queueProgress(){
+    if(progressRaf){ return; }
+    progressRaf=requestAnimationFrame(updateProgress);
+  }
+  function syncSummary(open){
+    if(!summary){ return; }
+    var panel=summary.querySelector('.summary-panel');
+    var toggle=summary.querySelector('.summary-toggle');
+    summary.classList.toggle('is-open', open);
+    if(toggle){ toggle.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    if(panel){ panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px'; }
+  }
+  if(themeToggle){
+    updateThemeToggle();
+    themeToggle.addEventListener('click', function(){
+      setTheme(!root.classList.contains('light-mode'));
+    });
+  }
+  if(progress){
+    window.addEventListener('scroll', queueProgress, { passive:true });
+    window.addEventListener('resize', queueProgress, { passive:true });
+    updateProgress();
+  }
+  if(summary && summaryKey){
+    var savedOpen=false;
+    try{ savedOpen = localStorage.getItem(summaryKey) === 'open'; }catch(e){}
+    syncSummary(savedOpen);
+    var summaryToggle=summary.querySelector('.summary-toggle');
+    if(summaryToggle){
+      summaryToggle.addEventListener('click', function(){
+        var nextOpen = !summary.classList.contains('is-open');
+        syncSummary(nextOpen);
+        try{ localStorage.setItem(summaryKey, nextOpen ? 'open' : 'closed'); }catch(e){}
+      });
+    }
+    window.addEventListener('resize', function(){
+      if(summary.classList.contains('is-open')){ syncSummary(true); }
+    });
+  }
+  document.querySelectorAll('h2.sec-title').forEach(function(h2){
+    var section=h2.closest('section[id]');
+    if(!h2.id && section){ h2.id = section.id + '-title'; }
+    if(!h2.id || h2.querySelector('.section-link-btn')){ return; }
+    var btn=document.createElement('button');
+    btn.type='button';
+    btn.className='section-link-btn';
+    btn.textContent='#';
+    btn.setAttribute('aria-label','Copiar link desta seção');
+    btn.addEventListener('click', function(ev){
+      ev.preventDefault();
+      ev.stopPropagation();
+      var link=window.location.href.split('#')[0] + '#' + h2.id;
+      var restore=function(){
+        clearTimeout(btn._copyTimer);
+        btn.classList.add('copied');
+        btn.textContent='✓';
+        btn._copyTimer=setTimeout(function(){
+          btn.classList.remove('copied');
+          btn.textContent='#';
+        }, 1500);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(restore).catch(function(){ restore(); });
+      } else {
+        try{
+          var temp=document.createElement('textarea');
+          temp.value=link;
+          temp.setAttribute('readonly','');
+          temp.style.position='absolute';
+          temp.style.left='-9999px';
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          document.body.removeChild(temp);
+        }catch(err){}
+        restore();
+      }
+    });
+    h2.appendChild(btn);
+  });
   var revEls=document.querySelectorAll('.reveal');
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});

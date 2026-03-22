@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<script>(function(){try{if(localStorage.getItem('revier_theme')==='light'){document.documentElement.classList.add('light-mode');}}catch(e){}})();</script>
 <style>
 :root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;--light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#B45309;--ac2:#F59E0B;--acdk:#78350F}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -244,6 +245,22 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
 .table-scroll{margin:0 -16px;border-radius:0}
 .gold-rule{padding:18px 16px}.script-box{padding:18px 20px}.step-script{font-size:.82rem}
 }
+.nav-theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:30px;border:1px solid rgba(255,255,255,.12);border-radius:2px;background:rgba(255,255,255,.04);color:#fff;font-size:1rem;font-weight:700;line-height:1;cursor:pointer;transition:color .2s,border-color .2s,background .2s,transform .2s}
+.nav-theme-toggle:hover{color:var(--ac2);border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.08);transform:translateY(-1px)}
+html.light-mode{--page-bg:var(--dk);--page-surface:#10141c;--page-surface-soft:#151923;--page-text:var(--light);--page-muted:rgba(244,246,251,.72);--page-border:rgba(255,255,255,.08)}
+html.light-mode body{background:var(--page-bg);color:var(--page-text)}
+html.light-mode .hero,html.light-mode .section,html.light-mode .section-light,html.light-mode .section-dark,html.light-mode footer{background:var(--page-bg)}
+html.light-mode .hero-toc,html.light-mode .motivo-card,html.light-mode .vs-card,html.light-mode .data-table td,html.light-mode .gold-rule,html.light-mode .feature-box,html.light-mode .obj-item,html.light-mode .obj-a,html.light-mode .rank-item,html.light-mode .cert-card,html.light-mode .check-row,html.light-mode .stat-box,html.light-mode .rec-box,html.light-mode .script-box,html.light-mode .footer-top{background:var(--page-surface)}
+html.light-mode .data-table thead tr,html.light-mode .footer-bottom{background:var(--page-surface-soft)}
+html.light-mode h1.hero-title,html.light-mode h2.sec-title,html.light-mode .nav-wordmark,html.light-mode .motivo-card h3,html.light-mode .vs-card h3,html.light-mode .cert-card h3,html.light-mode .rank-name,html.light-mode .footer-col-title{color:var(--page-text)}
+html.light-mode .hero-sub,html.light-mode .sec-lead,html.light-mode .motivo-card p,html.light-mode .vs-card .vs-desc,html.light-mode .vs-bullets li,html.light-mode .fund-text p,html.light-mode .data-table td,html.light-mode .rank-desc,html.light-mode .cert-card p,html.light-mode .feature-box p,html.light-mode .obj-a p,html.light-mode .check-text,html.light-mode .footer-brand p,html.light-mode .footer-links a,html.light-mode .nav-links a{color:var(--page-muted)}
+html.light-mode .nav-links a:hover,html.light-mode .footer-links a:hover{color:var(--ac2)}
+html.light-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
+html.light-mode .nav-theme-toggle:hover{color:var(--ac2);border-color:rgba(245,158,11,.22);background:rgba(245,158,11,.08)}
+html.light-mode .reading-progress-bar{background:linear-gradient(90deg,var(--ac2),var(--or))}
+html.light-mode .section-copy{background:rgba(255,255,255,.08);color:var(--page-text);border-color:var(--page-border)}
+html.light-mode .section-copy:hover{border-color:rgba(245,158,11,.35);color:var(--ac2)}
+html.light-mode .section-copy.copied{background:rgba(22,163,74,.15);border-color:rgba(22,163,74,.28);color:var(--gn)}
 </style>
 </head>
 <body>
@@ -260,6 +277,7 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
     <li><a href="#seguradoras">Seguradoras</a></li>
     <li><a href="#checklist">Checklist</a></li>
   </ul>
+  <button class="nav-theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">☽</button>
   <div class="nav-badge">Guia Interno</div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -775,6 +793,14 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
     var target=document.querySelector(window.location.hash);
     if(target){target.classList.add('section-highlight');window.setTimeout(function(){target.classList.remove('section-highlight');},1800);}
   }
+})();
+</script>
+<script>
+(function(){
+  var toggle=document.getElementById('themeToggle');
+  var root=document.documentElement;
+  function sync(){toggle.textContent=root.classList.contains('light-mode')?'☀':'☽';}
+  if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('light-mode');localStorage.setItem('revier_theme',root.classList.contains('light-mode')?'light':'dark');sync();});}
 })();
 </script>
 </body>

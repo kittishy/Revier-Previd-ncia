@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<script>
+(function(){try{if(localStorage.getItem('revier_theme')==='light'){document.documentElement.classList.add('light-mode');}}catch(e){}})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Revier · Odonto na Prática</title>
@@ -9,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;--light:#F4F6FB;--border:#E5E7EB;--white:#fff}
+:root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;--light:#F4F6FB;--border:#E5E7EB;--white:#fff;--page-bg:var(--white)}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Barlow',sans-serif;font-weight:400;color:var(--ink);background:var(--white);overflow-x:hidden;cursor:default}
+body{font-family:'Barlow',sans-serif;font-weight:400;color:var(--ink);background:var(--page-bg);overflow-x:hidden;cursor:default}
 ::selection{background:var(--or);color:#fff}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--dk)}
@@ -245,6 +248,39 @@ footer{background:#060810;padding:60px 0 32px;border-top:1px solid rgba(255,255,
 .footer-contact strong{color:rgba(255,255,255,.7)}
 .footer-bottom{max-width:1200px;margin:0 auto;padding:20px 40px 0;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.2);letter-spacing:.06em}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid color-mix(in srgb,var(--white) 18%,transparent);border-radius:50%;background:transparent;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:900;cursor:pointer;transition:transform .2s,border-color .2s,color .2s,background .2s}
+.theme-toggle:hover{transform:translateY(-1px);border-color:var(--or);color:var(--or);background:color-mix(in srgb,var(--or) 12%,transparent)}
+#read-progress{position:fixed;top:60px;left:0;height:3px;width:0%;background:var(--or);box-shadow:0 0 8px color-mix(in srgb,var(--or) 50%,transparent);z-index:199;transition:width .1s linear;pointer-events:none}
+.quick-brief{margin:60px 0 0;background:var(--or);color:var(--white);overflow:hidden}
+.quick-brief-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 40px;background:transparent;border:0;color:inherit;text-align:left;cursor:pointer}
+.quick-brief-kicker{display:block;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--white);margin-bottom:6px;opacity:.85}
+.quick-brief-title{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.quick-brief-icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid color-mix(in srgb,var(--white) 18%,transparent);border-radius:50%;font-size:1.05rem;color:var(--white);flex-shrink:0;transition:transform .35s ease,background .2s ease}
+.quick-brief-body{max-height:0;overflow:hidden;padding:0 40px;transition:max-height .35s ease,padding .35s ease}
+.quick-brief.open .quick-brief-body{max-height:220px;padding:0 40px 18px}
+.quick-brief.open .quick-brief-icon{transform:rotate(180deg)}
+.quick-brief-body p{font-size:.84rem;color:color-mix(in srgb,var(--white) 78%,transparent);line-height:1.6;margin-bottom:14px}
+.quick-brief-list{list-style:none;display:grid;gap:10px}
+.quick-brief-list li{font-size:.88rem;color:color-mix(in srgb,var(--white) 84%,transparent);line-height:1.55;padding-left:18px;position:relative}
+.quick-brief-list li::before{content:'';position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--white);box-shadow:0 0 0 4px color-mix(in srgb,var(--white) 12%,transparent)}
+.quick-brief-list strong{color:var(--white)}
+.section-link-btn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border:1px solid color-mix(in srgb,var(--muted) 28%,transparent);border-radius:999px;background:transparent;color:var(--muted);font-size:.8rem;font-weight:700;line-height:1;cursor:pointer;opacity:0;transform:translateY(1px);transition:opacity .2s,color .2s,border-color .2s,background .2s,transform .2s}
+h2[id]{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
+h2[id] .section-link-btn{margin-top:.12em;flex-shrink:0}
+h2[id]:hover .section-link-btn,h2[id]:focus-within .section-link-btn{opacity:1}
+.section-link-btn:hover{color:var(--or);border-color:var(--or);background:color-mix(in srgb,var(--or) 10%,transparent)}
+.section-link-btn.copied{color:var(--gn);border-color:var(--gn);background:color-mix(in srgb,var(--gn) 10%,transparent)}
+html.light-mode{--page-bg:var(--dk);--light:#111522;--ink:#F4F6FB;--muted:#AEB6C5;--border:rgba(255,255,255,.08)}
+html.light-mode .section-light,html.light-mode .hero,html.light-mode footer{background:var(--dk)}
+html.light-mode .section{border-bottom-color:rgba(255,255,255,.06)}
+html.light-mode .motivo-card,html.light-mode .prio-card,html.light-mode .vs-card,html.light-mode .feature-box,html.light-mode .obj-item,html.light-mode .rank-item,html.light-mode .cert-card,html.light-mode .script-box,html.light-mode .rec-box,html.light-mode .gold-rule,html.light-mode .port-box{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);box-shadow:none}
+html.light-mode .data-table td{background:rgba(255,255,255,.03);color:var(--ink)}
+html.light-mode .motivo-card p,html.light-mode .prio-card p,html.light-mode .vs-card p,html.light-mode .feature-box p,html.light-mode .obj-a p,html.light-mode .rank-desc,html.light-mode .cert-card p,html.light-mode .script-box p,html.light-mode .rec-box p,html.light-mode .port-box p,html.light-mode .fund-text p{color:var(--ink)}
+html.light-mode .stat-box{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+html.light-mode .check-box-el{border-color:rgba(255,255,255,.24)}
+html.light-mode .quick-brief{box-shadow:0 18px 32px rgba(0,0,0,.28)}
+html.light-mode .quick-brief-body p,html.light-mode .quick-brief-list li{color:rgba(255,255,255,.8)}
+html.light-mode .quick-brief-list strong{color:var(--white)}
 .footer-stripes{display:flex;gap:4px}
 .footer-stripes span{display:block;width:16px;height:4px;border-radius:1px}
 /* RESPONSIVE */
@@ -307,6 +343,7 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
     <li><a href="#operadoras">Operadora</a></li>
     <li><a href="#checklist">Pré-reunião</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">☽</button>
   <div class="nav-badge">Guia Interno</div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -898,6 +935,14 @@ const mobileMenu=document.getElementById('mobileMenu');
 hamburger.addEventListener('click',()=>{const isOpen=mobileMenu.classList.toggle('open');hamburger.classList.toggle('open',isOpen);document.body.style.overflow=isOpen?'hidden':'';});
 document.querySelectorAll('.mobile-link').forEach(link=>{link.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');document.body.style.overflow='';});});
 document.addEventListener('click',(e)=>{if(mobileMenu.classList.contains('open')&&!mobileMenu.contains(e.target)&&!hamburger.contains(e.target)){mobileMenu.classList.remove('open');hamburger.classList.remove('open');document.body.style.overflow='';}});
+</script>
+<script>
+(function(){
+  var toggle=document.getElementById('themeToggle');
+  var root=document.documentElement;
+  function sync(){toggle.textContent=root.classList.contains('light-mode')?'☀':'☽';}
+  if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('light-mode');localStorage.setItem('revier_theme',root.classList.contains('light-mode')?'light':'dark');sync();});}
+})();
 </script>
 </body>
 </html>

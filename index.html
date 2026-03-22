@@ -7,6 +7,15 @@
   <title>Revier Academy · Treino que Vende</title>
   <meta name="description"
     content="Portal educacional interno da Revier Brokers. Trilhas de estudo para corretores de seguros e planos de saúde.">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('revier_theme') === 'light') {
+          document.documentElement.classList.add('light-mode');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -41,6 +50,10 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px;
+    }
+
+    html.light-mode {
+      color-scheme: light;
     }
 
     body {
@@ -150,6 +163,13 @@
       align-items: center;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
     .nav-links a {
       display: block;
       padding: 7px 14px;
@@ -167,6 +187,30 @@
     .nav-links a:hover {
       color: var(--or);
       background: rgba(232, 81, 10, .07);
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 3px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, .04);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      border-color: rgba(232, 81, 10, .35);
+      color: var(--or);
     }
 
     .nav-tag {
@@ -701,8 +745,12 @@
     .card-meta {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
+      justify-content: flex-start;
+      gap: 6px;
+    }
+
+    .card-meta .badge-nivel {
+      margin-left: auto;
     }
 
     /* Badges */
@@ -718,6 +766,17 @@
     .badge-novo {
       background: var(--or);
       color: white;
+    }
+
+    .badge-top {
+      background: var(--yl);
+      color: var(--dk);
+      font-size: .65rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      padding: 3px 8px;
+      border-radius: 2px;
+      text-transform: uppercase;
     }
 
     .badge-mais-lido {
@@ -1055,6 +1114,110 @@
     /* ═══════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════ */
+    html.light-mode body {
+      background: var(--light);
+      color: var(--ink);
+    }
+
+    html.light-mode nav {
+      background: rgba(244, 246, 251, .92);
+      border-bottom-color: rgba(26, 28, 36, .08);
+    }
+
+    html.light-mode nav.scrolled {
+      background: rgba(244, 246, 251, .98);
+      box-shadow: 0 4px 30px rgba(10, 12, 18, .08);
+      border-bottom-color: rgba(26, 28, 36, .12);
+    }
+
+    html.light-mode .theme-toggle {
+      background: var(--white);
+      color: var(--ink);
+      border-color: var(--border);
+    }
+
+    html.light-mode .mobile-menu,
+    html.light-mode .hero,
+    html.light-mode #trilhas,
+    html.light-mode #como-usar,
+    html.light-mode footer {
+      background: var(--light);
+    }
+
+    html.light-mode .mobile-menu {
+      background: rgba(244, 246, 251, .98);
+    }
+
+    html.light-mode .nav-wordmark,
+    html.light-mode h1.hero-title,
+    html.light-mode h2.sec-title,
+    html.light-mode .card-title,
+    html.light-mode .step-title,
+    html.light-mode .footer-name {
+      color: var(--ink);
+    }
+
+    html.light-mode .hero-title em,
+    html.light-mode .hero-desc,
+    html.light-mode .sec-lead,
+    html.light-mode .card-desc,
+    html.light-mode .step-desc,
+    html.light-mode .footer-data,
+    html.light-mode .footer-copy,
+    html.light-mode .nav-links a,
+    html.light-mode .mobile-menu a {
+      color: var(--muted);
+    }
+
+    html.light-mode .nav-tag {
+      background: rgba(232, 81, 10, .08);
+      color: var(--or);
+      border-color: rgba(232, 81, 10, .2);
+    }
+
+    html.light-mode .trilha-card,
+    html.light-mode .step-card {
+      background: var(--white);
+      border-color: var(--border);
+    }
+
+    html.light-mode .trilha-card::before {
+      background: var(--border);
+    }
+
+    html.light-mode .trilha-card.active {
+      background: rgba(232, 81, 10, .04);
+      border-color: rgba(232, 81, 10, .22);
+    }
+
+    html.light-mode .trilha-card.active-bl {
+      background: rgba(26, 62, 200, .04);
+      border-color: rgba(26, 62, 200, .22);
+    }
+
+    html.light-mode .badge-mais-lido,
+    html.light-mode .badge-breve {
+      background: var(--light);
+      color: var(--muted);
+      border-color: var(--border);
+      box-shadow: none;
+    }
+
+    html.light-mode .badge-nivel {
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    html.light-mode .lock-overlay {
+      background: rgba(244, 246, 251, .68);
+    }
+
+    html.light-mode .lock-badge {
+      background: var(--white);
+      color: var(--muted);
+      border-color: var(--border);
+    }
+
     @media (max-width: 900px) {
       .trilhas-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1064,6 +1227,10 @@
     @media (max-width: 768px) {
       nav {
         padding: 0 20px;
+      }
+
+      .nav-right {
+        gap: 6px;
       }
 
       .nav-links {
@@ -1149,10 +1316,62 @@
         padding: 5px 12px;
       }
     }
+
+    /* ═══════════════════════════════════════
+       SECTION LINK BUTTON (copiar link)
+    ═══════════════════════════════════════ */
+    .section-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin-left: 8px;
+      margin-top: 4px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      background: transparent;
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .85rem;
+      font-weight: 800;
+      line-height: 1;
+      opacity: 0;
+      cursor: pointer;
+      transition: opacity .2s, color .2s, border-color .2s, background .2s, transform .2s;
+    }
+
+    h2.sec-title:hover .section-link-btn,
+    h2.sec-title:focus-within .section-link-btn {
+      opacity: 1;
+    }
+
+    .section-link-btn:hover,
+    .section-link-btn.copied {
+      color: var(--or);
+      border-color: rgba(232, 81, 10, .24);
+      background: rgba(232, 81, 10, .08);
+      transform: translateY(-1px);
+    }
+
+    html.light-mode .section-link-btn {
+      color: var(--ink);
+      border-color: var(--border);
+      background: rgba(255, 255, 255, .03);
+    }
+
+    html.light-mode .section-link-btn:hover,
+    html.light-mode .section-link-btn.copied {
+      color: var(--or);
+      border-color: rgba(232, 81, 10, .22);
+      background: rgba(232, 81, 10, .08);
+    }
   </style>
 </head>
 
 <body>
+
+  <div id="read-progress" style="position:fixed;top:60px;left:0;height:3px;width:0%;background:var(--or);box-shadow:0 0 8px rgba(232,81,10,.5);z-index:199;transition:width .1s linear;pointer-events:none"></div>
 
   <!-- ═══════════ NAV ═══════════ -->
   <nav id="mainNav">
@@ -1161,17 +1380,21 @@
       <div class="nav-wordmark">REVIER <span>ACADEMY</span></div>
     </a>
 
-    <ul class="nav-links">
-      <li><a href="#trilhas">Trilhas</a></li>
-      <li><a href="#como-usar">Ritmo</a></li>
-      <li><span class="nav-tag">Uso Interno</span></li>
-    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">☀</button>
 
-    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <ul class="nav-links">
+        <li><a href="#trilhas">Trilhas</a></li>
+        <li><a href="#como-usar">Ritmo</a></li>
+        <li><span class="nav-tag">Uso Interno</span></li>
+      </ul>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- Mobile Menu -->
@@ -1280,6 +1503,7 @@
             <div class="card-desc">Carência, rede, coparticipação e a conversa que faz PME sair do "vou pensar".</div>
             <div class="card-meta">
               <span class="badge badge-novo-bl">Novo</span>
+                <span class="badge badge-top">🔥 TOP</span>
               <span class="badge-nivel essencial">Essencial</span>
             </div>
             <div class="card-cta">
@@ -1308,6 +1532,7 @@
             <div class="card-desc">Cobertura, sucessão e abordagem para virar proteção em fechamento, não em susto.</div>
             <div class="card-meta">
               <span class="badge badge-novo">Novo</span>
+                <span class="badge badge-top">🔥 TOP</span>
               <span class="badge-nivel intermediario">Intermediário</span>
             </div>
             <div class="card-cta">
@@ -1633,6 +1858,30 @@
     (function () {
       'use strict';
 
+      var root = document.documentElement;
+      var themeToggle = document.getElementById('themeToggle');
+
+      function syncThemeToggle() {
+        var isLight = root.classList.contains('light-mode');
+        themeToggle.textContent = isLight ? '☽' : '☀';
+        themeToggle.setAttribute('aria-label', isLight ? 'Alternar para modo escuro' : 'Alternar para modo claro');
+        themeToggle.setAttribute('title', isLight ? 'Alternar para modo escuro' : 'Alternar para modo claro');
+      }
+
+      function setTheme(isLight) {
+        root.classList.toggle('light-mode', isLight);
+        try {
+          localStorage.setItem('revier_theme', isLight ? 'light' : 'dark');
+        } catch (e) {}
+        syncThemeToggle();
+      }
+
+      syncThemeToggle();
+
+      themeToggle.addEventListener('click', function () {
+        setTheme(!root.classList.contains('light-mode'));
+      });
+
       // Scroll reveal
       const revealEls = document.querySelectorAll('.reveal');
       const revealObs = new IntersectionObserver(function (entries) {
@@ -1686,6 +1935,64 @@
         });
       });
     })();
+  </script>
+
+  <!-- FEATURE: Barra de progresso de leitura -->
+  <script>
+  (function(){
+    var bar = document.getElementById('read-progress');
+    if(!bar) return;
+    window.addEventListener('scroll', function(){
+      requestAnimationFrame(function(){
+        var h = document.body.scrollHeight - window.innerHeight;
+        var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+        bar.style.width = Math.min(pct, 100) + '%';
+      });
+    });
+  })();
+  </script>
+
+  <!-- FEATURE: Botão copiar link de seção -->
+  <script>
+  (function(){
+    document.querySelectorAll('.sec-header').forEach(function(header){
+      var section = header.closest('[id]');
+      var h2 = header.querySelector('h2.sec-title');
+      if(!section || !h2) return;
+      var btn = document.createElement('button');
+      btn.className = 'section-link-btn';
+      btn.type = 'button';
+      btn.textContent = '#';
+      btn.setAttribute('aria-label', 'Copiar link desta seção');
+      btn.addEventListener('click', function(){
+        var link = location.href.split('#')[0] + '#' + section.id;
+        function restore(){
+          btn.textContent = '✓';
+          btn.classList.add('copied');
+          setTimeout(function(){
+            btn.classList.remove('copied');
+            btn.textContent = '#';
+          }, 1500);
+        }
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(link).then(restore).catch(function(){ restore(); });
+        } else {
+          try{
+            var t = document.createElement('textarea');
+            t.value = link;
+            t.setAttribute('readonly','');
+            t.style.cssText = 'position:absolute;left:-9999px';
+            document.body.appendChild(t);
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+          }catch(e){}
+          restore();
+        }
+      });
+      h2.appendChild(btn);
+    });
+  })();
   </script>
 
 </body>
