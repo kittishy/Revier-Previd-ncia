@@ -9,20 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;
-      --light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#9D174D;--ac2:#EC4899;--acdk:#831843;
-    }
+    :root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;--light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#9D174D;--ac2:#EC4899}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Barlow',sans-serif;color:var(--ink);background:var(--white);overflow-x:hidden}
     ::selection{background:var(--ac2);color:#fff}
     nav{position:fixed;inset:0 0 auto 0;z-index:20;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(10,12,18,.96);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}.hex{width:28px;height:28px;background:var(--or);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}.word{font:900 1.1rem 'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase}.word span{color:var(--or)}
     .back{color:rgba(255,255,255,.52);text-decoration:none;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
     .shell{position:relative}
-    .shell::before{content:'';position:fixed;inset:0;background:
-      radial-gradient(circle at 15% 20%, rgba(236,72,153,.10), transparent 28%),
-      radial-gradient(circle at 85% 12%, rgba(232,81,10,.10), transparent 24%),
-      linear-gradient(180deg, rgba(10,12,18,.98), rgba(10,12,18,.98));z-index:-2}
+    .shell::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 15% 20%, rgba(236,72,153,.10), transparent 28%),radial-gradient(circle at 85% 12%, rgba(232,81,10,.10), transparent 24%),linear-gradient(180deg, rgba(10,12,18,.98), rgba(10,12,18,.98));z-index:-2}
     .shell::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 70% 60% at 50% 20%, black 32%, transparent 78%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 20%, black 32%, transparent 78%);z-index:-1}
     .hero{min-height:100vh;color:#fff;display:grid;place-items:center;padding:110px 24px 72px}
     .hero-inner{max-width:1180px;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
@@ -48,24 +42,18 @@
     .card h3{margin:0 0 10px;font:800 1.1rem 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.03em}
     .card p,.card li{line-height:1.7;color:#374151}
     .card ul,.card ol{margin:12px 0 0;padding-left:18px}
-    .callout{border-radius:16px;padding:22px 24px;border:1px solid rgba(236,72,153,.18);background:linear-gradient(135deg, rgba(236,72,153,.10), rgba(232,81,10,.06));}
+    .callout{border-radius:16px;padding:22px 24px;border:1px solid rgba(236,72,153,.18);background:linear-gradient(135deg, rgba(236,72,153,.10), rgba(232,81,10,.06))}
     .callout strong{color:var(--ink)}.callout a{color:var(--or);font-weight:800;text-decoration:none}
-    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-    .chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.72);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.72);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
     .table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
     .table th,.table td{padding:14px 16px;text-align:left;border-top:1px solid var(--border);background:#fff;vertical-align:top}
     .table thead th{background:#14161f;color:rgba(255,255,255,.78);border-top:none;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
     .table tr:hover td{background:#fff8fb}
     .badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
     .b-pink{background:rgba(236,72,153,.10);color:var(--ac2)}.b-orange{background:rgba(232,81,10,.10);color:var(--or)}.b-green{background:rgba(22,163,74,.10);color:#16A34A}
-    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-    .script{padding:18px 20px;border-left:3px solid var(--ac2);background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.05);font-style:italic;color:#374151}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.script{padding:18px 20px;border-left:3px solid var(--ac2);background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.05);font-style:italic;color:#374151}
     .footer{background:#060810;color:rgba(255,255,255,.62);padding:34px 0}.footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.footer a{color:#fff;text-decoration:none}
-    @media (max-width: 920px){
-      .hero-inner,.layout,.grid-2{grid-template-columns:1fr}
-      h1{font-size:clamp(3rem,13vw,5.2rem)}
-      .hero{padding-top:96px}
-    }
+    @media (max-width: 920px){.hero-inner,.layout,.grid-2{grid-template-columns:1fr}h1{font-size:clamp(3rem,13vw,5.2rem)}.hero{padding-top:96px}}
   </style>
 </head>
 <body>
@@ -74,7 +62,6 @@
       <a class="brand" href="../../index.html"><div class="hex"></div><div class="word">Revier <span>Brokers</span></div></a>
       <a class="back" href="../../index.html">Voltar ao portal</a>
     </nav>
-
     <main>
       <section class="hero">
         <div class="hero-inner">
@@ -87,10 +74,7 @@
               <a class="btn btn-ghost" href="#checklist">Ir ao checklist</a>
             </div>
             <div class="chips">
-              <span class="chip">Cão e gato</span>
-              <span class="chip">Carência</span>
-              <span class="chip">Reembolso</span>
-              <span class="chip">Rede credenciada</span>
+              <span class="chip">Cão e gato</span><span class="chip">Carência</span><span class="chip">Reembolso</span><span class="chip">Rede credenciada</span>
             </div>
           </div>
           <aside class="hero-panel">
@@ -104,7 +88,6 @@
           </aside>
         </div>
       </section>
-
       <section class="section light" id="operadoras">
         <div class="container">
           <div class="eyebrow"><span class="dot"></span>Operadoras</div>
@@ -131,7 +114,6 @@
           </div>
         </div>
       </section>
-
       <section class="section" id="checklist">
         <div class="container">
           <div class="eyebrow"><span class="dot"></span>Checklist</div>
@@ -159,12 +141,9 @@
               </ul>
             </div>
           </div>
-          <div style="margin-top:20px" class="script">
-            “Você me fala a espécie, raça e idade, e eu te devolvo uma opção que já faça sentido na rotina do pet e no bolso do tutor.”
-          </div>
+          <div style="margin-top:20px" class="script">“Você me fala a espécie, raça e idade, e eu te devolvo uma opção que já faça sentido na rotina do pet e no bolso do tutor.”</div>
         </div>
       </section>
-
       <section class="section light">
         <div class="container">
           <div class="eyebrow"><span class="dot"></span>Preço</div>
@@ -172,14 +151,7 @@
           <p class="lead">Pet costuma ser uma porta de entrada boa para a conversa porque o valor mensal é fácil de comparar com o gasto de uma emergência veterinária.</p>
           <div class="card">
             <table class="table">
-              <thead>
-                <tr>
-                  <th>Perfil do pet</th>
-                  <th>Básico/mês</th>
-                  <th>Intermediário/mês</th>
-                  <th>Completo/mês</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Perfil do pet</th><th>Básico/mês</th><th>Intermediário/mês</th><th>Completo/mês</th></tr></thead>
               <tbody>
                 <tr><td><strong>Gato</strong></td><td><span class="badge b-pink">R$ 70–110</span></td><td>R$ 120–180</td><td>R$ 200–320</td></tr>
                 <tr><td><strong>Cão pequeno até 10kg</strong></td><td><span class="badge b-pink">R$ 85–130</span></td><td>R$ 140–200</td><td>R$ 220–350</td></tr>
@@ -192,7 +164,6 @@
           </div>
         </div>
       </section>
-
       <section class="section">
         <div class="container">
           <div class="eyebrow"><span class="dot"></span>Fechamento</div>
@@ -208,15 +179,12 @@
             <div class="card">
               <h3>Cross-sell natural</h3>
               <p>Quem compra pet costuma aceitar a conversa de vida e residencial no mesmo mês. Depois de falar do animal, a ponte é simples: “E você, já tem proteção para a sua família e para a sua casa?”</p>
-              <div class="callout" style="margin-top:14px">
-                <strong>Próximo passo:</strong> vendeu pet? Puxa vida e residencial em seguida. <a href="../seguro-vida/index.html">Ver guia de Vida →</a>
-              </div>
+              <div class="callout" style="margin-top:14px"><strong>Próximo passo:</strong> vendeu pet? Puxa vida e residencial em seguida. <a href="../seguro-vida/index.html">Ver guia de Vida →</a></div>
             </div>
           </div>
         </div>
       </section>
     </main>
-
     <footer class="footer">
       <div class="container">
         <div>Revier Corretora de Seguros Ltda. · Uso interno</div>
