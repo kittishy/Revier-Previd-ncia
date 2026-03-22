@@ -533,6 +533,10 @@
       cursor: default;
     }
 
+    .trilha-card.has-featured-badge {
+      padding-top: 52px;
+    }
+
     .trilha-card::before {
       content: '';
       position: absolute;
@@ -679,6 +683,13 @@
       letter-spacing: .02em;
     }
 
+    .card-featured-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 2;
+    }
+
     .card-desc {
       font-size: .85rem;
       color: rgba(255, 255, 255, .4);
@@ -707,6 +718,13 @@
     .badge-novo {
       background: var(--or);
       color: white;
+    }
+
+    .badge-mais-lido {
+      background: rgba(255, 255, 255, .04);
+      color: rgba(255, 255, 255, .72);
+      border: 1px solid rgba(255, 255, 255, .08);
+      box-shadow: 0 0 0 1px rgba(232, 81, 10, .06) inset;
     }
 
     .badge-breve {
@@ -1243,9 +1261,10 @@
         </a>
 
         <!-- ✅ CARD 2 — Planos de Saúde PME -->
-        <a href="guias/planos-saude-pme/index.html" class="trilha-card active-bl reveal reveal-d2" id="card-saude"
+        <a href="guias/planos-saude-pme/index.html" class="trilha-card active-bl reveal reveal-d2 has-featured-badge" id="card-saude"
           style="text-decoration:none;">
           <div class="card-body">
+            <span class="badge badge-mais-lido card-featured-badge">Mais lido</span>
             <div class="card-icon icon-bl">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -1331,9 +1350,10 @@
         </a>
 
         <!-- ✅ CARD 5 — Seguro Auto -->
-        <a href="guias/seguro-auto/index.html" class="trilha-card active reveal reveal-d5" id="card-auto"
+        <a href="guias/seguro-auto/index.html" class="trilha-card active reveal reveal-d5 has-featured-badge" id="card-auto"
           style="text-decoration:none;">
           <div class="card-body">
+            <span class="badge badge-mais-lido card-featured-badge">Mais lido</span>
             <div class="card-icon icon-yl">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">

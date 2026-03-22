@@ -172,6 +172,25 @@ h2.sec-title-light{color:#fff}
 .check-box-el{width:18px;height:18px;border:1.5px solid rgba(139,92,246,.4);border-radius:3px;flex-shrink:0;margin-top:2px;transition:all .2s}
 .check-row:hover .check-box-el{border-color:var(--ac2);background:rgba(139,92,246,.08)}
 .check-text{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.5}
+.reading-progress{position:fixed;top:60px;left:0;right:0;height:3px;background:rgba(255,255,255,.08);z-index:210;pointer-events:none}
+.reading-progress-bar{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--ac2),var(--or));box-shadow:0 0 18px rgba(245,158,11,.35)}
+.quick-brief{margin-top:24px;max-width:560px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;box-shadow:0 16px 36px rgba(0,0,0,.18)}
+.quick-brief summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer}
+.quick-brief summary::-webkit-details-marker{display:none}
+.quick-brief-kicker{display:block;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:6px}
+.quick-brief-title{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#fff}
+.quick-brief-icon{width:34px;height:34px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--ac2);flex-shrink:0;transition:transform .2s ease,background .2s ease}
+.quick-brief[open] .quick-brief-icon{transform:rotate(45deg);background:rgba(245,158,11,.08)}
+.quick-brief-body{padding:0 22px 20px}
+.quick-brief-body p{font-size:.84rem;color:rgba(255,255,255,.58);line-height:1.6;margin-bottom:14px}
+.quick-brief-list{list-style:none;display:grid;gap:10px}
+.quick-brief-list li{font-size:.88rem;color:rgba(255,255,255,.72);line-height:1.55;padding-left:18px;position:relative}
+.quick-brief-list li::before{content:'';position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--ac2);box-shadow:0 0 0 4px rgba(245,158,11,.12)}
+.quick-brief-list strong{color:#fff}
+.section-copy{position:absolute;top:32px;right:40px;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(26,28,36,.12);border-radius:999px;background:rgba(255,255,255,.86);color:var(--ink);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s;backdrop-filter:blur(10px);box-shadow:0 10px 25px rgba(10,12,18,.08)}
+.section-copy:hover{transform:translateY(-1px);border-color:rgba(245,158,11,.35);color:var(--ac)}
+.section-copy.copied{background:#ecfdf3;border-color:rgba(22,163,74,.28);color:var(--gn)}
+.section-highlight::after{content:'';position:absolute;inset:18px;border:1px solid rgba(245,158,11,.22);border-radius:10px;pointer-events:none}
 footer{background:#060810;padding:60px 0 32px;border-top:1px solid rgba(255,255,255,.05)}
 .footer-top{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:48px}
 .footer-brand .nav-wordmark{font-size:1.6rem;margin-bottom:6px}
@@ -196,12 +215,15 @@ h2.sec-title{font-size:clamp(2rem,8vw,3rem)}.sec-lead{font-size:.9rem;margin-bot
 .stats-row{grid-template-columns:1fr 1fr;gap:12px}.stat-val{font-size:1.9rem}
 .gold-rule{grid-template-columns:1fr;gap:12px;padding:22px 20px}
 .venda-steps::before{left:16px}.venda-step-num{width:32px;height:32px;font-size:.9rem}.venda-step{gap:14px}
+.section-copy{top:20px;right:20px;padding:8px 12px;font-size:.63rem}
 footer{padding:40px 0 20px}.footer-bottom{padding:16px 20px 0;flex-direction:column;align-items:flex-start}
 }
 @media(max-width:480px){
 .container{padding:0 16px}.section{padding:52px 0}
 h1.hero-title{font-size:clamp(2.8rem,14vw,3.8rem)}.hero-sub{font-size:.88rem}
 .hero-cta-row{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}
+.quick-brief{margin-top:18px}.quick-brief summary{padding:16px 18px}.quick-brief-body{padding:0 18px 18px}
+.section-copy{top:16px;right:16px;padding:8px 10px;font-size:.6rem}
 h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padding-left:10px}
 .stats-row{grid-template-columns:1fr 1fr}.stat-box{padding:18px 12px}.stat-val{font-size:1.7rem}
 .obj-q{font-size:.82rem;padding:12px 14px}.obj-a{padding:12px 14px}
@@ -238,6 +260,7 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
   <a href="#operadoras">07 · Operadoras</a>
   <a href="#checklist">08 · Checklist</a>
 </div>
+<div class="reading-progress" aria-hidden="true"><span class="reading-progress-bar" id="readingProgressBar"></span></div>
 
 <section class="hero">
   <div class="hero-grid"></div><div class="hero-glow"></div>
@@ -251,6 +274,23 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
         <a href="#fundamentos" class="btn-primary">Abrir o guia →</a>
         <a href="#checklist" class="btn-ghost">Ver checklist</a>
       </div>
+      <details class="quick-brief reveal reveal-delay-1">
+        <summary>
+          <div>
+            <span class="quick-brief-kicker">Resumo de 30 segundos</span>
+            <span class="quick-brief-title">A urgencia ja vem pronta</span>
+          </div>
+          <span class="quick-brief-icon" aria-hidden="true">+</span>
+        </summary>
+        <div class="quick-brief-body">
+          <p>O cliente ja tem passagem, data e receio de dar problema fora.</p>
+          <ul class="quick-brief-list">
+            <li><strong>Schengen e custos medicos:</strong> isso tira a conversa do campo do talvez.</li>
+            <li><strong>Seguro viagem fecha rapido:</strong> o prazo empurra a decisao.</li>
+            <li><strong>Fechou viagem:</strong> aproveite para perguntar sobre plano de saude.</li>
+          </ul>
+        </div>
+      </details>
     </div>
     <div class="hero-toc">
       <div class="hero-toc-title">Índice</div>
@@ -586,11 +626,6 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
       <div class="rec-box-label" style="color:var(--ac2);">🎯 Regra de ouro do seguro viagem</div>
       <p style="color:rgba(255,255,255,.7);">Emita antes do embarque — sempre. Seguro adquirido após a saída do país não tem validade para a viagem em curso. E sempre salve a apólice no celular do cliente antes de ele ir embora — na emergência, o documento precisa estar acessível sem internet.</p>
     </div>
-    <div class="feature-box fb-green" style="margin-top: 48px; width: 100%; grid-column: span 2;">
-      <div class="fb-label">PRÓXIMO PASSO</div>
-      <p>Viagem fechada? Pergunta se tem saúde. Quem viaja bastante sem plano de saúde está com dois riscos descobertos.</p>
-      <a href="../planos-saude-pme/index.html" class="btn-primary" style="margin-top: 12px; padding: 8px 16px; font-size: 0.75rem;">Ver guia →</a>
-    </div>
   </div>
 </section>
 
@@ -632,11 +667,55 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
 <script>
 (function(){
   'use strict';
+  var doc=document.documentElement;
+  var progressBar=document.getElementById('readingProgressBar');
+  function updateProgress(){
+    if(!progressBar){return;}
+    var scrollTop=window.pageYOffset||doc.scrollTop||0;
+    var maxScroll=doc.scrollHeight-window.innerHeight;
+    var progress=maxScroll>0?(scrollTop/maxScroll)*100:0;
+    progressBar.style.width=Math.min(100,Math.max(0,progress)).toFixed(2)+'%';
+  }
+  updateProgress();
+  window.addEventListener('scroll',updateProgress,{passive:true});
+  window.addEventListener('resize',updateProgress);
   var revEls=document.querySelectorAll('.reveal');
   var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   revEls.forEach(function(el){obs.observe(el);});
   var burger=document.getElementById('hamburger');var menu=document.getElementById('mobileMenu');
   if(burger&&menu){burger.addEventListener('click',function(){burger.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});}
+  document.querySelectorAll('.section[id]').forEach(function(section){
+    var copyBtn=document.createElement('button');
+    copyBtn.type='button';
+    copyBtn.className='section-copy';
+    copyBtn.textContent='Copiar secao';
+    copyBtn.addEventListener('click',function(){
+      var url=new URL(window.location.href);
+      url.hash=section.id;
+      var value=url.toString();
+      var done=function(){
+        copyBtn.classList.add('copied');
+        copyBtn.textContent='Link copiado';
+        section.classList.add('section-highlight');
+        window.setTimeout(function(){copyBtn.classList.remove('copied');copyBtn.textContent='Copiar secao';section.classList.remove('section-highlight');},1800);
+      };
+      var fallback=function(){
+        var input=document.createElement('input');
+        input.value=value;
+        document.body.appendChild(input);
+        input.select();
+        input.setSelectionRange(0,input.value.length);
+        try{document.execCommand('copy');done();}catch(err){window.location.hash=section.id;}
+        document.body.removeChild(input);
+      };
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(value).then(done).catch(fallback);}else{fallback();}
+    });
+    section.appendChild(copyBtn);
+  });
+  if(window.location.hash){
+    var target=document.querySelector(window.location.hash);
+    if(target){target.classList.add('section-highlight');window.setTimeout(function(){target.classList.remove('section-highlight');},1800);}
+  }
 })();
 </script>
 </body>
