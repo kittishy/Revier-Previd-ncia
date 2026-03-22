@@ -247,6 +247,14 @@ html.light-mode .reading-progress-bar{background:linear-gradient(90deg,var(--ac2
 html.light-mode .section-copy{background:rgba(255,255,255,.08);color:var(--page-text);border-color:var(--page-border)}
 html.light-mode .section-copy:hover{border-color:rgba(139,92,246,.35);color:var(--ac2)}
 html.light-mode .section-copy.copied{background:rgba(22,163,74,.15);border-color:rgba(22,163,74,.28);color:var(--gn)}
+.quick-summary{margin:0 0 18px;background:var(--or);color:#fff}
+.summary-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border:0;background:transparent;color:inherit;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.summary-arrow{display:inline-flex;transition:transform .35s ease}
+.quick-summary.is-open .summary-arrow{transform:rotate(180deg)}
+.summary-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;background:rgba(255,255,255,.08)}
+.summary-list{list-style:none;padding:0 24px 18px;display:grid;gap:10px}
+.summary-list li{position:relative;padding-left:18px;font-family:'Barlow',sans-serif;font-size:.9rem;font-weight:500;line-height:1.55;color:#fff}
+.summary-list li::before{content:'•';position:absolute;left:0;color:rgba(255,255,255,.9)}
 </style>
 </head>
 <body>
@@ -267,6 +275,21 @@ html.light-mode .section-copy.copied{background:rgba(22,163,74,.15);border-color
   <div class="nav-badge">Guia Interno</div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<section class="quick-summary" data-summary-key="summary_seguro-viagem">
+  <button class="summary-toggle" type="button" aria-expanded="false">
+    <span>RESUMO RÁPIDO — 30 SEGUNDOS</span>
+    <span class="summary-arrow" aria-hidden="true">▾</span>
+  </button>
+  <div class="summary-panel">
+    <ul class="summary-list">
+      <li>Schengen exige cobertura mínima de €30.000 — obrigatório para tirar visto europeu</li>
+      <li>Hospitalização nos EUA custa entre USD 15.000 e USD 80.000 sem seguro</li>
+      <li>Fecha no mesmo dia — a data da viagem cria a urgência, você só aproveita</li>
+    </ul>
+  </div>
+</section>
+
 <div class="mobile-menu" id="mobileMenu">
   <a href="../../index.html">← Voltar ao Portal</a>
   <a href="#fundamentos">01 · Por que viagem fecha</a>
@@ -742,6 +765,8 @@ html.light-mode .section-copy.copied{background:rgba(22,163,74,.15);border-color
   var root=document.documentElement;
   function sync(){toggle.textContent=root.classList.contains('light-mode')?'☀':'☽';}
   if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('light-mode');localStorage.setItem('revier_theme',root.classList.contains('light-mode')?'light':'dark');sync();});}
+  var summary=document.querySelector('.quick-summary');
+  if(summary){var sbtn=summary.querySelector('.summary-toggle');var skey=summary.getAttribute('data-summary-key');if(localStorage.getItem(skey)==='open')summary.classList.add('is-open');sbtn.setAttribute('aria-expanded',summary.classList.contains('is-open'));sbtn.addEventListener('click',function(){summary.classList.toggle('is-open');var open=summary.classList.contains('is-open');sbtn.setAttribute('aria-expanded',open);localStorage.setItem(skey,open?'open':'closed');});}
 })();
 </script>
 </body>
