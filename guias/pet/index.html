@@ -1,38 +1,228 @@
-<section class="operadoras">
-    <h2>Ranking das Operadoras</h2>
-    <ol>
-        <li>Petz Saúde - Maior rede de clínicas parceiras do Brasil. Funciona para cão ou gato de qualquer porte. O cliente já conhece o nome — facilita a conversa.</li>
-        <li>Porto Pet - Boa relação custo-benefício no básico e intermediário. Indica para PF com cão de pequeno ou médio porte que prioriza preço. Adesão rápida.</li>
-        <li>SulAmérica Pet - Melhor opção quando o cliente já tem saúde ou vida SulAmérica. Cria ecossistema e facilita cross-sell na renovação.</li>
-        <li>Omint Pet - Indica para raças de alto custo veterinário (Golden, Labrador, Buldogue) ou tutores que querem cobertura mais folgada. Ticket mais alto, cobertura mais completa.</li>
-        <li>MeuPet - Focado em digital, rápido para cotar e emitir. Boa opção para tutor jovem com orçamento enxuto. Planos a partir de R$ 49/mês.</li>
-    </ol>
-    <div class="callout">
-        <strong>REGRA RÁPIDA DE INDICAÇÃO</strong><br>
-        Tutor com saúde SulAmérica → SulAmérica Pet.<br>
-        Raça cara → Omint.<br>
-        Tutor jovem e digital → MeuPet.<br>
-        Para o resto → Petz ou Porto Pet.
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revier · Seguro Pet na Prática</title>
+  <meta name="description" content="Guia completo de seguro pet para corretores da Revier Brokers. Operadoras, carências, preço e abordagem de venda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;
+      --light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#9D174D;--ac2:#EC4899;--acdk:#831843;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Barlow',sans-serif;color:var(--ink);background:var(--white);overflow-x:hidden}
+    ::selection{background:var(--ac2);color:#fff}
+    nav{position:fixed;inset:0 0 auto 0;z-index:20;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(10,12,18,.96);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}.hex{width:28px;height:28px;background:var(--or);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}.word{font:900 1.1rem 'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase}.word span{color:var(--or)}
+    .back{color:rgba(255,255,255,.52);text-decoration:none;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+    .shell{position:relative}
+    .shell::before{content:'';position:fixed;inset:0;background:
+      radial-gradient(circle at 15% 20%, rgba(236,72,153,.10), transparent 28%),
+      radial-gradient(circle at 85% 12%, rgba(232,81,10,.10), transparent 24%),
+      linear-gradient(180deg, rgba(10,12,18,.98), rgba(10,12,18,.98));z-index:-2}
+    .shell::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 70% 60% at 50% 20%, black 32%, transparent 78%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 20%, black 32%, transparent 78%);z-index:-1}
+    .hero{min-height:100vh;color:#fff;display:grid;place-items:center;padding:110px 24px 72px}
+    .hero-inner{max-width:1180px;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ac2);border:1px solid rgba(236,72,153,.28);border-radius:999px;padding:6px 14px;background:rgba(236,72,153,.06)}
+    .tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ac2)}
+    h1{font:900 clamp(3.6rem,9vw,7.4rem)/.86 'Barlow Condensed',sans-serif;text-transform:uppercase;margin:18px 0 16px;letter-spacing:-.02em}
+    .hero p{max-width:58ch;color:rgba(255,255,255,.62);line-height:1.82;font-size:1.02rem;margin:0 0 28px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s ease,background .2s ease,border-color .2s ease}
+    .btn-primary{background:var(--or);color:#fff}.btn-primary:hover{background:var(--or2);transform:translateY(-2px)}.btn-ghost{border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.72)}.btn-ghost:hover{border-color:var(--ac2);color:#fff;transform:translateY(-2px)}
+    .hero-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.18)}
+    .hero-panel h2{margin:0 0 16px;font:800 1rem 'Barlow Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+    .hero-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .stat{padding:16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+    .stat .k{font:900 1.55rem 'Barlow Condensed',sans-serif;color:#fff;line-height:1}.stat .v{margin-top:8px;color:rgba(255,255,255,.58);font-size:.85rem;line-height:1.55}
+    .section{padding:88px 0}.section.light{background:var(--light)}.container{max-width:1180px;margin:0 auto;padding:0 24px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--or);margin-bottom:14px}
+    .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--or)}
+    h2.sec{font:900 clamp(2.1rem,4.4vw,3.5rem)/.92 'Barlow Condensed',sans-serif;text-transform:uppercase;margin:0 0 14px}
+    .lead{max-width:72ch;color:var(--muted);font-style:italic;line-height:1.8;margin:0 0 34px}
+    .layout{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+    .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 12px 34px rgba(0,0,0,.05)}
+    .card h3{margin:0 0 10px;font:800 1.1rem 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.03em}
+    .card p,.card li{line-height:1.7;color:#374151}
+    .card ul,.card ol{margin:12px 0 0;padding-left:18px}
+    .callout{border-radius:16px;padding:22px 24px;border:1px solid rgba(236,72,153,.18);background:linear-gradient(135deg, rgba(236,72,153,.10), rgba(232,81,10,.06));}
+    .callout strong{color:var(--ink)}.callout a{color:var(--or);font-weight:800;text-decoration:none}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    .chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.72);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+    .table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+    .table th,.table td{padding:14px 16px;text-align:left;border-top:1px solid var(--border);background:#fff;vertical-align:top}
+    .table thead th{background:#14161f;color:rgba(255,255,255,.78);border-top:none;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+    .table tr:hover td{background:#fff8fb}
+    .badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .b-pink{background:rgba(236,72,153,.10);color:var(--ac2)}.b-orange{background:rgba(232,81,10,.10);color:var(--or)}.b-green{background:rgba(22,163,74,.10);color:#16A34A}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .script{padding:18px 20px;border-left:3px solid var(--ac2);background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.05);font-style:italic;color:#374151}
+    .footer{background:#060810;color:rgba(255,255,255,.62);padding:34px 0}.footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.footer a{color:#fff;text-decoration:none}
+    @media (max-width: 920px){
+      .hero-inner,.layout,.grid-2{grid-template-columns:1fr}
+      h1{font-size:clamp(3rem,13vw,5.2rem)}
+      .hero{padding-top:96px}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav>
+      <a class="brand" href="../../index.html"><div class="hex"></div><div class="word">Revier <span>Brokers</span></div></a>
+      <a class="back" href="../../index.html">Voltar ao portal</a>
+    </nav>
 
-<!-- Checklist Questions -->
-<section class="checklist">
-    <h2>Checklist</h2>
-    <ul>
-        <li>Qual a espécie? (cão ou gato define operadora e preço)</li>
-        <li>Qual a raça? (raças com histórico genético têm carência maior ou recusa)</li>
-        <li>Qual a idade do pet? (acima de 8 anos pode ter restrição de adesão)</li>
-        <li>Tem condição preexistente diagnosticada? (displasia, cardiopatia, tumor)</li>
-        <li>Já teve emergência veterinária sem seguro? Quanto gastou?</li>
-        <li>Tem mais de um pet? (oportunidade de apólice familiar)</li>
-        <li>Prefere clínica parceira ou reembolso?</li>
-        <li>Qual o orçamento mensal por pet?</li>
-    </ul>
-</section>
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="tag">Guia interno · Pet</div>
+            <h1>Seguro Pet<br>na prática</h1>
+            <p>O objetivo desse guia é simples: transformar seguro pet em uma conversa de proteção e rotina, não em um “mimo caro”. Quando o tutor entende rede, carência e reembolso, a venda fica mais leve e honesta.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#operadoras">Ver operadoras</a>
+              <a class="btn btn-ghost" href="#checklist">Ir ao checklist</a>
+            </div>
+            <div class="chips">
+              <span class="chip">Cão e gato</span>
+              <span class="chip">Carência</span>
+              <span class="chip">Reembolso</span>
+              <span class="chip">Rede credenciada</span>
+            </div>
+          </div>
+          <aside class="hero-panel">
+            <h2>Leitura rápida</h2>
+            <div class="hero-grid">
+              <div class="stat"><div class="k">1</div><div class="v">Escolha a operadora pelo perfil do tutor, não só pelo preço.</div></div>
+              <div class="stat"><div class="k">2</div><div class="v">Carência mal explicada é a principal fonte de fricção.</div></div>
+              <div class="stat"><div class="k">3</div><div class="v">Rede e reembolso mudam totalmente a objeção.</div></div>
+              <div class="stat"><div class="k">4</div><div class="v">A venda melhora quando você pergunta pelo pet antes do produto.</div></div>
+            </div>
+          </aside>
+        </div>
+      </section>
 
-<section class="cross-sell">
-    <h2>PRÓXIMO PASSO</h2>
-    <p>Vendeu pet? Puxa vida e residencial em seguida — o tutor tem exatamente o perfil que compra os dois.</p>
-    <a href="../seguro-vida/index.html">Ver guia de Vida →</a>
-</section>
+      <section class="section light" id="operadoras">
+        <div class="container">
+          <div class="eyebrow"><span class="dot"></span>Operadoras</div>
+          <h2 class="sec">Ranking das operadoras</h2>
+          <p class="lead">Compare o perfil de cada marca antes de cotar. O “melhor” plano muda conforme porte, raça, idade e se o tutor aceita rede ou prefere liberdade de escolha.</p>
+          <div class="layout">
+            <div class="card">
+              <ol>
+                <li><strong>Petz Saúde</strong> - Maior rede de clínicas parceiras do Brasil. Funciona para cão ou gato de qualquer porte e ajuda quando o cliente já conhece a marca.</li>
+                <li><strong>Porto Pet</strong> - Boa relação custo-benefício no básico e intermediário. Indica para PF com cão de pequeno ou médio porte que prioriza preço.</li>
+                <li><strong>SulAmérica Pet</strong> - Faz sentido quando o cliente já tem saúde ou vida SulAmérica. Cria ecossistema e ajuda no cross-sell.</li>
+                <li><strong>Omint Pet</strong> - Melhor para raças de alto custo veterinário ou tutores que querem cobertura mais folgada e ticket maior.</li>
+                <li><strong>MeuPet</strong> - Focado em digital e emissão rápida. Boa opção para tutor jovem com orçamento enxuto.</li>
+              </ol>
+            </div>
+            <div class="callout">
+              <strong>Regra rápida de indicação</strong><br><br>
+              Tutor com saúde SulAmérica → SulAmérica Pet.<br>
+              Raça cara → Omint.<br>
+              Tutor jovem e digital → MeuPet.<br>
+              Para o resto → Petz ou Porto Pet.<br><br>
+              <span style="color:rgba(255,255,255,.72)">O melhor argumento não é “o mais barato”; é o que encaixa no comportamento do tutor e no uso que ele vai fazer do plano.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="checklist">
+        <div class="container">
+          <div class="eyebrow"><span class="dot"></span>Checklist</div>
+          <h2 class="sec">Dados que você precisa antes de cotar</h2>
+          <p class="lead">Quanto mais completo o perfil, mais rápido a cotação sai e menos chance de surpresa no pós-venda.</p>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Perfil do pet</h3>
+              <ul>
+                <li>Espécie: cão ou gato.</li>
+                <li>Raça exata e porte, se for cão.</li>
+                <li>Idade do pet.</li>
+                <li>Condição preexistente ou doença congênita.</li>
+                <li>Se já houve emergência veterinária antes.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Fechamento</h3>
+              <ul>
+                <li>Mais de um pet na mesma casa.</li>
+                <li>Preferência por clínica parceira ou reembolso.</li>
+                <li>Orçamento mensal por pet.</li>
+                <li>Plano desejado: básico, intermediário ou completo.</li>
+                <li>Veterinário atual do cliente.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:20px" class="script">
+            “Você me fala a espécie, raça e idade, e eu te devolvo uma opção que já faça sentido na rotina do pet e no bolso do tutor.”
+          </div>
+        </div>
+      </section>
+
+      <section class="section light">
+        <div class="container">
+          <div class="eyebrow"><span class="dot"></span>Preço</div>
+          <h2 class="sec">Preço por espécie, porte e plano</h2>
+          <p class="lead">Pet costuma ser uma porta de entrada boa para a conversa porque o valor mensal é fácil de comparar com o gasto de uma emergência veterinária.</p>
+          <div class="card">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Perfil do pet</th>
+                  <th>Básico/mês</th>
+                  <th>Intermediário/mês</th>
+                  <th>Completo/mês</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Gato</strong></td><td><span class="badge b-pink">R$ 70–110</span></td><td>R$ 120–180</td><td>R$ 200–320</td></tr>
+                <tr><td><strong>Cão pequeno até 10kg</strong></td><td><span class="badge b-pink">R$ 85–130</span></td><td>R$ 140–200</td><td>R$ 220–350</td></tr>
+                <tr><td><strong>Cão médio 10–25kg</strong></td><td>R$ 110–160</td><td>R$ 180–250</td><td>R$ 280–420</td></tr>
+                <tr><td><strong>Cão grande 25–45kg</strong></td><td>R$ 150–220</td><td>R$ 240–340</td><td><span class="badge b-orange">R$ 380–550</span></td></tr>
+                <tr><td><strong>Raça com predisposição</strong></td><td>+10–20%</td><td>+10–20%</td><td>+10–30%</td></tr>
+                <tr><td><strong>Pet acima de 6 anos</strong></td><td>+15–30%</td><td>+15–30%</td><td>Análise individual</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="eyebrow"><span class="dot"></span>Fechamento</div>
+          <h2 class="sec">Conduza a venda sem forçar a barra</h2>
+          <p class="lead">Pet é venda emocional. Comece pelo animal, pelo custo da emergência e pelo tipo de atendimento que o tutor quer ter na prática.</p>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Script de conversa</h3>
+              <div class="script">“Você tem pet? Cachorro, gato? Qual é o nome e a raça? Pergunto porque existe plano que encaixa certinho no perfil do animal.”</div>
+              <div style="height:12px"></div>
+              <div class="script">“Uma internação ou cirurgia pode sair caro rapidamente. O objetivo do plano é evitar que um susto vire uma decisão financeira ruim.”</div>
+            </div>
+            <div class="card">
+              <h3>Cross-sell natural</h3>
+              <p>Quem compra pet costuma aceitar a conversa de vida e residencial no mesmo mês. Depois de falar do animal, a ponte é simples: “E você, já tem proteção para a sua família e para a sua casa?”</p>
+              <div class="callout" style="margin-top:14px">
+                <strong>Próximo passo:</strong> vendeu pet? Puxa vida e residencial em seguida. <a href="../seguro-vida/index.html">Ver guia de Vida →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div>Revier Corretora de Seguros Ltda. · Uso interno</div>
+        <div><a href="../seguro-vida/index.html">Seguro de Vida</a> · <a href="../../index.html">Portal</a></div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
