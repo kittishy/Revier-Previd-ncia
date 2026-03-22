@@ -2,7 +2,7 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$Message,
 
-    [switch]$Prod,
+    [switch]$Preview,
 
     [string]$Project = "revier-portal",
 
@@ -39,8 +39,8 @@ Run-Step "git pull --rebase origin $branch"
 Run-Step "git push origin $branch"
 Run-Step "vercel link --yes --project $Project --scope $Scope"
 
-if ($Prod) {
-    Run-Step "vercel deploy --prod -y"
-} else {
+if ($Preview) {
     Run-Step "vercel deploy -y"
+} else {
+    Run-Step "vercel deploy --prod -y"
 }
