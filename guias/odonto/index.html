@@ -251,10 +251,10 @@ footer{background:#060810;padding:60px 0 32px;border-top:1px solid rgba(255,255,
 .theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid color-mix(in srgb,var(--white) 18%,transparent);border-radius:50%;background:transparent;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:900;cursor:pointer;transition:transform .2s,border-color .2s,color .2s,background .2s}
 .theme-toggle:hover{transform:translateY(-1px);border-color:var(--or);color:var(--or);background:color-mix(in srgb,var(--or) 12%,transparent)}
 #read-progress{position:fixed;top:60px;left:0;height:3px;width:0%;background:var(--or);box-shadow:0 0 8px color-mix(in srgb,var(--or) 50%,transparent);z-index:199;transition:width .1s linear;pointer-events:none}
+.quick-brief{margin-top:24px;max-width:560px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;box-shadow:0 16px 36px rgba(0,0,0,.18)}.quick-brief summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer}.quick-brief summary::-webkit-details-marker{display:none}.quick-brief-kicker{display:block;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--tl);margin-bottom:6px}.quick-brief-title{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#fff}.quick-brief-icon{width:34px;height:34px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--tl);flex-shrink:0;transition:transform .2s ease,background .2s ease}.quick-brief[open] .quick-brief-icon{transform:rotate(45deg);background:rgba(11,158,160,.08)}.quick-brief-body{padding:0 22px 20px}.quick-brief-body p{font-size:.84rem;color:rgba(255,255,255,.58);line-height:1.6;margin-bottom:14px}.quick-brief-list{list-style:none;display:grid;gap:10px}.quick-brief-list li{font-size:.88rem;color:rgba(255,255,255,.72);line-height:1.55;padding-left:18px;position:relative}.quick-brief-list li::before{content:'';position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--tl);box-shadow:0 0 0 4px rgba(11,158,160,.12)}.quick-brief-list strong{color:#fff}
+@media(max-width:900px){.quick-brief{margin-top:18px}.quick-brief summary{padding:16px 18px}.quick-brief-body{padding:0 18px 18px}}
 .quick-summary {
-  margin-top: 60px;
-  background: var(--or);
-  overflow: hidden;
+  display: none;
 }
 .summary-toggle {
   display: flex;
@@ -422,6 +422,23 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
         <a href="#odonto-intro" class="btn-primary">Abrir o guia →</a>
         <a href="#checklist" class="btn-ghost">Ver checklist</a>
       </div>
+      <details class="quick-brief reveal reveal-delay-1">
+        <summary>
+          <div>
+            <span class="quick-brief-kicker">Resumo de 30 segundos</span>
+            <span class="quick-brief-title">PME fecha, PF entra, Adesao e o ultimo caso</span>
+          </div>
+          <span class="quick-brief-icon" aria-hidden="true">+</span>
+        </summary>
+        <div class="quick-brief-body">
+          <p>A logica do odonto em tres regras que simplificam qualquer reuniao.</p>
+          <ul class="quick-brief-list">
+            <li><strong>PME primeiro:</strong> maior volume por venda e melhor relacao esforco/resultado.</li>
+            <li><strong>Sem CNPJ:</strong> PF e o caminho seguro e simples para nao perder a venda.</li>
+            <li><strong>Adesao:</strong> so no ultimo caso — nao inicie por ai.</li>
+          </ul>
+        </div>
+      </details>
     </div>
     <div class="hero-toc">
       <div class="hero-toc-title">Índice</div>
