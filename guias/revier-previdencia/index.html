@@ -10,6 +10,7 @@
 <script>
 (function () {
   try {
+    document.documentElement.classList.add('reveal-anim');
     if (localStorage.getItem('revier_theme') === 'dark') { document.documentElement.classList.add('dark-mode');
     }
   } catch (e) {}
@@ -44,7 +45,7 @@ body {
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
   color: var(--ink);
-  background: #F2F0EA;
+  background: #E8E2D6;
   overflow-x: hidden;
   cursor: default;
 }
@@ -391,8 +392,8 @@ h1.hero-title em {
 ═══════════════════════════════════════ */
 .section {
   padding: 100px 0;
-  background: #F7F5EF;
-  border-bottom: 1px solid rgba(17,24,39,.08);
+  background: #F1ECE2;
+  border-bottom: 1px solid rgba(17,24,39,.14);
   position: relative;
   overflow: hidden;
 }
@@ -402,7 +403,7 @@ h1.hero-title em {
   border-bottom-color: rgba(255,255,255,.06);
 }
 
-.section-light { background: linear-gradient(180deg, #FCFBF7 0%, #F3EEE5 100%); }
+.section-light { background: linear-gradient(180deg, #ECE6DA 0%, #E3DCCF 100%); }
 
 .container {
   max-width: 1200px;
@@ -471,12 +472,17 @@ h2.sec-title-light { color: white; }
 
 /* Reveal animations */
 .reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity .7s ease, transform .7s ease;
+  opacity: 1;
+  transform: none;
+  transition: opacity .45s ease, transform .45s ease;
 }
 
-.reveal.visible {
+html.reveal-anim .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+html.reveal-anim .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
