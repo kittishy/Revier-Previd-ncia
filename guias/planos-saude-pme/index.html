@@ -289,16 +289,21 @@ h2.sec-title[id]{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
 .section-link-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-top:6px;border:1px solid transparent;border-radius:2px;background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:800;line-height:1;opacity:0;cursor:pointer;transition:opacity .2s,color .2s,border-color .2s,background .2s,transform .2s}
 h2.sec-title:hover .section-link-btn,h2.sec-title:focus-within .section-link-btn{opacity:1}
 .section-link-btn:hover,.section-link-btn.copied{color:var(--or);border-color:rgba(232,81,10,.24);background:rgba(232,81,10,.08);transform:translateY(-1px)}
-html.dark-mode{--page-bg:var(--dk);--page-surface:#10141c;--page-surface-soft:#151923;--page-text:var(--light);--page-muted:rgba(244,246,251,.72);--page-border:rgba(255,255,255,.08)}
-html.dark-mode body{background:var(--page-bg);color:var(--page-text)}
-html.dark-mode .hero,html.dark-mode .section,html.dark-mode .section-light,html.dark-mode .section-dark,html.dark-mode footer{background:var(--page-bg)}
+html.dark-mode{--page-bg:#080B10;--page-surface:#101620;--page-surface-soft:#141B26;--page-text:#E8ECF4;--page-muted:rgba(220,226,240,.65);--page-border:rgba(255,255,255,.08);--ink:#E8ECF4;--muted:rgba(204,212,230,.6);--border:rgba(255,255,255,.08);--light:#101620}
+html.dark-mode body{background:var(--page-bg);color:var(--page-text);transition:background .25s ease,color .25s ease}
+html.dark-mode .hero,html.dark-mode .section,html.dark-mode .section-dark,html.dark-mode footer{background:var(--page-bg)}
+html.dark-mode .section-light{background:var(--page-surface)}
 html.dark-mode .hero-toc,html.dark-mode .motivo-card,html.dark-mode .vs-card,html.dark-mode .data-table td,html.dark-mode .gold-rule,html.dark-mode .feature-box,html.dark-mode .obj-item,html.dark-mode .obj-a,html.dark-mode .rank-item,html.dark-mode .cert-card,html.dark-mode .check-row,html.dark-mode .stat-box,html.dark-mode .rec-box,html.dark-mode .script-box,html.dark-mode .footer-top,html.dark-mode .summary-panel{background:var(--page-surface)}
 html.dark-mode .data-table thead tr,html.dark-mode .footer-bottom{background:var(--page-surface-soft)}
+html.dark-mode .data-table tr:hover td{background:rgba(255,255,255,.09)}
 html.dark-mode h1.hero-title,html.dark-mode h2.sec-title,html.dark-mode .nav-wordmark,html.dark-mode .motivo-card h3,html.dark-mode .vs-card h3,html.dark-mode .cert-card h3,html.dark-mode .rank-name,html.dark-mode .footer-col-title{color:var(--page-text)}
 html.dark-mode .hero-sub,html.dark-mode .sec-lead,html.dark-mode .motivo-card p,html.dark-mode .vs-card .vs-desc,html.dark-mode .vs-bullets li,html.dark-mode .fund-text p,html.dark-mode .data-table td,html.dark-mode .rank-desc,html.dark-mode .cert-card p,html.dark-mode .feature-box p,html.dark-mode .obj-a p,html.dark-mode .check-text,html.dark-mode .footer-brand p,html.dark-mode .footer-links a,html.dark-mode .nav-links a,html.dark-mode .nav-back,html.dark-mode .summary-list li{color:var(--page-muted)}
 html.dark-mode .nav-links a:hover,html.dark-mode .nav-back:hover,html.dark-mode .footer-links a:hover{color:var(--or)}
 html.dark-mode .section-link-btn,html.dark-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
 html.dark-mode .section-link-btn:hover,html.dark-mode .section-link-btn.copied,html.dark-mode .nav-theme-toggle:hover{color:var(--or);border-color:rgba(232,81,10,.22);background:rgba(232,81,10,.08)}
+html.dark-mode .cob-card,html.dark-mode .step-script{background:var(--page-surface);border-color:rgba(255,255,255,.07);box-shadow:none}
+html.dark-mode .cob-card h3,html.dark-mode .venda-step-body h4{color:var(--page-text)}
+html.dark-mode .step-script,html.dark-mode .cob-card p{color:var(--page-muted)}
 </style>
 </head>
 <body>

@@ -304,8 +304,10 @@ h2[id] .section-link-btn{margin-top:.12em;flex-shrink:0}
 h2[id]:hover .section-link-btn,h2[id]:focus-within .section-link-btn{opacity:1}
 .section-link-btn:hover{color:var(--or);border-color:var(--or);background:color-mix(in srgb,var(--or) 10%,transparent)}
 .section-link-btn.copied{color:var(--gn);border-color:var(--gn);background:color-mix(in srgb,var(--gn) 10%,transparent)}
-html.dark-mode{--page-bg:var(--dk);--light:#111522;--ink:#F4F6FB;--muted:#AEB6C5;--border:rgba(255,255,255,.08)}
-html.dark-mode .section-light,html.dark-mode .hero,html.dark-mode footer{background:var(--dk)}
+html.dark-mode{--page-bg:#080B10;--light:#101620;--ink:#E8ECF4;--muted:rgba(204,212,230,.6);--border:rgba(255,255,255,.08)}
+html.dark-mode body{transition:background .25s ease,color .25s ease}
+html.dark-mode .hero,html.dark-mode footer{background:var(--page-bg)}
+html.dark-mode .section-light{background:var(--light)}
 html.dark-mode .section{border-bottom-color:rgba(255,255,255,.06)}
 html.dark-mode .motivo-card,html.dark-mode .prio-card,html.dark-mode .vs-card,html.dark-mode .feature-box,html.dark-mode .obj-item,html.dark-mode .rank-item,html.dark-mode .cert-card,html.dark-mode .script-box,html.dark-mode .rec-box,html.dark-mode .gold-rule,html.dark-mode .port-box{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);box-shadow:none}
 html.dark-mode .data-table td{background:rgba(255,255,255,.03);color:var(--ink)}
@@ -313,6 +315,10 @@ html.dark-mode .motivo-card p,html.dark-mode .prio-card p,html.dark-mode .vs-car
 html.dark-mode .stat-box{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
 html.dark-mode .check-box-el{border-color:rgba(255,255,255,.24)}
 html.dark-mode .summary-list li{color:rgba(255,255,255,.8)}
+html.dark-mode .cob-card,html.dark-mode .step-script{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.07);box-shadow:none}
+html.dark-mode .cob-card h3,html.dark-mode .venda-step-body h4{color:var(--ink)}
+html.dark-mode .step-script,html.dark-mode .cob-card p{color:var(--muted)}
+html.dark-mode .data-table tr:hover td{background:rgba(255,255,255,.09)}
 .footer-stripes{display:flex;gap:4px}
 .footer-stripes span{display:block;width:16px;height:4px;border-radius:1px}
 /* RESPONSIVE */
