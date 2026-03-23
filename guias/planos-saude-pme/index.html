@@ -11,8 +11,7 @@
 <script>
 (function () {
   try {
-    if (localStorage.getItem('revier_theme') === 'light') {
-      document.documentElement.classList.add('light-mode');
+    if (localStorage.getItem('revier_theme') === 'dark') { document.documentElement.classList.add('dark-mode');
     }
   } catch (e) {}
 })();
@@ -288,16 +287,16 @@ h2.sec-title[id]{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
 .section-link-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-top:6px;border:1px solid transparent;border-radius:2px;background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:800;line-height:1;opacity:0;cursor:pointer;transition:opacity .2s,color .2s,border-color .2s,background .2s,transform .2s}
 h2.sec-title:hover .section-link-btn,h2.sec-title:focus-within .section-link-btn{opacity:1}
 .section-link-btn:hover,.section-link-btn.copied{color:var(--or);border-color:rgba(232,81,10,.24);background:rgba(232,81,10,.08);transform:translateY(-1px)}
-html.light-mode{--page-bg:var(--dk);--page-surface:#10141c;--page-surface-soft:#151923;--page-text:var(--light);--page-muted:rgba(244,246,251,.72);--page-border:rgba(255,255,255,.08)}
-html.light-mode body{background:var(--page-bg);color:var(--page-text)}
-html.light-mode .hero,html.light-mode .section,html.light-mode .section-light,html.light-mode .section-dark,html.light-mode footer{background:var(--page-bg)}
-html.light-mode .hero-toc,html.light-mode .motivo-card,html.light-mode .vs-card,html.light-mode .data-table td,html.light-mode .gold-rule,html.light-mode .feature-box,html.light-mode .obj-item,html.light-mode .obj-a,html.light-mode .rank-item,html.light-mode .cert-card,html.light-mode .check-row,html.light-mode .stat-box,html.light-mode .rec-box,html.light-mode .script-box,html.light-mode .footer-top,html.light-mode .summary-panel{background:var(--page-surface)}
-html.light-mode .data-table thead tr,html.light-mode .footer-bottom{background:var(--page-surface-soft)}
-html.light-mode h1.hero-title,html.light-mode h2.sec-title,html.light-mode .nav-wordmark,html.light-mode .motivo-card h3,html.light-mode .vs-card h3,html.light-mode .cert-card h3,html.light-mode .rank-name,html.light-mode .footer-col-title{color:var(--page-text)}
-html.light-mode .hero-sub,html.light-mode .sec-lead,html.light-mode .motivo-card p,html.light-mode .vs-card .vs-desc,html.light-mode .vs-bullets li,html.light-mode .fund-text p,html.light-mode .data-table td,html.light-mode .rank-desc,html.light-mode .cert-card p,html.light-mode .feature-box p,html.light-mode .obj-a p,html.light-mode .check-text,html.light-mode .footer-brand p,html.light-mode .footer-links a,html.light-mode .nav-links a,html.light-mode .nav-back,html.light-mode .summary-list li{color:var(--page-muted)}
-html.light-mode .nav-links a:hover,html.light-mode .nav-back:hover,html.light-mode .footer-links a:hover{color:var(--or)}
-html.light-mode .section-link-btn,html.light-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
-html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied,html.light-mode .nav-theme-toggle:hover{color:var(--or);border-color:rgba(232,81,10,.22);background:rgba(232,81,10,.08)}
+html.dark-mode{--page-bg:var(--dk);--page-surface:#10141c;--page-surface-soft:#151923;--page-text:var(--light);--page-muted:rgba(244,246,251,.72);--page-border:rgba(255,255,255,.08)}
+html.dark-mode body{background:var(--page-bg);color:var(--page-text)}
+html.dark-mode .hero,html.dark-mode .section,html.dark-mode .section-light,html.dark-mode .section-dark,html.dark-mode footer{background:var(--page-bg)}
+html.dark-mode .hero-toc,html.dark-mode .motivo-card,html.dark-mode .vs-card,html.dark-mode .data-table td,html.dark-mode .gold-rule,html.dark-mode .feature-box,html.dark-mode .obj-item,html.dark-mode .obj-a,html.dark-mode .rank-item,html.dark-mode .cert-card,html.dark-mode .check-row,html.dark-mode .stat-box,html.dark-mode .rec-box,html.dark-mode .script-box,html.dark-mode .footer-top,html.dark-mode .summary-panel{background:var(--page-surface)}
+html.dark-mode .data-table thead tr,html.dark-mode .footer-bottom{background:var(--page-surface-soft)}
+html.dark-mode h1.hero-title,html.dark-mode h2.sec-title,html.dark-mode .nav-wordmark,html.dark-mode .motivo-card h3,html.dark-mode .vs-card h3,html.dark-mode .cert-card h3,html.dark-mode .rank-name,html.dark-mode .footer-col-title{color:var(--page-text)}
+html.dark-mode .hero-sub,html.dark-mode .sec-lead,html.dark-mode .motivo-card p,html.dark-mode .vs-card .vs-desc,html.dark-mode .vs-bullets li,html.dark-mode .fund-text p,html.dark-mode .data-table td,html.dark-mode .rank-desc,html.dark-mode .cert-card p,html.dark-mode .feature-box p,html.dark-mode .obj-a p,html.dark-mode .check-text,html.dark-mode .footer-brand p,html.dark-mode .footer-links a,html.dark-mode .nav-links a,html.dark-mode .nav-back,html.dark-mode .summary-list li{color:var(--page-muted)}
+html.dark-mode .nav-links a:hover,html.dark-mode .nav-back:hover,html.dark-mode .footer-links a:hover{color:var(--or)}
+html.dark-mode .section-link-btn,html.dark-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
+html.dark-mode .section-link-btn:hover,html.dark-mode .section-link-btn.copied,html.dark-mode .nav-theme-toggle:hover{color:var(--or);border-color:rgba(232,81,10,.22);background:rgba(232,81,10,.08)}
 </style>
 </head>
 <body>
@@ -946,11 +945,11 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
   var summaryKey=summary && summary.getAttribute('data-summary-key');
   var progressRaf=0;
   function updateThemeToggle(){
-    if(themeToggle){ themeToggle.textContent=root.classList.contains('light-mode') ? '☀' : '☽'; }
+    if(themeToggle){ themeToggle.textContent=root.classList.contains('dark-mode') ? '☀' : '☽'; }
   }
   function setTheme(nextDark){
-    root.classList.toggle('light-mode', nextDark);
-    try{ localStorage.setItem('revier_theme', nextDark ? 'light' : 'dark'); }catch(e){}
+    root.classList.toggle('dark-mode', nextDark);
+    try{ localStorage.setItem('revier_theme', nextDark ? 'dark' : 'light'); }catch(e){}
     updateThemeToggle();
   }
   function updateProgress(){
@@ -974,7 +973,7 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
   if(themeToggle){
     updateThemeToggle();
     themeToggle.addEventListener('click', function(){
-      setTheme(!root.classList.contains('light-mode'));
+      setTheme(!root.classList.contains('dark-mode'));
     });
   }
   if(progress){

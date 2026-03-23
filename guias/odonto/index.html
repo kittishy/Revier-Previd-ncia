@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <script>
-(function(){try{if(localStorage.getItem('revier_theme')==='light'){document.documentElement.classList.add('light-mode');}}catch(e){}})();
+(function(){try{if(localStorage.getItem('revier_theme') === 'dark') { document.documentElement.classList.add('dark-mode');}}catch(e){}})();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -303,15 +303,15 @@ h2[id] .section-link-btn{margin-top:.12em;flex-shrink:0}
 h2[id]:hover .section-link-btn,h2[id]:focus-within .section-link-btn{opacity:1}
 .section-link-btn:hover{color:var(--or);border-color:var(--or);background:color-mix(in srgb,var(--or) 10%,transparent)}
 .section-link-btn.copied{color:var(--gn);border-color:var(--gn);background:color-mix(in srgb,var(--gn) 10%,transparent)}
-html.light-mode{--page-bg:var(--dk);--light:#111522;--ink:#F4F6FB;--muted:#AEB6C5;--border:rgba(255,255,255,.08)}
-html.light-mode .section-light,html.light-mode .hero,html.light-mode footer{background:var(--dk)}
-html.light-mode .section{border-bottom-color:rgba(255,255,255,.06)}
-html.light-mode .motivo-card,html.light-mode .prio-card,html.light-mode .vs-card,html.light-mode .feature-box,html.light-mode .obj-item,html.light-mode .rank-item,html.light-mode .cert-card,html.light-mode .script-box,html.light-mode .rec-box,html.light-mode .gold-rule,html.light-mode .port-box{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);box-shadow:none}
-html.light-mode .data-table td{background:rgba(255,255,255,.03);color:var(--ink)}
-html.light-mode .motivo-card p,html.light-mode .prio-card p,html.light-mode .vs-card p,html.light-mode .feature-box p,html.light-mode .obj-a p,html.light-mode .rank-desc,html.light-mode .cert-card p,html.light-mode .script-box p,html.light-mode .rec-box p,html.light-mode .port-box p,html.light-mode .fund-text p{color:var(--ink)}
-html.light-mode .stat-box{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
-html.light-mode .check-box-el{border-color:rgba(255,255,255,.24)}
-html.light-mode .summary-list li{color:rgba(255,255,255,.8)}
+html.dark-mode{--page-bg:var(--dk);--light:#111522;--ink:#F4F6FB;--muted:#AEB6C5;--border:rgba(255,255,255,.08)}
+html.dark-mode .section-light,html.dark-mode .hero,html.dark-mode footer{background:var(--dk)}
+html.dark-mode .section{border-bottom-color:rgba(255,255,255,.06)}
+html.dark-mode .motivo-card,html.dark-mode .prio-card,html.dark-mode .vs-card,html.dark-mode .feature-box,html.dark-mode .obj-item,html.dark-mode .rank-item,html.dark-mode .cert-card,html.dark-mode .script-box,html.dark-mode .rec-box,html.dark-mode .gold-rule,html.dark-mode .port-box{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);box-shadow:none}
+html.dark-mode .data-table td{background:rgba(255,255,255,.03);color:var(--ink)}
+html.dark-mode .motivo-card p,html.dark-mode .prio-card p,html.dark-mode .vs-card p,html.dark-mode .feature-box p,html.dark-mode .obj-a p,html.dark-mode .rank-desc,html.dark-mode .cert-card p,html.dark-mode .script-box p,html.dark-mode .rec-box p,html.dark-mode .port-box p,html.dark-mode .fund-text p{color:var(--ink)}
+html.dark-mode .stat-box{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+html.dark-mode .check-box-el{border-color:rgba(255,255,255,.24)}
+html.dark-mode .summary-list li{color:rgba(255,255,255,.8)}
 .footer-stripes{display:flex;gap:4px}
 .footer-stripes span{display:block;width:16px;height:4px;border-radius:1px}
 /* RESPONSIVE */
@@ -990,8 +990,8 @@ document.addEventListener('click',(e)=>{if(mobileMenu.classList.contains('open')
   var toggle=document.getElementById('theme-toggle');
   var root=document.documentElement;
   var summary=document.querySelector('.quick-summary');
-  function sync(){toggle.textContent=root.classList.contains('light-mode')?'☀':'☽';}
-  if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('light-mode');localStorage.setItem('revier_theme',root.classList.contains('light-mode')?'light':'dark');sync();});}
+  function sync(){toggle.textContent=root.classList.contains('dark-mode')?'☀':'☽';}
+  if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('dark-mode');localStorage.setItem('revier_theme',root.classList.contains('dark-mode')?'dark':'light');sync();});}
   if(summary){
     var btn=summary.querySelector('.summary-toggle');
     var panel=summary.querySelector('.summary-panel');

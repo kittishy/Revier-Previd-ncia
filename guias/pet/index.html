@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Revier · Seguro Pet na Prática</title>
 <meta name="description" content="Guia completo de seguro pet para corretores da Revier Brokers. Coberturas, operadoras, objeções e scripts de venda.">
-<script>(function(){try{if(localStorage.getItem('revier_theme')==='light'){document.documentElement.classList.add('light-mode');}}catch(e){}})();</script>
+<script>(function(){try{if(localStorage.getItem('revier_theme') === 'dark') { document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#6B7280;--light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#9D174D;--ac2:#EC4899;--acdk:#831843;--body-copy:#374151;--nav-bg:rgba(10,12,18,.96);--nav-border:rgba(255,255,255,.06);--nav-text:#fff;--nav-link:rgba(255,255,255,.45);--menu-bg:rgba(10,12,18,.98)}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px;color-scheme:light}`r`nhtml.light-mode{color-scheme:dark}
+html{scroll-behavior:smooth;font-size:16px;color-scheme:light}`r`nhtml.dark-mode{color-scheme:dark}
 body{font-family:'Barlow',sans-serif;font-weight:400;color:var(--ink);background:var(--white);overflow-x:hidden;cursor:default}
 ::selection{background:var(--ac);color:#fff}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dk)}::-webkit-scrollbar-thumb{background:var(--ac2);border-radius:2px}
@@ -214,16 +214,16 @@ footer{padding:40px 0 20px}.footer-bottom{padding:16px 20px 0;flex-direction:col
 .section-link-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-top:6px;border:1px solid transparent;border-radius:2px;background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:800;line-height:1;opacity:0;cursor:pointer;transition:opacity .2s,color .2s,border-color .2s,background .2s,transform .2s}
 h2.sec-title:hover .section-link-btn,h2.sec-title:focus-within .section-link-btn{opacity:1}
 .section-link-btn:hover,.section-link-btn.copied{color:var(--or);border-color:rgba(232,81,10,.24);background:rgba(232,81,10,.08);transform:translateY(-1px)}
-html.light-mode{--page-bg:var(--dk);--page-surface:#10141c;--page-surface-soft:#151923;--page-text:var(--light);--page-muted:rgba(244,246,251,.72);--page-border:rgba(255,255,255,.08)}
-html.light-mode body{background:var(--page-bg);color:var(--page-text)}
-html.light-mode .hero,html.light-mode .section,html.light-mode .section-light,html.light-mode .section-dark,html.light-mode footer{background:var(--page-bg)}
-html.light-mode .motivo-card,html.light-mode .vs-card,html.light-mode .feature-box,html.light-mode .obj-item,html.light-mode .rank-item,html.light-mode .cert-card,html.light-mode .check-row,html.light-mode .stat-box,html.light-mode .rec-box,html.light-mode .script-box,html.light-mode .footer-top,html.light-mode .summary-panel{background:var(--page-surface)}
-html.light-mode .data-table thead tr,html.light-mode .footer-bottom{background:var(--page-surface-soft)}
-html.light-mode h1.hero-title,html.light-mode h2.sec-title,html.light-mode .nav-wordmark,html.light-mode .motivo-card h3,html.light-mode .vs-card h3,html.light-mode .cert-card h3,html.light-mode .rank-name,html.light-mode .footer-col-title{color:var(--page-text)}
-html.light-mode .hero-sub,html.light-mode .sec-lead,html.light-mode .motivo-card p,html.light-mode .vs-card .vs-desc,html.light-mode .vs-bullets li,html.light-mode .fund-text p,html.light-mode .data-table td,html.light-mode .rank-desc,html.light-mode .cert-card p,html.light-mode .feature-box p,html.light-mode .obj-a p,html.light-mode .check-text,html.light-mode .footer-brand p,html.light-mode .footer-links a,html.light-mode .nav-links a,html.light-mode .nav-back,html.light-mode .summary-list li{color:var(--page-muted)}
-html.light-mode .nav-links a:hover,html.light-mode .nav-back:hover,html.light-mode .footer-links a:hover{color:var(--or)}
-html.light-mode .section-link-btn,html.light-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
-html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied,html.light-mode .nav-theme-toggle:hover{color:var(--or);border-color:rgba(232,81,10,.22);background:rgba(232,81,10,.08)}
+html.dark-mode{--page-bg:var(--dk);--page-surface:#10141c;--page-surface-soft:#151923;--page-text:var(--light);--page-muted:rgba(244,246,251,.72);--page-border:rgba(255,255,255,.08)}
+html.dark-mode body{background:var(--page-bg);color:var(--page-text)}
+html.dark-mode .hero,html.dark-mode .section,html.dark-mode .section-light,html.dark-mode .section-dark,html.dark-mode footer{background:var(--page-bg)}
+html.dark-mode .motivo-card,html.dark-mode .vs-card,html.dark-mode .feature-box,html.dark-mode .obj-item,html.dark-mode .rank-item,html.dark-mode .cert-card,html.dark-mode .check-row,html.dark-mode .stat-box,html.dark-mode .rec-box,html.dark-mode .script-box,html.dark-mode .footer-top,html.dark-mode .summary-panel{background:var(--page-surface)}
+html.dark-mode .data-table thead tr,html.dark-mode .footer-bottom{background:var(--page-surface-soft)}
+html.dark-mode h1.hero-title,html.dark-mode h2.sec-title,html.dark-mode .nav-wordmark,html.dark-mode .motivo-card h3,html.dark-mode .vs-card h3,html.dark-mode .cert-card h3,html.dark-mode .rank-name,html.dark-mode .footer-col-title{color:var(--page-text)}
+html.dark-mode .hero-sub,html.dark-mode .sec-lead,html.dark-mode .motivo-card p,html.dark-mode .vs-card .vs-desc,html.dark-mode .vs-bullets li,html.dark-mode .fund-text p,html.dark-mode .data-table td,html.dark-mode .rank-desc,html.dark-mode .cert-card p,html.dark-mode .feature-box p,html.dark-mode .obj-a p,html.dark-mode .check-text,html.dark-mode .footer-brand p,html.dark-mode .footer-links a,html.dark-mode .nav-links a,html.dark-mode .nav-back,html.dark-mode .summary-list li{color:var(--page-muted)}
+html.dark-mode .nav-links a:hover,html.dark-mode .nav-back:hover,html.dark-mode .footer-links a:hover{color:var(--or)}
+html.dark-mode .section-link-btn,html.dark-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
+html.dark-mode .section-link-btn:hover,html.dark-mode .section-link-btn.copied,html.dark-mode .nav-theme-toggle:hover{color:var(--or);border-color:rgba(232,81,10,.22);background:rgba(232,81,10,.08)}
 
 </style>
 </head>
@@ -674,8 +674,8 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
   if(bar){window.addEventListener('scroll',function(){requestAnimationFrame(function(){var h=document.body.scrollHeight-window.innerHeight;bar.style.width=h>0?Math.min((window.scrollY/h)*100,100)+'%':'0%';});});}
   var toggle=document.getElementById('theme-toggle');
   var root=document.documentElement;
-  function sync(){toggle.textContent=root.classList.contains('light-mode')?'☀':'☽';}
-  if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('light-mode');localStorage.setItem('revier_theme',root.classList.contains('light-mode')?'light':'dark');sync();});}
+  function sync(){toggle.textContent=root.classList.contains('dark-mode')?'☀':'☽';}
+  if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('dark-mode');localStorage.setItem('revier_theme',root.classList.contains('dark-mode')?'dark':'light');sync();});}
   var summary=document.querySelector('.quick-summary');
   if(summary){var btn=summary.querySelector('.summary-toggle');var key=summary.getAttribute('data-summary-key');if(localStorage.getItem(key)==='open')summary.classList.add('is-open');btn.setAttribute('aria-expanded',summary.classList.contains('is-open'));btn.addEventListener('click',function(){summary.classList.toggle('is-open');var open=summary.classList.contains('is-open');btn.setAttribute('aria-expanded',open);localStorage.setItem(key,open?'open':'closed');});}
 })();
