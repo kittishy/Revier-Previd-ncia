@@ -23,7 +23,7 @@ function Run-Step {
 
 $branch = (git branch --show-current).Trim()
 if (-not $branch) {
-    throw "Nao foi possivel identificar o branch atual."
+    throw "Não foi possivel identificar o branch atual."
 }
 
 Run-Step "git add -A"
