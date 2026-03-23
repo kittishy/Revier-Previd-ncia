@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revier · Planos de Saúde PME na Prática</title>
-<meta name="description" content="Guia completo de planos de saúde PME para corretores da Revier Brokers. Amil, Bradesco Saúde, SulAmérica, Unimed, Notre Dame Intermédica.">
+<title>Revier Â· Planos de SaÃºde PME na PrÃ¡tica</title>
+<meta name="description" content="Guia completo de planos de saÃºde PME para corretores da Revier Brokers. Amil, Bradesco SaÃºde, SulAmÃ©rica, Unimed, Notre Dame IntermÃ©dica.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
@@ -254,7 +254,36 @@ h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padd
 .summary-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;background:rgba(255,255,255,.08)}
 .summary-list{list-style:none;padding:0 24px 18px;display:grid;gap:10px}
 .summary-list li{position:relative;padding-left:18px;font-family:'Barlow',sans-serif;font-size:.9rem;font-weight:500;line-height:1.55;color:#fff}
-.summary-list li::before{content:'•';position:absolute;left:0;color:rgba(255,255,255,.9)}
+.summary-list li::before{content:'â€¢';position:absolute;left:0;color:rgba(255,255,255,.9)}
+.prioridade-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+.prio-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:22px;position:relative}
+.prio-card::before{content:'';position:absolute;left:0;top:0;width:100%;height:4px}
+.prio-card.prio-pme::before{background:var(--gn)}
+.prio-card.prio-pf::before{background:var(--or)}
+.prio-card.prio-adesao::before{background:var(--rd)}
+.prio-badge{display:inline-block;font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:100px;margin-bottom:12px}
+.prio-pme .prio-badge{background:rgba(22,163,74,.14);color:var(--gn)}
+.prio-pf .prio-badge{background:rgba(232,81,10,.14);color:var(--or)}
+.prio-adesao .prio-badge{background:rgba(220,38,38,.14);color:var(--rd)}
+.prio-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;margin-bottom:10px}
+.prio-list{list-style:none;margin:0;padding:0}
+.prio-list li{padding:6px 0;border-bottom:1px solid var(--border);font-size:.86rem;color:var(--muted);line-height:1.5}
+.prio-list li:last-child{border-bottom:none}
+.callout{margin-top:14px;border-left:3px solid;padding:12px 14px}
+.callout-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.callout-orange{background:#FFF7ED;border-left-color:var(--or)}
+.callout-orange .callout-label{color:var(--or)}
+.callout-green{background:#F0FDF4;border-left-color:var(--gn)}
+.callout-green .callout-label{color:var(--gn)}
+.callout-blue{background:#EFF6FF;border-left-color:var(--bl)}
+.callout-blue .callout-label{color:var(--bl)}
+.callout-red{background:#FEF2F2;border-left-color:var(--rd)}
+.callout-red .callout-label{color:var(--rd)}
+.priority-table-wrap{overflow:auto;margin-top:24px;border:1px solid var(--border);border-radius:8px}
+.priority-table{width:100%;border-collapse:collapse;min-width:620px}
+.priority-table th,.priority-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;font-size:.84rem;color:var(--muted)}
+.priority-table th{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;color:var(--ink);background:var(--light)}
+.priority-table td:first-child{font-weight:700;color:var(--ink)}
 h2.sec-title[id]{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
 .section-link-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-top:6px;border:1px solid transparent;border-radius:2px;background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:800;line-height:1;opacity:0;cursor:pointer;transition:opacity .2s,color .2s,border-color .2s,background .2s,transform .2s}
 h2.sec-title:hover .section-link-btn,h2.sec-title:focus-within .section-link-btn{opacity:1}
@@ -280,45 +309,47 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
     <div class="nav-wordmark">REVIER <span>BROKERS</span></div>
   </a>
   <ul class="nav-links">
-    <li><a href="../../index.html" class="nav-back">← Portal</a></li>
+    <li><a href="../../index.html" class="nav-back">â† Portal</a></li>
     <li><a href="#fundamentos">Fundamentos</a></li>
     <li><a href="#tipos">Modalidades</a></li>
-    <li><a href="#contratacao">Contratação</a></li>
-    <li><a href="#preco">Preço</a></li>
+    <li><a href="#contratacao">ContrataÃ§Ã£o</a></li>
+    <li><a href="#preco">PreÃ§o</a></li>
     <li><a href="#venda">Fechamento</a></li>
-    <li><a href="#objecoes">Objeções</a></li>
+    <li><a href="#objecoes">ObjeÃ§Ãµes</a></li>
     <li><a href="#operadoras">Operadora</a></li>
+    <li><a href="#prioridade">PME x PF x Adesao</a></li>
     <li><a href="#checklist">Checklist</a></li>
   </ul>
-  <button class="nav-theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">☽</button>
+  <button class="nav-theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema">â˜½</button>
   <div class="nav-badge">Guia Interno</div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <section class="quick-summary" data-summary-key="summary_planos-saude-pme">
   <button class="summary-toggle" type="button" aria-expanded="false">
-    <span>RESUMO RÁPIDO — 30 SEGUNDOS</span>
-    <span class="summary-arrow" aria-hidden="true">▾</span>
+    <span>RESUMO RÃPIDO â€” 30 SEGUNDOS</span>
+    <span class="summary-arrow" aria-hidden="true">â–¾</span>
   </button>
   <div class="summary-panel">
     <ul class="summary-list">
-      <li>PME começa com 2 vidas, e MEI com CNPJ entra.</li>
+      <li>PME comeÃ§a com 2 vidas, e MEI com CNPJ entra.</li>
       <li>Empresa no Lucro Real deduz custo no IRPJ.</li>
-      <li>CCT de muitas categorias em SP já exige o benefício.</li>
+      <li>CCT de muitas categorias em SP jÃ¡ exige o benefÃ­cio.</li>
     </ul>
   </div>
 </section>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="../../index.html">← Voltar ao Portal</a>
-  <a href="#fundamentos">01 · Por que PME fecha</a>
-  <a href="#tipos">02 · Modalidades e coberturas</a>
-  <a href="#contratacao">03 · Contratação sem erro</a>
-  <a href="#preco">04 · Preço e comissão</a>
-  <a href="#venda">05 · Conduza a venda</a>
-  <a href="#objecoes">06 · Vire a objeção</a>
-  <a href="#operadoras">07 · Puxe a operadora certa</a>
-  <a href="#checklist">08 · Entre pronto</a>
+  <a href="../../index.html">â† Voltar ao Portal</a>
+  <a href="#fundamentos">01 Â· Por que PME fecha</a>
+  <a href="#tipos">02 Â· Modalidades e coberturas</a>
+  <a href="#contratacao">03 Â· ContrataÃ§Ã£o sem erro</a>
+  <a href="#preco">04 Â· PreÃ§o e comissÃ£o</a>
+  <a href="#venda">05 Â· Conduza a venda</a>
+  <a href="#objecoes">06 Â· Vire a objeÃ§Ã£o</a>
+  <a href="#operadoras">07 Â· Puxe a operadora certa</a>
+  <a href="#prioridade">08 Â· PME x PF x Adesao</a>
+  <a href="#checklist">09 Â· Entre pronto</a>
 </div>
 
 <!-- HERO -->
@@ -328,24 +359,25 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
   <div class="hero-blocks"><div></div><div></div><div></div></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-tag">Material Exclusivo · Equipe Revier</div>
-      <h1 class="hero-title">Guia de<br><em>Saúde PME</em></h1>
-      <p class="hero-sub">PME é onde a comissão escala. Uma empresa com 20 vidas vale mais que dez PFs isolados. Aqui você sai sabendo qualificar, cotar e fechar sem enrolar.</p>
+      <div class="hero-tag">Material Exclusivo Â· Equipe Revier</div>
+      <h1 class="hero-title">Guia de<br><em>SaÃºde PME</em></h1>
+      <p class="hero-sub">PME Ã© onde a comissÃ£o escala. Uma empresa com 20 vidas vale mais que dez PFs isolados. Aqui vocÃª sai sabendo qualificar, cotar e fechar sem enrolar.</p>
       <div class="hero-cta-row">
-        <a href="#fundamentos" class="btn-primary">Abrir o guia →</a>
+        <a href="#fundamentos" class="btn-primary">Abrir o guia â†’</a>
         <a href="#checklist" class="btn-ghost">Ver checklist</a>
       </div>
     </div>
     <div class="hero-toc">
-      <div class="hero-toc-title">Índice</div>
-      <a class="toc-item" href="#fundamentos"><div class="toc-num">01</div><div class="toc-label">Por que PME fecha mais rápido</div></a>
+      <div class="hero-toc-title">Ãndice</div>
+      <a class="toc-item" href="#fundamentos"><div class="toc-num">01</div><div class="toc-label">Por que PME fecha mais rÃ¡pido</div></a>
       <a class="toc-item" href="#tipos"><div class="toc-num">02</div><div class="toc-label">Modalidades e coberturas-chave</div></a>
-      <a class="toc-item" href="#contratacao"><div class="toc-num">03</div><div class="toc-label">Contratação passo a passo</div></a>
-      <a class="toc-item" href="#preco"><div class="toc-num">04</div><div class="toc-label">Preço e comissão na ponta da língua</div></a>
+      <a class="toc-item" href="#contratacao"><div class="toc-num">03</div><div class="toc-label">ContrataÃ§Ã£o passo a passo</div></a>
+      <a class="toc-item" href="#preco"><div class="toc-num">04</div><div class="toc-label">PreÃ§o e comissÃ£o na ponta da lÃ­ngua</div></a>
       <a class="toc-item" href="#venda"><div class="toc-num">05</div><div class="toc-label">Conduza a venda sem parecer script</div></a>
-      <a class="toc-item" href="#objecoes"><div class="toc-num">06</div><div class="toc-label">Vire a objeção no papo reto</div></a>
+      <a class="toc-item" href="#objecoes"><div class="toc-num">06</div><div class="toc-label">Vire a objeÃ§Ã£o no papo reto</div></a>
       <a class="toc-item" href="#operadoras"><div class="toc-num">07</div><div class="toc-label">Puxe a operadora certa</div></a>
-      <a class="toc-item" href="#checklist"><div class="toc-num">08</div><div class="toc-label">Checklist de reunião PME</div></a>
+      <a class="toc-item" href="#prioridade"><div class="toc-num">08</div><div class="toc-label">PME x PF x Adesao</div></a>
+      <a class="toc-item" href="#checklist"><div class="toc-num">09</div><div class="toc-label">Checklist de reuniÃ£o PME</div></a>
     </div>
   </div>
 </section>
@@ -353,39 +385,39 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
 <!-- 01 FUNDAMENTOS -->
 <section class="section" id="fundamentos">
   <div class="container">
-    <div class="sec-label"><div class="sec-num">01</div> Estratégia</div>
-    <h2 class="sec-title">Por que PME fecha<br>mais rápido que PF</h2>
-    <p class="sec-lead">"Uma empresa com 15 funcionários rende muito mais comissão que dezenas de PFs isolados. Qualifique certo e o ticket vem junto."</p>
+    <div class="sec-label"><div class="sec-num">01</div> EstratÃ©gia</div>
+    <h2 class="sec-title">Por que PME fecha<br>mais rÃ¡pido que PF</h2>
+    <p class="sec-lead">"Uma empresa com 15 funcionÃ¡rios rende muito mais comissÃ£o que dezenas de PFs isolados. Qualifique certo e o ticket vem junto."</p>
     <div class="fund-grid">
       <div class="fund-text reveal">
-        <p>Plano de saúde PME é regulado pela <strong>ANS</strong> (Agência Nacional de Saúde Suplementar) e destinado a pessoas jurídicas com <strong>2 a 499 vidas</strong>. Acima disso, vira grande empresa e muda o jogo.</p>
-        <p>O empregador é o <strong>titular do contrato</strong> e decide plano, cobertura e quem inclui. O funcionário é beneficiário. Em muitos contratos, o RH cobre 100% do titular e divide o dependente com o colaborador.</p>
-        <p>A lógica que destravar venda: empresa não compra plano de saúde. <strong>Empresa compra produtividade, retenção e compliance trabalhista</strong>. A CCT (convenção coletiva) da categoria pode até exigir o benefício.</p>
-        <p><strong>MEI e autônomo:</strong> com CNPJ ativo e pelo menos mais 1 vida (sócio ou funcionário CLT), já entra no PME. Isso abre muita porta em clientes PF que têm empresa.</p>
+        <p>Plano de saÃºde PME Ã© regulado pela <strong>ANS</strong> (AgÃªncia Nacional de SaÃºde Suplementar) e destinado a pessoas jurÃ­dicas com <strong>2 a 499 vidas</strong>. Acima disso, vira grande empresa e muda o jogo.</p>
+        <p>O empregador Ã© o <strong>titular do contrato</strong> e decide plano, cobertura e quem inclui. O funcionÃ¡rio Ã© beneficiÃ¡rio. Em muitos contratos, o RH cobre 100% do titular e divide o dependente com o colaborador.</p>
+        <p>A lÃ³gica que destravar venda: empresa nÃ£o compra plano de saÃºde. <strong>Empresa compra produtividade, retenÃ§Ã£o e compliance trabalhista</strong>. A CCT (convenÃ§Ã£o coletiva) da categoria pode atÃ© exigir o benefÃ­cio.</p>
+        <p><strong>MEI e autÃ´nomo:</strong> com CNPJ ativo e pelo menos mais 1 vida (sÃ³cio ou funcionÃ¡rio CLT), jÃ¡ entra no PME. Isso abre muita porta em clientes PF que tÃªm empresa.</p>
       </div>
       <div class="inss-callout reveal reveal-delay-1">
-        <div class="inss-callout-label">📊 Números que pesam na conversa</div>
-        <p><strong>47 milhões</strong> de brasileiros têm plano de saúde privado. Menos de <strong>25%</strong> das micro e pequenas empresas oferecem o benefício — ou seja, o mercado está aberto. A CCT da maioria das categorias em SP já exige plano como benefício mínimo.</p>
+        <div class="inss-callout-label">ðŸ“Š NÃºmeros que pesam na conversa</div>
+        <p><strong>47 milhÃµes</strong> de brasileiros tÃªm plano de saÃºde privado. Menos de <strong>25%</strong> das micro e pequenas empresas oferecem o benefÃ­cio â€” ou seja, o mercado estÃ¡ aberto. A CCT da maioria das categorias em SP jÃ¡ exige plano como benefÃ­cio mÃ­nimo.</p>
       </div>
     </div>
     <div class="motivos-grid">
       <div class="motivo-card mc-blue reveal">
-        <span class="motivo-icon">🏢</span>
-        <div class="motivo-tag mt-blue">Retenção de equipe</div>
-        <h3>Benefício que segura time</h3>
-        <p>Saúde é o segundo benefício mais valorizado pelos funcionários, atrás só do salário. Empresa que oferece retém mais e paga menos rescisão e reposição.</p>
+        <span class="motivo-icon">ðŸ¢</span>
+        <div class="motivo-tag mt-blue">RetenÃ§Ã£o de equipe</div>
+        <h3>BenefÃ­cio que segura time</h3>
+        <p>SaÃºde Ã© o segundo benefÃ­cio mais valorizado pelos funcionÃ¡rios, atrÃ¡s sÃ³ do salÃ¡rio. Empresa que oferece retÃ©m mais e paga menos rescisÃ£o e reposiÃ§Ã£o.</p>
       </div>
       <div class="motivo-card mc-orange reveal reveal-delay-1">
-        <span class="motivo-icon">⚖️</span>
+        <span class="motivo-icon">âš–ï¸</span>
         <div class="motivo-tag mt-orange">Compliance</div>
         <h3>CCT exige em muitas categorias</h3>
-        <p>Comércio, construção civil, metalúrgicos e serviços em SP têm convenção que obriga plano de saúde. Empresa sem o benefício pode levar multa em fiscalização.</p>
+        <p>ComÃ©rcio, construÃ§Ã£o civil, metalÃºrgicos e serviÃ§os em SP tÃªm convenÃ§Ã£o que obriga plano de saÃºde. Empresa sem o benefÃ­cio pode levar multa em fiscalizaÃ§Ã£o.</p>
       </div>
       <div class="motivo-card mc-teal reveal reveal-delay-2">
-        <span class="motivo-icon">💰</span>
-        <div class="motivo-tag mt-teal">Dedução no IR</div>
+        <span class="motivo-icon">ðŸ’°</span>
+        <div class="motivo-tag mt-teal">DeduÃ§Ã£o no IR</div>
         <h3>Abate no imposto da empresa</h3>
-        <p>Empresas no Lucro Real podem deduzir o custo do plano de saúde do IRPJ e CSLL. Isso reduz o custo real do benefício em até 34% para algumas empresas.</p>
+        <p>Empresas no Lucro Real podem deduzir o custo do plano de saÃºde do IRPJ e CSLL. Isso reduz o custo real do benefÃ­cio em atÃ© 34% para algumas empresas.</p>
       </div>
     </div>
   </div>
@@ -396,19 +428,19 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
   <div class="container">
     <div class="sec-label"><div class="sec-num">02</div> Grade</div>
     <h2 class="sec-title">Modalidades e coberturas<br>que destravam a venda</h2>
-    <p class="sec-lead">"Quem sabe a diferença entre coparticipação e sem coparticipação não fica sem resposta na reunião de RH."</p>
+    <p class="sec-lead">"Quem sabe a diferenÃ§a entre coparticipaÃ§Ã£o e sem coparticipaÃ§Ã£o nÃ£o fica sem resposta na reuniÃ£o de RH."</p>
     <div class="vs-layout reveal">
       <div class="vs-card">
         <div class="vs-card-bar vs-card-bar-blue"></div>
-        <div class="vs-card-sub">Mais previsível para a empresa</div>
+        <div class="vs-card-sub">Mais previsÃ­vel para a empresa</div>
         <h3 class="vc-blue">Sem Copart.</h3>
         <p class="vs-desc">Mensalidade fixa, sem surpresa na nota</p>
         <ul class="vs-bullets vb-blue">
           <li>Empresa sabe exatamente o que vai pagar</li>
-          <li>Funcionário usa sem medo de custo adicional</li>
-          <li>Mensalidade mais alta, mas custo total previsível</li>
-          <li>Melhor para empresa que quer benefício completo</li>
-          <li>Mais fácil de vender para RH que já tem budget</li>
+          <li>FuncionÃ¡rio usa sem medo de custo adicional</li>
+          <li>Mensalidade mais alta, mas custo total previsÃ­vel</li>
+          <li>Melhor para empresa que quer benefÃ­cio completo</li>
+          <li>Mais fÃ¡cil de vender para RH que jÃ¡ tem budget</li>
         </ul>
       </div>
       <div class="vs-middle"><div class="vs-badge">VS</div></div>
@@ -416,115 +448,115 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
         <div class="vs-card-bar vs-card-bar-orange"></div>
         <div class="vs-card-sub">Menor mensalidade</div>
         <h3 class="vc-orange">Com Copart.</h3>
-        <p class="vs-desc">Funcionário paga parte ao usar</p>
+        <p class="vs-desc">FuncionÃ¡rio paga parte ao usar</p>
         <ul class="vs-bullets vb-orange">
-          <li>Mensalidade 15–30% mais barata para a empresa</li>
-          <li>Coparticipação: R$ 15–50 por consulta ou 30% do procedimento</li>
-          <li>Reduz uso desnecessário do plano</li>
-          <li>Pode gerar reclamação se o funcionário não foi avisado</li>
+          <li>Mensalidade 15â€“30% mais barata para a empresa</li>
+          <li>CoparticipaÃ§Ã£o: R$ 15â€“50 por consulta ou 30% do procedimento</li>
+          <li>Reduz uso desnecessÃ¡rio do plano</li>
+          <li>Pode gerar reclamaÃ§Ã£o se o funcionÃ¡rio nÃ£o foi avisado</li>
           <li>Indicado para empresa que quer custo baixo e aceita explicar ao time</li>
         </ul>
       </div>
     </div>
     <div class="gold-rule reveal">
-      <div class="gold-rule-icon">🗺️</div>
+      <div class="gold-rule-icon">ðŸ—ºï¸</div>
       <div>
-        <div class="gold-rule-label">Abrangência da rede — pergunta que define o plano</div>
-        <p><strong>Regional:</strong> cobre só o estado ou região — mais barato, rede menor. <strong>Nacional:</strong> cobre todo o Brasil — indicado para empresa com funcionários em várias cidades ou que viajam. <strong>Diferença de preço:</strong> nacional custa em média 20-35% a mais que regional.</p>
+        <div class="gold-rule-label">AbrangÃªncia da rede â€” pergunta que define o plano</div>
+        <p><strong>Regional:</strong> cobre sÃ³ o estado ou regiÃ£o â€” mais barato, rede menor. <strong>Nacional:</strong> cobre todo o Brasil â€” indicado para empresa com funcionÃ¡rios em vÃ¡rias cidades ou que viajam. <strong>DiferenÃ§a de preÃ§o:</strong> nacional custa em mÃ©dia 20-35% a mais que regional.</p>
       </div>
     </div>
     <div class="reveal table-scroll">
       <table class="data-table">
-        <thead><tr><th>Cobertura ANS Obrigatória</th><th>Ambulatorial</th><th>Hospitalar s/ Obstetrícia</th><th>Hospitalar c/ Obstetrícia</th><th>Referência</th></tr></thead>
+        <thead><tr><th>Cobertura ANS ObrigatÃ³ria</th><th>Ambulatorial</th><th>Hospitalar s/ ObstetrÃ­cia</th><th>Hospitalar c/ ObstetrÃ­cia</th><th>ReferÃªncia</th></tr></thead>
         <tbody>
-          <tr><td>Consultas médicas</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
-          <tr><td>Exames básicos</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
-          <tr><td>Internação + cirurgia</td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
-          <tr><td>UTI</td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
-          <tr><td>Parto</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td></tr>
-          <tr><td>Psicologia / Psiquiatria</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td></tr>
-          <tr><td>Home care</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td></tr>
-          <tr><td><strong>Mensalidade média / vida (SP)</strong></td><td><strong>R$ 180–280</strong></td><td><strong>R$ 320–480</strong></td><td><strong>R$ 380–580</strong></td><td><strong>R$ 480–800+</strong></td></tr>
+          <tr><td>Consultas mÃ©dicas</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td></tr>
+          <tr><td>Exames bÃ¡sicos</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td></tr>
+          <tr><td>InternaÃ§Ã£o + cirurgia</td><td class="td-orange">âœ—</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td></tr>
+          <tr><td>UTI</td><td class="td-orange">âœ—</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td></tr>
+          <tr><td>Parto</td><td class="td-orange">âœ—</td><td class="td-orange">âœ—</td><td class="td-green">âœ“</td><td class="td-green">âœ“</td></tr>
+          <tr><td>Psicologia / Psiquiatria</td><td class="td-orange">âœ—</td><td class="td-orange">âœ—</td><td class="td-orange">âœ—</td><td class="td-green">âœ“</td></tr>
+          <tr><td>Home care</td><td class="td-orange">âœ—</td><td class="td-orange">âœ—</td><td class="td-orange">âœ—</td><td class="td-green">âœ“</td></tr>
+          <tr><td><strong>Mensalidade mÃ©dia / vida (SP)</strong></td><td><strong>R$ 180â€“280</strong></td><td><strong>R$ 320â€“480</strong></td><td><strong>R$ 380â€“580</strong></td><td><strong>R$ 480â€“800+</strong></td></tr>
         </tbody>
       </table>
     </div>
     <div class="rec-box reveal">
-      <div class="rec-box-label">🎯 Regra do corredor de PME</div>
-      <p><strong>Micro (2-9 vidas):</strong> Ambulatorial + Hospitalar s/ Obstetrícia resolve quase sempre. <strong>PME (10-49 vidas):</strong> Hospitalar c/ Obstetrícia já entra com mais naturalidade — time com mulheres em idade fértil. <strong>Médio porte (50+):</strong> Referência ou plano Executivo, dependendo do cargo.</p>
+      <div class="rec-box-label">ðŸŽ¯ Regra do corredor de PME</div>
+      <p><strong>Micro (2-9 vidas):</strong> Ambulatorial + Hospitalar s/ ObstetrÃ­cia resolve quase sempre. <strong>PME (10-49 vidas):</strong> Hospitalar c/ ObstetrÃ­cia jÃ¡ entra com mais naturalidade â€” time com mulheres em idade fÃ©rtil. <strong>MÃ©dio porte (50+):</strong> ReferÃªncia ou plano Executivo, dependendo do cargo.</p>
     </div>
   </div>
 </section>
 
-<!-- 03 CONTRATAÇÃO -->
+<!-- 03 CONTRATAÃ‡ÃƒO -->
 <section class="section" id="contratacao">
   <div class="container">
     <div class="sec-label"><div class="sec-num">03</div> Processo</div>
-    <h2 class="sec-title">Contratação passo<br>a passo sem enrolar</h2>
-    <p class="sec-lead">"Empresa não cancela reunião por complexidade. Cancela por corretor que não soube conduzir o processo."</p>
+    <h2 class="sec-title">ContrataÃ§Ã£o passo<br>a passo sem enrolar</h2>
+    <p class="sec-lead">"Empresa nÃ£o cancela reuniÃ£o por complexidade. Cancela por corretor que nÃ£o soube conduzir o processo."</p>
     <div class="vs-layout reveal">
       <div class="vs-card">
         <div class="vs-card-bar vs-card-bar-blue"></div>
-        <div class="vs-card-sub">Carência padrão ANS</div>
-        <h3 class="vc-blue">Carências</h3>
-        <p class="vs-desc">O que pesa na decisão do cliente</p>
+        <div class="vs-card-sub">CarÃªncia padrÃ£o ANS</div>
+        <h3 class="vc-blue">CarÃªncias</h3>
+        <p class="vs-desc">O que pesa na decisÃ£o do cliente</p>
         <ul class="vs-bullets vb-blue">
-          <li><strong>Urgência e emergência:</strong> 24h</li>
+          <li><strong>UrgÃªncia e emergÃªncia:</strong> 24h</li>
           <li><strong>Consultas e exames ambulatoriais:</strong> 30 dias</li>
-          <li><strong>Internações:</strong> 180 dias</li>
+          <li><strong>InternaÃ§Ãµes:</strong> 180 dias</li>
           <li><strong>Parto a termo:</strong> 300 dias</li>
-          <li><strong>Doenças preexistentes:</strong> até 24 meses (com DPS)</li>
-          <li>Portabilidade: pode zerar carências</li>
+          <li><strong>DoenÃ§as preexistentes:</strong> atÃ© 24 meses (com DPS)</li>
+          <li>Portabilidade: pode zerar carÃªncias</li>
         </ul>
       </div>
-      <div class="vs-middle"><div class="vs-badge">📋</div></div>
+      <div class="vs-middle"><div class="vs-badge">ðŸ“‹</div></div>
       <div class="vs-card">
         <div class="vs-card-bar vs-card-bar-orange"></div>
-        <div class="vs-card-sub">Documentos que você vai pedir</div>
+        <div class="vs-card-sub">Documentos que vocÃª vai pedir</div>
         <h3 class="vc-orange">Docs PME</h3>
-        <p class="vs-desc">Levante antes da reunião para agilizar</p>
+        <p class="vs-desc">Levante antes da reuniÃ£o para agilizar</p>
         <ul class="vs-bullets vb-orange">
           <li>CNPJ ativo (Receita Federal)</li>
-          <li>Contrato social ou última alteração</li>
-          <li>Faturamento dos últimos 12 meses (opcional, para grandes)</li>
-          <li>Relação de beneficiários: nome, CPF, data de nascimento, grau de parentesco</li>
-          <li>Cópia do plano atual + última fatura (se houver troca)</li>
-          <li>Convenção coletiva da categoria (se CCT exigir)</li>
+          <li>Contrato social ou Ãºltima alteraÃ§Ã£o</li>
+          <li>Faturamento dos Ãºltimos 12 meses (opcional, para grandes)</li>
+          <li>RelaÃ§Ã£o de beneficiÃ¡rios: nome, CPF, data de nascimento, grau de parentesco</li>
+          <li>CÃ³pia do plano atual + Ãºltima fatura (se houver troca)</li>
+          <li>ConvenÃ§Ã£o coletiva da categoria (se CCT exigir)</li>
         </ul>
       </div>
     </div>
     <div class="gold-rule reveal">
-      <div class="gold-rule-icon">⚡</div>
+      <div class="gold-rule-icon">âš¡</div>
       <div>
-        <div class="gold-rule-label">Portabilidade — sua arma de troca</div>
-        <p>Cliente com plano há mais de 2 anos pode portar para outra operadora <strong>sem cumprir carências</strong>. Isso derruba a maior objeção de troca. Regra ANS: prazo de cobertura e faixa etária devem ser equivalentes ou superiores.</p>
+        <div class="gold-rule-label">Portabilidade â€” sua arma de troca</div>
+        <p>Cliente com plano hÃ¡ mais de 2 anos pode portar para outra operadora <strong>sem cumprir carÃªncias</strong>. Isso derruba a maior objeÃ§Ã£o de troca. Regra ANS: prazo de cobertura e faixa etÃ¡ria devem ser equivalentes ou superiores.</p>
       </div>
     </div>
     <div class="fund-grid">
       <div class="reveal">
         <div class="inss-callout">
-          <div class="inss-callout-label">⏱️ Tabela etária — como funciona no PME</div>
-          <p>A ANS divide em <strong>10 faixas etárias</strong>. Última faixa (59+) pode custar até <strong>6x</strong> a primeira (0-18 anos). Empresas com funcionários mais velhos pagam mais. Quando apresentar proposta com muitos colaboradores acima de 50, <strong>avise antes do custo</strong> — surpresa no PME derruba fechamento.</p>
+          <div class="inss-callout-label">â±ï¸ Tabela etÃ¡ria â€” como funciona no PME</div>
+          <p>A ANS divide em <strong>10 faixas etÃ¡rias</strong>. Ãšltima faixa (59+) pode custar atÃ© <strong>6x</strong> a primeira (0-18 anos). Empresas com funcionÃ¡rios mais velhos pagam mais. Quando apresentar proposta com muitos colaboradores acima de 50, <strong>avise antes do custo</strong> â€” surpresa no PME derruba fechamento.</p>
         </div>
       </div>
       <div class="reveal reveal-delay-1">
         <div class="rec-box" style="margin-top:0;">
-          <div class="rec-box-label">📅 Prazo de implantação</div>
-          <p><strong>Após assinatura do contrato e entrega dos documentos:</strong></p>
-          <p><strong>Operadoras grandes (Amil, Bradesco, SulAmérica):</strong> 5 a 10 dias úteis.</p>
-          <p><strong>Operadoras regionais (Unimed, Notre Dame):</strong> 10 a 20 dias úteis.</p>
-          <p>Carteirinha: física em até 30 dias. Digital: disponível em 24-48h após ativação.</p>
+          <div class="rec-box-label">ðŸ“… Prazo de implantaÃ§Ã£o</div>
+          <p><strong>ApÃ³s assinatura do contrato e entrega dos documentos:</strong></p>
+          <p><strong>Operadoras grandes (Amil, Bradesco, SulAmÃ©rica):</strong> 5 a 10 dias Ãºteis.</p>
+          <p><strong>Operadoras regionais (Unimed, Notre Dame):</strong> 10 a 20 dias Ãºteis.</p>
+          <p>Carteirinha: fÃ­sica em atÃ© 30 dias. Digital: disponÃ­vel em 24-48h apÃ³s ativaÃ§Ã£o.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 04 PREÇO -->
+<!-- 04 PREÃ‡O -->
 <section class="section section-dark" id="preco">
   <div class="container">
-    <div class="sec-label"><div class="sec-num" style="background:rgba(26,62,200,.2);color:var(--ac2);">04</div> <span class="sec-label-dark">Preço</span></div>
-    <h2 class="sec-title sec-title-light">Preço e comissão<br>na ponta da língua</h2>
-    <p class="sec-lead sec-lead-light">"Corretor que não sabe preço de cabeça sempre parece inseguro. E insegurança não fecha PME."</p>
+    <div class="sec-label"><div class="sec-num" style="background:rgba(26,62,200,.2);color:var(--ac2);">04</div> <span class="sec-label-dark">PreÃ§o</span></div>
+    <h2 class="sec-title sec-title-light">PreÃ§o e comissÃ£o<br>na ponta da lÃ­ngua</h2>
+    <p class="sec-lead sec-lead-light">"Corretor que nÃ£o sabe preÃ§o de cabeÃ§a sempre parece inseguro. E inseguranÃ§a nÃ£o fecha PME."</p>
     <div class="stats-row">
       <div class="stat-box reveal">
         <div class="stat-val">R$180</div>
@@ -532,35 +564,35 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
       </div>
       <div class="stat-box reveal reveal-delay-1">
         <div class="stat-val">R$420</div>
-        <div class="stat-label">Ticket médio hospitalar 10-49 vidas (SP)</div>
+        <div class="stat-label">Ticket mÃ©dio hospitalar 10-49 vidas (SP)</div>
       </div>
       <div class="stat-box reveal reveal-delay-2">
-        <div class="stat-val">Variável</div>
-        <div class="stat-label">Comissão do corretor PME</div>
+        <div class="stat-val">VariÃ¡vel</div>
+        <div class="stat-label">ComissÃ£o do corretor PME</div>
       </div>
       <div class="stat-box reveal reveal-delay-3">
-        <div class="stat-val">Pós-venda</div>
-        <div class="stat-label">Comissão após implantação</div>
+        <div class="stat-val">PÃ³s-venda</div>
+        <div class="stat-label">ComissÃ£o apÃ³s implantaÃ§Ã£o</div>
       </div>
     </div>
     <div class="reveal table-scroll">
       <table class="data-table">
-        <thead><tr><th>Operadora</th><th>Porte</th><th>Plano</th><th>Faixa de Preço/vida</th><th>Comissão Corretor</th></tr></thead>
+        <thead><tr><th>Operadora</th><th>Porte</th><th>Plano</th><th>Faixa de PreÃ§o/vida</th><th>ComissÃ£o Corretor</th></tr></thead>
         <tbody>
-          <tr><td><strong>Amil</strong></td><td>2-99 vidas</td><td>400 / Fácil Hospitalar</td><td class="td-green">R$ 280–550</td><td>Sob consulta</td></tr>
-          <tr><td><strong>Bradesco Saúde</strong></td><td>3-99 vidas</td><td>Flex / Plus</td><td>R$ 320–680</td><td>Sob consulta</td></tr>
-          <tr><td><strong>SulAmérica</strong></td><td>2-99 vidas</td><td>Exato / Sênior</td><td>R$ 300–620</td><td>Sob consulta</td></tr>
-          <tr><td><strong>Unimed</strong></td><td>2-99 vidas</td><td>Regional</td><td>R$ 260–520</td><td>Sob consulta</td></tr>
-          <tr><td><strong>Notre Dame</strong></td><td>2-49 vidas</td><td>PME</td><td class="td-green">R$ 220–480</td><td>Sob consulta</td></tr>
-          <tr><td><strong>Hapvida / GN1</strong></td><td>2-99 vidas</td><td>PME</td><td class="td-green">R$ 180–380</td><td>Sob consulta</td></tr>
+          <tr><td><strong>Amil</strong></td><td>2-99 vidas</td><td>400 / FÃ¡cil Hospitalar</td><td class="td-green">R$ 280â€“550</td><td>Sob consulta</td></tr>
+          <tr><td><strong>Bradesco SaÃºde</strong></td><td>3-99 vidas</td><td>Flex / Plus</td><td>R$ 320â€“680</td><td>Sob consulta</td></tr>
+          <tr><td><strong>SulAmÃ©rica</strong></td><td>2-99 vidas</td><td>Exato / SÃªnior</td><td>R$ 300â€“620</td><td>Sob consulta</td></tr>
+          <tr><td><strong>Unimed</strong></td><td>2-99 vidas</td><td>Regional</td><td>R$ 260â€“520</td><td>Sob consulta</td></tr>
+          <tr><td><strong>Notre Dame</strong></td><td>2-49 vidas</td><td>PME</td><td class="td-green">R$ 220â€“480</td><td>Sob consulta</td></tr>
+          <tr><td><strong>Hapvida / GN1</strong></td><td>2-99 vidas</td><td>PME</td><td class="td-green">R$ 180â€“380</td><td>Sob consulta</td></tr>
         </tbody>
       </table>
     </div>
     <div class="script-box reveal">
-      <div class="script-label">💰 Por que focar no PME</div>
-      <p style="font-style:normal;">Vender saúde PME é garantir uma base de clientes corporativa com alta retenção. O ticket médio é o mais elevado da categoria e a fidelização é natural.<br>
-      Cada nova empresa na sua base contribui para um faturamento sólido para o seu negócio.<br><br>
-      Um PME de 50 vidas bem colocado rende muito mais que o esforço individual de 100 PFs. Qualifique o porte antes de cotar.</p>
+      <div class="script-label">ðŸ’° Por que focar no PME</div>
+      <p style="font-style:normal;">Vender saÃºde PME Ã© garantir uma base de clientes corporativa com alta retenÃ§Ã£o. O ticket mÃ©dio Ã© o mais elevado da categoria e a fidelizaÃ§Ã£o Ã© natural.<br>
+      Cada nova empresa na sua base contribui para um faturamento sÃ³lido para o seu negÃ³cio.<br><br>
+      Um PME de 50 vidas bem colocado rende muito mais que o esforÃ§o individual de 100 PFs. Qualifique o porte antes de cotar.</p>
     </div>
   </div>
 </section>
@@ -570,118 +602,118 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
   <div class="container">
     <div class="sec-label"><div class="sec-num">05</div> Fechamento</div>
     <h2 class="sec-title">Conduza a venda<br>sem parecer script</h2>
-    <p class="sec-lead">"PME não fecha no impulso. Fecha quando a empresa entende que o benefício custa menos do que o problema que evita."</p>
+    <p class="sec-lead">"PME nÃ£o fecha no impulso. Fecha quando a empresa entende que o benefÃ­cio custa menos do que o problema que evita."</p>
     <div class="venda-steps reveal">
       <div class="venda-step">
         <div class="venda-step-num">1</div>
         <div class="venda-step-body">
           <h4>Qualifique antes de cotar</h4>
-          <div class="step-script">"Quantas vidas seriam no plano? Tem dependentes? E hoje vocês têm algum benefício de saúde para o time ou está tudo no particular?"</div>
+          <div class="step-script">"Quantas vidas seriam no plano? Tem dependentes? E hoje vocÃªs tÃªm algum benefÃ­cio de saÃºde para o time ou estÃ¡ tudo no particular?"</div>
         </div>
       </div>
       <div class="venda-step">
         <div class="venda-step-num">2</div>
         <div class="venda-step-body">
           <h4>Mapeie a dor real do RH</h4>
-          <div class="step-script">"O que mais incomoda hoje — falta por doença, demora em atendimento ou custo de urgência que vai pro particular? Você recebe muito isso do time?"</div>
+          <div class="step-script">"O que mais incomoda hoje â€” falta por doenÃ§a, demora em atendimento ou custo de urgÃªncia que vai pro particular? VocÃª recebe muito isso do time?"</div>
         </div>
       </div>
       <div class="venda-step">
         <div class="venda-step-num">3</div>
         <div class="venda-step-body">
           <h4>Pede o plano atual para comparar</h4>
-          <div class="step-script">"Se já tem plano, me manda a última fatura e o contrato. Em 24h eu te mostro onde está pagando demais ou deixando cobertura de lado."</div>
+          <div class="step-script">"Se jÃ¡ tem plano, me manda a Ãºltima fatura e o contrato. Em 24h eu te mostro onde estÃ¡ pagando demais ou deixando cobertura de lado."</div>
         </div>
       </div>
       <div class="venda-step">
         <div class="venda-step-num">4</div>
         <div class="venda-step-body">
-          <h4>Apresenta duas opções, não uma</h4>
-          <div class="step-script">"Trouxe duas opções: a entrada que cabe no orçamento de hoje e a completa que resolve por mais tempo. Qual faz mais sentido começar?"</div>
+          <h4>Apresenta duas opÃ§Ãµes, nÃ£o uma</h4>
+          <div class="step-script">"Trouxe duas opÃ§Ãµes: a entrada que cabe no orÃ§amento de hoje e a completa que resolve por mais tempo. Qual faz mais sentido comeÃ§ar?"</div>
         </div>
       </div>
       <div class="venda-step">
         <div class="venda-step-num">5</div>
         <div class="venda-step-body">
-          <h4>Fecha no próximo passo concreto</h4>
-          <div class="step-script">"Se a proposta faz sentido, eu preciso da relação de beneficiários e do CNPJ atualizado para gerar o contrato. Isso é rápido de levantar e a gente não perde o prazo da CCT."</div>
+          <h4>Fecha no prÃ³ximo passo concreto</h4>
+          <div class="step-script">"Se a proposta faz sentido, eu preciso da relaÃ§Ã£o de beneficiÃ¡rios e do CNPJ atualizado para gerar o contrato. Isso Ã© rÃ¡pido de levantar e a gente nÃ£o perde o prazo da CCT."</div>
         </div>
       </div>
     </div>
     <div class="feature-row reveal">
       <div class="feature-box fb-blue">
-        <div class="fb-label">🔄 Cross obrigatório</div>
-        <p>Vendeu saúde PME? Puxa <strong>odonto PME</strong> em seguida — o custo adicional por vida é pequeno e a renovação fica mais difícil de acontecer com dois produtos. Também verifique se a CCT da categoria exige odonto.</p>
+        <div class="fb-label">ðŸ”„ Cross obrigatÃ³rio</div>
+        <p>Vendeu saÃºde PME? Puxa <strong>odonto PME</strong> em seguida â€” o custo adicional por vida Ã© pequeno e a renovaÃ§Ã£o fica mais difÃ­cil de acontecer com dois produtos. TambÃ©m verifique se a CCT da categoria exige odonto.</p>
       </div>
       <div class="feature-box fb-green">
-        <div class="fb-label">📋 Avise sobre reajuste anual</div>
+        <div class="fb-label">ðŸ“‹ Avise sobre reajuste anual</div>
         <p>PME tem reajuste anual por sinistralidade + IPCA. <strong>Avise isso antes de fechar</strong>. Empresa que descobre na hora do reajuste cancela. Empresa que foi avisada entende e renova.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 06 OBJEÇÕES -->
+<!-- 06 OBJEÃ‡Ã•ES -->
 <section class="section" id="objecoes">
   <div class="container">
     <div class="sec-label"><div class="sec-num">06</div> Virada</div>
-    <h2 class="sec-title">Vire a objeção<br>no papo reto</h2>
-    <p class="sec-lead">"Objeção de PME quase sempre é sobre preço ou processo. Quem tem dado na mão vira a conversa rápido."</p>
+    <h2 class="sec-title">Vire a objeÃ§Ã£o<br>no papo reto</h2>
+    <p class="sec-lead">"ObjeÃ§Ã£o de PME quase sempre Ã© sobre preÃ§o ou processo. Quem tem dado na mÃ£o vira a conversa rÃ¡pido."</p>
     <div class="obj-grid">
       <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Está muito caro para o nosso porte."</div>
+        <div class="obj-q"><span class="obj-q-icon">âŒ</span>"EstÃ¡ muito caro para o nosso porte."</div>
         <div class="obj-a">
           <div class="obj-a-tag">Resposta</div>
-          <p>Entendido. Quanto custa hoje uma demissão por doença não tratada ou 3 dias de falta de um funcionário? O plano básico fica abaixo de R$ 10/dia por vida. Você paga mais que isso em hora extra.</p>
+          <p>Entendido. Quanto custa hoje uma demissÃ£o por doenÃ§a nÃ£o tratada ou 3 dias de falta de um funcionÃ¡rio? O plano bÃ¡sico fica abaixo de R$ 10/dia por vida. VocÃª paga mais que isso em hora extra.</p>
         </div>
       </div>
       <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Meus funcionários não usam esse tipo de benefício."</div>
+        <div class="obj-q"><span class="obj-q-icon">âŒ</span>"Meus funcionÃ¡rios nÃ£o usam esse tipo de benefÃ­cio."</div>
         <div class="obj-a">
           <div class="obj-a-tag">Resposta</div>
-          <p>Justo. Mas quando precisam, o custo vai para o bolso deles — e o absenteísmo vai para o seu. Plano com coparticipação controla o uso e a mensalidade fica mais baixa ainda.</p>
+          <p>Justo. Mas quando precisam, o custo vai para o bolso deles â€” e o absenteÃ­smo vai para o seu. Plano com coparticipaÃ§Ã£o controla o uso e a mensalidade fica mais baixa ainda.</p>
         </div>
       </div>
       <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Já tentei e a operadora rejeitou por sinistralidade."</div>
+        <div class="obj-q"><span class="obj-q-icon">âŒ</span>"JÃ¡ tentei e a operadora rejeitou por sinistralidade."</div>
         <div class="obj-a">
           <div class="obj-a-tag">Resposta</div>
-          <p>Isso acontece. Mas cada operadora tem critério diferente. Me conta o histórico e eu vejo qual aceita hoje. Tem operadoras que trabalham com PME de alto uso e dão condição mesmo assim.</p>
+          <p>Isso acontece. Mas cada operadora tem critÃ©rio diferente. Me conta o histÃ³rico e eu vejo qual aceita hoje. Tem operadoras que trabalham com PME de alto uso e dÃ£o condiÃ§Ã£o mesmo assim.</p>
         </div>
       </div>
       <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Não é obrigação minha dar isso."</div>
+        <div class="obj-q"><span class="obj-q-icon">âŒ</span>"NÃ£o Ã© obrigaÃ§Ã£o minha dar isso."</div>
         <div class="obj-a">
           <div class="obj-a-tag">Resposta</div>
-          <p>Legalmente depende da categoria. Mas como benefício, o retorno vem em retenção e produtividade. Me fala o segmento que eu verifico o que a CCT diz — você pode estar exposto sem saber.</p>
+          <p>Legalmente depende da categoria. Mas como benefÃ­cio, o retorno vem em retenÃ§Ã£o e produtividade. Me fala o segmento que eu verifico o que a CCT diz â€” vocÃª pode estar exposto sem saber.</p>
         </div>
       </div>
       <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Vou pensar e te retorno."</div>
+        <div class="obj-q"><span class="obj-q-icon">âŒ</span>"Vou pensar e te retorno."</div>
         <div class="obj-a">
           <div class="obj-a-tag">Resposta</div>
-          <p>Claro. Mas me fala o que pesou mais — preço, cobertura ou outra coisa? Se eu souber o que travou, eu volto com uma proposta que resolve direto o ponto que importa.</p>
+          <p>Claro. Mas me fala o que pesou mais â€” preÃ§o, cobertura ou outra coisa? Se eu souber o que travou, eu volto com uma proposta que resolve direto o ponto que importa.</p>
         </div>
       </div>
       <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"O plano atual já foi negociado com desconto."</div>
+        <div class="obj-q"><span class="obj-q-icon">âŒ</span>"O plano atual jÃ¡ foi negociado com desconto."</div>
         <div class="obj-a">
           <div class="obj-a-tag">Resposta</div>
-          <p>Ótimo ponto. Me manda o contrato e a última fatura. Desconto é bom, mas se a rede encolheu ou a cobertura piorou, o desconto custou caro sem você perceber.</p>
+          <p>Ã“timo ponto. Me manda o contrato e a Ãºltima fatura. Desconto Ã© bom, mas se a rede encolheu ou a cobertura piorou, o desconto custou caro sem vocÃª perceber.</p>
         </div>
       </div>
       <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Minha empresa tem só 3 pessoas."</div>
+        <div class="obj-q"><span class="obj-q-icon">âŒ</span>"Minha empresa tem sÃ³ 3 pessoas."</div>
         <div class="obj-a">
           <div class="obj-a-tag">Resposta</div>
-          <p>Com 2 vidas já entra no PME. Para um escritório de 3 pessoas, a diferença de preço por vida entre PF e PME pode passar de 30%. Compensa verificar antes de manter no PF.</p>
+          <p>Com 2 vidas jÃ¡ entra no PME. Para um escritÃ³rio de 3 pessoas, a diferenÃ§a de preÃ§o por vida entre PF e PME pode passar de 30%. Compensa verificar antes de manter no PF.</p>
         </div>
       </div>
       <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Já tenho um corretor que cuida disso."</div>
+        <div class="obj-q"><span class="obj-q-icon">âŒ</span>"JÃ¡ tenho um corretor que cuida disso."</div>
         <div class="obj-a">
           <div class="obj-a-tag">Resposta</div>
-          <p>Sem problema. Mas quando foi a última vez que ele trouxe uma revisão de contrato ou comparação de mercado? Eu faço isso sem custo. Se o que tem está melhor, você fica onde está.</p>
+          <p>Sem problema. Mas quando foi a Ãºltima vez que ele trouxe uma revisÃ£o de contrato ou comparaÃ§Ã£o de mercado? Eu faÃ§o isso sem custo. Se o que tem estÃ¡ melhor, vocÃª fica onde estÃ¡.</p>
         </div>
       </div>
     </div>
@@ -693,65 +725,137 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
   <div class="container">
     <div class="sec-label"><div class="sec-num">07</div> Operadora</div>
     <h2 class="sec-title">Puxe a operadora<br>certa para cada PME</h2>
-    <p class="sec-lead">"Você não precisa vender todas. Precisa saber qual encaixa melhor no porte e no perfil do cliente."</p>
+    <p class="sec-lead">"VocÃª nÃ£o precisa vender todas. Precisa saber qual encaixa melhor no porte e no perfil do cliente."</p>
     <div class="ops-layout">
       <div class="rank-list">
         <div class="rank-item reveal" style="border:1px solid rgba(26,62,200,.3);background:rgba(26,62,200,.03);">
           <div class="rank-medal rm-gold" style="font-size:2.2rem;">1</div>
           <div>
-            <div class="rank-name" style="color:var(--bl);">Amil — mais fácil de cotar e implantar</div>
-            <div class="rank-desc">Rede nacional ampla. Plano 400 e Fácil entram em qualquer PME de 2+ vidas. Cotação online. Indicado para empresa que precisa de rede grande ou tem funcionários em múltiplos estados.</div>
+            <div class="rank-name" style="color:var(--bl);">Amil â€” mais fÃ¡cil de cotar e implantar</div>
+            <div class="rank-desc">Rede nacional ampla. Plano 400 e FÃ¡cil entram em qualquer PME de 2+ vidas. CotaÃ§Ã£o online. Indicado para empresa que precisa de rede grande ou tem funcionÃ¡rios em mÃºltiplos estados.</div>
           </div>
         </div>
         <div class="rank-item reveal reveal-delay-1">
           <div class="rank-medal rm-silver">2</div>
           <div>
-            <div class="rank-name">Bradesco Saúde — nome que fecha reunião</div>
-            <div class="rank-desc">A marca Bradesco abre porta em PME mais conservador. Produto Flex tem boa cobertura no intermediário. Integra bem com produtos financeiros Bradesco que o cliente já pode ter.</div>
+            <div class="rank-name">Bradesco SaÃºde â€” nome que fecha reuniÃ£o</div>
+            <div class="rank-desc">A marca Bradesco abre porta em PME mais conservador. Produto Flex tem boa cobertura no intermediÃ¡rio. Integra bem com produtos financeiros Bradesco que o cliente jÃ¡ pode ter.</div>
           </div>
         </div>
         <div class="rank-item reveal reveal-delay-2">
           <div class="rank-medal rm-silver">3</div>
           <div>
-            <div class="rank-name">SulAmérica — melhor para cross com outros produtos</div>
-            <div class="rank-desc">Forte no SE e CO. Bom para quem já tem odonto ou vida SulAmérica — desconto combo. Plano Exato tem boa relação custo-benefício para PME de 10-49 vidas.</div>
+            <div class="rank-name">SulAmÃ©rica â€” melhor para cross com outros produtos</div>
+            <div class="rank-desc">Forte no SE e CO. Bom para quem jÃ¡ tem odonto ou vida SulAmÃ©rica â€” desconto combo. Plano Exato tem boa relaÃ§Ã£o custo-benefÃ­cio para PME de 10-49 vidas.</div>
           </div>
         </div>
         <div class="rank-item reveal reveal-delay-3">
           <div class="rank-medal rm-bronze">4</div>
           <div>
-            <div class="rank-name">Notre Dame Intermédica — melhor preço SP/MG</div>
-            <div class="rank-desc">Rede forte em São Paulo e Minas. Preço abaixo das nacionais em PME pequeno (2-20 vidas). Bom para empresa que quer custo baixo e fica concentrada em uma cidade.</div>
+            <div class="rank-name">Notre Dame IntermÃ©dica â€” melhor preÃ§o SP/MG</div>
+            <div class="rank-desc">Rede forte em SÃ£o Paulo e Minas. PreÃ§o abaixo das nacionais em PME pequeno (2-20 vidas). Bom para empresa que quer custo baixo e fica concentrada em uma cidade.</div>
           </div>
         </div>
         <div class="rank-item reveal">
           <div class="rank-medal rm-gray">5</div>
           <div>
-            <div class="rank-name">Hapvida / GN1 — preço mais baixo do mercado</div>
-            <div class="rank-desc">Modelo de rede própria — hospitais e clínicas da operadora. Menor custo, mas rede fechada. Indicado para empresa que prioriza preço e está em cidade com boa cobertura Hapvida.</div>
+            <div class="rank-name">Hapvida / GN1 â€” preÃ§o mais baixo do mercado</div>
+            <div class="rank-desc">Modelo de rede prÃ³pria â€” hospitais e clÃ­nicas da operadora. Menor custo, mas rede fechada. Indicado para empresa que prioriza preÃ§o e estÃ¡ em cidade com boa cobertura Hapvida.</div>
           </div>
         </div>
         <div class="rank-item reveal">
           <div class="rank-medal rm-gray">6</div>
           <div>
-            <div class="rank-name">Unimed — força regional</div>
-            <div class="rank-desc">Varia muito por cooperativa. Unimed Paulistana (SP) e Unimed BH têm produto forte. Verifique a cooperativa local. Funciona bem para empresa que quer plano da marca reconhecida na cidade.</div>
+            <div class="rank-name">Unimed â€” forÃ§a regional</div>
+            <div class="rank-desc">Varia muito por cooperativa. Unimed Paulistana (SP) e Unimed BH tÃªm produto forte. Verifique a cooperativa local. Funciona bem para empresa que quer plano da marca reconhecida na cidade.</div>
           </div>
         </div>
       </div>
       <div class="ops-sidebar">
         <div class="cert-card cc-blue reveal">
-          <div class="cert-tag">Tabela etária ANS</div>
-          <h3>10 Faixas de Preço</h3>
-          <p>A ANS determina 10 faixas etárias. A diferença entre a faixa 1 (0-18 anos) e a faixa 10 (59+) pode ser de até 6x. Mostre isso para o RH quando a empresa tiver perfil etário mais alto — evita surpresa na fatura.</p>
+          <div class="cert-tag">Tabela etÃ¡ria ANS</div>
+          <h3>10 Faixas de PreÃ§o</h3>
+          <p>A ANS determina 10 faixas etÃ¡rias. A diferenÃ§a entre a faixa 1 (0-18 anos) e a faixa 10 (59+) pode ser de atÃ© 6x. Mostre isso para o RH quando a empresa tiver perfil etÃ¡rio mais alto â€” evita surpresa na fatura.</p>
         </div>
         <div class="cert-card cc-green reveal reveal-delay-1">
           <div class="cert-tag">Sinistralidade</div>
           <h3>Taxa ideal: abaixo de 75%</h3>
-          <p>Sinistralidade é o percentual da mensalidade gasto em atendimentos. Acima de 75%, a operadora pode não renovar ou reajustar alto. PME com funcionários mais velhos ou histórico de uso intenso pode ter sinistralidade problemática.</p>
-          <p><strong>Dica:</strong> pergunte sempre se houve alguma recusa de renovação anterior.</p>
+          <p>Sinistralidade Ã© o percentual da mensalidade gasto em atendimentos. Acima de 75%, a operadora pode nÃ£o renovar ou reajustar alto. PME com funcionÃ¡rios mais velhos ou histÃ³rico de uso intenso pode ter sinistralidade problemÃ¡tica.</p>
+          <p><strong>Dica:</strong> pergunte sempre se houve alguma recusa de renovaÃ§Ã£o anterior.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 PRIORIDADE PME x PF x ADESAO -->
+<section class="section section-dark" id="prioridade">
+  <div class="container">
+    <div class="sec-label"><div class="sec-num" style="background:rgba(22,163,74,.2);color:var(--gn);">08</div> <span class="sec-label-dark">Prioridade</span></div>
+    <h2 class="sec-title sec-title-light">PME x PF x Adesao</h2>
+    <p class="sec-lead sec-lead-light"><em>A ordem importa. Saber qual produto oferecer em cada situaÃ§Ã£o define quanto voce vai ganhar e quanto dor de cabeca vai ter.</em></p>
+
+    <div class="prioridade-grid">
+      <article class="prio-card prio-pme">
+        <div class="prio-badge">PRIORIDADE 1 - FOCO TOTAL</div>
+        <h3>Tem CNPJ? Vai de PME</h3>
+        <ul class="prio-list">
+          <li>Operadoras oferecem melhores condiÃ§Ãµes por carteira</li>
+          <li>Uma venda cobre multiplas vidas - melhor relaÃ§Ã£o esforÃ§o/resultado</li>
+          <li>Menor taxa de cancelamento</li>
+          <li>Processo de implantaÃ§Ã£o direto</li>
+        </ul>
+        <div class="callout callout-green">
+          <div class="callout-label">Regra</div>
+          <p>Sempre pergunte se tem CNPJ antes de cotar. MEI com CNPJ ativo ja entra no PME a partir de 2 vidas.</p>
+        </div>
+      </article>
+
+      <article class="prio-card prio-pf">
+        <div class="prio-badge">PRIORIDADE 2 - SE NAO TEM CNPJ</div>
+        <h3>Sem CNPJ - oferece PF</h3>
+        <ul class="prio-list">
+          <li>Processo simples, sem entidade de classe</li>
+          <li>Comissao menor que PME, mas processo limpo</li>
+          <li>Menos problemas pos-venda do que Adesao</li>
+          <li>Cliente paga mais, voce tem mais controle</li>
+        </ul>
+        <div class="callout callout-orange">
+          <div class="callout-label">Orientacao</div>
+          <p>PF e sempre melhor que Adesao. Mesmo sendo mais caro para o cliente, o processo e mais simples e com menos atrito.</p>
+        </div>
+      </article>
+
+      <article class="prio-card prio-adesao">
+        <div class="prio-badge">PRIORIDADE 3 - EVITAR AO MAXIMO</div>
+        <h3>Adesao so para nao perder o cliente</h3>
+        <ul class="prio-list">
+          <li>Exige vinculo com entidade de classe</li>
+          <li>Rede credenciada geralmente mais limitada</li>
+          <li>Problemas pos-venda mais dificeis de resolver</li>
+          <li>Comissao existe, mas o custo operacional e alto</li>
+          <li>A operadora aceita, mas nao e o caminho priorizado</li>
+        </ul>
+        <div class="callout callout-red">
+          <div class="callout-label">Alerta</div>
+          <p>Use Adesao so quando o cliente nao tem CNPJ e nao quer PF por nenhum motivo. Nao e ruim - e custosa para quem vende.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="priority-table-wrap">
+      <table class="priority-table">
+        <thead>
+          <tr><th></th><th>PME</th><th>PF</th><th>Adesao</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Tem CNPJ?</td><td>Sim (2+ vidas)</td><td>Nao</td><td>Nao (entidade)</td></tr>
+          <tr><td>Processo</td><td>Direto</td><td>Simples</td><td>Burocratico</td></tr>
+          <tr><td>Rede credenciada</td><td>Completa</td><td>Completa</td><td>Limitada</td></tr>
+          <tr><td>Pos-venda</td><td>Tranquilo</td><td>Tranquilo</td><td>Trabalhoso</td></tr>
+          <tr><td>Prioridade</td><td>Sempre</td><td>Se nao tem CNPJ</td><td>Ultimo recurso</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -759,43 +863,43 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
 <!-- 08 CHECKLIST -->
 <section class="section section-dark" id="checklist">
   <div class="container">
-    <div class="sec-label"><div class="sec-num" style="background:rgba(26,62,200,.2);color:var(--ac2);">08</div> <span class="sec-label-dark">Pré-Reunião</span></div>
-    <h2 class="sec-title sec-title-light">Checklist de reunião<br>PME — entre pronto</h2>
-    <p class="sec-lead sec-lead-light">"Reunião de PME sem informação é visita. Reunião com dado é proposta. Proposta fecha."</p>
+    <div class="sec-label"><div class="sec-num" style="background:rgba(26,62,200,.2);color:var(--ac2);">09</div> <span class="sec-label-dark">PrÃ©-ReuniÃ£o</span></div>
+    <h2 class="sec-title sec-title-light">Checklist de reuniÃ£o<br>PME â€” entre pronto</h2>
+    <p class="sec-lead sec-lead-light">"ReuniÃ£o de PME sem informaÃ§Ã£o Ã© visita. ReuniÃ£o com dado Ã© proposta. Proposta fecha."</p>
     <div class="check-layout">
       <div>
-        <div class="check-col-title">📋 Levante antes de ligar</div>
+        <div class="check-col-title">ðŸ“‹ Levante antes de ligar</div>
         <div class="check-list">
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">CNPJ e razão social (Receita Federal)</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Porte: número estimado de funcionários CLT</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Segmento e CCT da categoria dos funcionários</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">CNPJ e razÃ£o social (Receita Federal)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Porte: nÃºmero estimado de funcionÃ¡rios CLT</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Segmento e CCT da categoria dos funcionÃ¡rios</div></div>
           <div class="check-row"><div class="check-box-el"></div><div class="check-text">Tem plano atual? Qual operadora?</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Data de vencimento/renovação do contrato atual</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Abrangência necessária (regional ou nacional)</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Decisor é o dono, sócio ou RH?</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Data de vencimento/renovaÃ§Ã£o do contrato atual</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">AbrangÃªncia necessÃ¡ria (regional ou nacional)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Decisor Ã© o dono, sÃ³cio ou RH?</div></div>
         </div>
       </div>
       <div>
-        <div class="check-col-title">📁 Docs para fechar</div>
+        <div class="check-col-title">ðŸ“ Docs para fechar</div>
         <div class="check-list">
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">CNPJ ativo (cartão CNPJ Receita)</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Contrato social ou última alteração</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Relação de beneficiários (nome, CPF, data nasc.)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">CNPJ ativo (cartÃ£o CNPJ Receita)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Contrato social ou Ãºltima alteraÃ§Ã£o</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">RelaÃ§Ã£o de beneficiÃ¡rios (nome, CPF, data nasc.)</div></div>
           <div class="check-row"><div class="check-box-el"></div><div class="check-text">Grau de parentesco dos dependentes</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Última fatura do plano atual (se troca)</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Ãšltima fatura do plano atual (se troca)</div></div>
           <div class="check-row"><div class="check-box-el"></div><div class="check-text">Contrato atual assinado (para portabilidade)</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">DPS (Declaração de Saúde) assinada por cada vida</div></div>
+          <div class="check-row"><div class="check-box-el"></div><div class="check-text">DPS (DeclaraÃ§Ã£o de SaÃºde) assinada por cada vida</div></div>
         </div>
       </div>
     </div>
     <div class="rec-box" style="border-color:rgba(26,62,200,.3);background:rgba(26,62,200,.06);">
-      <div class="rec-box-label" style="color:var(--ac2);">🎯 Regra de ouro do PME</div>
-      <p style="color:rgba(255,255,255,.7);">Nunca apresente proposta sem saber o perfil etário dos funcionários. Preço sem tabela etária é chute. Chute em PME vira reajuste surpresa e cancelamento no segundo ano.</p>
+      <div class="rec-box-label" style="color:var(--ac2);">ðŸŽ¯ Regra de ouro do PME</div>
+      <p style="color:rgba(255,255,255,.7);">Nunca apresente proposta sem saber o perfil etÃ¡rio dos funcionÃ¡rios. PreÃ§o sem tabela etÃ¡ria Ã© chute. Chute em PME vira reajuste surpresa e cancelamento no segundo ano.</p>
     </div>
     <div class="feature-box fb-green" style="margin-top: 48px; width: 100%; grid-column: span 2;">
-      <div class="fb-label">PRÓXIMO PASSO</div>
-      <p>Fechou saúde PME? Odonto entra na mesma reunião — mesmo CNPJ, mesma decisão, ticket adicional na hora.</p>
-      <a href="../odonto/index.html" class="btn-primary" style="margin-top: 12px; padding: 8px 16px; font-size: 0.75rem;">Ver guia →</a>
+      <div class="fb-label">PRÃ“XIMO PASSO</div>
+      <p>Fechou saÃºde PME? Odonto entra na mesma reuniÃ£o â€” mesmo CNPJ, mesma decisÃ£o, ticket adicional na hora.</p>
+      <a href="../odonto/index.html" class="btn-primary" style="margin-top: 12px; padding: 8px 16px; font-size: 0.75rem;">Ver guia â†’</a>
     </div>
   </div>
 </section>
@@ -810,11 +914,11 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
     <div>
       <div class="footer-col-title">Outros Guias</div>
       <ul class="footer-links">
-        <li><a href="../revier-previdencia/index.html">Previdência Privada</a></li>
+        <li><a href="../revier-previdencia/index.html">PrevidÃªncia Privada</a></li>
         <li><a href="../odonto/index.html">Odonto</a></li>
         <li><a href="../seguro-vida/index.html">Seguro de Vida</a></li>
         <li><a href="../seguro-auto/index.html">Seguro Auto</a></li>
-        <li><a href="../../index.html">← Voltar ao Portal</a></li>
+        <li><a href="../../index.html">â† Voltar ao Portal</a></li>
       </ul>
     </div>
     <div class="footer-contact">
@@ -823,12 +927,12 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
       <p>CNPJ 42.621.875/0001-50</p>
       <p>contato@reviercorretora.com.br</p>
       <p>(11) 5555-9350</p>
-      <p>Santo André, SP</p>
+      <p>Santo AndrÃ©, SP</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 Revier Brokers — Uso exclusivo equipe interna</p>
-    <p>Material educacional. Não substitui análise técnica individual.</p>
+    <p>Â© 2026 Revier Brokers â€” Uso exclusivo equipe interna</p>
+    <p>Material educacional. NÃ£o substitui anÃ¡lise tÃ©cnica individual.</p>
   </div>
 </footer>
 
@@ -837,16 +941,16 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
   'use strict';
   var root=document.documentElement;
   var progress=document.getElementById('read-progress');
-  var themeToggle=document.getElementById('themeToggle');
+  var themeToggle=document.getElementById('theme-toggle');
   var summary=document.querySelector('.quick-summary');
   var summaryKey=summary && summary.getAttribute('data-summary-key');
   var progressRaf=0;
   function updateThemeToggle(){
-    if(themeToggle){ themeToggle.textContent=root.classList.contains('light-mode') ? '☀' : '☽'; }
+    if(themeToggle){ themeToggle.textContent=root.classList.contains('light-mode') ? 'â˜€' : 'â˜½'; }
   }
   function setTheme(nextDark){
     root.classList.toggle('light-mode', nextDark);
-    try{ localStorage.setItem('revier_theme', nextDark ? 'dark' : 'light'); }catch(e){}
+    try{ localStorage.setItem('revier_theme', nextDark ? 'light' : 'dark'); }catch(e){}
     updateThemeToggle();
   }
   function updateProgress(){
@@ -902,7 +1006,7 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
     btn.type='button';
     btn.className='section-link-btn';
     btn.textContent='#';
-    btn.setAttribute('aria-label','Copiar link desta seção');
+    btn.setAttribute('aria-label','Copiar link desta seÃ§Ã£o');
     btn.addEventListener('click', function(ev){
       ev.preventDefault();
       ev.stopPropagation();
@@ -910,7 +1014,7 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
       var restore=function(){
         clearTimeout(btn._copyTimer);
         btn.classList.add('copied');
-        btn.textContent='✓';
+        btn.textContent='âœ“';
         btn._copyTimer=setTimeout(function(){
           btn.classList.remove('copied');
           btn.textContent='#';
@@ -960,3 +1064,4 @@ html.light-mode .section-link-btn:hover,html.light-mode .section-link-btn.copied
 </script>
 </body>
 </html>
+
