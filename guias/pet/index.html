@@ -37,18 +37,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;ali
 .mobile-menu.open{display:flex}
 .mobile-menu a{display:block;padding:12px 24px;font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--nav-link);text-decoration:none;border-left:2px solid transparent;transition:all .15s}
 .mobile-menu a:hover{color:var(--or);border-left-color:var(--or);background:rgba(232,81,10,.05)}
-.guide-summary{margin:76px 40px 24px;max-width:1200px;background:var(--or);color:#fff;border-radius:8px;overflow:hidden;box-shadow:0 18px 36px rgba(10,12,18,.16)}
-.guide-summary summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer}
-.guide-summary summary::-webkit-details-marker{display:none}
-.guide-summary-head{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}
-.guide-summary-label{font-family:[0;0;0mBarlow Condensed[0m,sans-serif;font-size:1.05rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.guide-summary-arrow{font-size:1.05rem;line-height:1;transition:transform .35s ease}
-.guide-summary[open] .guide-summary-arrow{transform:rotate(180deg)}
-.guide-summary-body{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 22px}
-.guide-summary-body ul{list-style:none;padding:0 0 20px;display:grid;gap:10px}
-.guide-summary-body li{position:relative;padding-left:18px;font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.92)}
-.guide-summary-body li::before{content:[0;0;0m•[0m;position:absolute;left:0;top:0;color:#fff}
-.guide-summary-body strong{color:#fff}
+.guide-summary{display:none}
 .hero{min-height:100vh;background:var(--dk);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 60px}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(236,72,153,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(236,72,153,.05) 1px,transparent 1px);background-size:64px 64px}
 .hero-blocks{position:absolute;top:0;right:0;width:380px;height:100vh;display:grid;grid-template-rows:1fr 1fr 1fr;pointer-events:none}
