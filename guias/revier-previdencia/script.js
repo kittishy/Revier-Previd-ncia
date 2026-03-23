@@ -1,24 +1,36 @@
 function init() {
   // ── Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
-  revealEls.forEach(el => revealObs.observe(el));
+  const canAnimateReveal = typeof window.IntersectionObserver === 'function';
+  if (canAnimateReveal) {
+    document.documentElement.classList.add('reveal-anim');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
 
   // ── Bar fill animation
   const bars = document.querySelectorAll('.bar-fill[data-width]');
-  const barObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.width = e.target.dataset.width + '%';
-        barObs.unobserve(e.target);
-      }
+  if (typeof window.IntersectionObserver === 'function') {
+    const barObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.width = e.target.dataset.width + '%';
+          barObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    bars.forEach(b => barObs.observe(b));
+  } else {
+    bars.forEach(b => {
+      b.style.width = b.dataset.width + '%';
     });
-  }, { threshold: 0.3 });
-  bars.forEach(b => barObs.observe(b));
+  }
 
   // ── Nav active on scroll
   const sections = document.querySelectorAll('section[id]');

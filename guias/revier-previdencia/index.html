@@ -10,7 +10,6 @@
 <script>
 (function () {
   try {
-    document.documentElement.classList.add('reveal-anim');
     if (localStorage.getItem('revier_theme') === 'dark') { document.documentElement.classList.add('dark-mode');
     }
   } catch (e) {}
@@ -1327,7 +1326,132 @@ html.reveal-anim .reveal.visible {
 .cert-card strong { color: var(--ink); }
 
 /* ═══════════════════════════════════════
-   SECTION 8 — CHECKLIST
+   SECTION 8 — PRIORIDADE
+═══════════════════════════════════════ */
+.prioridade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.prio-card {
+  border-radius: 8px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.prio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+}
+
+.prio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.prio-card.prio-pme::before { background: var(--gn); }
+.prio-card.prio-pf::before { background: var(--bl); }
+.prio-card.prio-adesao::before { background: var(--yl); }
+.prio-card.prio-adesao { background: #fefce8; }
+
+.prio-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.prio-badge {
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.prio-pme .prio-badge { background: rgba(22,163,74,.12); color: var(--gn); }
+.prio-pf .prio-badge { background: rgba(26,62,200,.12); color: var(--bl); }
+.prio-adesao .prio-badge { background: rgba(245,200,0,.25); color: #a16207; }
+
+.prio-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.prio-pme .prio-num { color: var(--gn); }
+.prio-pf .prio-num { color: var(--bl); }
+.prio-adesao .prio-num { color: #a16207; }
+
+.prio-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.prio-card p {
+  font-size: .87rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.prio-ul { list-style: none; }
+
+.prio-ul li {
+  font-size: .83rem;
+  color: #374151;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.prio-ul li:last-child { border-bottom: none; }
+
+.prio-ul li::before {
+  content: '→';
+  color: var(--or);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.prio-destaque {
+  background: rgba(232,81,10,.06);
+  border: 1px solid rgba(232,81,10,.2);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-top: 16px;
+}
+
+.prio-destaque p {
+  font-size: .85rem;
+  color: var(--ink);
+  font-weight: 500;
+  margin: 0;
+}
+
+.prio-card.prio-adesao .prio-destaque {
+  background: rgba(245,200,0,.1);
+  border-color: rgba(245,200,0,.3);
+}
+
+/* ═══════════════════════════════════════
+   SECTION 9 — CHECKLIST
 ═══════════════════════════════════════ */
 #checklist { background: var(--dk); }
 
@@ -1833,34 +1957,6 @@ footer {
   /* aliq rows */
   .aliq-row { font-size: .82rem; }
   .aliq-badge { font-size: .82rem; padding: 2px 8px; }
-
-  /* Prioridade box */
-  .prioridade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
-  .prio-card { border-radius: 8px; padding: 28px 24px; position: relative; overflow: hidden; transition: transform .2s, box-shadow .2s; }
-  .prio-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
-  .prio-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
-  .prio-card.prio-pme::before { background: var(--gn); }
-  .prio-card.prio-pf::before { background: var(--bl); }
-  .prio-card.prio-adesao::before { background: var(--yl); }
-  .prio-card.prio-adesao { background: #fefce8; }
-  .prio-top { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-  .prio-badge { font-size: .65rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
-  .prio-pme .prio-badge { background: rgba(22,163,74,.12); color: var(--gn); }
-  .prio-pf .prio-badge { background: rgba(26,62,200,.12); color: var(--bl); }
-  .prio-adesao .prio-badge { background: rgba(245,200,0,.25); color: #a16207; }
-  .prio-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; line-height: 1; }
-  .prio-pme .prio-num { color: var(--gn); }
-  .prio-pf .prio-num { color: var(--bl); }
-  .prio-adesao .prio-num { color: #a16207; }
-  .prio-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; color: var(--ink); }
-  .prio-card p { font-size: .87rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
-  .prio-ul { list-style: none; }
-  .prio-ul li { font-size: .83rem; color: #374151; padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 8px; }
-  .prio-ul li:last-child { border-bottom: none; }
-  .prio-ul li::before { content: '→'; color: var(--or); font-weight: 700; flex-shrink: 0; }
-  .prio-destaque { background: rgba(232,81,10,.06); border: 1px solid rgba(232,81,10,.2); border-radius: 6px; padding: 16px 20px; margin-top: 16px; }
-  .prio-destaque p { font-size: .85rem; color: var(--ink); font-weight: 500; margin: 0; }
-  .prio-card.prio-adesao .prio-destaque { background: rgba(245,200,0,.1); border-color: rgba(245,200,0,.3); }
 }
 
 @media (max-width: 768px) {
