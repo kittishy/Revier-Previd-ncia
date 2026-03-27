@@ -1,5 +1,12 @@
+# CENTRALIZED SKILLS & AGENTS ARCHITECTURE
+# Skills are in /.shared-skills/
+# Agents are in /.shared-agents/
+# Tool-specific folders (e.g. .cursor/skills) are Junctions.
+# Mandatory: ADD/UPDATE in centralized folders only.
+-------------------------------------------------------
 # Cursor Instructions (Revier Academy)
 
 Sempre leia o arquivo [.ai-context.md](file:///f:/Solara/coding/revier-products/.ai-context.md) e [REVIER_CONTEXT.md](file:///f:/Solara/coding/revier-products/REVIER_CONTEXT.md) antes de qualquer ação neste workspace.
 
 A pasta externa `F:\Solara\Revier` contém toda a informação de negócio e treinamento para a corretora Revier Brokers. Consulte-a obrigatoriamente para tabelas de preços, planos e regras de carência.
+

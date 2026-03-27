@@ -1,3 +1,10 @@
+# CENTRALIZED AI STRUCTURE
+=======================================================
+- SKILLS: /.shared-skills/
+- AGENTS: /.shared-agents/
+=======================================================
+*As pastas skills/ e agents/ em todas as outras ferramentas (Cursor, Windsurf, etc.) s�o Junctions para estas pastas compartilhadas.*
+-------------------------------------------------------
 # Revier Business Context & Guidelines
 
 Este documento serve como a principal fonte de verdade para o contexto de negócio e diretrizes do projeto Revier Academy.
@@ -31,3 +38,4 @@ Caso as informações na pasta `F:\Solara\Revier` estejam:
 2.  **Incompletas**: Se houver dúvida sobre rede credenciada ou coberturas específicas não detalhadas nos PDFs.
 
 **AÇÃO**: O agente DEVE realizar uma busca na internet para validar as tabelas de preços e carências vigentes para o ano de 2026 (Ex: "Tabela Amil Dental Março 2026", "Rede credenciada MedSenior SP 2026").
+

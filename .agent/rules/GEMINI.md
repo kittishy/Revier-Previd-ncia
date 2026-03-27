@@ -1,3 +1,9 @@
+# CENTRALIZED SKILLS & AGENTS MANDATE (March 27, 2026)
+-------------------------------------------------------
+1. Skills must ONLY be added to /.shared-skills/.
+2. Agents must ONLY be added to /.shared-agents/.
+3. Tool-specific skills/ and gents/ folders are Junctions.
+-------------------------------------------------------
 ---
 trigger: always_on
 ---
@@ -271,3 +277,4 @@ When user's prompt is NOT in English:
 - **Test**: `playwright_runner.py`, `test_runner.py`
 
 ---
+
