@@ -737,7 +737,7 @@ html.dark-mode .obj-q{background:var(--page-surface-soft);color:var(--page-text)
     var copyBtn=document.createElement('button');
     copyBtn.type='button';
     copyBtn.className='section-copy';
-    copyBtn.textContent='Copiar secao';
+copyBtn.textContent='Copiar seção';
     copyBtn.addEventListener('click',function(){
       var url=new URL(window.location.href);
       url.hash=section.id;
@@ -746,7 +746,7 @@ html.dark-mode .obj-q{background:var(--page-surface-soft);color:var(--page-text)
         copyBtn.classList.add('copied');
         copyBtn.textContent='Link copiado';
         section.classList.add('section-highlight');
-        window.setTimeout(function(){copyBtn.classList.remove('copied');copyBtn.textContent='Copiar secao';section.classList.remove('section-highlight');},1800);
+        window.setTimeout(function(){copyBtn.classList.remove('copied');copyBtn.textContent='Copiar seção';section.classList.remove('section-highlight');},1800);
       };
       var fallback=function(){
         var input=document.createElement('input');
