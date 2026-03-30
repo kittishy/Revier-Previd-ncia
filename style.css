@@ -651,6 +651,423 @@ small {
 }
 
 /* ═══════════════════════════════════════
+   13. GUIA — LAYOUT
+═══════════════════════════════════════ */
+.guia-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* Sidebar */
+.guia-sidebar {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.guia-sidebar ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  padding: 6px 0 6px 12px;
+  border-left: 2px solid transparent;
+  transition: all var(--transition);
+  line-height: 1.5;
+}
+
+.sidebar-link:hover {
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.sidebar-link.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.sidebar-toggle {
+  display: none;
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+/* Sections */
+.guia-secao {
+  padding-top: 72px;
+  margin-top: 72px;
+  border-top: 1px solid var(--border);
+}
+
+.guia-secao:first-of-type {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.secao-header {
+  margin-bottom: 32px;
+}
+
+.secao-body {
+  max-width: 680px;
+}
+
+.secao-body p {
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.secao-body h3 {
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.secao-body h4 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+/* Resumo rápido */
+.resumo-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.resumo-toggle:hover {
+  border-color: var(--dark);
+}
+
+.resumo-toggle .label {
+  margin-bottom: 0;
+}
+
+.resumo-icon {
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.resumo-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.resumo-body.open {
+  max-height: 600px;
+}
+
+.resumo-content {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  padding: 20px 24px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-top: 12px;
+}
+
+.resumo-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resumo-content li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.resumo-content li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════
+   14. GUIA — BLOCOS DE CONTEÚDO
+═══════════════════════════════════════ */
+
+/* Dica */
+.bloco-dica {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-block: 24px;
+}
+
+/* Atenção */
+.bloco-atencao {
+  border-left: 3px solid #B45309;
+  background: #FFFBEB;
+  padding: 16px 20px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-block: 24px;
+}
+
+/* Script */
+.bloco-script {
+  border-left: 3px solid var(--border);
+  background: var(--tag-bg);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-block: 24px;
+  font-style: italic;
+}
+
+/* Cards grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-block: 24px;
+}
+
+.card-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: border-color var(--transition);
+  background: var(--surface);
+}
+
+.card-item:hover {
+  border-color: var(--dark);
+}
+
+.card-item__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--tag-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.card-item__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.card-item__desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Tabela de dados */
+table.tabela-dados {
+  border-collapse: collapse;
+  width: 100%;
+  margin-block: 24px;
+  font-size: 14px;
+}
+
+table.tabela-dados th {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--tag-bg);
+  padding: 10px 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--border);
+  color: var(--text-muted);
+}
+
+table.tabela-dados td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+table.tabela-dados tr:hover td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Lista custom */
+ul.lista-custom {
+  list-style: none;
+  padding: 0;
+  margin-block: 16px;
+}
+
+ul.lista-custom li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+ul.lista-custom li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Barra de progressão */
+.barra-progressao {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-block: 24px;
+}
+
+.barra-item {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.barra-item__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.barra-item__track {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.barra-item__fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.barra-item__valor {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  font-weight: 600;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* ═══════════════════════════════════════
+   15. GUIA — RESPONSIVO
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .guia-layout {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .guia-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .guia-sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 32px;
+  }
+
+  .guia-sidebar ol {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .guia-sidebar.open ol {
+    max-height: 500px;
+  }
+
+  .sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .guia-sidebar .label {
+    display: none;
+  }
+
+  .guia-secao {
+    padding-top: 48px;
+    margin-top: 48px;
+  }
+
+  .barra-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .barra-item__track {
+    height: 4px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  table.tabela-dados {
+    font-size: 13px;
+  }
+
+  table.tabela-dados th,
+  table.tabela-dados td {
+    padding: 8px 12px;
+  }
+}
+
+/* ═══════════════════════════════════════
    SCROLLBAR
 ═══════════════════════════════════════ */
 ::-webkit-scrollbar {
