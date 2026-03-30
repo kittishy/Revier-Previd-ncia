@@ -1,717 +1,149 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revier · Seguro Pet na Prática</title>
-<meta name="description" content="Guia completo de seguro pet para corretores da Revier Brokers. Coberturas, operadoras, objeções e scripts de venda.">
-<script>(function(){try{if(localStorage.getItem('revier_theme') === 'dark') { document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
-<style>
-:root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#4B5563;--light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#9D174D;--ac2:#EC4899;--acdk:#831843;--body-copy:#374151;--nav-bg:rgba(10,12,18,.96);--nav-border:rgba(255,255,255,.06);--nav-text:#fff;--nav-link:rgba(255,255,255,.65);--menu-bg:rgba(10,12,18,.98)}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px;color-scheme:light;background:var(--dk)}
-html.dark-mode{color-scheme:dark}
-body{font-family:'Barlow',sans-serif;font-weight:400;color:var(--ink);background:var(--dk);overflow-x:hidden;cursor:default}
-::selection{background:var(--ac);color:#fff}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dk)}::-webkit-scrollbar-thumb{background:var(--ac2);border-radius:2px}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--nav-border)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-hex{width:28px;height:28px;background:var(--or);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);flex-shrink:0}
-.nav-wordmark{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:.06em;color:#fff}
-.nav-wordmark span{color:var(--or)}
-.nav-links{display:flex;gap:6px;list-style:none}
-.nav-links a{display:block;padding:6px 12px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nav-link);text-decoration:none;border-radius:2px;transition:color .2s,background .2s}
-.nav-links a:hover{color:var(--or);background:rgba(232,81,10,.08)}
-.nav-badge{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--ac);color:#fff;padding:5px 12px;border-radius:2px}
-.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin-right:10px;border:1px solid var(--nav-border);border-radius:999px;background:rgba(255,255,255,.04);color:var(--nav-text);font-size:1rem;cursor:pointer;transition:transform .2s,background .2s,border-color .2s,color .2s}
-.theme-toggle:hover{transform:translateY(-1px);border-color:rgba(232,81,10,.35);color:var(--or);background:rgba(232,81,10,.08)}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;z-index:300}
-.nav-hamburger span{display:block;width:22px;height:2px;background:var(--nav-text);border-radius:2px;transition:all .3s}
-.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-hamburger.open span:nth-child(2){opacity:0}
-.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:var(--menu-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--nav-border);z-index:190;padding:16px 0 24px;flex-direction:column}
-.mobile-menu.open{display:flex}
-.mobile-menu a{display:block;padding:12px 24px;font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--nav-link);text-decoration:none;border-left:2px solid transparent;transition:all .15s}
-.mobile-menu a:hover{color:var(--or);border-left-color:var(--or);background:rgba(232,81,10,.05)}
-.guide-summary{display:none}
-.hero{min-height:100vh;background:var(--dk);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 60px}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(236,72,153,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(236,72,153,.05) 1px,transparent 1px);background-size:64px 64px}
-.hero-blocks{position:absolute;top:0;right:0;width:380px;height:100vh;display:grid;grid-template-rows:1fr 1fr 1fr;pointer-events:none}
-.hero-blocks>div:nth-child(1){background:var(--ac2);opacity:.16}
-.hero-blocks>div:nth-child(2){background:var(--or);opacity:.12}
-.hero-blocks>div:nth-child(3){background:var(--yl);opacity:.08}
-.hero-glow{position:absolute;left:-10%;top:20%;width:70vw;height:70vh;background:radial-gradient(ellipse,rgba(236,72,153,.07) 0%,transparent 65%);pointer-events:none}
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ac2);border:1px solid rgba(236,72,153,.3);border-radius:100px;padding:5px 14px;margin-bottom:24px;background:rgba(236,72,153,.06)}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ac2);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-h1.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4.5rem,9vw,7.5rem);font-weight:900;line-height:.88;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:24px}
-h1.hero-title em{font-style:normal;color:var(--ac2);display:block}
-.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.7);font-weight:300;line-height:1.7;max-width:520px;margin-bottom:40px}
-.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
-.btn-primary:hover{background:var(--ac2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(236,72,153,.3)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
-.btn-ghost:hover{border-color:var(--ac2);color:var(--ac2)}
-.hero-toc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:28px;backdrop-filter:blur(8px)}
-.hero-toc-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.hero-toc-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
-.toc-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);text-decoration:none;transition:all .15s}
-.toc-item:last-child{border-bottom:none}
-.toc-item:hover .toc-label{color:var(--ac2)}
-.toc-item:hover .toc-num{border-color:var(--ac2);color:var(--ac2)}
-.toc-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;width:28px;height:28px;border:1px solid rgba(255,255,255,.12);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);flex-shrink:0;transition:all .15s}
-.toc-label{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.55);transition:color .15s}
-.section{padding:100px 0;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
-.section-dark{background:var(--dk);border-bottom-color:rgba(255,255,255,.06)}
-.section-light{background:var(--light)}
-.container{max-width:1200px;margin:0 auto;padding:0 40px}
-.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--or);margin-bottom:12px}
-.sec-label-dark{color:rgba(255,255,255,.35)}
-.sec-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;background:var(--or);color:#fff;width:22px;height:22px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;color:var(--ink);margin-bottom:16px}
-h2.sec-title-light{color:#fff}
-.sec-lead{font-size:1rem;color:var(--muted);font-weight:300;font-style:italic;line-height:1.7;max-width:620px;margin-bottom:48px;padding-left:14px;border-left:2px solid var(--ac2)}
-.sec-lead-light{color:rgba(255,255,255,.45);border-left-color:rgba(236,72,153,.5)}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-.fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:64px}
-.fund-text p{font-size:.95rem;line-height:1.75;color:var(--body-copy);margin-bottom:16px}
-.fund-text p strong{color:var(--ink);font-weight:700}
-.callout{background:var(--dk);border-radius:8px;padding:28px;position:relative;overflow:hidden}
-.callout::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--ac2),var(--or))}
-.callout-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:10px}
-.callout p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.65}
-.callout strong{color:#fff}
-.motivos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.motivo-card{background:var(--light);border-radius:6px;padding:28px 24px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.motivo-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
-.motivo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.mc-pk::before{background:var(--ac2)}.mc-or::before{background:var(--or)}.mc-gn::before{background:var(--gn)}
-.motivo-icon{font-size:2rem;margin-bottom:14px;display:block}
-.motivo-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
-.mt-pk{color:var(--ac2)}.mt-or{color:var(--or)}.mt-gn{color:var(--gn)}
-.motivo-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;color:var(--ink)}
-.motivo-card p{font-size:.87rem;color:var(--body-copy);line-height:1.6}
-.data-table{width:100%;border-collapse:collapse;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.data-table thead tr{background:var(--acdk)}
-.data-table th{padding:14px 18px;text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.data-table td{padding:13px 18px;font-size:.9rem;color:var(--body-copy);border-top:1px solid var(--border);background:var(--white)}
-.data-table tr:hover td{background:#fdf2f8}
-.data-table td strong{color:var(--ink);font-weight:700}
-.td-green{color:var(--gn)!important;font-weight:700!important}
-.td-orange{color:var(--or)!important;font-weight:700!important}
-.td-pink{color:var(--ac2)!important;font-weight:700!important}
-.td-red{color:var(--rd)!important;font-weight:700!important}
-.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:6px}
-.table-scroll .data-table{min-width:600px}
-.gold-rule{background:var(--ac);border-radius:8px;padding:28px 32px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-bottom:32px}
-.gold-rule-icon{font-size:2.5rem}
-.gold-rule-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:6px}
-.gold-rule p{font-size:.95rem;color:#fff;line-height:1.65}
-.script-box{background:var(--dk);border-radius:6px;padding:24px 28px;position:relative;overflow:hidden;margin-top:24px}
-.script-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac2)}
-.script-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:10px}
-.script-box p{font-size:.92rem;color:rgba(255,255,255,.75);font-style:italic;line-height:1.65}
-.rec-box{background:linear-gradient(135deg,rgba(236,72,153,.08) 0%,rgba(232,81,10,.05) 100%);border:1px solid rgba(236,72,153,.2);border-radius:8px;padding:24px 28px;margin-top:24px}
-.rec-box-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:8px}
-.rec-box p{font-size:.92rem;color:var(--ink);line-height:1.65}
-.venda-steps{display:flex;flex-direction:column;gap:0;margin-bottom:40px;position:relative}
-.venda-steps::before{content:'';position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:linear-gradient(180deg,var(--ac2),rgba(236,72,153,.1))}
-.venda-step{display:flex;gap:20px;padding:0 0 28px;position:relative}
-.venda-step-num{width:40px;height:40px;border-radius:50%;background:var(--ac);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
-.venda-step-body{flex:1;padding-top:6px}
-.venda-step-body h4{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
-.step-script{background:var(--white);border-radius:4px;padding:14px 18px;border-left:3px solid var(--ac2);font-size:.88rem;color:var(--body-copy);font-style:italic;line-height:1.6;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
-.feature-box{border-radius:8px;padding:28px}
-.fb-pk{background:#FDF2F8;border:1px solid rgba(236,72,153,.2)}
-.fb-green{background:#F0FDF4;border:1px solid rgba(22,163,74,.2)}
-.fb-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
-.fb-pk .fb-label{color:var(--ac2)}.fb-green .fb-label{color:var(--gn)}
-.feature-box p{font-size:.9rem;color:#374151;line-height:1.65}
-.feature-box strong{color:var(--ink)}
-.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.obj-item{border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.obj-q{background:var(--ink);padding:14px 18px;font-size:.88rem;font-weight:600;color:#fff;display:flex;gap:10px;align-items:flex-start}
-.obj-q-icon{flex-shrink:0;font-size:1rem;margin-top:1px}
-.obj-a{background:var(--light);padding:14px 18px;border-left:3px solid var(--ac2)}
-.obj-a-tag{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ac2);margin-bottom:5px}
-.obj-a p{font-size:.85rem;color:var(--body-copy);line-height:1.6}
-.obj-a strong{color:var(--ink)}
-.ops-layout{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:start}
-.rank-list{display:flex;flex-direction:column;gap:12px}
-.rank-item{background:var(--white);border-radius:6px;padding:18px 20px;display:flex;align-items:center;gap:18px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:all .2s}
-.rank-item:hover{transform:translateX(4px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
-.rank-medal{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:900;min-width:36px;text-align:center;line-height:1}
-.rm-gold{color:var(--yl)}.rm-silver{color:#94A3B8}.rm-bronze{color:#CD7F32}.rm-gray{color:var(--border)}
-.rank-name{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:2px}
-.rank-desc{font-size:.82rem;color:var(--body-copy)}
-.ops-sidebar{display:flex;flex-direction:column;gap:20px}
-.cert-card{background:var(--white);border-radius:8px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.cert-card::before{content:'';display:block;height:3px;margin:-24px -24px 18px;border-radius:8px 8px 0 0}
-.cc-pk::before{background:linear-gradient(90deg,var(--ac),var(--ac2))}
-.cc-or::before{background:linear-gradient(90deg,var(--or),var(--yl))}
-.cert-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.cert-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
-.cert-card p{font-size:.85rem;color:var(--body-copy);line-height:1.6}
-.cert-card p+p{margin-top:6px}
-.cert-card strong{color:var(--ink)}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
-.stat-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;transition:all .2s}
-.stat-box:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
-.stat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ac),var(--ac2))}
-.stat-val{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;color:var(--ac2);line-height:1;margin-bottom:8px}
-.stat-label{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4}
-.check-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
-.check-col-title{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:20px;display:flex;align-items:center;gap:8px}
-.check-col-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
-.check-list{display:flex;flex-direction:column;gap:10px}
-.check-row{display:flex;align-items:flex-start;gap:12px}
-.check-box-el{width:18px;height:18px;border:1.5px solid rgba(236,72,153,.4);border-radius:3px;flex-shrink:0;margin-top:2px;transition:all .2s}
-.check-row:hover .check-box-el{border-color:var(--ac2);background:rgba(236,72,153,.08)}
-.check-text{font-size:.9rem;color:var(--body-copy);line-height:1.5}
-footer{background:#060810;padding:60px 0 32px;border-top:1px solid rgba(255,255,255,.05)}
-.footer-top{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.footer-brand .nav-wordmark{font-size:1.6rem;margin-bottom:6px}
-.footer-brand p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.65;margin-top:8px}
-.footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-links a{font-size:.85rem;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s}
-.footer-links a:hover{color:var(--or)}
-.footer-contact p{font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:6px}
-.footer-contact strong{color:rgba(255,255,255,.7)}
-.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 40px 0;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.2);letter-spacing:.06em}
-@media(max-width:900px){
-nav{padding:0 20px}.nav-links{display:none}.nav-badge{display:none}.nav-hamburger{display:flex}
-.container{padding:0 20px}.section{padding:64px 0}
-.hero{padding:88px 0 52px}.hero-inner{grid-template-columns:1fr;gap:0;padding:0 20px}.hero-toc{display:none}.hero-blocks{display:none}
-h1.hero-title{font-size:clamp(3.2rem,12vw,5rem)}.hero-sub{font-size:.92rem;margin-bottom:32px}
-.hero-cta-row{gap:10px}.btn-primary,.btn-ghost{padding:12px 20px;font-size:.78rem}
-h2.sec-title{font-size:clamp(2rem,8vw,3rem)}.sec-lead{font-size:.9rem;margin-bottom:32px}
-.fund-grid,.feature-row,.ops-layout,.check-layout,.footer-top{grid-template-columns:1fr}
-.motivos-grid,.obj-grid{grid-template-columns:1fr;gap:14px}
-.stats-row{grid-template-columns:1fr 1fr;gap:12px}.stat-val{font-size:1.9rem}
-.gold-rule{grid-template-columns:1fr;gap:12px;padding:22px 20px}
-.venda-steps::before{left:16px}.venda-step-num{width:32px;height:32px;font-size:.9rem}.venda-step{gap:14px}
-footer{padding:40px 0 20px}.footer-bottom{padding:16px 20px 0;flex-direction:column;align-items:flex-start}
-}
-
-#read-progress{position:fixed;top:60px;left:0;height:3px;width:0%;background:var(--or);box-shadow:0 0 8px rgba(232,81,10,.5);z-index:199;transition:width .1s linear;pointer-events:none}
-.nav-theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:30px;border:1px solid rgba(255,255,255,.12);border-radius:2px;background:rgba(255,255,255,.04);color:#fff;font-size:1rem;font-weight:700;line-height:1;cursor:pointer;transition:color .2s,border-color .2s,background .2s,transform .2s}
-.nav-theme-toggle:hover{color:var(--or);border-color:rgba(232,81,10,.28);background:rgba(232,81,10,.08);transform:translateY(-1px)}
-.quick-brief{margin-top:24px;max-width:560px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;box-shadow:0 16px 36px rgba(0,0,0,.18)}.quick-brief summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer}.quick-brief summary::-webkit-details-marker{display:none}.quick-brief-kicker{display:block;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2,#14B8A6);margin-bottom:6px}.quick-brief-title{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#fff}.quick-brief-icon{width:34px;height:34px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--ac2,#14B8A6);flex-shrink:0;transition:transform .2s ease,background .2s ease}.quick-brief[open] .quick-brief-icon{transform:rotate(45deg);background:rgba(20,184,166,.08)}.quick-brief-body{padding:0 22px 20px}.quick-brief-body p{font-size:.84rem;color:rgba(255,255,255,.58);line-height:1.6;margin-bottom:14px}.quick-brief-list{list-style:none;display:grid;gap:10px}.quick-brief-list li{font-size:.88rem;color:rgba(255,255,255,.72);line-height:1.55;padding-left:18px;position:relative}.quick-brief-list li::before{content:'';position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--ac2,#14B8A6);box-shadow:0 0 0 4px rgba(20,184,166,.12)}.quick-brief-list strong{color:#fff}
-@media(max-width:900px){.quick-brief{margin-top:18px}.quick-brief summary{padding:16px 18px}.quick-brief-body{padding:0 18px 18px}}
-.quick-summary{display:none}
-.summary-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border:0;background:transparent;color:inherit;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
-.summary-arrow{display:inline-flex;transition:transform .35s ease}
-.quick-summary.is-open .summary-arrow{transform:rotate(180deg)}.quick-summary.is-open .summary-panel{max-height:600px}
-.summary-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;background:rgba(255,255,255,.08)}
-.summary-list{list-style:none;padding:0 24px 18px;display:grid;gap:10px}
-.summary-list li{position:relative;padding-left:18px;font-family:'Barlow',sans-serif;font-size:.9rem;font-weight:500;line-height:1.55;color:#fff}
-.summary-list li::before{content:'•';position:absolute;left:0;color:rgba(255,255,255,.9)}
-.section-link-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-top:6px;border:1px solid transparent;border-radius:2px;background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:800;line-height:1;opacity:0;cursor:pointer;transition:opacity .2s,color .2s,border-color .2s,background .2s,transform .2s}
-h2.sec-title:hover .section-link-btn,h2.sec-title:focus-within .section-link-btn{opacity:1}
-.section-link-btn:hover,.section-link-btn.copied{color:var(--or);border-color:rgba(232,81,10,.24);background:rgba(232,81,10,.08);transform:translateY(-1px)}
-html.dark-mode{--page-bg:#080B10;--page-surface:#101620;--page-surface-soft:#141B26;--page-text:#E8ECF4;--page-muted:rgba(220,226,240,.82);--page-border:rgba(255,255,255,.08);--ink:#E8ECF4;--muted:rgba(204,212,230,.8);--border:rgba(255,255,255,.08);--light:#101620}
-html.dark-mode body{background:var(--page-bg);color:var(--page-text);transition:background .25s ease,color .25s ease}
-html.dark-mode .hero,html.dark-mode .section,html.dark-mode .section-dark,html.dark-mode footer{background:var(--page-bg)}
-html.dark-mode section[id]{background:var(--page-surface)}
-html.dark-mode section.section-dark[id]{background:var(--page-bg)}
-html.dark-mode .section-light{background:var(--page-surface)}
-html.dark-mode .motivo-card,html.dark-mode .vs-card,html.dark-mode .feature-box,html.dark-mode .obj-item,html.dark-mode .rank-item,html.dark-mode .cert-card,html.dark-mode .check-row,html.dark-mode .stat-box,html.dark-mode .rec-box,html.dark-mode .script-box,html.dark-mode .footer-top,html.dark-mode .summary-panel{background:var(--page-surface)}
-html.dark-mode .data-table thead tr,html.dark-mode .footer-bottom{background:var(--page-surface-soft)}
-html.dark-mode .data-table tr:hover td{background:rgba(255,255,255,.09)}
-html.dark-mode h1.hero-title,html.dark-mode h2.sec-title,html.dark-mode .nav-wordmark,html.dark-mode .motivo-card h3,html.dark-mode .vs-card h3,html.dark-mode .cert-card h3,html.dark-mode .rank-name,html.dark-mode .footer-col-title{color:var(--page-text)}
-html.dark-mode .hero-sub,html.dark-mode .sec-lead,html.dark-mode .motivo-card p,html.dark-mode .vs-card .vs-desc,html.dark-mode .vs-bullets li,html.dark-mode .fund-text p,html.dark-mode .data-table td,html.dark-mode .rank-desc,html.dark-mode .cert-card p,html.dark-mode .feature-box p,html.dark-mode .obj-a p,html.dark-mode .check-text,html.dark-mode .footer-brand p,html.dark-mode .footer-links a,html.dark-mode .nav-links a,html.dark-mode .nav-back,html.dark-mode .summary-list li{color:var(--page-muted)}
-html.dark-mode .nav-links a:hover,html.dark-mode .nav-back:hover,html.dark-mode .footer-links a:hover{color:var(--or)}
-html.dark-mode .section-link-btn,html.dark-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
-html.dark-mode .section-link-btn:hover,html.dark-mode .section-link-btn.copied,html.dark-mode .nav-theme-toggle:hover{color:var(--or);border-color:rgba(232,81,10,.22);background:rgba(232,81,10,.08)}
-html.dark-mode .cob-card,html.dark-mode .step-script{background:var(--page-surface);border-color:rgba(255,255,255,.07);box-shadow:none}
-html.dark-mode .cob-card h3,html.dark-mode .venda-step-body h4{color:var(--page-text)}
-html.dark-mode .step-script,html.dark-mode .cob-card p{color:var(--page-muted)}
-html.dark-mode .obj-q{background:var(--page-surface-soft);color:var(--page-text)}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet | Revier Academy</title>
+  <meta name="description" content="Guia interno Revier para Pet.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../guide.css">
 </head>
-<body>
-<div id="read-progress"></div>
+<body class="guide-page">
+  <nav class="guide-nav">
+    <span class="guide-nav-logo">REVIER BROKERS</span>
+    <a href="../../index.html" class="guide-nav-back"> Portal</a>
+  </nav>
 
-<nav>
-  <a href="#" class="nav-logo"><div class="nav-hex"></div><div class="nav-wordmark">REVIER <span>BROKERS</span></div></a>
-  <ul class="nav-links">
-    <li><a href="../../index.html">← Portal</a></li>
-    <li><a href="#fundamentos">Fundamentos</a></li>
-    <li><a href="#coberturas">Coberturas</a></li>
-    <li><a href="#tipos">Planos</a></li>
-    <li><a href="#preco">Preço</a></li>
-    <li><a href="#venda">Fechamento</a></li>
-    <li><a href="#objecoes">Objeções</a></li>
-    <li><a href="#operadoras">Operadoras</a></li>
-    <li><a href="#checklist">Checklist</a></li>
-  </ul>
-  <button class="nav-theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema">☽</button>
-  <div class="nav-badge">Guia Interno</div>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-
-<section class="quick-summary" data-summary-key="summary_pet">
-  <button class="summary-toggle" type="button" aria-expanded="false">
-    <span>RESUMO RÁPIDO — 30 SEGUNDOS</span>
-    <span class="summary-arrow" aria-hidden="true">▾</span>
-  </button>
-  <div class="summary-panel">
-    <ul class="summary-list">
-      <li>Seguro pet cobre acidentes, doenças e cirurgias — não cobre pré-existente.</li>
-      <li>Planos diferem por espécie, porte e faixa etária — sempre confirme a tabela.</li>
-      <li>Carencia varia de 0 dias (acidente) a 180 dias (ortopedia) — zere com venda bem fechada.</li>
+  <aside class="guide-sidebar">
+    <span class="sidebar-label">Neste guia</span>
+    <ul class="sidebar-nav">
+      <li><a href="#fundamentos"><span class="sidebar-num">01</span>Fundamentos</a></li>
+      <li><a href="#diagnostico"><span class="sidebar-num">02</span>Diagnostico</a></li>
+      <li><a href="#argumentacao"><span class="sidebar-num">03</span>Argumentacao</a></li>
+      <li><a href="#objecoes"><span class="sidebar-num">04</span>Objecoes</a></li>
+      <li><a href="#operacao"><span class="sidebar-num">05</span>Operacao</a></li>
+      <li><a href="#checklist"><span class="sidebar-num">06</span>Checklist</a></li>
     </ul>
-  </div>
-</section>
+  </aside>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="../../index.html">← Voltar ao Portal</a>
-  <a href="#fundamentos">01 · Mercado pet</a>
-  <a href="#coberturas">02 · Coberturas</a>
-  <a href="#tipos">03 · Planos</a>
-  <a href="#preco">04 · Preço</a>
-  <a href="#venda">05 · Fechamento</a>
-  <a href="#objecoes">06 · Objeções</a>
-  <a href="#operadoras">07 · Operadoras</a>
-  <a href="#checklist">08 · Checklist</a>
-</div>
+  <main class="guide-main">
+    <div class="guide-hero">
+      <p class="guide-hero-label">Guia Interno  Material Exclusivo  Equipe Revier</p>
+      <h1>Pet</h1>
+      <p class="guide-hero-sub">Cobertura, rede e adesao com linguagem simples para o tutor.</p>
+      <div class="guide-hero-actions">
+        <a href="#fundamentos" class="btn btn--primary">Abrir o guia </a>
+        <a href="#checklist" class="btn btn--outline">Ver checklist</a>
+      </div>
+    </div>
 
-<section class="hero">
-  <div class="hero-grid"></div><div class="hero-glow"></div>
-  <div class="hero-blocks"><div></div><div></div><div></div></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-tag">Material Exclusivo · Equipe Revier</div>
-      <h1 class="hero-title">Guia de<br><em>Seguro Pet</em></h1>
-      <p class="hero-sub">Pet é o nicho que mais cresce no mercado de seguros. Ticket pequeno, cliente emocionalmente envolvido e cross-sell natural com vida e residencial.</p>
-      <div class="hero-cta-row">
-        <a href="#fundamentos" class="btn-primary">Abrir o guia →</a>
-        <a href="#checklist" class="btn-ghost">Ver checklist</a>
-      </div>
-      <details class="quick-brief reveal reveal-delay-1">
-        <summary>
-          <div>
-            <span class="quick-brief-kicker">Resumo de 30 segundos</span>
-            <span class="quick-brief-title">O cliente ja ama o produto</span>
-          </div>
-          <span class="quick-brief-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="quick-brief-body">
-          <p>Ticket pequeno, cliente emocionalmente envolvido e cross-sell natural.</p>
-          <ul class="quick-brief-list">
-            <li><strong>Cobre acidentes e doencas:</strong> não cobre pre-existente — explique antes.</li>
-            <li><strong>Varia por especie e porte:</strong> confirme a tabela antes de cotar.</li>
-            <li><strong>Carencia:</strong> zero em acidente, ate 180 dias em ortopedia.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-    <div class="hero-toc">
-      <div class="hero-toc-title">Índice</div>
-      <a class="toc-item" href="#fundamentos"><div class="toc-num">01</div><div class="toc-label">O mercado pet e por que vender</div></a>
-      <a class="toc-item" href="#coberturas"><div class="toc-num">02</div><div class="toc-label">Coberturas principais</div></a>
-      <a class="toc-item" href="#tipos"><div class="toc-num">03</div><div class="toc-label">Planos e o que cada um cobre</div></a>
-      <a class="toc-item" href="#preco"><div class="toc-num">04</div><div class="toc-label">Preço por espécie e porte</div></a>
-      <a class="toc-item" href="#venda"><div class="toc-num">05</div><div class="toc-label">Conduza a venda sem forçar</div></a>
-      <a class="toc-item" href="#objecoes"><div class="toc-num">06</div><div class="toc-label">Vire a objeção no papo reto</div></a>
-      <a class="toc-item" href="#operadoras"><div class="toc-num">07</div><div class="toc-label">Operadoras do mercado</div></a>
-      <a class="toc-item" href="#checklist"><div class="toc-num">08</div><div class="toc-label">Checklist de proposta</div></a>
-    </div>
-  </div>
-</section>
-
-<!-- 01 -->
-<section class="section" id="fundamentos">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">01</div> Mercado</div>
-    <h2 class="sec-title" id="fundamentos-title">O mercado pet e<br>por que vender agora<button class="section-link-btn" type="button" aria-label="Copiar link desta seção">#</button></h2>
-    <p class="sec-lead">"Brasil tem 170 milhões de animais domésticos. Menos de 2% estão segurados. Se você tem clientes com pet, tem uma oportunidade enorme na mesa."</p>
-    <div class="fund-grid">
-      <div class="fund-text reveal">
-        <p>Seguro pet é um contrato que cobre despesas veterinárias do animal em casos de <strong>doença, acidente, internação e cirurgia</strong>. Diferente do plano de saúde humano, pet <strong>não é regulado pela ANS</strong> — é regulado pela SUSEP como seguro de dano.</p>
-        <p>Isso significa que cada operadora define suas regras de carência, cobertura e exclusão. O corretor precisa conhecer bem o produto antes de vender — e orientar o tutor sobre o que esperar.</p>
-        <p><strong>Por que vender:</strong> o vínculo emocional do tutor com o pet é altíssimo. Quando o animal adoece, o dono faz o que for preciso para tratar. Esse comportamento se traduz em ticket médio veterinário de R$ 2.000 a R$ 15.000 em internações e cirurgias.</p>
-        <p><strong>Cross natural:</strong> cliente com pet tende a ser jovem, digitalizado e aberto a seguros. Vendeu pet? Puxa vida e residencial em seguida — o mesmo perfil compra os dois.</p>
-      </div>
-      <div class="callout reveal reveal-delay-1">
-        <div class="callout-label">🐾 Mercado em expansão acelerada</div>
-        <p>Brasil é o <strong>3º maior mercado pet do mundo</strong>, atrás só de EUA e China. O mercado de saúde pet cresceu <strong>80% entre 2019 e 2024</strong>. Uma cirurgia de emergência em cachorro de médio porte custa em média <strong>R$ 4.000 a R$ 12.000</strong>. A maioria dos tutores não está preparada para isso.</p>
-      </div>
-    </div>
-    <div class="motivos-grid">
-      <div class="motivo-card mc-pk reveal">
-        <span class="motivo-icon">💝</span>
-        <div class="motivo-tag mt-pk">Vínculo emocional</div>
-        <h3>Cliente mais fiel da carteira</h3>
-        <p>Tutor de pet cancela muito menos. O vínculo com o animal é forte o suficiente para manter o seguro mesmo em momento de aperto financeiro. É a carteira com menor churn.</p>
-      </div>
-      <div class="motivo-card mc-or reveal reveal-delay-1">
-        <span class="motivo-icon">🏥</span>
-        <div class="motivo-tag mt-or">Custo veterinário</div>
-        <h3>Veterinário custa mais que médico</h3>
-        <p>Consulta veterinária especializada: R$ 200–600. Cirurgia de emergência: R$ 3.000–15.000. Internação: R$ 500–1.500/dia. Esses valores justificam o seguro para qualquer tutor com animal de estimação.</p>
-      </div>
-      <div class="motivo-card mc-gn reveal reveal-delay-2">
-        <span class="motivo-icon">📱</span>
-        <div class="motivo-tag mt-gn">Perfil digital</div>
-        <h3>Público jovem e conectado</h3>
-        <p>Tutor de pet tem entre 25 e 45 anos, em média. Está no digital, compara preços e valoriza recomendação. É o perfil que mais indica para amigos — especialmente quando usou o seguro e foi bem atendido.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 02 COBERTURAS -->
-<section class="section section-light" id="coberturas">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">02</div> Produto</div>
-    <h2 class="sec-title" id="coberturas-title">Coberturas que você<br>precisa dominar<button class="section-link-btn" type="button" aria-label="Copiar link desta seção">#</button></h2>
-    <p class="sec-lead">"Pet não é regulado pela ANS. Cada operadora define o que cobre. Você precisa comparar e orientar o cliente sobre o que está incluso."</p>
-    <div class="reveal table-scroll">
-      <table class="data-table">
-        <thead><tr><th>Cobertura</th><th>Básico</th><th>Intermediário</th><th>Completo</th><th>Observação</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Consultas veterinárias</strong></td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Clínica geral. Limite de consultas/ano</td></tr>
-          <tr><td><strong>Exames diagnósticos</strong></td><td class="td-orange">Limitado</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Hemograma, raio-x, ultrassom</td></tr>
-          <tr><td><strong>Internação hospitalar</strong></td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Cobertura com limite de diárias</td></tr>
-          <tr><td><strong>Cirurgia</strong></td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Emergência e eletiva (carência diferente)</td></tr>
-          <tr><td><strong>Urgência e emergência</strong></td><td class="td-orange">✗</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Atendimento 24h — alta demanda</td></tr>
-          <tr><td><strong>Vacinação</strong></td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td><td>Vacinas do calendário — prevenção</td></tr>
-          <tr><td><strong>Oncologia (câncer)</strong></td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td><td>Quimioterapia, cirurgia oncológica</td></tr>
-          <tr><td><strong>Odontologia pet</strong></td><td class="td-orange">✗</td><td class="td-orange">✗</td><td class="td-green">✓</td><td>Extrações, tártaro — disponível em poucos</td></tr>
-          <tr><td><strong>Prêmio mensal (cão médio)</strong></td><td class="td-pink">R$ 80–130</td><td class="td-pink">R$ 150–230</td><td class="td-pink">R$ 250–400</td><td></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="gold-rule reveal" style="margin-top:40px;">
-      <div class="gold-rule-icon">⚠️</div>
-      <div>
-        <div class="gold-rule-label">Importante — exclusões comuns em pet</div>
-        <p>Todas as operadoras excluem: <strong>doenças preexistentes</strong> (declaradas ou diagnosticadas dentro da carência), <strong>estética</strong> (banho, tosa, cirurgias cosméticas), <strong>castração</strong> (em planos básicos) e <strong>prevenção geral</strong> exceto vacinação nos planos completos. Sempre explique ao cliente antes de fechar.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 PLANOS -->
-<section class="section" id="tipos">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">03</div> Planos</div>
-    <h2 class="sec-title" id="tipos-title">Planos e quando<br>indicar cada um<button class="section-link-btn" type="button" aria-label="Copiar link desta seção">#</button></h2>
-    <p class="sec-lead">"Raça, porte e idade do pet definem preço e risco. Raças com predisposição genética precisam de plano mais completo — e carência maior."</p>
-    <div class="fund-grid">
-      <div class="fund-text reveal">
-        <p><strong>Por espécie:</strong> cão e gato são os mais cobertos. Algumas operadoras já oferecem plano para aves e pequenos animais. O mercado é predominantemente canino e felino.</p>
-        <p><strong>Por porte (cão):</strong> pequeno (até 10kg), médio (10–25kg) e grande (25kg+). Animais maiores têm custos veterinários mais altos — e prêmio proporcionalmente maior.</p>
-        <p><strong>Por raça:</strong> raças com histórico de problemas de saúde (Buldogue, Poodle, Golden Retriever, Dachshund) podem ter carência maior ou prêmio adicional. Pesquise antes de cotar.</p>
-        <p><strong>Por idade:</strong> a maioria das operadoras aceita pets até 8 anos para nova adesão. Acima disso, exige exame médico ou recusa. Oriente o cliente a contratar cedo.</p>
-      </div>
-      <div class="reveal reveal-delay-1">
-        <div class="callout">
-          <div class="callout-label">🐕 Carências típicas no mercado pet</div>
-          <p><strong>Consultas:</strong> 7 a 30 dias.<br><strong>Exames:</strong> 30 dias.<br><strong>Cirurgia eletiva:</strong> 60 a 90 dias.<br><strong>Cirurgia emergência:</strong> 24h a 30 dias (variável).<br><strong>Oncologia:</strong> 90 a 180 dias.<br><br>Avise sempre o cliente — carência é a principal causa de reclamação em pet.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 PREÇO -->
-<section class="section section-dark" id="preco">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num" style="background:rgba(236,72,153,.15);color:var(--ac2);">04</div> <span class="sec-label-dark">Preço</span></div>
-    <h2 class="sec-title sec-title-light" id="preco-title">Preço por espécie,<br>porte e plano<button class="section-link-btn" type="button" aria-label="Copiar link desta seção">#</button></h2>
-    <p class="sec-lead sec-lead-light">"Pet é o seguro mais barato para abrir uma conversa. E o cliente mais fácil de fechar — porque o amor pelo animal não tem preço."</p>
-    <div class="stats-row">
-      <div class="stat-box reveal"><div class="stat-val">R$100</div><div class="stat-label">Prêmio médio mensal plano básico (cão pequeno)</div></div>
-      <div class="stat-box reveal reveal-delay-1"><div class="stat-val">R$280</div><div class="stat-label">Prêmio médio mensal plano completo (cão grande)</div></div>
-      <div class="stat-box reveal reveal-delay-2"><div class="stat-val">Variável</div><div class="stat-label">Comissão do corretor</div></div>
-      <div class="stat-box reveal reveal-delay-3"><div class="stat-val">170M</div><div class="stat-label">Animais domésticos no Brasil — 98% sem seguro</div></div>
-    </div>
-    <div class="reveal table-scroll">
-      <table class="data-table">
-        <thead><tr><th>Perfil do Pet</th><th>Básico/mês</th><th>Intermediário/mês</th><th>Completo/mês</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Gato (qualquer porte)</strong></td><td class="td-pink">R$ 70–110</td><td>R$ 120–180</td><td>R$ 200–320</td></tr>
-          <tr><td><strong>Cão pequeno até 10kg</strong></td><td class="td-pink">R$ 85–130</td><td>R$ 140–200</td><td>R$ 220–350</td></tr>
-          <tr><td><strong>Cão médio 10–25kg</strong></td><td>R$ 110–160</td><td>R$ 180–250</td><td>R$ 280–420</td></tr>
-          <tr><td><strong>Cão grande 25–45kg</strong></td><td>R$ 150–220</td><td>R$ 240–340</td><td class="td-orange">R$ 380–550</td></tr>
-          <tr><td><strong>Raça com predisposição</strong></td><td>+10–20%</td><td>+10–20%</td><td>+10–30%</td></tr>
-          <tr><td><strong>Pet acima de 6 anos</strong></td><td>+15–30%</td><td>+15–30%</td><td>Análise individual</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="script-box reveal">
-      <div class="script-label">💰 A conta que fecha a conversa</div>
-      <p style="font-style:normal;">O mercado pet é uma das maiores oportunidades de crescimento. O ticket médio é atrativo e o volume de pets não segurados é imenso.<br>
-      Cada nova apólice pet na sua base contribui para um faturamento sólido e constante para o seu negócio.<br>
-      Foque no volume e na fidelização dos tutores para escalar sua carteira.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 05 VENDA -->
-<section class="section section-light" id="venda">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">05</div> Fechamento</div>
-    <h2 class="sec-title" id="venda-title">Conduza a venda<br>sem forçar a barra<button class="section-link-btn" type="button" aria-label="Copiar link desta seção">#</button></h2>
-    <p class="sec-lead">"Pet é venda emocional. Não comece pelo produto — comece pelo animal. Quando o tutor fala do pet, a decisão já está quase tomada."</p>
-    <div class="venda-steps reveal">
-      <div class="venda-step">
-        <div class="venda-step-num">1</div>
-        <div class="venda-step-body">
-          <h4>Pergunte pelo animal</h4>
-          <div class="step-script">"Você tem pet? Cachorro, gato? Qual é o nome e a raça? Pergunto porque tem seguro no mercado que se encaixa certinho no perfil do seu animal."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">2</div>
-        <div class="venda-step-body">
-          <h4>Planta o dado do custo veterinário</h4>
-          <div class="step-script">"Você já levou ao veterinário de emergência? Sabe que uma cirurgia ou internação pode sair de R$ 5 mil a R$ 12 mil? A maioria dos tutores não está preparada para isso."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">3</div>
-        <div class="venda-step-body">
-          <h4>Apresenta as opções</h4>
-          <div class="step-script">"Para o perfil do seu pet, tem plano que começa por R$ 100/mês. Consultas, exames e emergência já estão cobertos. Se quiser incluir cirurgia e internação, fica em R$ 180. O completo, com tudo, R$ 250."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">4</div>
-        <div class="venda-step-body">
-          <h4>Explica a carência sem susto</h4>
-          <div class="step-script">"Tem um detalhe importante: a carência. Para consultas, começa em 7 dias. Para cirurgias eletivas, a partir de 60 dias. Emergência tem carência menor. Se você contratar hoje, em um mês já está coberto para boa parte das situações."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">5</div>
-        <div class="venda-step-body">
-          <h4>Fecha no mesmo dia</h4>
-          <div class="step-script">"Posso emitir agora com nome, CPF, espécie, raça e data de nascimento do pet. Tem tudo isso na mão? Em 5 minutos está feito e a cobertura começa no primeiro dia."</div>
-        </div>
-      </div>
-    </div>
-    <div class="feature-row reveal">
-      <div class="feature-box fb-pk">
-        <div class="fb-label">🔄 Cross-sell natural</div>
-        <p>Tutor de pet jovem é o perfil que mais abre para vida e residencial no mesmo mês. Vendeu pet? Abra: "E você, tem seguro de vida próprio? O seu seguro, você tem?" A transição é natural.</p>
-      </div>
-      <div class="feature-box fb-green">
-        <div class="fb-label">📋 Dica de abordagem indireta</div>
-        <p>Quando o cliente tem pet mas não perguntou, plante o dado: "Outro dia um cliente meu perdeu R$ 9 mil numa cirurgia do cachorro. Agora ele tem plano — e dorme tranquilo." Deixa a ideia e espera.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 OBJEÇÕES -->
-<section class="section" id="objecoes">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">06</div> Virada</div>
-    <h2 class="sec-title" id="objecoes-title">Vire a objeção<br>no papo reto<button class="section-link-btn" type="button" aria-label="Copiar link desta seção">#</button></h2>
-    <p class="sec-lead">"Pet tem objeções leves. O vínculo emocional já fez metade do trabalho — você só precisa derrubar a barreira de preço."</p>
-    <div class="obj-grid">
-      <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Meu pet é saudável. Não vai precisar."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Ótimo — é justamente agora que o plano aceita sem análise difícil e sem carência maior. Pet saudável hoje garante a cobertura quando precisar. Quando aparecer o problema, geralmente já é tarde para contratar.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Está caro. Prefiro guardar o dinheiro."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Em quanto tempo você guardaria R$ 8.000? Porque é o que uma cirurgia de emergência custa. R$ 150/mês resolve em 4 anos de acúmulo — mas o problema pode vir no próximo mês.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"O veterinário que uso não é conveniado."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Alguns planos têm rede credenciada, outros funcionam por reembolso. Se você quer manter seu veterinário de confiança, a gente procura uma opção de reembolso para que não precisem trocar.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Tem carência. De nada vai adiantar agora."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Consultas começam em 7 dias. Emergências, em muitos planos, cobertura em até 30 dias. E você começa a contar da data de hoje — então quanto antes contratar, mais rápido está coberto para o que mais assusta.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 OPERADORAS -->
-<section class="section section-light" id="operadoras">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">07</div> Operadora</div>
-    <h2 class="sec-title" id="operadoras-title">Operadoras do mercado<br>pet e quando indicar<button class="section-link-btn" type="button" aria-label="Copiar link desta seção">#</button></h2>
-    <p class="sec-lead">"No pet, a indicação certa vem do perfil do tutor e do uso esperado. Marca, rede, reembolso e ticket mudam a escolha."</p>
-    <div class="ops-layout">
-      <div class="rank-list">
-        <div class="rank-item reveal" style="border:1px solid rgba(236,72,153,.3);background:rgba(236,72,153,.03);">
-          <div class="rank-medal rm-gold" style="font-size:2.2rem;">1</div>
-          <div>
-            <div class="rank-name" style="color:var(--ac2);">Petz Saúde - rede ampla e conversa fácil</div>
-            <div class="rank-desc">Maior rede de clínicas parceiras do Brasil. Funciona para cão ou gato de qualquer porte. O cliente já conhece o nome e isso facilita a conversa.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-1">
-          <div class="rank-medal rm-silver">2</div>
-          <div>
-            <div class="rank-name">Porto Pet - custo-benefício no básico e intermediário</div>
-            <div class="rank-desc">Indica para PF com cão de pequeno ou médio porte que prioriza preço. Adesão rápida e boa conversa para cliente que quer simplicidade.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-2">
-          <div class="rank-medal rm-silver">3</div>
-          <div>
-            <div class="rank-name">SulAmérica Pet - ecossistema e renovação</div>
-            <div class="rank-desc">Melhor opção quando o cliente já tem saúde ou vida SulAmérica. Cria ecossistema e facilita cross-sell na renovação.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-3">
-          <div class="rank-medal rm-bronze">4</div>
-          <div>
-            <div class="rank-name">Omint Pet - premium para custo veterinário alto</div>
-            <div class="rank-desc">Indica para raças de alto custo veterinário, como Golden, Labrador e Buldogue, ou tutores que querem cobertura mais folgada. Ticket mais alto, cobertura mais completa.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-3">
-          <div class="rank-medal rm-bronze">5</div>
-          <div>
-            <div class="rank-name">MeuPet - digital e rápido para emitir</div>
-            <div class="rank-desc">Boa opção para tutor jovem com orçamento enxuto. Focado em digital, rápido para cotar e emitir. Planos a partir de R$ 49/mês.</div>
-          </div>
-        </div>
-      </div>
-      <div class="ops-sidebar">
-        <div class="cert-card cc-pk reveal">
-          <div class="cert-tag">Regra rápida de indicação</div>
-          <h3>Use a lógica certa</h3>
-          <p><strong>Tutor com saúde SulAmérica:</strong> SulAmérica Pet.</p>
-          <p><strong>Raça cara:</strong> Omint. <strong>Tutor jovem e digital:</strong> MeuPet. <strong>Para o resto:</strong> Petz ou Porto Pet.</p>
-        </div>
-        <div class="cert-card cc-or reveal reveal-delay-1">
-          <div class="cert-tag">Rede vs reembolso</div>
-          <h3>Descubra o hábito do tutor</h3>
-          <p>Antes de indicar produto, entenda se o cliente quer conveniência de rede ou liberdade para continuar com o veterinário atual. Essa resposta muda a recomendação.</p>
-          <p><strong>Tradução prática:</strong> rede resolve conveniência; reembolso resolve liberdade de escolha.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 08 CHECKLIST -->
-<section class="section section-dark" id="checklist">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num" style="background:rgba(236,72,153,.15);color:var(--ac2);">08</div> <span class="sec-label-dark">Proposta</span></div>
-    <h2 class="sec-title sec-title-light" id="checklist-title">Checklist de proposta<br>pet - entre pronto<button class="section-link-btn" type="button" aria-label="Copiar link desta seção">#</button></h2>
-    <p class="sec-lead sec-lead-light">"Quando você chega com as perguntas certas, a cotação anda rápido e o fechamento fica limpo."</p>
-    <div class="check-layout">
-      <div>
-        <div class="check-col-title">Dados do pet</div>
-        <div class="check-list">
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Qual a espécie? Cão ou gato define operadora e preço.</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Qual a raça? Raças com histórico genético podem ter carência maior ou recusa.</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Qual a idade do pet? Acima de 8 anos pode haver restrição de adesão.</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Tem condição preexistente diagnosticada? Exemplo: displasia, cardiopatia ou tumor.</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="check-col-title">Para fechar</div>
-        <div class="check-list">
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Já teve emergência veterinária sem seguro? Quanto gastou?</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Tem mais de um pet? Isso pode abrir espaço para apólice familiar.</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Prefere clínica parceira ou reembolso?</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Qual o orçamento mensal por pet?</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="rec-box" style="border-color:rgba(236,72,153,.3);background:rgba(236,72,153,.06);">
-      <div class="rec-box-label" style="color:var(--ac2);">Regra de ouro do seguro pet</div>
-      <p style="color:rgba(255,255,255,.7);">Explique carência, exclusões e modelo de uso antes de fechar. Em pet, transparência fideliza mais do que desconto.</p>
-    </div>
-    <div class="feature-box fb-green" style="margin-top: 48px; width: 100%; grid-column: span 2;">
-      <div class="fb-label">PRÓXIMO PASSO</div>
-      <p>Vendeu pet? Puxa vida e residencial em seguida — o tutor tem exatamente o perfil que compra os dois.</p>
-      <a href="../seguro-vida/index.html" class="btn-primary" style="margin-top: 12px; padding: 8px 16px; font-size: 0.75rem;">Ver guia →</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="nav-hex" style="width:24px;height:24px;margin-bottom:8px;"></div>
-      <div class="nav-wordmark">REVIER <span>BROKERS</span></div>
-      <p>Portal de treinamento interno para a equipe comercial da Revier Corretora de Seguros.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Outros Guias</div>
-      <ul class="footer-links">
-        <li><a href="../seguro-vida/index.html">Seguro de Vida</a></li>
-        <li><a href="../seguro-residencial/index.html">Seguro Residencial</a></li>
-        <li><a href="../odonto/index.html">Odonto</a></li>
-        <li><a href="../seguro-viagem/index.html">Seguro Viagem</a></li>
-        <li><a href="../../index.html">← Voltar ao Portal</a></li>
+    <details class="quick-summary">
+      <summary>
+        Resumo Rapido  30 segundos
+        <span class="summary-toggle">+</span>
+      </summary>
+      <ul>
+        <li>Use este guia para conduzir conversa, nao para decorar texto.</li>
+        <li>Comece por contexto, depois proposta, depois proximo passo.</li>
+        <li>Finalize sempre com combinados claros e follow-up.</li>
       </ul>
-    </div>
-    <div class="footer-contact">
-      <div class="footer-col-title">Contato Revier</div>
-      <p><strong>Revier Corretora de Seguros Ltda.</strong></p>
-      <p>CNPJ 42.621.875/0001-50</p>
-      <p>contato@reviercorretora.com.br</p>
-      <p>(11) 5555-9350 · Santo André, SP</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Revier Brokers — Uso exclusivo equipe interna</p>
-    <p>Material educacional. Não substitui análise técnica individual.</p>
-  </div>
-</footer>
-<script>
-(function(){
-  'use strict';
-  var revEls=document.querySelectorAll('.reveal');
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-  revEls.forEach(function(el){obs.observe(el);});
-  var burger=document.getElementById('hamburger');var menu=document.getElementById('mobileMenu');
-  if(burger&&menu){burger.addEventListener('click',function(){burger.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});}
-})();
-</script>
+    </details>
 
-<!-- Read Progress + Theme Toggle + Summary -->
-<script>
-(function(){
-  var bar=document.getElementById('read-progress');
-  if(bar){window.addEventListener('scroll',function(){requestAnimationFrame(function(){var h=document.body.scrollHeight-window.innerHeight;bar.style.width=h>0?Math.min((window.scrollY/h)*100,100)+'%':'0%';});});}
-  var toggle=document.getElementById('theme-toggle');
-  var root=document.documentElement;
-  function sync(){toggle.textContent=root.classList.contains('dark-mode')?'☀':'☽';}
-  if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('dark-mode');localStorage.setItem('revier_theme',root.classList.contains('dark-mode')?'dark':'light');sync();});}
-  var summary=document.querySelector('.quick-summary');
-  if(summary){var btn=summary.querySelector('.summary-toggle');var key=summary.getAttribute('data-summary-key');if(localStorage.getItem(key)==='open')summary.classList.add('is-open');btn.setAttribute('aria-expanded',summary.classList.contains('is-open'));btn.addEventListener('click',function(){summary.classList.toggle('is-open');var open=summary.classList.contains('is-open');btn.setAttribute('aria-expanded',open);localStorage.setItem(key,open?'open':'closed');});}
-})();
-</script>
+    <div class="guide-content">
+      <section class="guide-section" id="fundamentos">
+        <div class="section-meta"><span class="section-num">01</span><span class="section-ctx">Base</span></div>
+        <h2>Fundamentos do produto</h2>
+        <p class="section-quote">"Quem domina fundamento reduz atrito e acelera fechamento."</p>
+        <p>Este material foi atualizado para o visual e a estrutura atual da Revier Academy.</p>
+        <div class="tip-card tip-card--accent">
+          <span class="tip-label">Diretriz</span>
+          <p>Priorize clareza e objetividade em cada reuniao comercial.</p>
+        </div>
+      </section>
+
+      <section class="guide-section" id="diagnostico">
+        <div class="section-meta"><span class="section-num">02</span><span class="section-ctx">Perguntas</span></div>
+        <h2>Diagnostico rapido</h2>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><div class="step-body"><h4>Contexto</h4><p>Entenda o cenario atual do cliente.</p></div></div>
+          <div class="step-item"><span class="step-num">2</span><div class="step-body"><h4>Objetivo</h4><p>Descubra o resultado esperado e prazo.</p></div></div>
+          <div class="step-item"><span class="step-num">3</span><div class="step-body"><h4>Restricoes</h4><p>Mapeie limitacoes de budget e operacao.</p></div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="argumentacao">
+        <div class="section-meta"><span class="section-num">03</span><span class="section-ctx">Posicionamento</span></div>
+        <h2>Argumentacao que converte</h2>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="feature-icon">01</span><h3>Foco no ganho</h3><p>Mostre impacto pratico no dia a dia do cliente.</p></div>
+          <div class="feature-card"><span class="feature-icon">02</span><h3>Risco do nao</h3><p>Deixe claro o custo de nao agir agora.</p></div>
+          <div class="feature-card"><span class="feature-icon">03</span><h3>Proximo passo</h3><p>Feche com acao objetiva e prazo combinado.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="objecoes">
+        <div class="section-meta"><span class="section-num">04</span><span class="section-ctx">Reversao</span></div>
+        <h2>Objecoes comuns</h2>
+        <div class="objection-list">
+          <div class="objection-item"><div class="objection-q">"Vou pensar."</div><div class="objection-a">Sem problema. O que voce precisa validar para decidir com seguranca?</div></div>
+          <div class="objection-item"><div class="objection-q">"Esta caro."</div><div class="objection-a">Vamos comparar custo x exposicao atual e retorno esperado da solucao.</div></div>
+          <div class="objection-item"><div class="objection-q">"Ja tenho algo parecido."</div><div class="objection-a">Perfeito. Posso mapear se o desenho atual cobre o que realmente importa.</div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="operacao">
+        <div class="section-meta"><span class="section-num">05</span><span class="section-ctx">Execucao</span></div>
+        <h2>Fluxo operacional</h2>
+        <div class="provider-list">
+          <div class="provider-item"><span class="provider-num">01</span><div><div class="provider-name">Coleta de dados</div><div class="provider-desc">Checklist e documentos essenciais.</div></div></div>
+          <div class="provider-item"><span class="provider-num">02</span><div><div class="provider-name">Analise</div><div class="provider-desc">Ajuste da proposta ao perfil do cliente.</div></div></div>
+          <div class="provider-item"><span class="provider-num">03</span><div><div class="provider-name">Implantacao</div><div class="provider-desc">Validacao final e acompanhamento inicial.</div></div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="checklist">
+        <div class="section-meta"><span class="section-num">06</span><span class="section-ctx">Pronto para reuniao</span></div>
+        <h2>Checklist final</h2>
+        <div class="checklist-cols">
+          <div>
+            <div class="checklist-col-label">Antes da reuniao</div>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box"></span>Objetivo da conversa definido</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Dados minimos em maos</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Argumentos principais preparados</li>
+            </ul>
+          </div>
+          <div>
+            <div class="checklist-col-label">Depois da reuniao</div>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box"></span>Resumo enviado ao cliente</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Proximo passo agendado</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Responsaveis e prazo confirmados</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="guide-footer">
+      <div><div class="guide-footer-logo">REVIER BROKERS</div></div>
+      <div>
+        <div class="guide-footer-info">Revier Corretora de Seguros Ltda.<br>CNPJ 42.621.875/0001-50<br>contato@reviercorretora.com.br<br>Santo Andre, SP</div>
+        <div class="guide-footer-copy"> 2026 Revier Brokers. Material de uso exclusivo para equipe interna.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const sections = document.querySelectorAll('.guide-section[id]');
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        const link = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.toggle('active', e.isIntersecting);
+      }),
+      { rootMargin: '-10% 0px -80% 0px' }
+    );
+    sections.forEach(s => obs.observe(s));
+  </script>
 </body>
 </html>
-
-

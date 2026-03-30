@@ -488,6 +488,50 @@ details[open] .summary-toggle { transform: rotate(45deg); }
   margin-bottom: 0 !important;
 }
 
+/* CHECKLIST STATS CARDS */
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 140px;
+}
+
+.stat-value {
+  width: auto;
+  height: auto;
+  display: block;
+  margin-bottom: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.stat-value--compact {
+  font-size: 24px;
+}
+
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ══════════════════════════════════════════
    CARDS DE COMPARAÇÃO VS
 ══════════════════════════════════════════ */

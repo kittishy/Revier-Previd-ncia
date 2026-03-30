@@ -1,823 +1,149 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revier · Consórcio na Prática</title>
-<meta name="description" content="Guia completo de consórcio para corretores da Revier Brokers. Lance, contemplação, administradoras e scripts de venda.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
-<script>(function(){try{if(localStorage.getItem('revier_theme') === 'dark') { document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-<style>
-:root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#4B5563;--light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#92400E;--ac2:#F59E0B;--acdk:#78350F}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Barlow',sans-serif;font-weight:400;color:var(--ink);background:var(--white);overflow-x:hidden;cursor:default}
-::selection{background:var(--ac);color:#fff}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dk)}::-webkit-scrollbar-thumb{background:var(--ac2);border-radius:2px}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(10,12,18,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);transition:all .3s}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-hex{width:28px;height:28px;background:var(--or);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);flex-shrink:0}
-.nav-wordmark{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:.06em;color:#fff}
-.nav-wordmark span{color:var(--or)}
-.nav-links{display:flex;gap:6px;list-style:none}
-.nav-links a{display:block;padding:6px 12px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-radius:2px;transition:color .2s,background .2s}
-.nav-links a:hover{color:var(--or);background:rgba(232,81,10,.08)}
-.nav-badge{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--ac);color:#fff;padding:5px 12px;border-radius:2px}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;z-index:300}
-.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.7);border-radius:2px;transition:all .3s}
-.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-hamburger.open span:nth-child(2){opacity:0}
-.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,12,18,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);z-index:190;padding:16px 0 24px;flex-direction:column}
-.mobile-menu.open{display:flex}
-.mobile-menu a{display:block;padding:12px 24px;font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;border-left:2px solid transparent;transition:all .15s}
-.mobile-menu a:hover{color:var(--or);border-left-color:var(--or);background:rgba(232,81,10,.05)}
-.hero{min-height:100vh;background:var(--dk);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 60px}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(245,158,11,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(245,158,11,.05) 1px,transparent 1px);background-size:64px 64px}
-.hero-blocks{position:absolute;top:0;right:0;width:380px;height:100vh;display:grid;grid-template-rows:1fr 1fr 1fr;pointer-events:none}
-.hero-blocks>div:nth-child(1){background:var(--yl);opacity:.14}
-.hero-blocks>div:nth-child(2){background:var(--or);opacity:.12}
-.hero-blocks>div:nth-child(3){background:#92400E;opacity:.10}
-.hero-glow{position:absolute;left:-10%;top:20%;width:70vw;height:70vh;background:radial-gradient(ellipse,rgba(245,158,11,.07) 0%,transparent 65%);pointer-events:none}
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ac2);border:1px solid rgba(245,158,11,.3);border-radius:100px;padding:5px 14px;margin-bottom:24px;background:rgba(245,158,11,.06)}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ac2);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-h1.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4.5rem,9vw,7.5rem);font-weight:900;line-height:.88;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:24px}
-h1.hero-title em{font-style:normal;color:var(--ac2);display:block}
-.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.7);font-weight:300;line-height:1.7;max-width:520px;margin-bottom:40px}
-.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
-.btn-primary:hover{background:var(--ac2);color:var(--dk);transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,158,11,.3)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
-.btn-ghost:hover{border-color:var(--ac2);color:var(--ac2)}
-.hero-toc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:28px;backdrop-filter:blur(8px)}
-.hero-toc-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.hero-toc-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
-.toc-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);text-decoration:none;transition:all .15s}
-.toc-item:last-child{border-bottom:none}
-.toc-item:hover .toc-label{color:var(--ac2)}
-.toc-item:hover .toc-num{border-color:var(--ac2);color:var(--ac2)}
-.toc-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;width:28px;height:28px;border:1px solid rgba(255,255,255,.12);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);flex-shrink:0;transition:all .15s}
-.toc-label{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.55);transition:color .15s}
-.section{padding:100px 0;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
-.section-dark{background:var(--dk);border-bottom-color:rgba(255,255,255,.06)}
-.section-light{background:var(--light)}
-.container{max-width:1200px;margin:0 auto;padding:0 40px}
-.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--or);margin-bottom:12px}
-.sec-label-dark{color:rgba(255,255,255,.35)}
-.sec-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;background:var(--or);color:#fff;width:22px;height:22px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;color:var(--ink);margin-bottom:16px}
-h2.sec-title-light{color:#fff}
-.sec-lead{font-size:1rem;color:var(--muted);font-weight:300;font-style:italic;line-height:1.7;max-width:620px;margin-bottom:48px;padding-left:14px;border-left:2px solid var(--ac2)}
-.sec-lead-light{color:rgba(255,255,255,.45);border-left-color:rgba(245,158,11,.5)}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-.fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:64px}
-.fund-text p{font-size:.95rem;line-height:1.75;color:#374151;margin-bottom:16px}
-.fund-text p strong{color:var(--ink);font-weight:700}
-.callout{background:var(--dk);border-radius:8px;padding:28px;position:relative;overflow:hidden}
-.callout::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--ac2),var(--or))}
-.callout-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:10px}
-.callout p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.65}
-.callout strong{color:#fff}
-.motivos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.motivo-card{background:var(--light);border-radius:6px;padding:28px 24px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.motivo-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
-.motivo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.mc-am::before{background:var(--ac2)}.mc-or::before{background:var(--or)}.mc-gn::before{background:var(--gn)}
-.motivo-icon{font-size:2rem;margin-bottom:14px;display:block}
-.motivo-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
-.mt-am{color:var(--ac2)}.mt-or{color:var(--or)}.mt-gn{color:var(--gn)}
-.motivo-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;color:var(--ink)}
-.motivo-card p{font-size:.87rem;color:var(--muted);line-height:1.6}
-.data-table{width:100%;border-collapse:collapse;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.data-table thead tr{background:var(--acdk)}
-.data-table th{padding:14px 18px;text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.data-table td{padding:13px 18px;font-size:.9rem;color:#374151;border-top:1px solid var(--border);background:#fff}
-.data-table tr:hover td{background:#fffbeb}
-.data-table td strong{color:var(--ink);font-weight:700}
-.td-green{color:var(--gn)!important;font-weight:700!important}
-.td-orange{color:var(--or)!important;font-weight:700!important}
-.td-amber{color:var(--ac2)!important;font-weight:700!important}
-.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:6px}
-.table-scroll .data-table{min-width:600px}
-.lance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
-.lance-card{background:#fff;border-radius:8px;padding:28px;box-shadow:0 1px 3px rgba(0,0,0,.06);position:relative;overflow:hidden}
-.lance-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.lc-am::before{background:var(--ac2)}.lc-or::before{background:var(--or)}.lc-gn::before{background:var(--gn)}
-.lance-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
-.lt-am{color:var(--ac2)}.lt-or{color:var(--or)}.lt-gn{color:var(--gn)}
-.lance-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
-.lance-card p{font-size:.87rem;color:var(--muted);line-height:1.6}
-.gold-rule{background:var(--ac);border-radius:8px;padding:28px 32px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-bottom:32px}
-.gold-rule-icon{font-size:2.5rem}
-.gold-rule-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:6px}
-.gold-rule p{font-size:.95rem;color:#fff;line-height:1.65}
-.script-box{background:var(--dk);border-radius:6px;padding:24px 28px;position:relative;overflow:hidden;margin-top:24px}
-.script-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac2)}
-.script-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:10px}
-.script-box p{font-size:.92rem;color:rgba(255,255,255,.75);font-style:italic;line-height:1.65}
-.rec-box{background:linear-gradient(135deg,rgba(245,158,11,.08) 0%,rgba(232,81,10,.05) 100%);border:1px solid rgba(245,158,11,.25);border-radius:8px;padding:24px 28px;margin-top:24px}
-.rec-box-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:8px}
-.rec-box p{font-size:.92rem;color:var(--ink);line-height:1.65}
-.venda-steps{display:flex;flex-direction:column;gap:0;margin-bottom:40px;position:relative}
-.venda-steps::before{content:'';position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:linear-gradient(180deg,var(--ac2),rgba(245,158,11,.1))}
-.venda-step{display:flex;gap:20px;padding:0 0 28px;position:relative}
-.venda-step-num{width:40px;height:40px;border-radius:50%;background:var(--ac);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
-.venda-step-body{flex:1;padding-top:6px}
-.venda-step-body h4{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
-.step-script{background:#fff;border-radius:4px;padding:14px 18px;border-left:3px solid var(--ac2);font-size:.88rem;color:#374151;font-style:italic;line-height:1.6;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
-.feature-box{border-radius:8px;padding:28px}
-.fb-am{background:#FFFBEB;border:1px solid rgba(245,158,11,.2)}
-.fb-green{background:#F0FDF4;border:1px solid rgba(22,163,74,.2)}
-.fb-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
-.fb-am .fb-label{color:var(--ac2)}.fb-green .fb-label{color:var(--gn)}
-.feature-box p{font-size:.9rem;color:#374151;line-height:1.65}
-.feature-box strong{color:var(--ink)}
-.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.obj-item{border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s}
-.obj-item:hover{box-shadow:0 6px 24px rgba(0,0,0,.1)}
-.obj-q{background:var(--ink);padding:14px 18px;font-size:.88rem;font-weight:600;color:#fff;display:flex;gap:10px;align-items:flex-start}
-.obj-q-icon{flex-shrink:0;font-size:1rem;margin-top:1px}
-.obj-a{background:var(--light);padding:14px 18px;border-left:3px solid var(--ac2)}
-.obj-a-tag{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ac2);margin-bottom:5px}
-.obj-a p{font-size:.85rem;color:#374151;line-height:1.6}
-.obj-a strong{color:var(--ink)}
-.ops-layout{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
-.rank-list{display:flex;flex-direction:column;gap:12px}
-.rank-item{background:#fff;border-radius:6px;padding:18px 20px;display:flex;align-items:center;gap:18px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:all .2s}
-.rank-item:hover{transform:translateX(4px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
-.rank-medal{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:900;min-width:36px;text-align:center;line-height:1}
-.rm-gold{color:var(--yl);text-shadow:0 0 20px rgba(245,200,0,.4)}.rm-silver{color:#94A3B8}.rm-bronze{color:#CD7F32}.rm-gray{color:var(--border)}
-.rank-name{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:2px}
-.rank-desc{font-size:.82rem;color:var(--muted)}
-.ops-sidebar{display:flex;flex-direction:column;gap:20px}
-.cert-card{background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.cert-card::before{content:'';display:block;height:3px;margin:-24px -24px 18px;border-radius:8px 8px 0 0}
-.cc-am::before{background:linear-gradient(90deg,var(--ac),var(--ac2))}
-.cc-gn::before{background:linear-gradient(90deg,var(--gn),var(--tl))}
-.cert-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.cert-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
-.cert-card p{font-size:.85rem;color:var(--muted);line-height:1.6}
-.cert-card p+p{margin-top:6px}
-.cert-card strong{color:var(--ink)}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
-.stat-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;transition:all .2s}
-.stat-box:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
-.stat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ac),var(--ac2))}
-.stat-val{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;color:var(--ac2);line-height:1;margin-bottom:8px}
-.stat-label{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4}
-.check-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
-.check-col-title{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:20px;display:flex;align-items:center;gap:8px}
-.check-col-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
-.check-list{display:flex;flex-direction:column;gap:10px}
-.check-row{display:flex;align-items:flex-start;gap:12px}
-.check-box-el{width:18px;height:18px;border:1.5px solid rgba(245,158,11,.4);border-radius:3px;flex-shrink:0;margin-top:2px;transition:all .2s}
-.check-row:hover .check-box-el{border-color:var(--ac2);background:rgba(245,158,11,.08)}
-.check-text{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.5}
-.reading-progress{position:fixed;top:60px;left:0;right:0;height:3px;background:rgba(255,255,255,.08);z-index:210;pointer-events:none}
-.reading-progress-bar{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--ac2),var(--or));box-shadow:0 0 18px rgba(245,158,11,.35)}
-.quick-brief{margin-top:24px;max-width:560px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;box-shadow:0 16px 36px rgba(0,0,0,.18)}
-.quick-brief summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer}
-.quick-brief summary::-webkit-details-marker{display:none}
-.quick-brief-kicker{display:block;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:6px}
-.quick-brief-title{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#fff}
-.quick-brief-icon{width:34px;height:34px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--ac2);flex-shrink:0;transition:transform .2s ease,background .2s ease}
-.quick-brief[open] .quick-brief-icon{transform:rotate(45deg);background:rgba(245,158,11,.08)}
-.quick-brief-body{padding:0 22px 20px}
-.quick-brief-body p{font-size:.84rem;color:rgba(255,255,255,.58);line-height:1.6;margin-bottom:14px}
-.quick-brief-list{list-style:none;display:grid;gap:10px}
-.quick-brief-list li{font-size:.88rem;color:rgba(255,255,255,.72);line-height:1.55;padding-left:18px;position:relative}
-.quick-brief-list li::before{content:'';position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--ac2);box-shadow:0 0 0 4px rgba(245,158,11,.12)}
-.quick-brief-list strong{color:#fff}
-.section-copy{position:absolute;top:32px;right:40px;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(26,28,36,.12);border-radius:999px;background:rgba(255,255,255,.86);color:var(--ink);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s;backdrop-filter:blur(10px);box-shadow:0 10px 25px rgba(10,12,18,.08)}
-.section-copy:hover{transform:translateY(-1px);border-color:rgba(245,158,11,.35);color:var(--ac)}
-.section-copy.copied{background:#ecfdf3;border-color:rgba(22,163,74,.28);color:var(--gn)}
-.section-highlight::after{content:'';position:absolute;inset:18px;border:1px solid rgba(245,158,11,.22);border-radius:10px;pointer-events:none}
-footer{background:#060810;padding:60px 0 32px;border-top:1px solid rgba(255,255,255,.05)}
-.footer-top{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.footer-brand .nav-wordmark{font-size:1.6rem;margin-bottom:6px}
-.footer-brand p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.65;margin-top:8px}
-.footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-links a{font-size:.85rem;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s}
-.footer-links a:hover{color:var(--or)}
-.footer-contact p{font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:6px}
-.footer-contact strong{color:rgba(255,255,255,.7)}
-.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 40px 0;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.2);letter-spacing:.06em}
-@media(max-width:900px){
-nav{padding:0 20px}.nav-links{display:none}.nav-badge{display:none}.nav-hamburger{display:flex}
-.container{padding:0 20px}.section{padding:64px 0}
-.hero{padding:88px 0 52px}.hero-inner{grid-template-columns:1fr;gap:0;padding:0 20px}.hero-toc{display:none}.hero-blocks{display:none}
-h1.hero-title{font-size:clamp(3.2rem,12vw,5rem)}.hero-sub{font-size:.92rem;margin-bottom:32px}
-.hero-cta-row{gap:10px}.btn-primary,.btn-ghost{padding:12px 20px;font-size:.78rem}
-h2.sec-title{font-size:clamp(2rem,8vw,3rem)}.sec-lead{font-size:.9rem;margin-bottom:32px}
-.fund-grid,.feature-row,.ops-layout,.check-layout,.footer-top{grid-template-columns:1fr}
-.motivos-grid,.obj-grid,.lance-grid{grid-template-columns:1fr;gap:14px}
-.stats-row{grid-template-columns:1fr 1fr;gap:12px}.stat-val{font-size:1.9rem}
-.gold-rule{grid-template-columns:1fr;gap:12px;padding:22px 20px}
-.venda-steps::before{left:16px}.venda-step-num{width:32px;height:32px;font-size:.9rem}.venda-step{gap:14px}
-.section-copy{top:20px;right:20px;padding:8px 12px;font-size:.63rem}
-footer{padding:40px 0 20px}.footer-bottom{padding:16px 20px 0;flex-direction:column;align-items:flex-start}
-}
-@media(max-width:480px){
-.container{padding:0 16px}.section{padding:52px 0}
-h1.hero-title{font-size:clamp(2.8rem,14vw,3.8rem)}.hero-sub{font-size:.88rem}
-.hero-cta-row{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}
-.quick-brief{margin-top:18px}.quick-brief summary{padding:16px 18px}.quick-brief-body{padding:0 18px 18px}
-.section-copy{top:16px;right:16px;padding:8px 10px;font-size:.6rem}
-}
-.nav-theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:30px;border:1px solid rgba(255,255,255,.12);border-radius:2px;background:rgba(255,255,255,.04);color:#fff;font-size:1rem;font-weight:700;line-height:1;cursor:pointer;transition:color .2s,border-color .2s,background .2s,transform .2s}
-.nav-theme-toggle:hover{color:var(--ac2);border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.08);transform:translateY(-1px)}
-html.dark-mode{--page-bg:#080B10;--page-surface:#101620;--page-surface-soft:#141B26;--page-text:#E8ECF4;--page-muted:rgba(220,226,240,.82);--page-border:rgba(255,255,255,.08);--ink:#E8ECF4;--muted:rgba(204,212,230,.8);--border:rgba(255,255,255,.08);--light:#101620}
-html.dark-mode body{background:var(--page-bg);color:var(--page-text);transition:background .25s ease,color .25s ease}
-html.dark-mode .hero,html.dark-mode .section,html.dark-mode .section-dark,html.dark-mode footer{background:var(--page-bg)}
-html.dark-mode section[id]{background:var(--page-surface)}
-html.dark-mode section.section-dark[id]{background:var(--page-bg)}
-html.dark-mode .section-light{background:var(--page-surface)}
-html.dark-mode .hero-toc,html.dark-mode .motivo-card,html.dark-mode .vs-card,html.dark-mode .data-table td,html.dark-mode .gold-rule,html.dark-mode .feature-box,html.dark-mode .obj-item,html.dark-mode .obj-a,html.dark-mode .rank-item,html.dark-mode .cert-card,html.dark-mode .check-row,html.dark-mode .stat-box,html.dark-mode .rec-box,html.dark-mode .script-box,html.dark-mode .footer-top{background:var(--page-surface)}
-html.dark-mode .data-table thead tr,html.dark-mode .footer-bottom{background:var(--page-surface-soft)}
-html.dark-mode .data-table tr:hover td{background:rgba(255,255,255,.09)}
-html.dark-mode h1.hero-title,html.dark-mode h2.sec-title,html.dark-mode .nav-wordmark,html.dark-mode .motivo-card h3,html.dark-mode .vs-card h3,html.dark-mode .cert-card h3,html.dark-mode .rank-name,html.dark-mode .footer-col-title{color:var(--page-text)}
-html.dark-mode .hero-sub,html.dark-mode .sec-lead,html.dark-mode .motivo-card p,html.dark-mode .vs-card .vs-desc,html.dark-mode .vs-bullets li,html.dark-mode .fund-text p,html.dark-mode .data-table td,html.dark-mode .rank-desc,html.dark-mode .cert-card p,html.dark-mode .feature-box p,html.dark-mode .obj-a p,html.dark-mode .check-text,html.dark-mode .footer-brand p,html.dark-mode .footer-links a,html.dark-mode .nav-links a{color:var(--page-muted)}
-html.dark-mode .nav-links a:hover,html.dark-mode .footer-links a:hover{color:var(--ac2)}
-html.dark-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
-html.dark-mode .nav-theme-toggle:hover{color:var(--ac2);border-color:rgba(245,158,11,.22);background:rgba(245,158,11,.08)}
-html.dark-mode .reading-progress-bar{background:linear-gradient(90deg,var(--ac2),var(--or))}
-html.dark-mode .section-copy{background:rgba(255,255,255,.08);color:var(--page-text);border-color:var(--page-border)}
-html.dark-mode .section-copy:hover{border-color:rgba(245,158,11,.35);color:var(--ac2)}
-html.dark-mode .section-copy.copied{background:rgba(22,163,74,.15);border-color:rgba(22,163,74,.28);color:var(--gn)}
-html.dark-mode .cob-card,html.dark-mode .step-script,html.dark-mode .lance-card{background:var(--page-surface);border-color:rgba(255,255,255,.07);box-shadow:none}
-html.dark-mode .cob-card h3,html.dark-mode .venda-step-body h4,html.dark-mode .lance-card h3{color:var(--page-text)}
-html.dark-mode .step-script,html.dark-mode .cob-card p,html.dark-mode .lance-card p{color:var(--page-muted)}
-html.dark-mode .obj-q{background:var(--page-surface-soft);color:var(--page-text)}
-.quick-summary{display:none}
-.summary-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border:0;background:transparent;color:inherit;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
-.summary-arrow{display:inline-flex;transition:transform .35s ease}
-.quick-summary.is-open .summary-arrow{transform:rotate(180deg)}.quick-summary.is-open .summary-panel{max-height:600px}
-.summary-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;background:rgba(255,255,255,.08)}
-.summary-list{list-style:none;padding:0 24px 18px;display:grid;gap:10px}
-.summary-list li{position:relative;padding-left:18px;font-family:'Barlow',sans-serif;font-size:.9rem;font-weight:500;line-height:1.55;color:#fff}
-.summary-list li::before{content:'•';position:absolute;left:0;color:rgba(255,255,255,.9)}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consorcio | Revier Academy</title>
+  <meta name="description" content="Guia interno Revier para Consorcio.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../guide.css">
 </head>
-<body>
-<nav>
-  <a href="#" class="nav-logo"><div class="nav-hex"></div><div class="nav-wordmark">REVIER <span>BROKERS</span></div></a>
-  <ul class="nav-links">
-    <li><a href="../../index.html">← Portal</a></li>
-    <li><a href="#fundamentos">Fundamentos</a></li>
-    <li><a href="#tipos">Modalidades</a></li>
-    <li><a href="#lance">Lance</a></li>
-    <li><a href="#preco">Taxas</a></li>
-    <li><a href="#venda">Fechamento</a></li>
-    <li><a href="#objecoes">Objeções</a></li>
-    <li><a href="#admins">Administradoras</a></li>
-    <li><a href="#checklist">Checklist</a></li>
-  </ul>
-  <button class="nav-theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema">☽</button>
-  <div class="nav-badge">Guia Interno</div>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
+<body class="guide-page">
+  <nav class="guide-nav">
+    <span class="guide-nav-logo">REVIER BROKERS</span>
+    <a href="../../index.html" class="guide-nav-back"> Portal</a>
+  </nav>
 
-<section class="quick-summary" data-summary-key="summary_consorcio">
-  <button class="summary-toggle" type="button" aria-expanded="false">
-    <span>RESUMO RÁPIDO — 30 SEGUNDOS</span>
-    <span class="summary-arrow" aria-hidden="true">▾</span>
-  </button>
-  <div class="summary-panel">
-    <ul class="summary-list">
-      <li>Sem juros — só taxa de administração (~18% do crédito diluída no prazo)</li>
-      <li>FGTS pode ser usado como lance em consórcio de imóvel — a maioria dos clientes não sabe</li>
-      <li>Qualifique o perfil antes: quem tem pressa precisa de lance, quem não tem vai de sorteio</li>
+  <aside class="guide-sidebar">
+    <span class="sidebar-label">Neste guia</span>
+    <ul class="sidebar-nav">
+      <li><a href="#fundamentos"><span class="sidebar-num">01</span>Fundamentos</a></li>
+      <li><a href="#diagnostico"><span class="sidebar-num">02</span>Diagnostico</a></li>
+      <li><a href="#argumentacao"><span class="sidebar-num">03</span>Argumentacao</a></li>
+      <li><a href="#objecoes"><span class="sidebar-num">04</span>Objecoes</a></li>
+      <li><a href="#operacao"><span class="sidebar-num">05</span>Operacao</a></li>
+      <li><a href="#checklist"><span class="sidebar-num">06</span>Checklist</a></li>
     </ul>
-  </div>
-</section>
+  </aside>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="../../index.html">← Voltar ao Portal</a>
-  <a href="#fundamentos">01 · O que é e como funciona</a>
-  <a href="#tipos">02 · Modalidades de crédito</a>
-  <a href="#lance">03 · Lance — o que agiliza</a>
-  <a href="#preco">04 · Taxas e comissão</a>
-  <a href="#venda">05 · Conduza a venda</a>
-  <a href="#objecoes">06 · Vire a objeção</a>
-  <a href="#admins">07 · Administradoras</a>
-  <a href="#checklist">08 · Checklist</a>
-</div>
-<div class="reading-progress" aria-hidden="true"><span class="reading-progress-bar" id="readingProgressBar"></span></div>
-
-<section class="hero">
-  <div class="hero-grid"></div><div class="hero-glow"></div>
-  <div class="hero-blocks"><div></div><div></div><div></div></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-tag">Material Exclusivo · Equipe Revier</div>
-      <h1 class="hero-title">Guia de<br><em>Consórcio</em></h1>
-      <p class="hero-sub">Consórcio não é loteria — é planejamento financeiro sem juros. Para quem sabe explicar lance e contemplação, a conversa fecha antes de qualquer financiamento.</p>
-      <div class="hero-cta-row">
-        <a href="#fundamentos" class="btn-primary">Abrir o guia →</a>
-        <a href="#checklist" class="btn-ghost">Ver checklist</a>
-      </div>
-      <details class="quick-brief reveal reveal-delay-1">
-        <summary>
-          <div>
-            <span class="quick-brief-kicker">Resumo de 30 segundos</span>
-            <span class="quick-brief-title">O que deixa o cliente confortavel</span>
-          </div>
-          <span class="quick-brief-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="quick-brief-body">
-          <p>Abra por planejamento, não por promessa de sorte.</p>
-          <ul class="quick-brief-list">
-            <li><strong>Consorcio não e loteria:</strong> e compra programada sem juros.</li>
-            <li><strong>Lance encurta prazo:</strong> cliente com reserva entende isso rapido.</li>
-            <li><strong>Fechou imovel:</strong> o proximo encaixe logico e residencial.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-    <div class="hero-toc">
-      <div class="hero-toc-title">Índice</div>
-      <a class="toc-item" href="#fundamentos"><div class="toc-num">01</div><div class="toc-label">O que é e por que funciona</div></a>
-      <a class="toc-item" href="#tipos"><div class="toc-num">02</div><div class="toc-label">Modalidades: imóvel, auto e serviços</div></a>
-      <a class="toc-item" href="#lance"><div class="toc-num">03</div><div class="toc-label">Lance — a ferramenta que agiliza</div></a>
-      <a class="toc-item" href="#preco"><div class="toc-num">04</div><div class="toc-label">Taxa de administração e comissão</div></a>
-      <a class="toc-item" href="#venda"><div class="toc-num">05</div><div class="toc-label">Conduza a venda — perfil certo</div></a>
-      <a class="toc-item" href="#objecoes"><div class="toc-num">06</div><div class="toc-label">Vire a objeção no papo reto</div></a>
-      <a class="toc-item" href="#admins"><div class="toc-num">07</div><div class="toc-label">Administradoras e diferenciais</div></a>
-      <a class="toc-item" href="#checklist"><div class="toc-num">08</div><div class="toc-label">Checklist de proposta</div></a>
-    </div>
-  </div>
-</section>
-
-<!-- 01 -->
-<section class="section" id="fundamentos">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">01</div> Base</div>
-    <h2 class="sec-title">O que é e por que<br>consórcio fecha venda</h2>
-    <p class="sec-lead">"Consórcio não concorre com financiamento — ele serve para quem não tem pressa e quer pagar menos. Entendendo isso, você qualifica rápido."</p>
-    <div class="fund-grid">
-      <div class="fund-text reveal">
-        <p>Consórcio é uma modalidade de <strong>autofinanciamento coletivo</strong> regulada pelo Banco Central. Um grupo de pessoas contribui mensalmente para um fundo comum. Todo mês, pelo menos um participante é <strong>contemplado</strong> — seja por sorteio ou lance — e recebe a carta de crédito para usar na compra.</p>
-        <p><strong>Não é investimento nem seguro</strong> — é compra programada. O participante sabe que vai receber o bem no prazo do grupo (ex: 80 meses) sem pagar juros de financiamento. A administradora cobra só a taxa de administração.</p>
-        <p><strong>Quem compra:</strong> cliente com planejamento, que não tem urgência mas quer o bem. Ou cliente com dinheiro para dar lance e ser contemplado logo. São perfis diferentes — qualifique certo antes de apresentar.</p>
-        <p><strong>Vantagem fiscal:</strong> consórcio de imóvel pode ser usado com FGTS para lance ou parcelas. Isso abre muita porta com clientes que têm saldo no FGTS parado.</p>
-      </div>
-      <div class="callout reveal reveal-delay-1">
-        <div class="callout-label">💡 A diferença que fecha a conversa</div>
-        <p><strong>Financiamento:</strong> compra o bem agora, paga juros por anos. Em um financiamento de R$ 500k em 30 anos, você paga mais de R$ 900k no total.<br><br><strong>Consórcio:</strong> paga só a taxa de administração (em média 18% do valor do bem diluída no prazo). Sem juros. R$ 500k de crédito custa em torno de R$ 590k no total. <strong>Diferença: mais de R$ 300k.</strong></p>
-      </div>
-    </div>
-    <div class="motivos-grid">
-      <div class="motivo-card mc-am reveal">
-        <span class="motivo-icon">📉</span>
-        <div class="motivo-tag mt-am">Sem juros</div>
-        <h3>Economia real no longo prazo</h3>
-        <p>A diferença entre consórcio e financiamento em créditos acima de R$ 200k pode passar de R$ 100 mil em juros. Para quem planeja, é o argumento mais forte da conversa.</p>
-      </div>
-      <div class="motivo-card mc-or reveal reveal-delay-1">
-        <span class="motivo-icon">🏦</span>
-        <div class="motivo-tag mt-or">FGTS</div>
-        <h3>FGTS no imóvel — lance poderoso</h3>
-        <p>Para consórcio de imóvel, o FGTS pode ser usado como lance ou para pagar parcelas. Muita gente tem FGTS parado sem saber que pode usá-lo para antecipar a contemplação.</p>
-      </div>
-      <div class="motivo-card mc-gn reveal reveal-delay-2">
-        <span class="motivo-icon">🎯</span>
-        <div class="motivo-tag mt-gn">Crédito amplo</div>
-        <h3>Usar em qualquer imóvel ou carro</h3>
-        <p>A carta de crédito funciona como dinheiro. O contemplado compra qualquer imóvel ou carro dentro do valor, independentemente da construtora ou concessionária. Sem restrição de modelo ou local.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 02 TIPOS -->
-<section class="section section-light" id="tipos">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">02</div> Modalidades</div>
-    <h2 class="sec-title">Modalidades de crédito<br>e quando indicar cada uma</h2>
-    <p class="sec-lead">"Errar a modalidade é errar o produto. Imóvel, auto e serviços têm perfis de cliente bem diferentes."</p>
-    <div class="reveal table-scroll">
-      <table class="data-table">
-        <thead><tr><th>Modalidade</th><th>Crédito Típico</th><th>Prazo</th><th>Perfil do Cliente</th><th>Comissão Corretor</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Imóvel residencial</strong></td><td>R$100k – R$1,5M</td><td>100–200 meses</td><td>Quer casa, tem FGTS, planeja a longo prazo</td><td class="td-amber">1–2% do crédito na venda</td></tr>
-          <tr><td><strong>Imóvel comercial</strong></td><td>R$200k – R$3M</td><td>100–200 meses</td><td>Empresário que quer sede própria</td><td class="td-amber">1–2% do crédito</td></tr>
-          <tr><td><strong>Automóvel</strong></td><td>R$20k – R$300k</td><td>60–100 meses</td><td>Troca de carro planejada, jovem sem entrada</td><td class="td-green">0,5–1% do crédito</td></tr>
-          <tr><td><strong>Moto</strong></td><td>R$8k – R$60k</td><td>36–80 meses</td><td>Entregador, motociclista que quer moto nova</td><td>0,5–1% do crédito</td></tr>
-          <tr><td><strong>Serviços</strong></td><td>R$10k – R$100k</td><td>30–80 meses</td><td>Reforma, intercâmbio, cirurgia, evento</td><td>0,5–1% do crédito</td></tr>
-          <tr><td><strong>Máquinas e equipamentos</strong></td><td>R$50k – R$5M</td><td>60–120 meses</td><td>Empresário, produtor rural, construção civil</td><td class="td-amber">1–1,5% do crédito</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rec-box reveal">
-      <div class="rec-box-label">🎯 Onde está a comissão maior</div>
-      <p><strong>Consórcio de imóvel</strong> é onde está o maior crédito e a maior comissão. O segredo está no volume e no ticket médio elevado.<br>
-      Cada venda de consórcio contribui significativamente para o faturamento do seu negócio.<br>
-      O prazo de pagamento da comissão varia conforme a administradora: parte na adesão, parte na contemplação.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 03 LANCE -->
-<section class="section" id="lance">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">03</div> Estratégia</div>
-    <h2 class="sec-title">Lance — a ferramenta<br>que acelera tudo</h2>
-    <p class="sec-lead">"Lance é o que transforma consórcio de 'espera' em oportunidade. Cliente com dinheiro para dar lance é seu melhor perfil."</p>
-
-    <div class="rec-box reveal" style="margin-bottom:48px; border-color:var(--ac2); background:rgba(245,158,11,.05);">
-      <div class="rec-box-label" style="color:var(--ac);">🔥 O gatilho que mais contempla: FGTS</div>
-      <p>Muita gente tem saldo de FGTS parado e não sabe que pode usá-lo para dar lance em consórcio de imóvel. Isso permite ser contemplado muito antes do prazo, mesmo sem ter reserva em dinheiro. <strong>É o argumento que destrava a venda para quem diz que não tem capital para lance.</strong></p>
-      <div style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-        <div>
-          <p style="font-size:0.85rem; color:var(--ink); font-weight:700; margin-bottom:4px;">Regras básicas de uso:</p>
-          <ul style="font-size:0.82rem; color:var(--muted); list-style:none;">
-            <li>• Apenas para consórcio de imóvel residencial.</li>
-            <li>• Titular não pode ter imóvel no mesmo município.</li>
-            <li>• Pode ser lance livre ou embutido (conforme a ADM).</li>
-          </ul>
-        </div>
-        <div class="script-box" style="margin-top:0; padding:15px;">
-          <div class="script-label" style="font-size:0.65rem;">🎤 Script de abordagem</div>
-          <p style="font-size:0.82rem; line-height:1.4;">"Há quantos anos você trabalha com carteira assinada? Já consultou seu saldo do FGTS este mês? Quase ninguém sabe que esse dinheiro parado pode ser o seu lance para pegar a chave da casa nova logo no início."</p>
-        </div>
+  <main class="guide-main">
+    <div class="guide-hero">
+      <p class="guide-hero-label">Guia Interno  Material Exclusivo  Equipe Revier</p>
+      <h1>Consorcio</h1>
+      <p class="guide-hero-sub">Lance, contemplacao e roteiro de conversa para orientar a escolha.</p>
+      <div class="guide-hero-actions">
+        <a href="#fundamentos" class="btn btn--primary">Abrir o guia </a>
+        <a href="#checklist" class="btn btn--outline">Ver checklist</a>
       </div>
     </div>
 
-    <div class="lance-grid">
-      <div class="lance-card lc-am reveal">
-        <div class="lance-tag lt-am">Tipo 1</div>
-        <h3>Lance Livre</h3>
-        <p>O participante oferta qualquer valor acima do mínimo exigido pela administradora (geralmente 10% do crédito). <strong>Quem dá o maior percentual do crédito é contemplado.</strong> Mais competitivo, mas mais flexível.</p>
-      </div>
-      <div class="lance-card lc-or reveal reveal-delay-1">
-        <div class="lance-tag lt-or">Tipo 2</div>
-        <h3>Lance Fixo</h3>
-        <p>A administradora define um percentual fixo (ex: 25% do crédito). Quem quiser dar esse lance entra no sorteio entre os que ofertaram o mesmo percentual. <strong>Mais previsível para o cliente planejar.</strong></p>
-      </div>
-      <div class="lance-card lc-gn reveal reveal-delay-2">
-        <div class="lance-tag lt-gn">Tipo 3</div>
-        <h3>Lance Embutido</h3>
-        <p>O lance é descontado do próprio crédito. Ex: crédito de R$ 200k, lance embutido de 25% = R$ 50k de lance, o contemplado recebe R$ 150k. <strong>Permite dar lance sem ter dinheiro extra no momento.</strong></p>
-      </div>
-    </div>
-    <div class="gold-rule reveal">
-      <div class="gold-rule-icon">🏆</div>
-      <div>
-        <div class="gold-rule-label">FGTS como lance — argumento poderoso</div>
-        <p>Para consórcio imobiliário, o FGTS pode ser usado como lance. Cliente com R$ 30k no FGTS em um grupo de imóvel de R$ 200k tem 15% de lance — percentual que contempla em muitos grupos. <strong>Pergunte sempre se tem FGTS e qual o saldo.</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 TAXAS -->
-<section class="section section-dark" id="preco">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num" style="background:rgba(245,158,11,.15);color:var(--ac2);">04</div> <span class="sec-label-dark">Taxas</span></div>
-    <h2 class="sec-title sec-title-light">Taxa de administração<br>e estrutura de comissão</h2>
-    <p class="sec-lead sec-lead-light">"Não existe almoço grátis. Consórcio tem custo — mas é bem menor que financiamento. Saiba explicar cada componente."</p>
-    <div class="stats-row">
-      <div class="stat-box reveal"><div class="stat-val">14–22%</div><div class="stat-label">Taxa de administração total (diluída no prazo)</div></div>
-      <div class="stat-box reveal reveal-delay-1"><div class="stat-val">0,5–2%</div><div class="stat-label">Fundo de reserva (adicional)</div></div>
-      <div class="stat-box reveal reveal-delay-2"><div class="stat-val">1–2%</div><div class="stat-label">Comissão do corretor sobre o crédito</div></div>
-      <div class="stat-box reveal reveal-delay-3"><div class="stat-val">R$7,5k</div><div class="stat-label">Comissão em um consórcio de R$500k</div></div>
-    </div>
-    <div class="reveal table-scroll">
-      <table class="data-table">
-        <thead><tr><th>Componente</th><th>O que é</th><th>Impacto no Participante</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Taxa de Administração</strong></td><td>Remuneração da administradora</td><td>Diluída nas parcelas — eleva ligeiramente o valor mensal</td></tr>
-          <tr><td><strong>Fundo de Reserva</strong></td><td>Garantia para inadimplência do grupo</td><td>0,5-2% do crédito diluído. Pode ser devolvido ao final</td></tr>
-          <tr><td><strong>Fundo Comum</strong></td><td>Valor principal que forma as cartas</td><td>A maior parte da parcela — vai para o fundo do grupo</td></tr>
-          <tr><td><strong>Seguro de Vida</strong></td><td>Cobre inadimplência por morte ou invalidez</td><td>Pequena parcela mensal — obrigatória em alguns grupos</td></tr>
-          <tr><td><strong>Reajuste anual</strong></td><td>Atualiza o crédito pela inflação (INPC/INCC)</td><td>Parcela e crédito sobem juntos — protege o poder de compra</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="script-box reveal">
-      <div class="script-label">💰 Faça a comparação na frente do cliente</div>
-      <p style="font-style:normal;">Imóvel R$ 500.000:<br>Financiamento 30 anos (12% a.a.): você paga em torno de <strong>R$ 1.100.000</strong> no total.<br>Consórcio 180 meses (tx admin 18%): você paga em torno de <strong>R$ 590.000</strong> no total.<br>Diferença: <strong>R$ 510.000</strong> — mais de um imóvel de entrada.<br><br>Pergunta que fecha: "Você tem pressa de ter a chave amanhã ou prefere pagar R$ 510 mil a menos no total?"</p>
-    </div>
-  </div>
-</section>
-
-<!-- 05 VENDA -->
-<section class="section section-light" id="venda">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">05</div> Fechamento</div>
-    <h2 class="sec-title">Conduza a venda —<br>qualifique o perfil primeiro</h2>
-    <p class="sec-lead">"Consórcio tem um inimigo: a pressa. Se o cliente precisa do bem em 30 dias, não é perfil. Se tem planejamento, é a melhor venda da sua carteira."</p>
-    <div class="venda-steps reveal">
-      <div class="venda-step">
-        <div class="venda-step-num">1</div>
-        <div class="venda-step-body">
-          <h4>Qualifica urgência antes de tudo</h4>
-          <div class="step-script">"Quando você precisa do bem? Tem uma data em mente ou é mais um planejamento para os próximos anos? Pergunto porque a estratégia muda bastante."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">2</div>
-        <div class="venda-step-body">
-          <h4>Descobre se tem capital para lance</h4>
-          <div class="step-script">"Você tem alguma reserva disponível agora — FGTS, investimento, herança? Se tiver algo acima de 20% do crédito, a gente estrutura um lance que pode te contemplar nos primeiros meses."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">3</div>
-        <div class="venda-step-body">
-          <h4>Apresenta a conta do financiamento vs consórcio</h4>
-          <div class="step-script">"Deixa eu te mostrar o que você pagaria pelo mesmo imóvel no financiamento versus no consórcio. A diferença costuma assustar — e virar argumento para não financiar."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">4</div>
-        <div class="venda-step-body">
-          <h4>Explica o reajuste sem susto</h4>
-          <div class="step-script">"A parcela reajusta uma vez por ano pelo INCC (imóvel) ou IPCA (auto). Mas o crédito também sobe no mesmo índice — então você não perde poder de compra. É como se fosse um seguro do seu crédito contra a inflação."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">5</div>
-        <div class="venda-step-body">
-          <h4>Fecha com o beneficiário claro</h4>
-          <div class="step-script">"Quer começar com a simulação? Preciso do CPF, renda bruta mensal e o valor do crédito que faz sentido. Em 24h te mando as opções de grupo com prazo, parcela e estratégia de lance."</div>
-        </div>
-      </div>
-    </div>
-    <div class="feature-row reveal">
-      <div class="feature-box fb-am">
-        <div class="fb-label">🎯 Perfil ideal de consórcio</div>
-        <p>Quem tem renda estável, horizonte de 3-10 anos para o bem e alguma reserva para lance. Profissional liberal, servidor público e funcionário com estabilidade são os melhores perfis para consórcio de imóvel.</p>
-      </div>
-      <div class="feature-box fb-green">
-        <div class="fb-label">🔄 Cross-sell natural</div>
-        <p>Consórcio de imóvel abre porta para <strong>seguro residencial, vida e previdência</strong>. Cliente que está planejando compra de imóvel está pensando em patrimônio — e patrimônio precisa de proteção.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 OBJEÇÕES -->
-<section class="section" id="objecoes">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">06</div> Virada</div>
-    <h2 class="sec-title">Vire a objeção<br>no papo reto</h2>
-    <p class="sec-lead">"A objeção mais comum é 'é loteria'. Quem explica lance e contemplação em 2 minutos vira isso em interesse."</p>
-    <div class="obj-grid">
-      <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Consórcio é loteria. Nunca sei quando vou receber."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>É o que parece quando você só conta com o sorteio. Mas com um lance de 20-25% do crédito, a maioria dos grupos contempla no primeiro trimestre. Quer ver como funcionaria no seu caso?</p>
-        </div>
-      </div>
-      <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Prefiro financiar e ter o bem agora."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Faz sentido se a urgência for real. Mas me deixa mostrar quanto a mais você vai pagar no total. Se a diferença não te incomodar, financiamento é a opção. Se incomodar, vale conversar sobre lance.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"E se eu precisar sair do consórcio?"</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>O participante pode solicitar exclusão a qualquer momento. A administradora devolve o valor pago (fundo comum) com atualização, no prazo do grupo. Há possibilidade também de ceder a cota para outra pessoa.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"A parcela vai subir todo ano. Não confio."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Vai subir — junto com o crédito. Você paga mais por um bem que também vale mais. É diferente de juro, que sobe mas não aumenta o que você recebe. É o único produto onde o reajuste protege o seu lado.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Já ouvi que tem taxa de administração alta."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Tem, em torno de 15-22% diluído no prazo. Mas compara com o financiamento: você pagaria 50-120% a mais em juros para o mesmo crédito. A taxa do consórcio cabe no orçamento; o juro do banco, às vezes não.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Não tenho dinheiro para lance agora."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Sem problema. Tem o lance embutido, que sai do próprio crédito. Você oferece 25%, recebe 75% e já está contemplado. Nenhum dinheiro a mais — só um crédito um pouco menor. Vale conhecer?</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 ADMINISTRADORAS -->
-<section class="section section-light" id="admins">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">07</div> Administradora</div>
-    <h2 class="sec-title">Administradoras e<br>seus diferenciais</h2>
-    <p class="sec-lead">"Administradora boa tem menos inadimplência no grupo, mais contemplações por sorteio e melhor reputação no sinistro de carta de crédito."</p>
-    <div class="ops-layout">
-      <div class="rank-list">
-        <div class="rank-item reveal" style="border:1px solid rgba(245,158,11,.3);background:rgba(245,158,11,.03);">
-          <div class="rank-medal rm-gold" style="font-size:2.2rem;">1</div>
-          <div>
-            <div class="rank-name" style="color:var(--ac2);">Porto Seguro Consórcio — mais fácil de vender</div>
-            <div class="rank-desc">Marca conhecida, plataforma digital boa. Forte em automóvel e imóvel. Taxa de administração competitiva e processo de contemplação transparente. Bom para corretor que está começando no segmento.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-1">
-          <div class="rank-medal rm-silver">2</div>
-          <div>
-            <div class="rank-name">Bradesco Consórcios — forte em imóvel</div>
-            <div class="rank-desc">Um dos maiores grupos de imóvel do mercado. Aceita FGTS com facilidade. Bom para perfil conservador que confia na marca. Processo de análise de crédito pode ser mais demorado.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-2">
-          <div class="rank-medal rm-silver">3</div>
-          <div>
-            <div class="rank-name">Itaú Consórcios — grupo grande e estável</div>
-            <div class="rank-desc">Grupos grandes = mais sorteios por mês e menos concentração de inadimplência. Produto equilibrado em todas as modalidades. Plataforma digital crescendo.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-3">
-          <div class="rank-medal rm-bronze">4</div>
-          <div>
-            <div class="rank-name">RCI Brasil — melhor para consórcio de veículos</div>
-            <div class="rank-desc">Braço de consórcio do grupo Renault/Nissan. Forte em auto e motocicleta. Boa precificação para veículos de entrada e seminovos. Contempl. acelerada em grupos de automóvel.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal">
-          <div class="rank-medal rm-gray">5</div>
-          <div>
-            <div class="rank-name">Magalu Consórcios — digital e popular</div>
-            <div class="rank-desc">Forte em serviços e eletrodomésticos. Boa alternativa para créditos menores (R$ 10k–R$ 80k). Plataforma 100% digital. Indicado para público jovem e perfil de serviços.</div>
-          </div>
-        </div>
-      </div>
-      <div class="ops-sidebar">
-        <div class="cert-card cc-am reveal">
-          <div class="cert-tag">Regulação</div>
-          <h3>Banco Central</h3>
-          <p>Consórcio é regulado pelo Banco Central — não pela SUSEP. A administradora precisa ter autorização do BACEN para operar.</p>
-          <p><strong>Verifique sempre:</strong> administradoras autorizadas estão listadas no site do Banco Central. Nunca venda consórcio de empresa não autorizada.</p>
-        </div>
-        <div class="cert-card cc-gn reveal reveal-delay-1">
-          <div class="cert-tag">Análise de crédito</div>
-          <h3>Contemplado precisa ser aprovado</h3>
-          <p>Ao ser contemplado, o participante passa por análise de crédito. Se reprovado, a carta fica bloqueada. <strong>Oriente o cliente</strong> a manter o nome limpo e renda comprovada durante todo o prazo do grupo.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 08 CHECKLIST -->
-<section class="section section-dark" id="checklist">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num" style="background:rgba(245,158,11,.15);color:var(--ac2);">08</div> <span class="sec-label-dark">Proposta</span></div>
-    <h2 class="sec-title sec-title-light">Checklist de proposta<br>de consórcio</h2>
-    <p class="sec-lead sec-lead-light">"Venda de consórcio sem qualificação de perfil vira reclamação no primeiro reajuste. Pergunte certo, feche certo."</p>
-    <div class="check-layout">
-      <div>
-        <div class="check-col-title">👤 Perfil do cliente</div>
-        <div class="check-list">
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Qual o bem desejado: imóvel, auto, serviço?</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Qual o prazo de urgência? Tem data definida?</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Tem reserva para dar lance? FGTS disponível?</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Renda bruta mensal para análise de crédito</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">CPF limpo (Serasa/SPC) — verifica antes de propor</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Já teve consórcio antes? Foi contemplado?</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="check-col-title">📋 Para fechar a proposta</div>
-        <div class="check-list">
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Valor do crédito desejado</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Prazo de grupo ideal (meses)</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Tipo de lance: livre, fixo ou embutido</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Percentual de lance disponível</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Documentos: CPF, RG, comprovante renda e residência</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Comparativo financiamento vs consórcio (a conta)</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="rec-box" style="border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.06);">
-      <div class="rec-box-label" style="color:var(--ac2);">🎯 Regra de ouro do consórcio</div>
-      <p style="color:rgba(255,255,255,.7);">Consórcio fecha quando o cliente entende que está trocando pressa por economia. Se ele não aceita esperar, não force — consórcio vendido para o perfil errado gera cancelamento, reclamação e devolução de comissão. Qualifique antes, feche com quem é perfil.</p>
-    </div>
-  </div>
-</section>
-
-<div class="feature-box fb-green" style="margin:0 40px 48px">
-  <div class="fb-label">PR?XIMO PASSO</div>
-  <p>Cons?rcio de im?vel fechado? O cliente vai precisar do im?vel segurado quando contemplado. <strong>Residencial entra agora.</strong></p>
-  <a href="../seguro-residencial/index.html" style="display:inline-block;margin-top:12px;font-size:.82rem;font-weight:700;color:var(--gn);">Ver guia de Residencial -></a>
-</div>
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="nav-hex" style="width:24px;height:24px;margin-bottom:8px;"></div>
-      <div class="nav-wordmark">REVIER <span>BROKERS</span></div>
-      <p>Portal de treinamento interno para a equipe comercial da Revier Corretora de Seguros.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Outros Guias</div>
-      <ul class="footer-links">
-        <li><a href="../revier-previdencia/index.html">Previdência Privada</a></li>
-        <li><a href="../seguro-auto/index.html">Seguro Auto</a></li>
-        <li><a href="../seguro-residencial/index.html">Seguro Residencial</a></li>
-        <li><a href="../seguro-empresarial/index.html">Seguro Empresarial</a></li>
-        <li><a href="../../index.html">← Voltar ao Portal</a></li>
+    <details class="quick-summary">
+      <summary>
+        Resumo Rapido  30 segundos
+        <span class="summary-toggle">+</span>
+      </summary>
+      <ul>
+        <li>Use este guia para conduzir conversa, nao para decorar texto.</li>
+        <li>Comece por contexto, depois proposta, depois proximo passo.</li>
+        <li>Finalize sempre com combinados claros e follow-up.</li>
       </ul>
+    </details>
+
+    <div class="guide-content">
+      <section class="guide-section" id="fundamentos">
+        <div class="section-meta"><span class="section-num">01</span><span class="section-ctx">Base</span></div>
+        <h2>Fundamentos do produto</h2>
+        <p class="section-quote">"Quem domina fundamento reduz atrito e acelera fechamento."</p>
+        <p>Este material foi atualizado para o visual e a estrutura atual da Revier Academy.</p>
+        <div class="tip-card tip-card--accent">
+          <span class="tip-label">Diretriz</span>
+          <p>Priorize clareza e objetividade em cada reuniao comercial.</p>
+        </div>
+      </section>
+
+      <section class="guide-section" id="diagnostico">
+        <div class="section-meta"><span class="section-num">02</span><span class="section-ctx">Perguntas</span></div>
+        <h2>Diagnostico rapido</h2>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><div class="step-body"><h4>Contexto</h4><p>Entenda o cenario atual do cliente.</p></div></div>
+          <div class="step-item"><span class="step-num">2</span><div class="step-body"><h4>Objetivo</h4><p>Descubra o resultado esperado e prazo.</p></div></div>
+          <div class="step-item"><span class="step-num">3</span><div class="step-body"><h4>Restricoes</h4><p>Mapeie limitacoes de budget e operacao.</p></div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="argumentacao">
+        <div class="section-meta"><span class="section-num">03</span><span class="section-ctx">Posicionamento</span></div>
+        <h2>Argumentacao que converte</h2>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="feature-icon">01</span><h3>Foco no ganho</h3><p>Mostre impacto pratico no dia a dia do cliente.</p></div>
+          <div class="feature-card"><span class="feature-icon">02</span><h3>Risco do nao</h3><p>Deixe claro o custo de nao agir agora.</p></div>
+          <div class="feature-card"><span class="feature-icon">03</span><h3>Proximo passo</h3><p>Feche com acao objetiva e prazo combinado.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="objecoes">
+        <div class="section-meta"><span class="section-num">04</span><span class="section-ctx">Reversao</span></div>
+        <h2>Objecoes comuns</h2>
+        <div class="objection-list">
+          <div class="objection-item"><div class="objection-q">"Vou pensar."</div><div class="objection-a">Sem problema. O que voce precisa validar para decidir com seguranca?</div></div>
+          <div class="objection-item"><div class="objection-q">"Esta caro."</div><div class="objection-a">Vamos comparar custo x exposicao atual e retorno esperado da solucao.</div></div>
+          <div class="objection-item"><div class="objection-q">"Ja tenho algo parecido."</div><div class="objection-a">Perfeito. Posso mapear se o desenho atual cobre o que realmente importa.</div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="operacao">
+        <div class="section-meta"><span class="section-num">05</span><span class="section-ctx">Execucao</span></div>
+        <h2>Fluxo operacional</h2>
+        <div class="provider-list">
+          <div class="provider-item"><span class="provider-num">01</span><div><div class="provider-name">Coleta de dados</div><div class="provider-desc">Checklist e documentos essenciais.</div></div></div>
+          <div class="provider-item"><span class="provider-num">02</span><div><div class="provider-name">Analise</div><div class="provider-desc">Ajuste da proposta ao perfil do cliente.</div></div></div>
+          <div class="provider-item"><span class="provider-num">03</span><div><div class="provider-name">Implantacao</div><div class="provider-desc">Validacao final e acompanhamento inicial.</div></div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="checklist">
+        <div class="section-meta"><span class="section-num">06</span><span class="section-ctx">Pronto para reuniao</span></div>
+        <h2>Checklist final</h2>
+        <div class="checklist-cols">
+          <div>
+            <div class="checklist-col-label">Antes da reuniao</div>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box"></span>Objetivo da conversa definido</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Dados minimos em maos</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Argumentos principais preparados</li>
+            </ul>
+          </div>
+          <div>
+            <div class="checklist-col-label">Depois da reuniao</div>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box"></span>Resumo enviado ao cliente</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Proximo passo agendado</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Responsaveis e prazo confirmados</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="footer-contact">
-      <div class="footer-col-title">Contato Revier</div>
-      <p><strong>Revier Corretora de Seguros Ltda.</strong></p>
-      <p>CNPJ 42.621.875/0001-50</p>
-      <p>contato@reviercorretora.com.br</p>
-      <p>(11) 5555-9350 · Santo André, SP</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Revier Brokers — Uso exclusivo equipe interna</p>
-    <p>Material educacional. Não substitui análise técnica individual.</p>
-  </div>
-</footer>
-<script>
-(function(){
-  'use strict';
-  var doc=document.documentElement;
-  var progressBar=document.getElementById('readingProgressBar');
-  function updateProgress(){
-    if(!progressBar){return;}
-    var scrollTop=window.pageYOffset||doc.scrollTop||0;
-    var maxScroll=doc.scrollHeight-window.innerHeight;
-    var progress=maxScroll>0?(scrollTop/maxScroll)*100:0;
-    progressBar.style.width=Math.min(100,Math.max(0,progress)).toFixed(2)+'%';
-  }
-  updateProgress();
-  window.addEventListener('scroll',updateProgress,{passive:true});
-  window.addEventListener('resize',updateProgress);
-  var revEls=document.querySelectorAll('.reveal');
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-  revEls.forEach(function(el){obs.observe(el);});
-  var burger=document.getElementById('hamburger');var menu=document.getElementById('mobileMenu');
-  if(burger&&menu){burger.addEventListener('click',function(){burger.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});}
-  document.querySelectorAll('.section[id]').forEach(function(section){
-    var copyBtn=document.createElement('button');
-    copyBtn.type='button';
-    copyBtn.className='section-copy';
-copyBtn.textContent='Copiar seção';
-    copyBtn.addEventListener('click',function(){
-      var url=new URL(window.location.href);
-      url.hash=section.id;
-      var value=url.toString();
-      var done=function(){
-        copyBtn.classList.add('copied');
-        copyBtn.textContent='Link copiado';
-        section.classList.add('section-highlight');
-        window.setTimeout(function(){copyBtn.classList.remove('copied');copyBtn.textContent='Copiar seção';section.classList.remove('section-highlight');},1800);
-      };
-      var fallback=function(){
-        var input=document.createElement('input');
-        input.value=value;
-        document.body.appendChild(input);
-        input.select();
-        input.setSelectionRange(0,input.value.length);
-        try{document.execCommand('copy');done();}catch(err){window.location.hash=section.id;}
-        document.body.removeChild(input);
-      };
-      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(value).then(done).catch(fallback);}else{fallback();}
-    });
-    section.appendChild(copyBtn);
-  });
-  if(window.location.hash){
-    var target=document.querySelector(window.location.hash);
-    if(target){target.classList.add('section-highlight');window.setTimeout(function(){target.classList.remove('section-highlight');},1800);}
-  }
-})();
-</script>
-<script>
-(function(){
-  var toggle=document.getElementById('theme-toggle');
-  var root=document.documentElement;
-  function sync(){toggle.textContent=root.classList.contains('dark-mode')?'☀':'☽';}
-  if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('dark-mode');localStorage.setItem('revier_theme',root.classList.contains('dark-mode')?'dark':'light');sync();});}
-  var summary=document.querySelector('.quick-summary');
-  if(summary){var sbtn=summary.querySelector('.summary-toggle');var skey=summary.getAttribute('data-summary-key');if(localStorage.getItem(skey)==='open')summary.classList.add('is-open');sbtn.setAttribute('aria-expanded',summary.classList.contains('is-open'));sbtn.addEventListener('click',function(){summary.classList.toggle('is-open');var open=summary.classList.contains('is-open');sbtn.setAttribute('aria-expanded',open);localStorage.setItem(skey,open?'open':'closed');});}
-})();
-</script>
+
+    <footer class="guide-footer">
+      <div><div class="guide-footer-logo">REVIER BROKERS</div></div>
+      <div>
+        <div class="guide-footer-info">Revier Corretora de Seguros Ltda.<br>CNPJ 42.621.875/0001-50<br>contato@reviercorretora.com.br<br>Santo Andre, SP</div>
+        <div class="guide-footer-copy"> 2026 Revier Brokers. Material de uso exclusivo para equipe interna.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const sections = document.querySelectorAll('.guide-section[id]');
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        const link = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.toggle('active', e.isIntersecting);
+      }),
+      { rootMargin: '-10% 0px -80% 0px' }
+    );
+    sections.forEach(s => obs.observe(s));
+  </script>
 </body>
 </html>
-
-

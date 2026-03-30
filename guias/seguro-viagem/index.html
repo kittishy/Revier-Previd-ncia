@@ -1,783 +1,149 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revier · Seguro Viagem na Prática</title>
-<meta name="description" content="Guia completo de seguro viagem para corretores da Revier Brokers. Coberturas, Schengen, operadoras, objeções e scripts de venda.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
-<script>(function(){try{if(localStorage.getItem('revier_theme') === 'dark') { document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-<style>
-:root{--or:#E8510A;--or2:#FF6B20;--bl:#1A3EC8;--yl:#F5C800;--nv:#0D1B5E;--tl:#0B9EA0;--gn:#16A34A;--rd:#DC2626;--dk:#0A0C12;--ink:#1A1C24;--muted:#4B5563;--light:#F4F6FB;--border:#E5E7EB;--white:#fff;--ac:#6D28D9;--ac2:#8B5CF6;--acdk:#4C1D95}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Barlow',sans-serif;font-weight:400;color:var(--ink);background:var(--white);overflow-x:hidden;cursor:default}
-::selection{background:var(--ac);color:#fff}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dk)}::-webkit-scrollbar-thumb{background:var(--ac2);border-radius:2px}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(10,12,18,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-hex{width:28px;height:28px;background:var(--or);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);flex-shrink:0}
-.nav-wordmark{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:.06em;color:#fff}
-.nav-wordmark span{color:var(--or)}
-.nav-links{display:flex;gap:6px;list-style:none}
-.nav-links a{display:block;padding:6px 12px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-radius:2px;transition:color .2s,background .2s}
-.nav-links a:hover{color:var(--or);background:rgba(232,81,10,.08)}
-.nav-badge{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--ac);color:#fff;padding:5px 12px;border-radius:2px}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;z-index:300}
-.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.7);border-radius:2px;transition:all .3s}
-.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-hamburger.open span:nth-child(2){opacity:0}
-.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,12,18,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);z-index:190;padding:16px 0 24px;flex-direction:column}
-.mobile-menu.open{display:flex}
-.mobile-menu a{display:block;padding:12px 24px;font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;border-left:2px solid transparent;transition:all .15s}
-.mobile-menu a:hover{color:var(--or);border-left-color:var(--or);background:rgba(232,81,10,.05)}
-.hero{min-height:100vh;background:var(--dk);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 60px}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.06) 1px,transparent 1px);background-size:64px 64px}
-.hero-blocks{position:absolute;top:0;right:0;width:380px;height:100vh;display:grid;grid-template-rows:1fr 1fr 1fr;pointer-events:none}
-.hero-blocks>div:nth-child(1){background:var(--ac2);opacity:.16}
-.hero-blocks>div:nth-child(2){background:var(--bl);opacity:.12}
-.hero-blocks>div:nth-child(3){background:var(--tl);opacity:.08}
-.hero-glow{position:absolute;left:-10%;top:20%;width:70vw;height:70vh;background:radial-gradient(ellipse,rgba(139,92,246,.08) 0%,transparent 65%);pointer-events:none}
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ac2);border:1px solid rgba(139,92,246,.3);border-radius:100px;padding:5px 14px;margin-bottom:24px;background:rgba(139,92,246,.06)}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ac2);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-h1.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4.5rem,9vw,7.5rem);font-weight:900;line-height:.88;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:24px}
-h1.hero-title em{font-style:normal;color:var(--ac2);display:block}
-.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.7);font-weight:300;line-height:1.7;max-width:520px;margin-bottom:40px}
-.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
-.btn-primary:hover{background:var(--ac2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(139,92,246,.3)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:3px;text-decoration:none;transition:all .2s}
-.btn-ghost:hover{border-color:var(--ac2);color:var(--ac2)}
-.hero-toc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:28px;backdrop-filter:blur(8px)}
-.hero-toc-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.hero-toc-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
-.toc-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);text-decoration:none;transition:all .15s}
-.toc-item:last-child{border-bottom:none}
-.toc-item:hover .toc-label{color:var(--ac2)}
-.toc-item:hover .toc-num{border-color:var(--ac2);color:var(--ac2)}
-.toc-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;width:28px;height:28px;border:1px solid rgba(255,255,255,.12);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);flex-shrink:0;transition:all .15s}
-.toc-label{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.55);transition:color .15s}
-.section{padding:100px 0;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
-.section-dark{background:var(--dk);border-bottom-color:rgba(255,255,255,.06)}
-.section-light{background:var(--light)}
-.container{max-width:1200px;margin:0 auto;padding:0 40px}
-.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--or);margin-bottom:12px}
-.sec-label-dark{color:rgba(255,255,255,.35)}
-.sec-num{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:900;background:var(--or);color:#fff;width:22px;height:22px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;color:var(--ink);margin-bottom:16px}
-h2.sec-title-light{color:#fff}
-.sec-lead{font-size:1rem;color:var(--muted);font-weight:300;font-style:italic;line-height:1.7;max-width:620px;margin-bottom:48px;padding-left:14px;border-left:2px solid var(--ac2)}
-.sec-lead-light{color:rgba(255,255,255,.45);border-left-color:rgba(139,92,246,.5)}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-.fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:64px}
-.fund-text p{font-size:.95rem;line-height:1.75;color:#374151;margin-bottom:16px}
-.fund-text p strong{color:var(--ink);font-weight:700}
-.callout{background:var(--dk);border-radius:8px;padding:28px;position:relative;overflow:hidden}
-.callout::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--ac2),var(--bl))}
-.callout-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:10px}
-.callout p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.65}
-.callout strong{color:#fff}
-.motivos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.motivo-card{background:var(--light);border-radius:6px;padding:28px 24px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.motivo-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
-.motivo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.mc-vi::before{background:var(--ac2)}.mc-or::before{background:var(--or)}.mc-gn::before{background:var(--gn)}
-.motivo-icon{font-size:2rem;margin-bottom:14px;display:block}
-.motivo-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
-.mt-vi{color:var(--ac2)}.mt-or{color:var(--or)}.mt-gn{color:var(--gn)}
-.motivo-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;color:var(--ink)}
-.motivo-card p{font-size:.87rem;color:var(--muted);line-height:1.6}
-.data-table{width:100%;border-collapse:collapse;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.data-table thead tr{background:var(--acdk)}
-.data-table th{padding:14px 18px;text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.data-table td{padding:13px 18px;font-size:.9rem;color:#374151;border-top:1px solid var(--border);background:#fff}
-.data-table tr:hover td{background:#f5f3ff}
-.data-table td strong{color:var(--ink);font-weight:700}
-.td-green{color:var(--gn)!important;font-weight:700!important}
-.td-orange{color:var(--or)!important;font-weight:700!important}
-.td-vi{color:var(--ac2)!important;font-weight:700!important}
-.td-red{color:var(--rd)!important;font-weight:700!important}
-.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:6px}
-.table-scroll .data-table{min-width:600px}
-.gold-rule{background:var(--ac);border-radius:8px;padding:28px 32px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-bottom:32px}
-.gold-rule-icon{font-size:2.5rem}
-.gold-rule-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:6px}
-.gold-rule p{font-size:.95rem;color:#fff;line-height:1.65}
-.script-box{background:var(--dk);border-radius:6px;padding:24px 28px;position:relative;overflow:hidden;margin-top:24px}
-.script-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac2)}
-.script-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:10px}
-.script-box p{font-size:.92rem;color:rgba(255,255,255,.75);font-style:italic;line-height:1.65}
-.rec-box{background:linear-gradient(135deg,rgba(139,92,246,.08) 0%,rgba(26,62,200,.05) 100%);border:1px solid rgba(139,92,246,.2);border-radius:8px;padding:24px 28px;margin-top:24px}
-.rec-box-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:8px}
-.rec-box p{font-size:.92rem;color:var(--ink);line-height:1.65}
-.venda-steps{display:flex;flex-direction:column;gap:0;margin-bottom:40px;position:relative}
-.venda-steps::before{content:'';position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:linear-gradient(180deg,var(--ac2),rgba(139,92,246,.1))}
-.venda-step{display:flex;gap:20px;padding:0 0 28px;position:relative}
-.venda-step-num{width:40px;height:40px;border-radius:50%;background:var(--ac);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
-.venda-step-body{flex:1;padding-top:6px}
-.venda-step-body h4{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
-.step-script{background:#fff;border-radius:4px;padding:14px 18px;border-left:3px solid var(--ac2);font-size:.88rem;color:#374151;font-style:italic;line-height:1.6;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
-.feature-box{border-radius:8px;padding:28px}
-.fb-vi{background:#F5F3FF;border:1px solid rgba(139,92,246,.2)}
-.fb-orange{background:#FFF7ED;border:1px solid rgba(232,81,10,.15)}
-.fb-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
-.fb-vi .fb-label{color:var(--ac2)}.fb-orange .fb-label{color:var(--or)}
-.feature-box p{font-size:.9rem;color:#374151;line-height:1.65}
-.feature-box strong{color:var(--ink)}
-.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.obj-item{border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.obj-q{background:var(--ink);padding:14px 18px;font-size:.88rem;font-weight:600;color:#fff;display:flex;gap:10px;align-items:flex-start}
-.obj-q-icon{flex-shrink:0;font-size:1rem;margin-top:1px}
-.obj-a{background:var(--light);padding:14px 18px;border-left:3px solid var(--ac2)}
-.obj-a-tag{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ac2);margin-bottom:5px}
-.obj-a p{font-size:.85rem;color:#374151;line-height:1.6}
-.obj-a strong{color:var(--ink)}
-.ops-layout{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:start}
-.rank-list{display:flex;flex-direction:column;gap:12px}
-.rank-item{background:#fff;border-radius:6px;padding:18px 20px;display:flex;align-items:center;gap:18px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:all .2s}
-.rank-item:hover{transform:translateX(4px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
-.rank-medal{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:900;min-width:36px;text-align:center;line-height:1}
-.rm-gold{color:var(--yl)}.rm-silver{color:#94A3B8}.rm-bronze{color:#CD7F32}.rm-gray{color:var(--border)}
-.rank-name{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:2px}
-.rank-desc{font-size:.82rem;color:var(--muted)}
-.ops-sidebar{display:flex;flex-direction:column;gap:20px}
-.cert-card{background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.cert-card::before{content:'';display:block;height:3px;margin:-24px -24px 18px;border-radius:8px 8px 0 0}
-.cc-vi::before{background:linear-gradient(90deg,var(--ac),var(--ac2))}
-.cc-bl::before{background:linear-gradient(90deg,var(--bl),var(--tl))}
-.cert-tag{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.cert-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
-.cert-card p{font-size:.85rem;color:var(--muted);line-height:1.6}
-.cert-card p+p{margin-top:6px}
-.cert-card strong{color:var(--ink)}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
-.stat-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;transition:all .2s}
-.stat-box:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
-.stat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ac),var(--ac2))}
-.stat-val{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;color:var(--ac2);line-height:1;margin-bottom:8px}
-.stat-label{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4}
-.check-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
-.check-col-title{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:20px;display:flex;align-items:center;gap:8px}
-.check-col-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
-.check-list{display:flex;flex-direction:column;gap:10px}
-.check-row{display:flex;align-items:flex-start;gap:12px}
-.check-box-el{width:18px;height:18px;border:1.5px solid rgba(139,92,246,.4);border-radius:3px;flex-shrink:0;margin-top:2px;transition:all .2s}
-.check-row:hover .check-box-el{border-color:var(--ac2);background:rgba(139,92,246,.08)}
-.check-text{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.5}
-.reading-progress{position:fixed;top:60px;left:0;right:0;height:3px;background:rgba(255,255,255,.08);z-index:210;pointer-events:none}
-.reading-progress-bar{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--ac2),var(--or));box-shadow:0 0 18px rgba(245,158,11,.35)}
-.quick-brief{margin-top:24px;max-width:560px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;box-shadow:0 16px 36px rgba(0,0,0,.18)}
-.quick-brief summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer}
-.quick-brief summary::-webkit-details-marker{display:none}
-.quick-brief-kicker{display:block;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:6px}
-.quick-brief-title{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#fff}
-.quick-brief-icon{width:34px;height:34px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--ac2);flex-shrink:0;transition:transform .2s ease,background .2s ease}
-.quick-brief[open] .quick-brief-icon{transform:rotate(45deg);background:rgba(245,158,11,.08)}
-.quick-brief-body{padding:0 22px 20px}
-.quick-brief-body p{font-size:.84rem;color:rgba(255,255,255,.58);line-height:1.6;margin-bottom:14px}
-.quick-brief-list{list-style:none;display:grid;gap:10px}
-.quick-brief-list li{font-size:.88rem;color:rgba(255,255,255,.72);line-height:1.55;padding-left:18px;position:relative}
-.quick-brief-list li::before{content:'';position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--ac2);box-shadow:0 0 0 4px rgba(245,158,11,.12)}
-.quick-brief-list strong{color:#fff}
-.section-copy{position:absolute;top:32px;right:40px;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(26,28,36,.12);border-radius:999px;background:rgba(255,255,255,.86);color:var(--ink);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s;backdrop-filter:blur(10px);box-shadow:0 10px 25px rgba(10,12,18,.08)}
-.section-copy:hover{transform:translateY(-1px);border-color:rgba(245,158,11,.35);color:var(--ac)}
-.section-copy.copied{background:#ecfdf3;border-color:rgba(22,163,74,.28);color:var(--gn)}
-.section-highlight::after{content:'';position:absolute;inset:18px;border:1px solid rgba(245,158,11,.22);border-radius:10px;pointer-events:none}
-footer{background:#060810;padding:60px 0 32px;border-top:1px solid rgba(255,255,255,.05)}
-.footer-top{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.footer-brand .nav-wordmark{font-size:1.6rem;margin-bottom:6px}
-.footer-brand p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.65;margin-top:8px}
-.footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-links a{font-size:.85rem;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s}
-.footer-links a:hover{color:var(--or)}
-.footer-contact p{font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:6px}
-.footer-contact strong{color:rgba(255,255,255,.7)}
-.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 40px 0;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.2);letter-spacing:.06em}
-@media(max-width:900px){
-nav{padding:0 20px}.nav-links{display:none}.nav-badge{display:none}.nav-hamburger{display:flex}
-.container{padding:0 20px}.section{padding:64px 0}
-.hero{padding:88px 0 52px}.hero-inner{grid-template-columns:1fr;gap:0;padding:0 20px}.hero-toc{display:none}.hero-blocks{display:none}
-h1.hero-title{font-size:clamp(3.2rem,12vw,5rem)}.hero-sub{font-size:.92rem;margin-bottom:32px}
-.hero-cta-row{gap:10px}.btn-primary,.btn-ghost{padding:12px 20px;font-size:.78rem}
-h2.sec-title{font-size:clamp(2rem,8vw,3rem)}.sec-lead{font-size:.9rem;margin-bottom:32px}
-.fund-grid,.feature-row,.ops-layout,.check-layout,.footer-top{grid-template-columns:1fr}
-.motivos-grid,.obj-grid{grid-template-columns:1fr;gap:14px}
-.stats-row{grid-template-columns:1fr 1fr;gap:12px}.stat-val{font-size:1.9rem}
-.gold-rule{grid-template-columns:1fr;gap:12px;padding:22px 20px}
-.venda-steps::before{left:16px}.venda-step-num{width:32px;height:32px;font-size:.9rem}.venda-step{gap:14px}
-.section-copy{top:20px;right:20px;padding:8px 12px;font-size:.63rem}
-footer{padding:40px 0 20px}.footer-bottom{padding:16px 20px 0;flex-direction:column;align-items:flex-start}
-}
-@media(max-width:480px){
-.container{padding:0 16px}.section{padding:52px 0}
-h1.hero-title{font-size:clamp(2.8rem,14vw,3.8rem)}.hero-sub{font-size:.88rem}
-.hero-cta-row{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}
-.quick-brief{margin-top:18px}.quick-brief summary{padding:16px 18px}.quick-brief-body{padding:0 18px 18px}
-.section-copy{top:16px;right:16px;padding:8px 10px;font-size:.6rem}
-h2.sec-title{font-size:clamp(1.8rem,10vw,2.4rem)}.sec-lead{font-size:.85rem;padding-left:10px}
-.stats-row{grid-template-columns:1fr 1fr}.stat-box{padding:18px 12px}.stat-val{font-size:1.7rem}
-.obj-q{font-size:.82rem;padding:12px 14px}.obj-a{padding:12px 14px}
-.table-scroll{margin:0 -16px;border-radius:0}
-.gold-rule{padding:18px 16px}.script-box{padding:18px 20px}.step-script{font-size:.82rem}
-}
-.nav-theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:30px;border:1px solid rgba(255,255,255,.12);border-radius:2px;background:rgba(255,255,255,.04);color:#fff;font-size:1rem;font-weight:700;line-height:1;cursor:pointer;transition:color .2s,border-color .2s,background .2s,transform .2s}
-.nav-theme-toggle:hover{color:var(--ac2);border-color:rgba(139,92,246,.28);background:rgba(139,92,246,.08);transform:translateY(-1px)}
-html.dark-mode{--page-bg:#080B10;--page-surface:#101620;--page-surface-soft:#141B26;--page-text:#E8ECF4;--page-muted:rgba(220,226,240,.82);--page-border:rgba(255,255,255,.08);--ink:#E8ECF4;--muted:rgba(204,212,230,.8);--border:rgba(255,255,255,.08);--light:#101620}
-html.dark-mode body{background:var(--page-bg);color:var(--page-text);transition:background .25s ease,color .25s ease}
-html.dark-mode .hero,html.dark-mode .section,html.dark-mode .section-dark,html.dark-mode footer{background:var(--page-bg)}
-html.dark-mode section[id]{background:var(--page-surface)}
-html.dark-mode section.section-dark[id]{background:var(--page-bg)}
-html.dark-mode .section-light{background:var(--page-surface)}
-html.dark-mode .hero-toc,html.dark-mode .motivo-card,html.dark-mode .vs-card,html.dark-mode .data-table td,html.dark-mode .gold-rule,html.dark-mode .feature-box,html.dark-mode .obj-item,html.dark-mode .obj-a,html.dark-mode .rank-item,html.dark-mode .cert-card,html.dark-mode .check-row,html.dark-mode .stat-box,html.dark-mode .rec-box,html.dark-mode .script-box,html.dark-mode .footer-top{background:var(--page-surface)}
-html.dark-mode .data-table thead tr,html.dark-mode .footer-bottom{background:var(--page-surface-soft)}
-html.dark-mode .data-table tr:hover td{background:rgba(255,255,255,.09)}
-html.dark-mode h1.hero-title,html.dark-mode h2.sec-title,html.dark-mode .nav-wordmark,html.dark-mode .motivo-card h3,html.dark-mode .vs-card h3,html.dark-mode .cert-card h3,html.dark-mode .rank-name,html.dark-mode .footer-col-title{color:var(--page-text)}
-html.dark-mode .hero-sub,html.dark-mode .sec-lead,html.dark-mode .motivo-card p,html.dark-mode .vs-card .vs-desc,html.dark-mode .vs-bullets li,html.dark-mode .fund-text p,html.dark-mode .data-table td,html.dark-mode .rank-desc,html.dark-mode .cert-card p,html.dark-mode .feature-box p,html.dark-mode .obj-a p,html.dark-mode .check-text,html.dark-mode .footer-brand p,html.dark-mode .footer-links a,html.dark-mode .nav-links a{color:var(--page-muted)}
-html.dark-mode .nav-links a:hover,html.dark-mode .footer-links a:hover{color:var(--ac2)}
-html.dark-mode .nav-theme-toggle{color:var(--page-text);border-color:var(--page-border);background:rgba(255,255,255,.03)}
-html.dark-mode .nav-theme-toggle:hover{color:var(--ac2);border-color:rgba(139,92,246,.22);background:rgba(139,92,246,.08)}
-html.dark-mode .reading-progress-bar{background:linear-gradient(90deg,var(--ac2),var(--or))}
-html.dark-mode .section-copy{background:rgba(255,255,255,.08);color:var(--page-text);border-color:var(--page-border)}
-html.dark-mode .section-copy:hover{border-color:rgba(139,92,246,.35);color:var(--ac2)}
-html.dark-mode .section-copy.copied{background:rgba(22,163,74,.15);border-color:rgba(22,163,74,.28);color:var(--gn)}
-html.dark-mode .cob-card,html.dark-mode .step-script{background:var(--page-surface);border-color:rgba(255,255,255,.07);box-shadow:none}
-html.dark-mode .cob-card h3,html.dark-mode .venda-step-body h4{color:var(--page-text)}
-html.dark-mode .step-script,html.dark-mode .cob-card p{color:var(--page-muted)}
-html.dark-mode .obj-q{background:var(--page-surface-soft);color:var(--page-text)}
-.quick-summary{display:none}
-.summary-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border:0;background:transparent;color:inherit;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
-.summary-arrow{display:inline-flex;transition:transform .35s ease}
-.quick-summary.is-open .summary-arrow{transform:rotate(180deg)}.quick-summary.is-open .summary-panel{max-height:600px}
-.summary-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;background:rgba(255,255,255,.08)}
-.summary-list{list-style:none;padding:0 24px 18px;display:grid;gap:10px}
-.summary-list li{position:relative;padding-left:18px;font-family:'Barlow',sans-serif;font-size:.9rem;font-weight:500;line-height:1.55;color:#fff}
-.summary-list li::before{content:'•';position:absolute;left:0;color:rgba(255,255,255,.9)}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguro Viagem | Revier Academy</title>
+  <meta name="description" content="Guia interno Revier para Seguro Viagem.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../guide.css">
 </head>
-<body>
-<nav>
-  <a href="#" class="nav-logo"><div class="nav-hex"></div><div class="nav-wordmark">REVIER <span>BROKERS</span></div></a>
-  <ul class="nav-links">
-    <li><a href="../../index.html">← Portal</a></li>
-    <li><a href="#fundamentos">Fundamentos</a></li>
-    <li><a href="#coberturas">Coberturas</a></li>
-    <li><a href="#destinos">Destinos</a></li>
-    <li><a href="#preco">Preço</a></li>
-    <li><a href="#venda">Fechamento</a></li>
-    <li><a href="#objecoes">Objeções</a></li>
-    <li><a href="#operadoras">Operadoras</a></li>
-    <li><a href="#checklist">Checklist</a></li>
-  </ul>
-  <button class="nav-theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema">☽</button>
-  <div class="nav-badge">Guia Interno</div>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
+<body class="guide-page">
+  <nav class="guide-nav">
+    <span class="guide-nav-logo">REVIER BROKERS</span>
+    <a href="../../index.html" class="guide-nav-back"> Portal</a>
+  </nav>
 
-<section class="quick-summary" data-summary-key="summary_seguro-viagem">
-  <button class="summary-toggle" type="button" aria-expanded="false">
-    <span>RESUMO RÁPIDO — 30 SEGUNDOS</span>
-    <span class="summary-arrow" aria-hidden="true">▾</span>
-  </button>
-  <div class="summary-panel">
-    <ul class="summary-list">
-      <li>Schengen exige cobertura mínima de €30.000 — obrigatório para tirar visto europeu</li>
-      <li>Hospitalização nos EUA custa entre USD 15.000 e USD 80.000 sem seguro</li>
-      <li>Fecha no mesmo dia — a data da viagem cria a urgência, você só aproveita</li>
+  <aside class="guide-sidebar">
+    <span class="sidebar-label">Neste guia</span>
+    <ul class="sidebar-nav">
+      <li><a href="#fundamentos"><span class="sidebar-num">01</span>Fundamentos</a></li>
+      <li><a href="#diagnostico"><span class="sidebar-num">02</span>Diagnostico</a></li>
+      <li><a href="#argumentacao"><span class="sidebar-num">03</span>Argumentacao</a></li>
+      <li><a href="#objecoes"><span class="sidebar-num">04</span>Objecoes</a></li>
+      <li><a href="#operacao"><span class="sidebar-num">05</span>Operacao</a></li>
+      <li><a href="#checklist"><span class="sidebar-num">06</span>Checklist</a></li>
     </ul>
-  </div>
-</section>
+  </aside>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="../../index.html">← Voltar ao Portal</a>
-  <a href="#fundamentos">01 · Por que viagem fecha</a>
-  <a href="#coberturas">02 · Coberturas</a>
-  <a href="#destinos">03 · Destinos e Schengen</a>
-  <a href="#preco">04 · Preço</a>
-  <a href="#venda">05 · Fechamento</a>
-  <a href="#objecoes">06 · Objeções</a>
-  <a href="#operadoras">07 · Operadoras</a>
-  <a href="#checklist">08 · Checklist</a>
-</div>
-<div class="reading-progress" aria-hidden="true"><span class="reading-progress-bar" id="readingProgressBar"></span></div>
+  <main class="guide-main">
+    <div class="guide-hero">
+      <p class="guide-hero-label">Guia Interno  Material Exclusivo  Equipe Revier</p>
+      <h1>Seguro Viagem</h1>
+      <p class="guide-hero-sub">Cobertura por destino e abordagem consultiva para evitar gaps.</p>
+      <div class="guide-hero-actions">
+        <a href="#fundamentos" class="btn btn--primary">Abrir o guia </a>
+        <a href="#checklist" class="btn btn--outline">Ver checklist</a>
+      </div>
+    </div>
 
-<section class="hero">
-  <div class="hero-grid"></div><div class="hero-glow"></div>
-  <div class="hero-blocks"><div></div><div></div><div></div></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-tag">Material Exclusivo · Equipe Revier</div>
-      <h1 class="hero-title">Guia de<br><em>Seguro Viagem</em></h1>
-      <p class="hero-sub">Viagem fecha no dia e paga bem. Ticket rápido, cliente motivado e urgência natural pela data da viagem. Quem domina Schengen e coberturas fecha antes de qualquer concorrente.</p>
-      <div class="hero-cta-row">
-        <a href="#fundamentos" class="btn-primary">Abrir o guia →</a>
-        <a href="#checklist" class="btn-ghost">Ver checklist</a>
-      </div>
-      <details class="quick-brief reveal reveal-delay-1">
-        <summary>
-          <div>
-            <span class="quick-brief-kicker">Resumo de 30 segundos</span>
-            <span class="quick-brief-title">A urgencia ja vem pronta</span>
-          </div>
-          <span class="quick-brief-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="quick-brief-body">
-          <p>O cliente ja tem passagem, data e receio de dar problema fora.</p>
-          <ul class="quick-brief-list">
-            <li><strong>Schengen e custos medicos:</strong> isso tira a conversa do campo do talvez.</li>
-            <li><strong>Seguro viagem fecha rapido:</strong> o prazo empurra a decisao.</li>
-            <li><strong>Fechou viagem:</strong> aproveite para perguntar sobre plano de saude.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-    <div class="hero-toc">
-      <div class="hero-toc-title">Índice</div>
-      <a class="toc-item" href="#fundamentos"><div class="toc-num">01</div><div class="toc-label">Por que viagem fecha no dia</div></a>
-      <a class="toc-item" href="#coberturas"><div class="toc-num">02</div><div class="toc-label">Coberturas que você precisa dominar</div></a>
-      <a class="toc-item" href="#destinos"><div class="toc-num">03</div><div class="toc-label">Destinos, Schengen e cobertura certa</div></a>
-      <a class="toc-item" href="#preco"><div class="toc-num">04</div><div class="toc-label">Preço por destino e duração</div></a>
-      <a class="toc-item" href="#venda"><div class="toc-num">05</div><div class="toc-label">Conduza a venda — data cria urgência</div></a>
-      <a class="toc-item" href="#objecoes"><div class="toc-num">06</div><div class="toc-label">Vire a objeção no papo reto</div></a>
-      <a class="toc-item" href="#operadoras"><div class="toc-num">07</div><div class="toc-label">Operadoras e diferenciais</div></a>
-      <a class="toc-item" href="#checklist"><div class="toc-num">08</div><div class="toc-label">Checklist de emissão</div></a>
-    </div>
-  </div>
-</section>
-
-<!-- 01 -->
-<section class="section" id="fundamentos">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">01</div> Estratégia</div>
-    <h2 class="sec-title">Por que viagem<br>fecha no dia</h2>
-    <p class="sec-lead">"Seguro viagem tem a melhor taxa de conversão da carteira. A data da viagem cria a urgência. Você não precisa criar — só aproveitar."</p>
-    <div class="fund-grid">
-      <div class="fund-text reveal">
-        <p>Seguro viagem é um produto de curta duração que cobre <strong>assistência médica, hospitalização, repatriação, cancelamento, extravio de bagagem e acidentes pessoais</strong> durante uma viagem, seja nacional ou internacional.</p>
-        <p>É regulado pela SUSEP no Brasil. Para destinos europeus do <strong>Espaço Schengen</strong>, o seguro é <strong>obrigatório para entrada no visto</strong> — com capital mínimo de <strong>€30.000</strong> para despesas médicas. Isso é sua abertura com 90% dos viajantes para Europa.</p>
-        <p><strong>Por que fecha rápido:</strong> cliente tem data marcada, bilhete comprado e motivação alta. O seguro é a última coisa que ele vai resolver — e você pode ser quem lembra ele no momento certo.</p>
-        <p><strong>Para viagens de negócios:</strong> empresa que envia funcionários para o exterior tem obrigação de fornecer cobertura médica. Abra essa conversa com RH e DP de qualquer PME que viaja.</p>
-      </div>
-      <div class="callout reveal reveal-delay-1">
-        <div class="callout-label">✈️ Números que abrem conversa</div>
-        <p>Uma hospitalização nos <strong>EUA</strong> custa em média <strong>USD 15.000 a USD 80.000</strong>. Na <strong>Europa</strong>, entre <strong>€ 3.000 e € 25.000</strong>. Repatriação aérea médica: <strong>USD 30.000 a USD 80.000</strong>. O seguro para 15 dias custa a partir de <strong>R$ 85</strong>. A conta é óbvia.</p>
-      </div>
-    </div>
-    <div class="motivos-grid">
-      <div class="motivo-card mc-vi reveal">
-        <span class="motivo-icon">🏥</span>
-        <div class="motivo-tag mt-vi">Risco médico</div>
-        <h3>Hospitalização no exterior</h3>
-        <p>No exterior, o brasileiro não tem direito à saúde pública gratuita (exceto em alguns países por acordos). Sem seguro, 3 dias de UTI nos EUA pode superar USD 60 mil — e o hospital exige pagamento antes de liberar.</p>
-      </div>
-      <div class="motivo-card mc-or reveal reveal-delay-1">
-        <span class="motivo-icon">🧳</span>
-        <div class="motivo-tag mt-or">Bagagem e cancelamento</div>
-        <h3>Voo cancelado = prejuízo sem seguro</h3>
-        <p>Extravio de bagagem custa em média R$ 2.000 a R$ 5.000 em itens básicos de reposição. Cancelamento de viagem por motivo coberto (doença, falecimento familiar) pode gerar reembolso de passagem + hospedagem.</p>
-      </div>
-      <div class="motivo-card mc-gn reveal reveal-delay-2">
-        <span class="motivo-icon">📋</span>
-        <div class="motivo-tag mt-gn">Visto Schengen</div>
-        <h3>Europa: seguro obrigatório para visto</h3>
-        <p>Para solicitar visto Schengen, o seguro viagem com cobertura mínima de €30.000 para despesas médicas é exigência obrigatória. Sem ele, o visto é negado. Qualquer viajante para Europa precisa de você.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 02 COBERTURAS -->
-<section class="section section-light" id="coberturas">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">02</div> Produto</div>
-    <h2 class="sec-title">Coberturas que você<br>precisa dominar</h2>
-    <p class="sec-lead">"Quem explica as coberturas antes de apresentar o preço tem muito mais chance de fechar. O cliente entende o que está pagando."</p>
-    <div class="reveal table-scroll">
-      <table class="data-table">
-        <thead><tr><th>Cobertura</th><th>Básico</th><th>Intermediário</th><th>Completo</th><th>Observação</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Despesas médicas e hospitalares</strong></td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Principal cobertura — limite varia (USD 30k–USD 300k)</td></tr>
-          <tr><td><strong>Repatriação médica e sanitária</strong></td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Traslado de volta ao Brasil com equipe médica</td></tr>
-          <tr><td><strong>Traslado de corpo</strong></td><td class="td-green">✓</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Em caso de óbito — cobre logística completa</td></tr>
-          <tr><td><strong>Acidentes pessoais (morte + invalidez)</strong></td><td class="td-orange">Limitado</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Capital segurado varia por apólice</td></tr>
-          <tr><td><strong>Cancelamento de viagem</strong></td><td class="td-red">✗</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Reembolso de passagem + hotel por motivo coberto</td></tr>
-          <tr><td><strong>Atraso e extravio de bagagem</strong></td><td class="td-red">✗</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Indenização por itens de primeira necessidade</td></tr>
-          <tr><td><strong>Atraso de voo</strong></td><td class="td-red">✗</td><td class="td-orange">Opcional</td><td class="td-green">✓</td><td>Reembolso por despesas de espera (hotel, alimentação)</td></tr>
-          <tr><td><strong>Assistência jurídica</strong></td><td class="td-red">✗</td><td class="td-red">✗</td><td class="td-green">✓</td><td>Útil em acidentes de trânsito no exterior</td></tr>
-          <tr><td><strong>COVID-19</strong></td><td class="td-orange">Verificar</td><td class="td-green">✓</td><td class="td-green">✓</td><td>Cobertura médica por COVID incluída na maioria</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="gold-rule reveal" style="margin-top:40px;">
-      <div class="gold-rule-icon">🏴󠁥󠁳󠁣󠁴󠁿</div>
-      <div>
-        <div class="gold-rule-label">Schengen — a obrigação que fecha a venda</div>
-        <p>Visto Schengen exige <strong>seguro com cobertura mínima de € 30.000</strong> para despesas médicas, válido em todos os países Schengen (26 países europeus). O seguro deve ser apresentado junto com a documentação do visto. <strong>Sem seguro = visto negado.</strong> Use isso como abertura, não como argumento de fechamento.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 DESTINOS -->
-<section class="section" id="destinos">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">03</div> Destinos</div>
-    <h2 class="sec-title">Destinos, Schengen<br>e cobertura certa</h2>
-    <p class="sec-lead">"O destino define o risco e o preço. Saiba qual zona geográfica usar para não subcotar e não sobre-precificar."</p>
-    <div class="fund-grid">
-      <div class="fund-text reveal">
-        <p><strong>Zonas de preço (principais operadoras):</strong></p>
-        <p><strong>Zona 1 — América do Sul:</strong> menor risco médico e custo mais baixo. Países: Argentina, Chile, Uruguai, Peru, Colômbia. Valor mínimo: USD 20.000–30.000 em cobertura médica.</p>
-        <p><strong>Zona 2 — América do Norte e Caribe:</strong> alto risco de custo médico (especialmente EUA e Canadá). Capital mínimo recomendado: USD 100.000–300.000. EUA é o destino com hospitalizações mais caras do mundo.</p>
-        <p><strong>Zona 3 — Europa / Schengen:</strong> obrigatório mínimo € 30.000. Recomendado € 60.000–150.000. Países parceiros têm sistemas públicos, mas cobertura de seguro agiliza atendimento sem custos ao viajante.</p>
-        <p><strong>Zona 4 — Ásia e resto do mundo:</strong> Japão, Austrália, China, Oriente Médio. Custo médico intermediário a alto. Recomendado USD 50.000–150.000.</p>
-      </div>
-      <div class="reveal reveal-delay-1">
-        <div class="callout">
-          <div class="callout-label">🌍 Seguro anual — para quem viaja muito</div>
-          <p>Cliente que viaja mais de 2 vezes por ano pode contratar o <strong>seguro viagem anual</strong>: cobre todas as viagens dentro do período, até um limite de dias por viagem (ex: 30 dias por trip).<br><br>Custo: 2–3x o valor de uma viagem normal, mas cobre o ano inteiro. <strong>Ideal para executivos, professores e consultores.</strong></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 PREÇO -->
-<section class="section section-dark" id="preco">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num" style="background:rgba(139,92,246,.15);color:var(--ac2);">04</div> <span class="sec-label-dark">Preço</span></div>
-    <h2 class="sec-title sec-title-light">Preço por destino<br>e duração — saiba de cabeça</h2>
-    <p class="sec-lead sec-lead-light">"Viagem fecha rápido quando você tem preço na ponta da língua. Estimativa rápida abre a conversa — cotação exata fecha."</p>
-    <div class="stats-row">
-      <div class="stat-box reveal"><div class="stat-val">R$85</div><div class="stat-label">Mínimo para Europa (15 dias, adulto jovem)</div></div>
-      <div class="stat-box reveal reveal-delay-1"><div class="stat-val">R$250</div><div class="stat-label">Médio para EUA (15 dias, adulto 45 anos)</div></div>
-      <div class="stat-box reveal reveal-delay-2"><div class="stat-val">20–30%</div><div class="stat-label">Comissão do corretor sobre prêmio</div></div>
-      <div class="stat-box reveal reveal-delay-3"><div class="stat-val">10min</div><div class="stat-label">Tempo médio de cotação e emissão</div></div>
-    </div>
-    <div class="reveal table-scroll">
-      <table class="data-table">
-        <thead><tr><th>Destino</th><th>Duração</th><th>Adulto até 40 anos</th><th>Adulto 41–60 anos</th><th>Adulto 61+ anos</th></tr></thead>
-        <tbody>
-          <tr><td><strong>América do Sul</strong></td><td>15 dias</td><td class="td-vi">R$ 40–70</td><td>R$ 70–120</td><td>R$ 120–200</td></tr>
-          <tr><td><strong>Europa / Schengen</strong></td><td>15 dias</td><td class="td-vi">R$ 85–160</td><td>R$ 150–280</td><td>R$ 280–500</td></tr>
-          <tr><td><strong>EUA e Canadá</strong></td><td>15 dias</td><td>R$ 160–280</td><td>R$ 250–450</td><td class="td-orange">R$ 500–900</td></tr>
-          <tr><td><strong>Caribe e México</strong></td><td>15 dias</td><td>R$ 120–220</td><td>R$ 200–380</td><td>R$ 380–650</td></tr>
-          <tr><td><strong>Ásia / Oceania</strong></td><td>21 dias</td><td>R$ 200–340</td><td>R$ 320–550</td><td>R$ 600–900</td></tr>
-          <tr><td><strong>Nacional (Brasil)</strong></td><td>15 dias</td><td class="td-vi">R$ 20–45</td><td>R$ 35–70</td><td>R$ 60–120</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="script-box reveal">
-      <div class="script-label">💰 Oportunidade no seguro viagem</div>
-      <p style="font-style:normal;">Vender seguro viagem é uma forma excelente de aumentar seu faturamento com um produto de rápida emissão.<br>
-      Cada nova apólice contribui para o crescimento do seu negócio, especialmente em períodos de alta temporada.<br>
-      Clientes corporativos que viajam com frequência são uma base de faturamento constante e de fácil manutenção. <strong>Ofereça sempre que souber de uma viagem.</strong></p>
-    </div>
-  </div>
-</section>
-
-<!-- 05 VENDA -->
-<section class="section section-light" id="venda">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">05</div> Fechamento</div>
-    <h2 class="sec-title">Conduza a venda —<br>a data cria a urgência</h2>
-    <p class="sec-lead">"Não existe 'vou pensar' em seguro viagem. Quando a viagem está marcada, o cliente decide rápido. Você só precisa estar na hora certa."</p>
-    <div class="venda-steps reveal">
-      <div class="venda-step">
-        <div class="venda-step-num">1</div>
-        <div class="venda-step-body">
-          <h4>Descobre a viagem antes de falar de seguro</h4>
-          <div class="step-script">"Você vai viajar em breve? Para onde e quando? Pergunto porque tenho informações sobre cobertura médica no destino que podem te ajudar antes de embarcar."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">2</div>
-        <div class="venda-step-body">
-          <h4>Planta o dado do risco</h4>
-          <div class="step-script">"Você vai para os EUA — ótimo. Uma internação lá pode sair USD 20 mil por dia em UTI. Muita gente chega lá sem seguro e tem que pedir autorização pro hospital antes de qualquer procedimento."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">3</div>
-        <div class="venda-step-body">
-          <h4>Para Europa: usa o argumento do visto</h4>
-          <div class="step-script">"Para solicitar o visto Schengen, você precisa apresentar o seguro viagem com mínimo de € 30.000 de cobertura médica. É obrigatório. Quer que eu emita o seu agora?"</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">4</div>
-        <div class="venda-step-body">
-          <h4>Apresenta o preço em perspectiva</h4>
-          <div class="step-script">"Para os seus 12 dias, o plano completo fica em torno de R$ 180. Pensa que você pagou R$ 4.000 na passagem — o seguro é menos de 5% disso para proteger 100% da viagem."</div>
-        </div>
-      </div>
-      <div class="venda-step">
-        <div class="venda-step-num">5</div>
-        <div class="venda-step-body">
-          <h4>Emite na hora</h4>
-          <div class="step-script">"Para emitir preciso só de: nome completo, CPF, data de nascimento, destino e datas da viagem. Você tem isso em mãos agora? Em 10 minutos o documento está no seu e-mail."</div>
-        </div>
-      </div>
-    </div>
-    <div class="feature-row reveal">
-      <div class="feature-box fb-vi">
-        <div class="fb-label">✈️ Alta temporada = alta comissão</div>
-        <p>Julho, dezembro e janeiro são picos de viagem. Monte um fluxo de comunicação para sua carteira avisando sobre seguro viagem 60 dias antes dessas datas. Quem avisa primeiro fecha mais.</p>
-      </div>
-      <div class="feature-box fb-orange">
-        <div class="fb-label">🏢 Corporativo — melhor ticket</div>
-        <p>Empresa que envia funcionários ao exterior precisa de apólice corporativa ou individual por funcionário. Negocie com o RH um <strong>contrato anual</strong> — volume garante comissão contínua sem precisar fazer cada venda individualmente.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 OBJEÇÕES -->
-<section class="section" id="objecoes">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">06</div> Virada</div>
-    <h2 class="sec-title">Vire a objeção<br>no papo reto</h2>
-    <p class="sec-lead">"Viagem tem três objeções clássicas. Quem tem a resposta certa para cada uma fecha antes da concorrência."</p>
-    <div class="obj-grid">
-      <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Só vou por 5 dias. Não preciso."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>5 dias é o suficiente para um acidente, uma queda ou uma intoxicação alimentar. Uma hospitalizção no exterior não olha para o tempo de estadia — mas o hospital vai cobrar do seu cartão na hora.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Meu cartão de crédito já oferece seguro viagem."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Alguns oferecem — mas a cobertura costuma ser limitada. Verifique: qual o teto de cobertura médica? Cobre cancelamento e extravio? Para visto Schengen, o seguro do cartão geralmente não é aceito pelo consulado.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Nunca precisei em viagens anteriores."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Ótimo. Mas quem tem sorte duas vezes segura por isso, não por falta dela. O problema é que quando o sinistro vem pela primeira vez, o valor costuma ser o mais alto que você já viu numa conta de saúde.</p>
-        </div>
-      </div>
-      <div class="obj-item reveal reveal-delay-1">
-        <div class="obj-q"><span class="obj-q-icon">❌</span>"Está caro. Vou ver na internet mais barato."</div>
-        <div class="obj-a">
-          <div class="obj-a-tag">Resposta</div>
-          <p>Pode comparar — mas verifica a cobertura médica e o limite de reembolso de bagagem. Preço menor quase sempre significa limite menor. Para Schengen, o mínimo exigido precisa constar claramente na apólice.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 OPERADORAS -->
-<section class="section section-light" id="operadoras">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num">07</div> Operadora</div>
-    <h2 class="sec-title">Operadoras e<br>diferenciais de viagem</h2>
-    <p class="sec-lead">"Para viagem, o diferencial está na central de assistência 24h, no limite de cobertura médica e na aceitação pelo consulado."</p>
-    <div class="ops-layout">
-      <div class="rank-list">
-        <div class="rank-item reveal" style="border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.03);">
-          <div class="rank-medal rm-gold" style="font-size:2.2rem;">1</div>
-          <div>
-            <div class="rank-name" style="color:var(--ac2);">Assist Card — Melhor rede na América Latina</div>
-            <div class="rank-desc">Central de ajuda rápida e eficiente em todo o continente. Ideal para quem viaja a lazer pela América do Sul e busca preço baixo.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-1">
-          <div class="rank-medal rm-silver">2</div>
-          <div>
-            <div class="rank-name">Allianz Travel — Referência em destinos europeus</div>
-            <div class="rank-desc">Aceitação imediata em consulados para o visto Schengen. Recomendado para viajantes que buscam segurança total na Europa.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-2">
-          <div class="rank-medal rm-silver">3</div>
-          <div>
-            <div class="rank-name">AXA Travel — Foco em viagens de negócios</div>
-            <div class="rank-desc">Coberturas altas para equipamentos e atrasos de voo. Perfeito para executivos e profissionais que viajam a trabalho.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-3">
-          <div class="rank-medal rm-bronze">4</div>
-          <div>
-            <div class="rank-name">GTA Seguros — Especialista em esportes e aventura</div>
-            <div class="rank-desc">Planos específicos para quem vai praticar esportes radicais. Indicado para mochileiros e viajantes que buscam adrenalina com proteção.</div>
-          </div>
-        </div>
-        <div class="rank-item reveal reveal-delay-3">
-          <div class="rank-medal rm-bronze">5</div>
-          <div>
-            <div class="rank-name">TravelAce (Zurich) — Robustez para longas distâncias</div>
-            <div class="rank-desc">Capitais segurados elevados para despesas médicas nos EUA. Ideal para famílias que visitam a América do Norte e precisam de limites altos.</div>
-          </div>
-        </div>
-      </div>
-      <div class="ops-sidebar">
-        <div class="cert-card cc-vi reveal">
-          <div class="cert-tag">Schengen — documentação</div>
-          <h3>O que o consulado aceita</h3>
-          <p>A apólice deve especificar: cobertura de <strong>no mínimo € 30.000</strong>, válida em <strong>todos os países Schengen</strong>, com datas cobrindo toda a estadia e o nome completo do segurado conforme passaporte.</p>
-          <p><strong>Dica:</strong> imprima a apólice em inglês ou português. Algumas embaixadas aceitam só inglês.</p>
-        </div>
-        <div class="cert-card cc-bl reveal reveal-delay-1">
-          <div class="cert-tag">Cobertura para idosos</div>
-          <h3>Acima de 60: cuidado extra</h3>
-          <p>Viajante acima de 60 anos tem prêmio 2–4x maior. Algumas operadoras têm limite de idade (70–75 anos). Preexistências podem gerar exclusão de cobertura para certas doenças.</p>
-          <p><strong>Sempre declare</strong> doenças preexistentes do viajante idoso. Omissão pode causar negativa no sinistro.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 08 CHECKLIST -->
-<section class="section section-dark" id="checklist">
-  <div class="container">
-    <div class="sec-label"><div class="sec-num" style="background:rgba(139,92,246,.15);color:var(--ac2);">08</div> <span class="sec-label-dark">Emissão</span></div>
-    <h2 class="sec-title sec-title-light">Checklist de emissão<br>seguro viagem</h2>
-    <p class="sec-lead sec-lead-light">"Seguro viagem emite em 10 minutos com os dados certos. Faltar qualquer um vira retrabalho — e o cliente pode embarcar sem cobertura."</p>
-    <div class="check-layout">
-      <div>
-        <div class="check-col-title">✈️ Dados da viagem</div>
-        <div class="check-list">
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Qual o seu destino exato e as datas de ida e volta? (Essencial para o Schengen).</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">O motivo da viagem é lazer ou negócios? (Muda a cobertura necessária).</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Você pretende praticar algum esporte de aventura ou atividade radical?</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Passa por algum país Schengen em conexão ou destino final?</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">É viagem em grupo ou individual?</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="check-col-title">👤 Dados do segurado</div>
-        <div class="check-list">
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Algum viajante é idoso ou possui condição médica preexistente?</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Você vai viajar sozinho ou com a família? (Temos apólice familiar).</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Nome completo (igual ao passaporte) e CPF</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">E-mail para envio da apólice digital</div></div>
-          <div class="check-row"><div class="check-box-el"></div><div class="check-text">Valor de bagagem declarado (para cobertura adequada)</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="rec-box" style="border-color:rgba(139,92,246,.3);background:rgba(139,92,246,.06);">
-      <div class="rec-box-label" style="color:var(--ac2);">🎯 Regra de ouro do seguro viagem</div>
-      <p style="color:rgba(255,255,255,.7);">Emita antes do embarque — sempre. Seguro adquirido após a saída do país não tem validade para a viagem em curso. E sempre salve a apólice no celular do cliente antes de ele ir embora — na emergência, o documento precisa estar acessível sem internet.</p>
-    </div>
-  </div>
-</section>
-
-<div class="feature-box fb-green" style="margin:0 40px 48px">
-  <div class="fb-label">PR?XIMO PASSO</div>
-  <p>Viagem fechada? Pergunta se tem plano de sa?de. <strong>Quem viaja bastante sem plano est? com dois riscos descobertos.</strong></p>
-  <a href="../planos-saude-pme/index.html" style="display:inline-block;margin-top:12px;font-size:.82rem;font-weight:700;color:var(--gn);">Ver guia de Saude PME -></a>
-</div>
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="nav-hex" style="width:24px;height:24px;margin-bottom:8px;"></div>
-      <div class="nav-wordmark">REVIER <span>BROKERS</span></div>
-      <p>Portal de treinamento interno para a equipe comercial da Revier Corretora de Seguros.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Outros Guias</div>
-      <ul class="footer-links">
-        <li><a href="../seguro-vida/index.html">Seguro de Vida</a></li>
-        <li><a href="../seguro-auto/index.html">Seguro Auto</a></li>
-        <li><a href="../pet/index.html">Seguro Pet</a></li>
-        <li><a href="../seguro-empresarial/index.html">Seguro Empresarial</a></li>
-        <li><a href="../../index.html">← Voltar ao Portal</a></li>
+    <details class="quick-summary">
+      <summary>
+        Resumo Rapido  30 segundos
+        <span class="summary-toggle">+</span>
+      </summary>
+      <ul>
+        <li>Use este guia para conduzir conversa, nao para decorar texto.</li>
+        <li>Comece por contexto, depois proposta, depois proximo passo.</li>
+        <li>Finalize sempre com combinados claros e follow-up.</li>
       </ul>
+    </details>
+
+    <div class="guide-content">
+      <section class="guide-section" id="fundamentos">
+        <div class="section-meta"><span class="section-num">01</span><span class="section-ctx">Base</span></div>
+        <h2>Fundamentos do produto</h2>
+        <p class="section-quote">"Quem domina fundamento reduz atrito e acelera fechamento."</p>
+        <p>Este material foi atualizado para o visual e a estrutura atual da Revier Academy.</p>
+        <div class="tip-card tip-card--accent">
+          <span class="tip-label">Diretriz</span>
+          <p>Priorize clareza e objetividade em cada reuniao comercial.</p>
+        </div>
+      </section>
+
+      <section class="guide-section" id="diagnostico">
+        <div class="section-meta"><span class="section-num">02</span><span class="section-ctx">Perguntas</span></div>
+        <h2>Diagnostico rapido</h2>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><div class="step-body"><h4>Contexto</h4><p>Entenda o cenario atual do cliente.</p></div></div>
+          <div class="step-item"><span class="step-num">2</span><div class="step-body"><h4>Objetivo</h4><p>Descubra o resultado esperado e prazo.</p></div></div>
+          <div class="step-item"><span class="step-num">3</span><div class="step-body"><h4>Restricoes</h4><p>Mapeie limitacoes de budget e operacao.</p></div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="argumentacao">
+        <div class="section-meta"><span class="section-num">03</span><span class="section-ctx">Posicionamento</span></div>
+        <h2>Argumentacao que converte</h2>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="feature-icon">01</span><h3>Foco no ganho</h3><p>Mostre impacto pratico no dia a dia do cliente.</p></div>
+          <div class="feature-card"><span class="feature-icon">02</span><h3>Risco do nao</h3><p>Deixe claro o custo de nao agir agora.</p></div>
+          <div class="feature-card"><span class="feature-icon">03</span><h3>Proximo passo</h3><p>Feche com acao objetiva e prazo combinado.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="objecoes">
+        <div class="section-meta"><span class="section-num">04</span><span class="section-ctx">Reversao</span></div>
+        <h2>Objecoes comuns</h2>
+        <div class="objection-list">
+          <div class="objection-item"><div class="objection-q">"Vou pensar."</div><div class="objection-a">Sem problema. O que voce precisa validar para decidir com seguranca?</div></div>
+          <div class="objection-item"><div class="objection-q">"Esta caro."</div><div class="objection-a">Vamos comparar custo x exposicao atual e retorno esperado da solucao.</div></div>
+          <div class="objection-item"><div class="objection-q">"Ja tenho algo parecido."</div><div class="objection-a">Perfeito. Posso mapear se o desenho atual cobre o que realmente importa.</div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="operacao">
+        <div class="section-meta"><span class="section-num">05</span><span class="section-ctx">Execucao</span></div>
+        <h2>Fluxo operacional</h2>
+        <div class="provider-list">
+          <div class="provider-item"><span class="provider-num">01</span><div><div class="provider-name">Coleta de dados</div><div class="provider-desc">Checklist e documentos essenciais.</div></div></div>
+          <div class="provider-item"><span class="provider-num">02</span><div><div class="provider-name">Analise</div><div class="provider-desc">Ajuste da proposta ao perfil do cliente.</div></div></div>
+          <div class="provider-item"><span class="provider-num">03</span><div><div class="provider-name">Implantacao</div><div class="provider-desc">Validacao final e acompanhamento inicial.</div></div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="checklist">
+        <div class="section-meta"><span class="section-num">06</span><span class="section-ctx">Pronto para reuniao</span></div>
+        <h2>Checklist final</h2>
+        <div class="checklist-cols">
+          <div>
+            <div class="checklist-col-label">Antes da reuniao</div>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box"></span>Objetivo da conversa definido</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Dados minimos em maos</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Argumentos principais preparados</li>
+            </ul>
+          </div>
+          <div>
+            <div class="checklist-col-label">Depois da reuniao</div>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box"></span>Resumo enviado ao cliente</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Proximo passo agendado</li>
+              <li class="checklist-item"><span class="checklist-box"></span>Responsaveis e prazo confirmados</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="footer-contact">
-      <div class="footer-col-title">Contato Revier</div>
-      <p><strong>Revier Corretora de Seguros Ltda.</strong></p>
-      <p>CNPJ 42.621.875/0001-50</p>
-      <p>contato@reviercorretora.com.br</p>
-      <p>(11) 5555-9350 · Santo André, SP</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Revier Brokers — Uso exclusivo equipe interna</p>
-    <p>Material educacional. Não substitui análise técnica individual.</p>
-  </div>
-</footer>
-<script>
-(function(){
-  'use strict';
-  var doc=document.documentElement;
-  var progressBar=document.getElementById('readingProgressBar');
-  function updateProgress(){
-    if(!progressBar){return;}
-    var scrollTop=window.pageYOffset||doc.scrollTop||0;
-    var maxScroll=doc.scrollHeight-window.innerHeight;
-    var progress=maxScroll>0?(scrollTop/maxScroll)*100:0;
-    progressBar.style.width=Math.min(100,Math.max(0,progress)).toFixed(2)+'%';
-  }
-  updateProgress();
-  window.addEventListener('scroll',updateProgress,{passive:true});
-  window.addEventListener('resize',updateProgress);
-  var revEls=document.querySelectorAll('.reveal');
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-  revEls.forEach(function(el){obs.observe(el);});
-  var burger=document.getElementById('hamburger');var menu=document.getElementById('mobileMenu');
-  if(burger&&menu){burger.addEventListener('click',function(){burger.classList.toggle('open');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':'';});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');menu.classList.remove('open');document.body.style.overflow='';});});}
-  document.querySelectorAll('.section[id]').forEach(function(section){
-    var copyBtn=document.createElement('button');
-    copyBtn.type='button';
-    copyBtn.className='section-copy';
-copyBtn.textContent='Copiar seção';
-    copyBtn.addEventListener('click',function(){
-      var url=new URL(window.location.href);
-      url.hash=section.id;
-      var value=url.toString();
-      var done=function(){
-        copyBtn.classList.add('copied');
-        copyBtn.textContent='Link copiado';
-        section.classList.add('section-highlight');
-        window.setTimeout(function(){copyBtn.classList.remove('copied');copyBtn.textContent='Copiar seção';section.classList.remove('section-highlight');},1800);
-      };
-      var fallback=function(){
-        var input=document.createElement('input');
-        input.value=value;
-        document.body.appendChild(input);
-        input.select();
-        input.setSelectionRange(0,input.value.length);
-        try{document.execCommand('copy');done();}catch(err){window.location.hash=section.id;}
-        document.body.removeChild(input);
-      };
-      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(value).then(done).catch(fallback);}else{fallback();}
-    });
-    section.appendChild(copyBtn);
-  });
-  if(window.location.hash){
-    var target=document.querySelector(window.location.hash);
-    if(target){target.classList.add('section-highlight');window.setTimeout(function(){target.classList.remove('section-highlight');},1800);}
-  }
-})();
-</script>
-<script>
-(function(){
-  var toggle=document.getElementById('theme-toggle');
-  var root=document.documentElement;
-  function sync(){toggle.textContent=root.classList.contains('dark-mode')?'☀':'☽';}
-  if(toggle){sync();toggle.addEventListener('click',function(){root.classList.toggle('dark-mode');localStorage.setItem('revier_theme',root.classList.contains('dark-mode')?'dark':'light');sync();});}
-  var summary=document.querySelector('.quick-summary');
-  if(summary){var sbtn=summary.querySelector('.summary-toggle');var skey=summary.getAttribute('data-summary-key');if(localStorage.getItem(skey)==='open')summary.classList.add('is-open');sbtn.setAttribute('aria-expanded',summary.classList.contains('is-open'));sbtn.addEventListener('click',function(){summary.classList.toggle('is-open');var open=summary.classList.contains('is-open');sbtn.setAttribute('aria-expanded',open);localStorage.setItem(skey,open?'open':'closed');});}
-})();
-</script>
+
+    <footer class="guide-footer">
+      <div><div class="guide-footer-logo">REVIER BROKERS</div></div>
+      <div>
+        <div class="guide-footer-info">Revier Corretora de Seguros Ltda.<br>CNPJ 42.621.875/0001-50<br>contato@reviercorretora.com.br<br>Santo Andre, SP</div>
+        <div class="guide-footer-copy"> 2026 Revier Brokers. Material de uso exclusivo para equipe interna.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const sections = document.querySelectorAll('.guide-section[id]');
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        const link = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.toggle('active', e.isIntersecting);
+      }),
+      { rootMargin: '-10% 0px -80% 0px' }
+    );
+    sections.forEach(s => obs.observe(s));
+  </script>
 </body>
 </html>
-
-
