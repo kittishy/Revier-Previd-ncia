@@ -8,12 +8,21 @@
   <link rel="stylesheet" href="style.css">
   <style>
     /* ── HERO ── */
-    .hero-section { padding-top: 120px; padding-bottom: 96px; }
+    .hero-section { padding-top: 120px; padding-bottom: 96px; position: relative; }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 40%;
+      height: 100%;
+      background: radial-gradient(ellipse at 70% 30%, rgba(232,130,13,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
     .hero-section h1 { margin-top: 20px; font-weight: 400; }
     .hero-desc {
       font-family: var(--font-body);
       font-size: 18px;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       max-width: 520px;
       margin-top: 20px;
       line-height: 1.7;
@@ -54,7 +63,13 @@
       transition: transform var(--transition, 200ms), box-shadow var(--transition, 200ms), border-color var(--transition, 200ms);
       position: relative;
       counter-increment: guide-card;
+      border-left: 3px solid var(--card-accent, var(--border));
     }
+    .trilha-card[data-category="saude"] { --card-accent: #16a34a; }
+    .trilha-card[data-category="financeiro"] { --card-accent: #2563eb; }
+    .trilha-card[data-category="patrimonio"] { --card-accent: #d97706; }
+    .trilha-card[data-category="pet"] { --card-accent: #e11d48; }
+    .trilha-card[data-category="viagem"] { --card-accent: #0891b2; }
 
     /* Subtle auto-number per card — editorial touch */
     .trilha-card::after {
@@ -94,7 +109,7 @@
     /* Card description */
     .trilha-card > p {
       font-size: 14px;
-      color: var(--text-muted, #79776F);
+      color: var(--text-muted, #5C5549);
       margin-bottom: 20px;
       line-height: 1.65;
     }
@@ -140,7 +155,7 @@
     }
     .ritmo-desc {
       font-size: 14px;
-      color: rgba(255,255,255,.45);
+      color: rgba(255,255,255,.55);
       line-height: 1.7;
     }
 
@@ -194,10 +209,10 @@
         <em>Treino que vira fechamento</em>
       </h1>
       <p class="hero-desc">
-        Aqui ninguém estuda por estudar. O conteúdo existe para virar argumento de campo, destravar objeção e acelerar fechamento.
+        Aqui ninguém estuda por estudar. Cada guia foi construído com o que realmente trava e destrava venda no campo — objeção real, argumento que funciona e passo a passo que fecha.
       </p>
       <span class="hero-stat">
-        <span style="color:var(--accent)">●</span> 10 guias no ar
+        <span style="color:var(--accent)">●</span> 10 guias completos · Saúde, Vida, Auto, Pet e mais
       </span>
       <div class="hero-actions">
         <a class="btn btn--primary" href="#trilhas">Abrir Trilhas</a>
@@ -218,105 +233,105 @@
       </h2>
 
       <div class="trilhas-grid">
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="financeiro">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">Essencial</span>
           </div>
           <h3>Previdência Privada</h3>
-          <p>PGBL, VGBL, IR, fundos...</p>
+          <p>PGBL vs VGBL, tabelas de IR regressiva e progressiva, perfil de risco do fundo, portabilidade e roteiro completo de venda consultiva.</p>
           <a href="guias/revier-previdencia/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="saude">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">POPULAR</span>
             <span class="badge">Essencial</span>
           </div>
           <h3>Planos de Saúde PME</h3>
-          <p>Carência, rede, coparticipação...</p>
+          <p>Regras de carência ANS, coparticipação, faixas etárias, Amil, Porto, Hapvida e como montar proposta comparativa que fecha.</p>
           <a href="guias/planos-saude-pme/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="financeiro">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">POPULAR</span>
             <span class="badge">Intermediário</span>
           </div>
           <h3>Seguro de Vida</h3>
-          <p>Cobertura, sucessão...</p>
+          <p>Vida individual e em grupo, coberturas por morte e invalidez, DIT, sucessão patrimonial e como fugir da venda por preço.</p>
           <a href="guias/seguro-vida/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="saude">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">Essencial</span>
           </div>
           <h3>Odonto</h3>
-          <p>PF, PME, linha Amil Dental...</p>
+          <p>Linha Amil Dental completa — PF, PME e adesão. Planos DPF, DPFE, DPME, coberturas, carência zero e rede credenciada.</p>
           <a href="guias/odonto/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="patrimonio">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">Essencial</span>
           </div>
           <h3>Seguro Auto</h3>
-          <p>Cobertura, franquia, assistência...</p>
+          <p>Cobertura compreensiva, franquia reduzida vs normal, assistência 24h, carro reserva e como vender valor sem guerra de preço.</p>
           <a href="guias/seguro-auto/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="financeiro">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">Intermediário</span>
           </div>
           <h3>Consórcio</h3>
-          <p>Lance, contemplação...</p>
+          <p>Imóvel, auto e serviços. Como funciona lance, contemplação, parcelas e por que consórcio não é investimento — é planejamento.</p>
           <a href="guias/consorcio/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="patrimonio">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">Essencial</span>
           </div>
           <h3>Seguro Residencial</h3>
-          <p>Cobertura do imóvel, RC...</p>
+          <p>Incêndio, roubo, RC familiar, danos elétricos e hidráulicos. Seguro barato que todo cliente deveria ter — e poucos oferecem.</p>
           <a href="guias/seguro-residencial/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="pet">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">Essencial</span>
           </div>
           <h3>Pet</h3>
-          <p>Planos, cobertura...</p>
+          <p>Petlove Saúde: consultas, exames, cirurgias, internação. Planos por porte, rede credenciada e como abordar o tutor apaixonado.</p>
           <a href="guias/pet/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="viagem">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">Intermediário</span>
           </div>
           <h3>Seguro Viagem</h3>
-          <p>Cobertura por destino...</p>
+          <p>Cobertura por destino, exigência Schengen, DMH, bagagem, cancelamento e como vender na urgência da viagem já comprada.</p>
           <a href="guias/seguro-viagem/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card">
+        <article class="trilha-card" data-category="patrimonio">
           <div>
-            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--accent">Completo</span>
             <span class="badge">Avançado</span>
           </div>
           <h3>Seguro Empresarial</h3>
-          <p>Patrimonial, RC...</p>
+          <p>Patrimonial, RC geral, lucros cessantes... coberturas complexas para CNPJ. Aqui a venda é técnica e o ticket é alto.</p>
           <a href="guias/seguro-empresarial/index.html">Acessar Guia →</a>
         </article>
       </div>
@@ -331,20 +346,20 @@
       <div class="ritmo-grid">
         <article class="ritmo-step">
           <span class="ritmo-num">01</span>
-          <h3 class="ritmo-title">Pega o que trava venda</h3>
-          <p class="ritmo-desc">Escolhe o guia do produto onde você mais perde fechamento e mira só no que destrava.</p>
+          <h3 class="ritmo-title">Identifica o que trava</h3>
+          <p class="ritmo-desc">Vai direto no guia do produto onde você mais perde fechamento. Não lê tudo — lê o que destrava.</p>
         </article>
 
         <article class="ritmo-step">
           <span class="ritmo-num">02</span>
-          <h3 class="ritmo-title">Lê com olho de campo</h3>
-          <p class="ritmo-desc">Vai direto em argumento, objeção e roteiro curto para usar na conversa real.</p>
+          <h3 class="ritmo-title">Pega o argumento pronto</h3>
+          <p class="ritmo-desc">Cada guia tem objeção real com resposta testada, roteiro de conversa e comparativo que funciona no campo.</p>
         </article>
 
         <article class="ritmo-step">
           <span class="ritmo-num">03</span>
-          <h3 class="ritmo-title">Leva para a conversa</h3>
-          <p class="ritmo-desc">Aplica no atendimento do dia e transforma conteúdo em fechamento de verdade.</p>
+          <h3 class="ritmo-title">Aplica e fecha</h3>
+          <p class="ritmo-desc">Leva para a reunião do dia. Quem treina antes de cada atendimento vende mais — simples assim.</p>
         </article>
       </div>
     </div>
