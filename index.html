@@ -7,1904 +7,349 @@
   <title>Revier Academy · Treino que Vende</title>
   <meta name="description"
     content="Portal educacional interno da Revier Brokers. Trilhas de estudo para corretores de seguros e planos de saúde.">
-  <script>
-    (function () {
-      try {
-        if (localStorage.getItem('revier_theme') === 'light') {
-          document.documentElement.classList.add('light-mode');
-        }
-      } catch (e) {}
-    })();
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,400;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ═══════════════════════════════════════
-   ROOT + RESET
-═══════════════════════════════════════ */
-    :root {
-      --or: #E8510A;
-      --or2: #FF6B20;
-      --bl: #1A3EC8;
-      --yl: #F5C800;
-      --dk: #0A0C12;
-      --ink: #1A1C24;
-      --muted: #4B5563;
-      --light: #F4F6FB;
-      --border: #E5E7EB;
-      --white: #ffffff;
+    /* Card hover (inline styles can't handle :hover) */
+    .trilha-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,.08);
+      border-color: var(--dark);
     }
 
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    .trilha-card:hover .card-link {
+      border-bottom-color: var(--dark);
     }
 
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    html.light-mode {
-      color-scheme: light;
-    }
-
-    body {
-      font-family: 'Barlow', sans-serif;
-      font-weight: 400;
-      color: var(--white);
-      background: var(--dk);
-      overflow-x: hidden;
-      cursor: default;
-    }
-
-    ::selection {
-      background: var(--or);
-      color: white;
-    }
-
-    /* ═══════════════════════════════════════
-   SCROLLBAR
-═══════════════════════════════════════ */
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--dk);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--or);
-      border-radius: 2px;
-    }
-
-    /* ═══════════════════════════════════════
-   NAV
-═══════════════════════════════════════ */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      background: rgba(10, 12, 18, 0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      transition: all .35s ease;
-    }
-
-    nav.scrolled {
-      background: rgba(10, 12, 18, 0.98);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, .4);
-      border-bottom-color: rgba(232, 81, 10, .12);
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .nav-hex {
-      width: 30px;
-      height: 30px;
-      background: var(--or);
-      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .nav-hex::after {
-      content: '';
-      position: absolute;
-      inset: 3px;
-      background: var(--dk);
-      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-      opacity: 0;
-      transition: opacity .3s;
-    }
-
-    nav.scrolled .nav-hex::after {
-      opacity: .3;
-    }
-
-    .nav-wordmark {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.25rem;
-      letter-spacing: 0.08em;
-      color: white;
-      text-transform: uppercase;
-    }
-
-    .nav-wordmark span {
-      color: var(--or);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 4px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-left: auto;
-    }
-
-    .nav-links a {
-      display: block;
-      padding: 7px 14px;
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .65);
-      text-decoration: none;
-      border-radius: 3px;
-      transition: color .2s, background .2s;
-      cursor: pointer;
-    }
-
-    .nav-links a:hover {
-      color: var(--or);
-      background: rgba(232, 81, 10, .07);
-    }
-
-    .theme-toggle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 3px;
-      border: 1px solid rgba(255, 255, 255, .08);
-      background: rgba(255, 255, 255, .04);
-      color: var(--white);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
-      line-height: 1;
-      cursor: pointer;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
-    }
-
-    .theme-toggle:hover {
-      transform: translateY(-1px);
-      border-color: rgba(232, 81, 10, .35);
-      color: var(--or);
-    }
-
-    .nav-tag {
-      font-size: .62rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      background: rgba(232, 81, 10, .12);
-      color: var(--or);
-      padding: 4px 10px;
-      border-radius: 100px;
-      border: 1px solid rgba(232, 81, 10, .2);
-      margin-left: 8px;
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-      z-index: 210;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: rgba(255, 255, 255, .7);
-      border-radius: 2px;
-      transition: all .3s ease;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* Mobile menu */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 199;
-      background: rgba(10, 12, 18, 0.98);
-      backdrop-filter: blur(24px);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .35s, visibility .35s;
-    }
-
-    .mobile-menu.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .mobile-menu a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .5);
-      text-decoration: none;
-      padding: 12px 24px;
-      transition: color .2s;
-    }
-
-    .mobile-menu a:hover {
-      color: var(--or);
-    }
-
-    /* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
-    .hero {
-      min-height: 100vh;
-      background: var(--dk);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      padding: 120px 40px 80px;
-      text-align: center;
-    }
-
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(232, 81, 10, .04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232, 81, 10, .04) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%);
-    }
-
-    .hero-glow {
-      position: absolute;
-      left: 50%;
-      top: 30%;
-      transform: translateX(-50%);
-      width: 80vw;
-      height: 60vh;
-      background: radial-gradient(ellipse, rgba(232, 81, 10, .08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .hero-glow-bl {
-      position: absolute;
-      right: -10%;
-      bottom: 5%;
-      width: 40vw;
-      height: 40vh;
-      background: radial-gradient(ellipse, rgba(26, 62, 200, .06) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 820px;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--or);
-      border: 1px solid rgba(232, 81, 10, .25);
-      border-radius: 100px;
-      padding: 6px 16px;
-      margin-bottom: 32px;
-      background: rgba(232, 81, 10, .06);
-    }
-
-    .hero-tag::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--or);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: .3;
-        transform: scale(.6);
-      }
-    }
-
-    h1.hero-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(3.8rem, 9vw, 7rem);
-      font-weight: 900;
-      line-height: .88;
-      letter-spacing: -.01em;
-      text-transform: uppercase;
-      color: white;
-      margin-bottom: 8px;
-    }
-
-    h1.hero-title em {
-      font-style: italic;
-      font-weight: 700;
-      font-size: .35em;
-      color: rgba(255, 255, 255, .4);
-      display: block;
-      margin-top: 16px;
-      letter-spacing: .04em;
-      line-height: 1.4;
-    }
-
-    .hero-accent {
-      display: block;
-      color: var(--or);
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: rgba(255, 255, 255, .7);
-      font-weight: 300;
-      line-height: 1.75;
-      max-width: 560px;
-      margin: 32px auto 40px;
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--or);
-      color: white;
-      font-weight: 700;
-      font-size: .8rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 14px 32px;
-      border-radius: 3px;
-      text-decoration: none;
-      transition: all .25s ease;
-      cursor: pointer;
-    }
-
-    .hero-cta:hover {
-      background: var(--or2);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(232, 81, 10, .35);
-    }
-
-    .hero-cta svg {
-      width: 16px;
-      height: 16px;
-      transition: transform .2s;
-    }
-
-    .hero-cta:hover svg {
-      transform: translateX(3px);
-    }
-
-    /* Hex decorative elements */
-    .hero-hex-deco {
-      position: absolute;
-      opacity: .06;
-      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-      pointer-events: none;
-    }
-
-    .hex-1 {
-      width: 320px;
-      height: 320px;
-      background: var(--or);
-      right: -80px;
-      top: 15%;
-    }
-
-    .hex-2 {
-      width: 180px;
-      height: 180px;
-      background: var(--bl);
-      left: 5%;
-      bottom: 10%;
-    }
-
-    .hex-3 {
-      width: 120px;
-      height: 120px;
-      background: var(--yl);
-      left: 15%;
-      top: 18%;
-    }
-
-    /* ═══════════════════════════════════════
-   SECTIONS
-═══════════════════════════════════════ */
-    .section {
-      padding: 100px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    .sec-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .sec-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--or);
-      margin-bottom: 14px;
-    }
-
-    .sec-label .sec-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--or);
-    }
-
-    h2.sec-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: .95;
-      letter-spacing: -.01em;
-      color: white;
-      margin-bottom: 16px;
-    }
-
-    .sec-lead {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, .4);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.7;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    /* ═══════════════════════════════════════
-   TRILHAS SECTION
-═══════════════════════════════════════ */
-    #trilhas {
-      background: var(--ink);
-      border-top: 1px solid rgba(255, 255, 255, .04);
-      border-bottom: 1px solid rgba(255, 255, 255, .04);
-    }
-
+    /* Trilhas grid responsive */
     .trilhas-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    /* Card base */
-    .trilha-card {
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 10px;
-      padding: 28px 24px;
-      position: relative;
-      overflow: hidden;
-      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-      cursor: default;
-    }
-
-    .trilha-card.has-featured-badge {
-      padding-top: 52px;
-    }
-
-    .trilha-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: rgba(255, 255, 255, .06);
-      transition: background .3s;
-    }
-
-    /* Active card — orange */
-    .trilha-card.active {
-      border-color: rgba(232, 81, 10, .35);
-      background: rgba(232, 81, 10, .04);
-      cursor: pointer;
-    }
-
-    .trilha-card.active::before {
-      background: linear-gradient(90deg, var(--or), var(--or2));
-    }
-
-    .trilha-card.active:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(232, 81, 10, .15);
-      border-color: rgba(232, 81, 10, .55);
-    }
-
-    /* Active card — blue variant */
-    .trilha-card.active-bl {
-      border-color: rgba(26, 62, 200, .35);
-      background: rgba(26, 62, 200, .04);
-      cursor: pointer;
-    }
-
-    .trilha-card.active-bl::before {
-      background: linear-gradient(90deg, var(--bl), #4F6ADB);
-    }
-
-    .trilha-card.active-bl:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(26, 62, 200, .15);
-      border-color: rgba(26, 62, 200, .55);
-    }
-
-    .trilha-card.active-bl:hover .card-cta svg {
-      transform: translateX(4px);
-    }
-
-    .trilha-card.active-bl .card-cta {
-      color: var(--bl);
-    }
-
-    .badge-novo-bl {
-      background: var(--bl);
-      color: white;
-    }
-
-    /* Locked card */
-    .trilha-card.locked {
-      cursor: not-allowed;
-    }
-
-    .trilha-card.locked .card-body {
-      opacity: .35;
-      filter: blur(0.5px);
-    }
-
-    /* Card icon */
-    .card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      position: relative;
-    }
-
-    .card-icon svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .card-icon.icon-or {
-      background: rgba(232, 81, 10, .12);
-      color: var(--or);
-    }
-
-    .card-icon.icon-bl {
-      background: rgba(26, 62, 200, .12);
-      color: var(--bl);
-    }
-
-    .card-icon.icon-yl {
-      background: rgba(245, 200, 0, .12);
-      color: var(--yl);
-    }
-
-    .card-icon.icon-tl {
-      background: rgba(11, 158, 160, .12);
-      color: #0B9EA0;
-    }
-
-    .card-icon.icon-gn {
-      background: rgba(22, 163, 74, .12);
-      color: #16A34A;
-    }
-
-    .card-icon.icon-rd {
-      background: rgba(220, 38, 38, .12);
-      color: #DC2626;
-    }
-
-    .card-icon.icon-pk {
-      background: rgba(219, 39, 119, .12);
-      color: #DB2777;
-    }
-
-    .card-icon.icon-cy {
-      background: rgba(6, 182, 212, .12);
-      color: #06B6D4;
-    }
-
-    .card-icon.icon-am {
-      background: rgba(245, 158, 11, .12);
-      color: #F59E0B;
-    }
-
-    .card-icon.icon-vi {
-      background: rgba(139, 92, 246, .12);
-      color: #8B5CF6;
-    }
-
-    /* Card content */
-    .card-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: white;
-      margin-bottom: 6px;
-      letter-spacing: .02em;
-    }
-
-    .card-featured-badge {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      z-index: 2;
-    }
-
-    .card-desc {
-      font-size: .85rem;
-      color: rgba(255, 255, 255, .4);
-      line-height: 1.55;
-      margin-bottom: 18px;
-      font-weight: 300;
-    }
-
-    .card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 6px;
-    }
-
-    .card-meta .badge-nivel {
-      margin-left: auto;
-    }
-
-    /* Badges */
-    .badge {
-      font-size: .62rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 3px;
-    }
-
-    .badge-novo {
-      background: var(--or);
-      color: white;
-    }
-
-    .badge-top {
-      background: var(--yl);
-      color: var(--dk);
-      font-size: .65rem;
-      font-weight: 900;
-      letter-spacing: .12em;
-      padding: 3px 8px;
-      border-radius: 2px;
-      text-transform: uppercase;
-    }
-
-    .badge-mais-lido {
-      background: rgba(255, 255, 255, .04);
-      color: rgba(255, 255, 255, .72);
-      border: 1px solid rgba(255, 255, 255, .08);
-      box-shadow: 0 0 0 1px rgba(232, 81, 10, .06) inset;
-    }
-
-    .badge-breve {
-      background: rgba(255, 255, 255, .08);
-      color: rgba(255, 255, 255, .35);
-      border: 1px solid rgba(255, 255, 255, .08);
-    }
-
-    .badge-nivel {
-      font-size: .6rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 2px;
-      border: 1px solid rgba(255, 255, 255, .1);
-      color: rgba(255, 255, 255, .35);
-    }
-
-    .badge-nivel.essencial {
-      border-color: rgba(22, 163, 74, .3);
-      color: #16A34A;
-    }
-
-    .badge-nivel.intermediario {
-      border-color: rgba(245, 200, 0, .3);
-      color: var(--yl);
-    }
-
-    .badge-nivel.avancado {
-      border-color: rgba(220, 38, 38, .3);
-      color: #DC2626;
-    }
-
-    /* Card CTA */
-    .card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 16px;
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--or);
-      text-decoration: none;
-      transition: gap .2s;
-      cursor: pointer;
-    }
-
-    .card-cta svg {
-      width: 14px;
-      height: 14px;
-      transition: transform .2s;
-    }
-
-    .trilha-card.active:hover .card-cta svg {
-      transform: translateX(4px);
-    }
-
-    /* Lock overlay */
-    .lock-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 5;
-      background: rgba(26, 28, 36, .3);
-      backdrop-filter: blur(1px);
-      -webkit-backdrop-filter: blur(1px);
-      border-radius: 10px;
-    }
-
-    .lock-badge {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .45);
-      background: rgba(10, 12, 18, .7);
-      border: 1px solid rgba(255, 255, 255, .1);
-      padding: 8px 18px;
-      border-radius: 4px;
-      backdrop-filter: blur(4px);
-    }
-
-    /* ═══════════════════════════════════════
-   COMO USAR
-═══════════════════════════════════════ */
-    #como-usar {
-      background: var(--dk);
-    }
-
-    .steps-grid {
-      display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      position: relative;
+      gap: 16px;
     }
 
-    /* Connector lines */
-    .steps-grid::before,
-    .steps-grid::after {
-      content: '';
-      position: absolute;
-      top: 48px;
-      height: 1px;
-      background: repeating-linear-gradient(90deg, rgba(232, 81, 10, .25) 0, rgba(232, 81, 10, .25) 6px, transparent 6px, transparent 12px);
-      z-index: 1;
-    }
-
-    .steps-grid::before {
-      left: calc(33.33% - 20px);
-      width: calc(33.33% / 3 + 40px);
-    }
-
-    .steps-grid::after {
-      left: calc(66.66% - 20px);
-      width: calc(33.33% / 3 + 40px);
-    }
-
-    .step-card {
-      text-align: center;
-      padding: 0 24px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .step-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: rgba(232, 81, 10, .15);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .step-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
-      background: rgba(232, 81, 10, .08);
-      border: 1px solid rgba(232, 81, 10, .15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      color: var(--or);
-    }
-
-    .step-icon svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .step-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: white;
-      margin-bottom: 8px;
-      letter-spacing: .02em;
-    }
-
-    .step-desc {
-      font-size: .87rem;
-      color: rgba(255, 255, 255, .4);
-      line-height: 1.6;
-      font-weight: 300;
-    }
-
-    /* ═══════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════ */
-    footer {
-      background: var(--dk);
-      border-top: 1px solid rgba(255, 255, 255, .04);
-      padding: 48px 0 32px;
-      position: relative;
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--or), transparent);
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px;
-      text-align: center;
-    }
-
-    .footer-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .footer-hex {
-      width: 22px;
-      height: 22px;
-      background: var(--or);
-      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    }
-
-    .footer-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .7);
-    }
-
-    .footer-data {
-      font-size: .78rem;
-      color: rgba(255, 255, 255, .45);
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .footer-data a {
-      color: rgba(255, 255, 255, .5);
-      text-decoration: none;
-      transition: color .2s;
-    }
-
-    .footer-data a:hover {
-      color: var(--or);
-    }
-
-    .footer-disclaimer {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(232, 81, 10, .5);
-      border: 1px solid rgba(232, 81, 10, .15);
-      padding: 6px 14px;
-      border-radius: 3px;
-      background: rgba(232, 81, 10, .04);
-      margin-bottom: 16px;
-    }
-
-    .footer-disclaimer svg {
-      width: 12px;
-      height: 12px;
-    }
-
-    .footer-copy {
-      font-size: .72rem;
-      color: rgba(255, 255, 255, .3);
-      margin-top: 16px;
-    }
-
-    /* ═══════════════════════════════════════
-   REVEAL ANIMATIONS
-═══════════════════════════════════════ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .65s ease, transform .65s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-d1 {
-      transition-delay: .08s;
-    }
-
-    .reveal-d2 {
-      transition-delay: .16s;
-    }
-
-    .reveal-d3 {
-      transition-delay: .24s;
-    }
-
-    .reveal-d4 {
-      transition-delay: .32s;
-    }
-
-    .reveal-d5 {
-      transition-delay: .40s;
-    }
-
-    .reveal-d6 {
-      transition-delay: .48s;
-    }
-
-    .reveal-d7 {
-      transition-delay: .56s;
-    }
-
-    .reveal-d8 {
-      transition-delay: .64s;
-    }
-
-    .reveal-d9 {
-      transition-delay: .72s;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-    }
-
-    /* ═══════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════ */
-    html.light-mode body {
-      background: var(--light);
-      color: var(--ink);
-    }
-
-    html.light-mode nav {
-      background: rgba(244, 246, 251, .92);
-      border-bottom-color: rgba(26, 28, 36, .08);
-    }
-
-    html.light-mode nav.scrolled {
-      background: rgba(244, 246, 251, .98);
-      box-shadow: 0 4px 30px rgba(10, 12, 18, .08);
-      border-bottom-color: rgba(26, 28, 36, .12);
-    }
-
-    html.light-mode .theme-toggle {
-      background: var(--white);
-      color: var(--ink);
-      border-color: var(--border);
-    }
-
-    html.light-mode .mobile-menu,
-    html.light-mode #trilhas,
-    html.light-mode #como-usar,
-    html.light-mode footer {
-      background: var(--light);
-    }
-
-    html.light-mode .mobile-menu {
-      background: rgba(244, 246, 251, .98);
-    }
-
-    html.light-mode .nav-wordmark,
-    html.light-mode h2.sec-title,
-    html.light-mode .card-title,
-    html.light-mode .step-title,
-    html.light-mode .footer-name {
-      color: var(--ink);
-    }
-
-    html.light-mode .sec-lead,
-    html.light-mode .card-desc,
-    html.light-mode .step-desc,
-    html.light-mode .footer-data,
-    html.light-mode .footer-copy,
-    html.light-mode .nav-links a,
-    html.light-mode .mobile-menu a {
-      color: var(--muted);
-    }
-
-    html.light-mode .nav-tag {
-      background: rgba(232, 81, 10, .08);
-      color: var(--or);
-      border-color: rgba(232, 81, 10, .2);
-    }
-
-    html.light-mode .trilha-card,
-    html.light-mode .step-card {
-      background: var(--white);
-      border-color: var(--border);
-    }
-
-    html.light-mode .trilha-card::before {
-      background: var(--border);
-    }
-
-    html.light-mode .trilha-card.active {
-      background: rgba(232, 81, 10, .04);
-      border-color: rgba(232, 81, 10, .22);
-    }
-
-    html.light-mode .trilha-card.active-bl {
-      background: rgba(26, 62, 200, .04);
-      border-color: rgba(26, 62, 200, .22);
-    }
-
-    html.light-mode .badge-mais-lido,
-    html.light-mode .badge-breve {
-      background: var(--light);
-      color: var(--muted);
-      border-color: var(--border);
-      box-shadow: none;
-    }
-
-    html.light-mode .badge-nivel {
-      border-color: var(--border);
-      color: var(--muted);
-    }
-
-    html.light-mode .lock-overlay {
-      background: rgba(244, 246, 251, .68);
-    }
-
-    html.light-mode .lock-badge {
-      background: var(--white);
-      color: var(--muted);
-      border-color: var(--border);
-    }
-
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .trilhas-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 768px) {
-      nav {
-        padding: 0 20px;
-      }
-
-      .nav-right {
-        gap: 6px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .mobile-menu {
-        display: flex;
-      }
-
-      .hero {
-        padding: 100px 20px 60px;
-      }
-
-      h1.hero-title {
-        font-size: clamp(2.8rem, 14vw, 4.5rem);
-      }
-
-      h1.hero-title em {
-        font-size: .42em;
-      }
-
-      .hero-desc {
-        font-size: .95rem;
-        margin: 24px auto 32px;
-      }
-
-      .container {
-        padding: 0 20px;
-      }
-
-      .section {
-        padding: 72px 0;
-      }
-
-      .sec-header {
-        margin-bottom: 40px;
-      }
-
       .trilhas-grid {
         grid-template-columns: 1fr;
-        gap: 14px;
       }
+    }
 
+    /* Steps grid */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .step {
+      padding: 0 48px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .step:first-child {
+      padding-left: 0;
+    }
+
+    .step:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    @media (max-width: 768px) {
       .steps-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
 
-      .steps-grid::before,
-      .steps-grid::after {
-        display: none;
-      }
-
-      .step-card {
+      .step {
         padding: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding-bottom: 40px;
       }
 
-      footer {
-        padding: 40px 0 24px;
-      }
-
-      .footer-inner {
-        padding: 0 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1.hero-title {
-        font-size: clamp(2.4rem, 16vw, 3.2rem);
-      }
-
-      h2.sec-title {
-        font-size: clamp(1.8rem, 8vw, 2.4rem);
-      }
-
-      .hero-tag {
-        font-size: .6rem;
-        padding: 5px 12px;
+      .step:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
       }
     }
 
-    /* ═══════════════════════════════════════
-       SECTION LINK BUTTON (copiar link)
-    ═══════════════════════════════════════ */
-    .section-link-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      margin-left: 8px;
-      margin-top: 4px;
-      border: 1px solid transparent;
-      border-radius: 2px;
-      background: transparent;
-      color: var(--muted);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .85rem;
-      font-weight: 800;
-      line-height: 1;
-      opacity: 0;
-      cursor: pointer;
-      transition: opacity .2s, color .2s, border-color .2s, background .2s, transform .2s;
+    /* Hero spacing */
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 96px;
     }
 
-    h2.sec-title:hover .section-link-btn,
-    h2.sec-title:focus-within .section-link-btn {
-      opacity: 1;
-    }
-
-    .section-link-btn:hover,
-    .section-link-btn.copied {
-      color: var(--or);
-      border-color: rgba(232, 81, 10, .24);
-      background: rgba(232, 81, 10, .08);
-      transform: translateY(-1px);
-    }
-
-    html.light-mode .section-link-btn {
-      color: var(--ink);
-      border-color: var(--border);
-      background: rgba(255, 255, 255, .03);
-    }
-
-    html.light-mode .section-link-btn:hover,
-    html.light-mode .section-link-btn.copied {
-      color: var(--or);
-      border-color: rgba(232, 81, 10, .22);
-      background: rgba(232, 81, 10, .08);
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: 80px;
+        padding-bottom: 64px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div id="read-progress" style="position:fixed;top:60px;left:0;height:3px;width:0%;background:var(--or);box-shadow:0 0 8px rgba(232,81,10,.5);z-index:199;transition:width .1s linear;pointer-events:none"></div>
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a class="nav__logo" href="#">REVIER<span>ACADEMY</span></a>
 
-  <!-- ═══════════ NAV ═══════════ -->
-  <nav id="mainNav">
-    <a href="#" class="nav-left">
-      <div class="nav-hex"></div>
-      <div class="nav-wordmark">REVIER <span>ACADEMY</span></div>
-    </a>
+        <ul class="nav__links">
+          <li><a href="#trilhas">Trilhas</a></li>
+          <li><a href="#como-usar">Ritmo</a></li>
+          <li><span class="badge">Uso Interno</span></li>
+        </ul>
 
-    <div class="nav-right">
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema">☀</button>
-
-      <ul class="nav-links">
-        <li><a href="#trilhas">Trilhas</a></li>
-        <li><a href="#como-usar">Ritmo</a></li>
-        <li><span class="nav-tag">Uso Interno</span></li>
-      </ul>
-
-      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button class="nav__hamburger" id="hamburgerBtn" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="nav__mobile" id="mobileMenu">
     <a href="#trilhas" onclick="closeMenu()">Trilhas</a>
     <a href="#como-usar" onclick="closeMenu()">Ritmo</a>
   </div>
 
   <!-- ═══════════ HERO ═══════════ -->
   <section class="hero" id="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-glow-bl"></div>
+    <div class="container">
+      <span class="label animate-fade-up">Portal de Treinamento Interno</span>
 
-    <div class="hero-hex-deco hex-1"></div>
-    <div class="hero-hex-deco hex-2"></div>
-    <div class="hero-hex-deco hex-3"></div>
-
-    <div class="hero-content">
-      <div class="hero-tag reveal">
-        Treino Interno de Venda
-      </div>
-
-      <h1 class="hero-title reveal reveal-d1">
-        REVIER<span class="hero-accent">ACADEMY</span>
+      <h1 class="animate-fade-up delay-1">
+        Revier Academy<br>
         <em>Treino que vira fechamento</em>
       </h1>
 
-      <p class="hero-desc reveal reveal-d2">
+      <p class="animate-fade-up delay-2" style="font-size:18px;color:var(--text-muted);max-width:520px;margin-top:32px;margin-bottom:12px;line-height:1.7">
         Aqui ninguém estuda por estudar. Abre a trilha, pega argumento e volta para o atendimento vendendo melhor.
-        Já são 10 guias no ar e o treino não para.
       </p>
 
-      <a href="#trilhas" class="hero-cta reveal reveal-d3">
-        Abrir Trilhas
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </a>
+      <span class="animate-fade-up delay-2" style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);display:inline-block;margin-bottom:40px">
+        <span style="color:var(--accent)">●</span> 10 guias no ar
+      </span>
+
+      <div class="animate-fade-up delay-3" style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn--primary" href="#trilhas">
+          Abrir Trilhas
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a class="btn btn--outline" href="#como-usar">Como usar</a>
+      </div>
     </div>
   </section>
+
+  <div class="container"><hr class="divider"></div>
 
   <!-- ═══════════ TRILHAS ═══════════ -->
   <section class="section" id="trilhas">
     <div class="container">
-      <div class="sec-header reveal">
-        <div class="sec-label">
-          <span class="sec-dot"></span>
-          Trilhas de Venda
-        </div>
-        <h2 class="sec-title">Escolha a trilha<br>e vai pra venda</h2>
-        <p class="sec-lead">Cada trilha entra no ponto que trava venda: produto, preço, objeção e argumento. Estuda hoje, usa hoje.</p>
+      <div class="reveal" style="margin-bottom:64px">
+        <span class="label">Trilhas de Venda</span>
+        <h2>Escolha a trilha<br><span style="color:var(--accent)">/</span> e vai pra venda</h2>
       </div>
 
       <div class="trilhas-grid">
 
-        <!-- ✅ CARD 1 — Previdência Privada (ATIVO) -->
-        <a href="guias/revier-previdencia/index.html" class="trilha-card active reveal reveal-d1" id="card-previdencia"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <div class="card-icon icon-or">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M12 2 2 7l10 5 10-5-10-5Z" />
-                <path d="m2 17 10 5 10-5" />
-                <path d="m2 12 10 5 10-5" />
-              </svg>
-            </div>
-            <div class="card-title">Previdência Privada</div>
-            <div class="card-desc">PGBL, VGBL, IR, fundos, objeções e o jeito certo de encaixar previdência sem enrolar o cliente.
-            </div>
-            <div class="card-meta">
-              <span class="badge badge-novo">Novo</span>
-              <span class="badge-nivel essencial">Essencial</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 1 — Previdência Privada -->
+        <article class="trilha-card animate-fade-up delay-1" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge">Essencial</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Previdência Privada</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">PGBL, VGBL, IR, fundos, objeções e o jeito certo de encaixar previdência sem enrolar o cliente.</p>
+          <a href="guias/revier-previdencia/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
-        <!-- ✅ CARD 2 — Planos de Saúde PME -->
-        <a href="guias/planos-saude-pme/index.html" class="trilha-card active-bl reveal reveal-d2 has-featured-badge" id="card-saude"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <span class="badge badge-mais-lido card-featured-badge">Mais lido</span>
-            <div class="card-icon icon-bl">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4a2 2 0 0 0-.8-1.6" />
-                <path d="M8 2h8" />
-                <path
-                  d="M18.4 2.3A.3.3 0 0 1 19 2h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V4a2 2 0 0 1 .8-1.6" />
-                <path d="M12 10v12" />
-                <path d="M12 14h-2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-2z" />
-              </svg>
-            </div>
-            <div class="card-title">Planos de Saúde PME</div>
-            <div class="card-desc">Carência, rede, coparticipação e a conversa que faz PME sair do "vou pensar".</div>
-            <div class="card-meta">
-              <span class="badge badge-novo-bl">Novo</span>
-                <span class="badge badge-top">🔥 TOP</span>
-              <span class="badge-nivel essencial">Essencial</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 2 — Planos de Saúde PME -->
+        <article class="trilha-card animate-fade-up delay-2" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--popular">POPULAR</span>
+            <span class="badge">Essencial</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Planos de Saúde PME</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Carência, rede, coparticipação e a conversa que faz PME sair do "vou pensar".</p>
+          <a href="guias/planos-saude-pme/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
-        <!-- ✅ CARD 3 — Seguro de Vida -->
-        <a href="guias/seguro-vida/index.html" class="trilha-card active reveal reveal-d3" id="card-vida"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <div class="card-icon icon-gn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path
-                  d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 1.998 12c0-.617.236-1.234.706-1.704L4.23 8.77c.24-.24.581-.353.917-.303.515.077.877.528 1.073 1.01a2.5 2.5 0 1 0 3.259-3.259c-.482-.196-.933-.558-1.01-1.073-.05-.336.062-.676.303-.917l1.525-1.525A2.402 2.402 0 0 1 12 1.998c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z" />
-              </svg>
-            </div>
-            <div class="card-title">Seguro de Vida</div>
-            <div class="card-desc">Cobertura, sucessão e abordagem para virar proteção em fechamento, não em susto.</div>
-            <div class="card-meta">
-              <span class="badge badge-novo">Novo</span>
-                <span class="badge badge-top">🔥 TOP</span>
-              <span class="badge-nivel intermediario">Intermediário</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 3 — Seguro de Vida -->
+        <article class="trilha-card animate-fade-up delay-3" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge badge--popular">POPULAR</span>
+            <span class="badge">Intermediário</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Seguro de Vida</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Cobertura, sucessão e abordagem para virar proteção em fechamento, não em susto.</p>
+          <a href="guias/seguro-vida/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
-        <!-- ✅ CARD 4 — Odonto (ATIVO) -->
-        <a href="guias/odonto/index.html" class="trilha-card active-bl reveal reveal-d4" id="card-odonto"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <div class="card-icon icon-bl">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-                <path d="m9 12 2 2 4-4" />
-              </svg>
-            </div>
-            <div class="card-title">Odonto</div>
-            <div class="card-desc">PF, PME, linha Amil Dental, preço, objeção e script que dá para falar sem soar decorado.</div>
-            <div class="card-meta">
-              <span class="badge badge-novo-bl">Novo</span>
-              <span class="badge-nivel essencial">Essencial</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 4 — Odonto -->
+        <article class="trilha-card animate-fade-up delay-4" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge">Essencial</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Odonto</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">PF, PME, linha Amil Dental, preço, objeção e script que dá para falar sem soar decorado.</p>
+          <a href="guias/odonto/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
-        <!-- ✅ CARD 5 — Seguro Auto -->
-        <a href="guias/seguro-auto/index.html" class="trilha-card active reveal reveal-d5 has-featured-badge" id="card-auto"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <span class="badge badge-mais-lido card-featured-badge">Mais lido</span>
-            <div class="card-icon icon-yl">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path
-                  d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
-                <circle cx="7" cy="17" r="2" />
-                <path d="M9 17h6" />
-                <circle cx="17" cy="17" r="2" />
-              </svg>
-            </div>
-            <div class="card-title">Seguro Auto</div>
-            <div class="card-desc">Cobertura, franquia, assistência e o caminho mais curto entre cotação e fechamento.</div>
-            <div class="card-meta">
-              <span class="badge badge-novo">Novo</span>
-              <span class="badge-nivel essencial">Essencial</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 5 — Seguro Auto -->
+        <article class="trilha-card animate-fade-up delay-5" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge">Essencial</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Seguro Auto</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Cobertura, franquia, assistência e o caminho mais curto entre cotação e fechamento.</p>
+          <a href="guias/seguro-auto/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
-        <!-- ✅ CARD 6 — Consórcio -->
-        <a href="guias/consorcio/index.html" class="trilha-card active reveal reveal-d6" id="card-consorcio"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <div class="card-icon icon-am">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-              </svg>
-            </div>
-            <div class="card-title">Consórcio</div>
-            <div class="card-desc">Lance, contemplação e posicionamento sem deixar o cliente achando que isso é loteria.</div>
-            <div class="card-meta">
-              <span class="badge badge-novo">Novo</span>
-              <span class="badge-nivel intermediario">Intermediário</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 6 — Consórcio -->
+        <article class="trilha-card animate-fade-up delay-6" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge">Intermediário</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Consórcio</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Lance, contemplação e posicionamento sem deixar o cliente achando que isso é loteria.</p>
+          <a href="guias/consorcio/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
-        <!-- ✅ CARD 7 — Seguro Residencial -->
-        <a href="guias/seguro-residencial/index.html" class="trilha-card active-bl reveal reveal-d7" id="card-residencial"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <div class="card-icon icon-tl">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
-            </div>
-            <div class="card-title">Seguro Residencial</div>
-            <div class="card-desc">Cobertura do imóvel, RC e serviços que fazem o cliente perceber valor rápido.</div>
-            <div class="card-meta">
-              <span class="badge badge-novo-bl">Novo</span>
-              <span class="badge-nivel essencial">Essencial</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 7 — Seguro Residencial -->
+        <article class="trilha-card animate-fade-up delay-7" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge">Essencial</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Seguro Residencial</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Cobertura do imóvel, RC e serviços que fazem o cliente perceber valor rápido.</p>
+          <a href="guias/seguro-residencial/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
-        <!-- ✅ CARD 8 — Pet -->
-        <a href="guias/pet/index.html" class="trilha-card active reveal reveal-d8" id="card-pet"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <div class="card-icon icon-pk">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <circle cx="11" cy="4" r="2" />
-                <circle cx="18" cy="8" r="2" />
-                <circle cx="20" cy="16" r="2" />
-                <path
-                  d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
-              </svg>
-            </div>
-            <div class="card-title">Pet</div>
-            <div class="card-desc">Planos, cobertura e abordagem para vender sem parecer mimo caro.</div>
-            <div class="card-meta">
-              <span class="badge badge-novo">Novo</span>
-              <span class="badge-nivel essencial">Essencial</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 8 — Pet -->
+        <article class="trilha-card animate-fade-up delay-8" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge">Essencial</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Pet</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Planos, cobertura e abordagem para vender sem parecer mimo caro.</p>
+          <a href="guias/pet/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
-        <!-- ✅ CARD 9 — Seguro Viagem -->
-        <a href="guias/seguro-viagem/index.html" class="trilha-card active-bl reveal reveal-d9" id="card-viagem"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <div class="card-icon icon-vi">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path
-                  d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
-              </svg>
-            </div>
-            <div class="card-title">Seguro Viagem</div>
-            <div class="card-desc">Cobertura por destino, exigência de embarque e argumento que vira urgência.</div>
-            <div class="card-meta">
-              <span class="badge badge-novo-bl">Novo</span>
-              <span class="badge-nivel intermediario">Intermediário</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 9 — Seguro Viagem -->
+        <article class="trilha-card animate-fade-up delay-9" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge">Intermediário</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Seguro Viagem</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Cobertura por destino, exigência de embarque e argumento que vira urgência.</p>
+          <a href="guias/seguro-viagem/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
-        <!-- ✅ CARD 10 — Seguro Empresarial -->
-        <a href="guias/seguro-empresarial/index.html" class="trilha-card active reveal reveal-d9" id="card-empresarial"
-          style="text-decoration:none;">
-          <div class="card-body">
-            <div class="card-icon icon-rd">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
-                <path d="M9 22v-4h6v4" />
-                <path d="M8 6h.01" />
-                <path d="M16 6h.01" />
-                <path d="M12 6h.01" />
-                <path d="M12 10h.01" />
-                <path d="M12 14h.01" />
-                <path d="M16 10h.01" />
-                <path d="M16 14h.01" />
-                <path d="M8 10h.01" />
-                <path d="M8 14h.01" />
-              </svg>
-            </div>
-            <div class="card-title">Seguro Empresarial</div>
-            <div class="card-desc">Patrimonial, RC e leitura de risco sem papo engessado.</div>
-            <div class="card-meta">
-              <span class="badge badge-novo">Novo</span>
-              <span class="badge-nivel avancado">Avançado</span>
-            </div>
-            <div class="card-cta">
-              Acessar Guia
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+        <!-- 10 — Seguro Empresarial -->
+        <article class="trilha-card animate-fade-up delay-10" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+            <span class="badge badge--accent">Novo</span>
+            <span class="badge">Avançado</span>
           </div>
-        </a>
+          <h3 style="font-size:22px;margin-bottom:8px">Seguro Empresarial</h3>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Patrimonial, RC e leitura de risco sem papo engessado.</p>
+          <a href="guias/seguro-empresarial/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
 
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ COMO USAR ═══════════ -->
-  <section class="section" id="como-usar">
+  <!-- ═══════════ RITMO DE USO ═══════════ -->
+  <section class="section section--dark" id="como-usar">
     <div class="container">
-      <div class="sec-header reveal">
-        <div class="sec-label">
-          <span class="sec-dot"></span>
-          Ritmo de Uso
-        </div>
-        <h2 class="sec-title">Estuda, testa,<br>fecha</h2>
-        <p class="sec-lead">O material não está aqui para enfeitar tela. Ele serve para entrar na sua fala no mesmo dia.</p>
+      <div class="reveal" style="margin-bottom:64px">
+        <span class="label label--light">Ritmo de Uso</span>
+        <h2>Estuda, testa,<br>fecha</h2>
       </div>
 
       <div class="steps-grid">
-        <div class="step-card reveal reveal-d1">
-          <div class="step-num">01</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <path d="m16 12-4-4-4 4" />
-              <path d="M12 16V8" />
-            </svg>
-          </div>
-          <div class="step-title">Pega o que trava venda</div>
-          <p class="step-desc">Abre o produto que mais aparece na tua rotina ou o que mais te faz perder fechamento.</p>
+        <div class="step reveal">
+          <span style="font-family:var(--font-display);font-size:64px;color:rgba(255,255,255,.06);line-height:1;display:block;margin-bottom:16px">01</span>
+          <strong style="font-family:var(--font-body);font-weight:500;font-size:16px;color:white;display:block;margin-bottom:8px">Pega o que trava venda</strong>
+          <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6">Abre o produto que mais aparece na tua rotina ou o que mais te faz perder fechamento.</p>
         </div>
 
-        <div class="step-card reveal reveal-d2">
-          <div class="step-num">02</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-            </svg>
-          </div>
-          <div class="step-title">Lê com olho de campo</div>
-          <p class="step-desc">Vai direto em regra, preço, objeção e script. O que destrava venda vem primeiro.</p>
+        <div class="step reveal">
+          <span style="font-family:var(--font-display);font-size:64px;color:rgba(255,255,255,.06);line-height:1;display:block;margin-bottom:16px">02</span>
+          <strong style="font-family:var(--font-body);font-weight:500;font-size:16px;color:white;display:block;margin-bottom:8px">Lê com olho de campo</strong>
+          <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6">Vai direto em regra, preço, objeção e script. O que destrava venda vem primeiro.</p>
         </div>
 
-        <div class="step-card reveal reveal-d3">
-          <div class="step-num">03</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 7 7 7 7" />
-              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 17 7 17 7" />
-              <path d="M4 22h16" />
-              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22" />
-              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22" />
-              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-            </svg>
-          </div>
-          <div class="step-title">Leva para a conversa</div>
-          <p class="step-desc">Testa no telefone, no WhatsApp e na reunião. Se virou fala boa, vira comissão.</p>
+        <div class="step reveal">
+          <span style="font-family:var(--font-display);font-size:64px;color:rgba(255,255,255,.06);line-height:1;display:block;margin-bottom:16px">03</span>
+          <strong style="font-family:var(--font-body);font-weight:500;font-size:16px;color:white;display:block;margin-bottom:8px">Leva para a conversa</strong>
+          <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6">Testa no telefone, no WhatsApp e na reunião. Se virou fala boa, vira comissão.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════ FOOTER ═══════════ -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-disclaimer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
-          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-        </svg>
+  <footer class="footer">
+    <div class="container" style="text-align:center">
+      <div class="footer__disclaimer" style="margin-bottom:16px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         Uso Interno — Revier Brokers
       </div>
 
-      <div class="footer-logo">
-        <div class="footer-hex"></div>
-        <div class="footer-name">Revier Brokers</div>
-      </div>
+      <span class="footer__logo">REVIER<span> ACADEMY</span></span>
 
-      <div class="footer-data">
+      <p style="margin-top:16px">
         Revier Corretora de Seguros Ltda.<br>
         CNPJ 42.621.875/0001-50<br>
-        <a href="mailto:contato@reviercorretora.com.br">contato@reviercorretora.com.br</a> · <a
-          href="tel:+551155559350">(11) 5555-9350</a><br>
+        <a href="mailto:contato@reviercorretora.com.br">contato@reviercorretora.com.br</a> ·
+        <a href="tel:+551155559350">(11) 5555-9350</a><br>
         Santo André, SP
-      </div>
+      </p>
 
-      <div class="footer-copy">
-        © 2026 Revier Brokers. Material de uso exclusivo para equipe interna.
-      </div>
+      <span class="footer__copy">© 2026 Revier Brokers. Material de uso exclusivo para equipe interna.</span>
     </div>
   </footer>
 
+  <!-- ═══════════ JS ═══════════ -->
   <script>
-    /* ═══════════════ JS ═══════════════ */
     (function () {
       'use strict';
 
-      var root = document.documentElement;
-      var themeToggle = document.getElementById('theme-toggle');
-
-      function syncThemeToggle() {
-        var isLight = root.classList.contains('light-mode');
-        themeToggle.textContent = isLight ? '☽' : '☀';
-        themeToggle.setAttribute('aria-label', isLight ? 'Alternar para modo escuro' : 'Alternar para modo claro');
-        themeToggle.setAttribute('title', isLight ? 'Alternar para modo escuro' : 'Alternar para modo claro');
-      }
-
-      function setTheme(isLight) {
-        root.classList.toggle('light-mode', isLight);
-        try {
-          localStorage.setItem('revier_theme', isLight ? 'light' : 'dark');
-        } catch (e) {}
-        syncThemeToggle();
-      }
-
-      syncThemeToggle();
-
-      themeToggle.addEventListener('click', function () {
-        setTheme(!root.classList.contains('light-mode'));
-      });
-
-      // Scroll reveal
-      const revealEls = document.querySelectorAll('.reveal');
-      const revealObs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObs.unobserve(entry.target);
+      /* Scroll reveal */
+      var els = document.querySelectorAll('.reveal');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
           }
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { obs.observe(el); });
 
-      revealEls.forEach(function (el) { revealObs.observe(el); });
-
-      // Nav scroll
-      var nav = document.getElementById('mainNav');
-      var lastY = 0;
-      window.addEventListener('scroll', function () {
-        var y = window.scrollY;
-        if (y > 40) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-        lastY = y;
-      }, { passive: true });
-
-      // Hamburger
+      /* Hamburger */
       var hamburger = document.getElementById('hamburgerBtn');
       var mobileMenu = document.getElementById('mobileMenu');
 
@@ -1920,78 +365,28 @@
         document.body.style.overflow = '';
       };
 
-      // Smooth scroll for anchor links
+      /* Smooth scroll */
       document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         a.addEventListener('click', function (e) {
-          var target = document.querySelector(this.getAttribute('href'));
-          if (target) {
+          var t = document.querySelector(this.getAttribute('href'));
+          if (t) {
             e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            t.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
+        });
+      });
+
+      /* Card click → navigate */
+      document.querySelectorAll('.trilha-card').forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('a')) return;
+          var link = card.querySelector('.card-link');
+          if (link) window.location.href = link.href;
         });
       });
     })();
   </script>
 
-  <!-- FEATURE: Barra de progresso de leitura -->
-  <script>
-  (function(){
-    var bar = document.getElementById('read-progress');
-    if(!bar) return;
-    window.addEventListener('scroll', function(){
-      requestAnimationFrame(function(){
-        var h = document.body.scrollHeight - window.innerHeight;
-        var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-        bar.style.width = Math.min(pct, 100) + '%';
-      });
-    });
-  })();
-  </script>
-
-  <!-- FEATURE: Botão copiar link de seção -->
-  <script>
-  (function(){
-    document.querySelectorAll('.sec-header').forEach(function(header){
-      var section = header.closest('[id]');
-      var h2 = header.querySelector('h2.sec-title');
-      if(!section || !h2) return;
-      var btn = document.createElement('button');
-      btn.className = 'section-link-btn';
-      btn.type = 'button';
-      btn.textContent = '#';
-      btn.setAttribute('aria-label', 'Copiar link desta seção');
-      btn.addEventListener('click', function(){
-        var link = location.href.split('#')[0] + '#' + section.id;
-        function restore(){
-          btn.textContent = '✓';
-          btn.classList.add('copied');
-          setTimeout(function(){
-            btn.classList.remove('copied');
-            btn.textContent = '#';
-          }, 1500);
-        }
-        if(navigator.clipboard && navigator.clipboard.writeText){
-          navigator.clipboard.writeText(link).then(restore).catch(function(){ restore(); });
-        } else {
-          try{
-            var t = document.createElement('textarea');
-            t.value = link;
-            t.setAttribute('readonly','');
-            t.style.cssText = 'position:absolute;left:-9999px';
-            document.body.appendChild(t);
-            t.select();
-            document.execCommand('copy');
-            document.body.removeChild(t);
-          }catch(e){}
-          restore();
-        }
-      });
-      h2.appendChild(btn);
-    });
-  })();
-  </script>
-
 </body>
 
 </html>
-
