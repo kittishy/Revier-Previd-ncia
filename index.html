@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revier Academy · Treino que Vende</title>
-  <meta name="description"
-    content="Portal educacional interno da Revier Brokers. Trilhas de estudo para corretores de seguros e planos de saúde.">
+  <title>Revier Academy | Treino que vira fechamento</title>
+  <meta name="description" content="Portal interno de treinamento comercial da Revier Brokers.">
   <link rel="stylesheet" href="style.css">
-
   <style>
-    /* Card hover (inline styles can't handle :hover) */
-    .trilha-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 32px rgba(0,0,0,.08);
-      border-color: var(--dark);
-    }
-
-    .trilha-card:hover .card-link {
-      border-bottom-color: var(--dark);
-    }
-
-    /* Trilhas grid responsive */
     .trilhas-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
+    }
+
+    .trilha-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .08);
+      border-color: var(--dark);
     }
 
     @media (max-width: 1024px) {
@@ -38,355 +29,220 @@
       .trilhas-grid {
         grid-template-columns: 1fr;
       }
-    }
 
-    /* Steps grid */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-    }
-
-    .step {
-      padding: 0 48px;
-      border-right: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .step:first-child {
-      padding-left: 0;
-    }
-
-    .step:last-child {
-      border-right: none;
-      padding-right: 0;
-    }
-
-    @media (max-width: 768px) {
-      .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+      .ritmo-grid {
+        grid-template-columns: 1fr !important;
       }
 
-      .step {
-        padding: 0;
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-        padding-bottom: 40px;
+      .ritmo-step {
+        padding: 0 0 28px 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      .step:last-child {
+      .ritmo-step:last-child {
         border-bottom: none;
-        padding-bottom: 0;
+        padding-bottom: 0 !important;
       }
     }
 
-    /* Hero spacing */
-    .hero {
-      padding-top: 120px;
-      padding-bottom: 96px;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        padding-top: 80px;
-        padding-bottom: 64px;
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
       }
     }
   </style>
 </head>
-
 <body>
-
-  <!-- ═══════════ NAVBAR ═══════════ -->
   <nav class="nav">
     <div class="container">
       <div class="nav__inner">
         <a class="nav__logo" href="#">REVIER<span>ACADEMY</span></a>
-
         <ul class="nav__links">
           <li><a href="#trilhas">Trilhas</a></li>
           <li><a href="#como-usar">Ritmo</a></li>
-          <li><span class="badge">Uso Interno</span></li>
+          <li><span style="font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted)">Uso Interno</span></li>
         </ul>
-
-        <button class="nav__hamburger" id="hamburgerBtn" aria-label="Abrir menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="nav__mobile" id="mobileMenu">
-    <a href="#trilhas" onclick="closeMenu()">Trilhas</a>
-    <a href="#como-usar" onclick="closeMenu()">Ritmo</a>
-  </div>
-
-  <!-- ═══════════ HERO ═══════════ -->
-  <section class="hero" id="hero">
+  <section id="hero" style="padding-top:120px;padding-bottom:96px;">
     <div class="container">
-      <span class="label animate-fade-up">Portal de Treinamento Interno</span>
-
-      <h1 class="animate-fade-up delay-1">
-        Revier Academy<br>
+      <span class="label">Portal de Treinamento Interno</span>
+      <h1 style="margin-top:20px;font-weight:400;">
+        REVIER ACADEMY<br>
         <em>Treino que vira fechamento</em>
       </h1>
-
-      <p class="animate-fade-up delay-2" style="font-size:18px;color:var(--text-muted);max-width:520px;margin-top:32px;margin-bottom:12px;line-height:1.7">
-        Aqui ninguém estuda por estudar. Abre a trilha, pega argumento e volta para o atendimento vendendo melhor.
+      <p style="font-family:var(--font-body);font-size:18px;color:var(--text-muted);max-width:520px;margin-top:20px;">
+        Aqui ninguém estuda por estudar. O conteúdo existe para virar argumento de campo, destravar objeção e acelerar fechamento.
       </p>
-
-      <span class="animate-fade-up delay-2" style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);display:inline-block;margin-bottom:40px">
+      <span style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);display:inline-block;margin-top:18px;">
         <span style="color:var(--accent)">●</span> 10 guias no ar
       </span>
-
-      <div class="animate-fade-up delay-3" style="display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn btn--primary" href="#trilhas">
-          Abrir Trilhas
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
+      <div class="hero-actions" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
+        <a class="btn btn--primary" href="#trilhas">Abrir Trilhas</a>
         <a class="btn btn--outline" href="#como-usar">Como usar</a>
       </div>
     </div>
   </section>
 
-  <div class="container"><hr class="divider"></div>
+  <div class="container">
+    <hr class="divider">
+  </div>
 
-  <!-- ═══════════ TRILHAS ═══════════ -->
-  <section class="section" id="trilhas">
+  <section id="trilhas" class="section">
     <div class="container">
-      <div class="reveal" style="margin-bottom:64px">
-        <span class="label">Trilhas de Venda</span>
-        <h2>Escolha a trilha<br><span style="color:var(--accent)">/</span> e vai pra venda</h2>
-      </div>
+      <span class="label">Trilhas de Venda</span>
+      <h2 style="margin-top:16px;margin-bottom:32px;">
+        Escolha a trilha<br><span style="color:var(--accent)">/</span> e vai pra venda
+      </h2>
 
       <div class="trilhas-grid">
-
-        <!-- 1 — Previdência Privada -->
         <article class="trilha-card animate-fade-up delay-1" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
             <span class="badge">Essencial</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Previdência Privada</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">PGBL, VGBL, IR, fundos, objeções e o jeito certo de encaixar previdência sem enrolar o cliente.</p>
-          <a href="guias/revier-previdencia/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Previdência Privada</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">PGBL, VGBL, IR, fundos...</p>
+          <a href="guias/revier-previdencia/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
         </article>
 
-        <!-- 2 — Planos de Saúde PME -->
         <article class="trilha-card animate-fade-up delay-2" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
-            <span class="badge badge--popular">POPULAR</span>
+            <span class="badge">POPULAR</span>
             <span class="badge">Essencial</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Planos de Saúde PME</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Carência, rede, coparticipação e a conversa que faz PME sair do "vou pensar".</p>
-          <a href="guias/planos-saude-pme/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Planos de Saúde PME</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Carência, rede, coparticipação...</p>
+          <a href="guias/planos-saude-pme/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
         </article>
 
-        <!-- 3 — Seguro de Vida -->
         <article class="trilha-card animate-fade-up delay-3" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
-            <span class="badge badge--popular">POPULAR</span>
+            <span class="badge">POPULAR</span>
             <span class="badge">Intermediário</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Seguro de Vida</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Cobertura, sucessão e abordagem para virar proteção em fechamento, não em susto.</p>
-          <a href="guias/seguro-vida/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Seguro de Vida</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Cobertura, sucessão...</p>
+          <a href="guias/seguro-vida/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
         </article>
 
-        <!-- 4 — Odonto -->
         <article class="trilha-card animate-fade-up delay-4" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
             <span class="badge">Essencial</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Odonto</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">PF, PME, linha Amil Dental, preço, objeção e script que dá para falar sem soar decorado.</p>
-          <a href="guias/odonto/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Odonto</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">PF, PME, linha Amil Dental...</p>
+          <a href="guias/odonto/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
         </article>
 
-        <!-- 5 — Seguro Auto -->
         <article class="trilha-card animate-fade-up delay-5" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
             <span class="badge">Essencial</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Seguro Auto</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Cobertura, franquia, assistência e o caminho mais curto entre cotação e fechamento.</p>
-          <a href="guias/seguro-auto/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Seguro Auto</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Cobertura, franquia, assistência...</p>
+          <a href="guias/seguro-auto/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
         </article>
 
-        <!-- 6 — Consórcio -->
         <article class="trilha-card animate-fade-up delay-6" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
             <span class="badge">Intermediário</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Consórcio</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Lance, contemplação e posicionamento sem deixar o cliente achando que isso é loteria.</p>
-          <a href="guias/consorcio/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Consórcio</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Lance, contemplação...</p>
+          <a href="guias/consorcio/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
         </article>
 
-        <!-- 7 — Seguro Residencial -->
         <article class="trilha-card animate-fade-up delay-7" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
             <span class="badge">Essencial</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Seguro Residencial</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Cobertura do imóvel, RC e serviços que fazem o cliente perceber valor rápido.</p>
-          <a href="guias/seguro-residencial/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Seguro Residencial</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Cobertura do imóvel, RC...</p>
+          <a href="guias/seguro-residencial/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
         </article>
 
-        <!-- 8 — Pet -->
         <article class="trilha-card animate-fade-up delay-8" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
             <span class="badge">Essencial</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Pet</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Planos, cobertura e abordagem para vender sem parecer mimo caro.</p>
-          <a href="guias/pet/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Pet</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Planos, cobertura...</p>
+          <a href="guias/pet/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
         </article>
 
-        <!-- 9 — Seguro Viagem -->
         <article class="trilha-card animate-fade-up delay-9" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
             <span class="badge">Intermediário</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Seguro Viagem</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Cobertura por destino, exigência de embarque e argumento que vira urgência.</p>
-          <a href="guias/seguro-viagem/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Seguro Viagem</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Cobertura por destino...</p>
+          <a href="guias/seguro-viagem/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
         </article>
 
-        <!-- 10 — Seguro Empresarial -->
         <article class="trilha-card animate-fade-up delay-10" style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 24px;cursor:pointer;transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="badge badge--accent">Novo</span>
             <span class="badge">Avançado</span>
           </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Seguro Empresarial</h3>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px">Patrimonial, RC e leitura de risco sem papo engessado.</p>
-          <a href="guias/seguro-empresarial/index.html" class="card-link" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+          <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:10px;">Seguro Empresarial</h3>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Patrimonial, RC...</p>
+          <a href="guias/seguro-empresarial/index.html" style="font-size:14px;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 150ms ease">Acessar Guia →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-usar" class="section section--dark">
+    <div class="container">
+      <span class="label label--light">Ritmo de Uso</span>
+      <h2 style="margin-top:16px;color:white;">Estuda, testa, fecha</h2>
+
+      <div class="ritmo-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;">
+        <article class="ritmo-step" style="padding:0 48px 0 0;border-right:1px solid rgba(255,255,255,0.1);">
+          <span style="font-family:var(--font-display);font-size:64px;color:rgba(255,255,255,.06);display:block;line-height:1;margin-bottom:12px;">01</span>
+          <h3 style="font-family:var(--font-body);font-weight:500;font-size:20px;line-height:1.35;color:white;margin-bottom:10px;">Pega o que trava venda</h3>
+          <p style="font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.6);">Escolhe o guia do produto onde você mais perde fechamento e mira só no que destrava.</p>
         </article>
 
+        <article class="ritmo-step" style="padding:0 48px;border-right:1px solid rgba(255,255,255,0.1);">
+          <span style="font-family:var(--font-display);font-size:64px;color:rgba(255,255,255,.06);display:block;line-height:1;margin-bottom:12px;">02</span>
+          <h3 style="font-family:var(--font-body);font-weight:500;font-size:20px;line-height:1.35;color:white;margin-bottom:10px;">Lê com olho de campo</h3>
+          <p style="font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.6);">Vai direto em argumento, objeção e roteiro curto para usar na conversa real.</p>
+        </article>
+
+        <article class="ritmo-step" style="padding:0 0 0 48px;">
+          <span style="font-family:var(--font-display);font-size:64px;color:rgba(255,255,255,.06);display:block;line-height:1;margin-bottom:12px;">03</span>
+          <h3 style="font-family:var(--font-body);font-weight:500;font-size:20px;line-height:1.35;color:white;margin-bottom:10px;">Leva para a conversa</h3>
+          <p style="font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.6);">Aplica no atendimento do dia e transforma conteúdo em fechamento de verdade.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ RITMO DE USO ═══════════ -->
-  <section class="section section--dark" id="como-usar">
-    <div class="container">
-      <div class="reveal" style="margin-bottom:64px">
-        <span class="label label--light">Ritmo de Uso</span>
-        <h2>Estuda, testa,<br>fecha</h2>
-      </div>
-
-      <div class="steps-grid">
-        <div class="step reveal">
-          <span style="font-family:var(--font-display);font-size:64px;color:rgba(255,255,255,.06);line-height:1;display:block;margin-bottom:16px">01</span>
-          <strong style="font-family:var(--font-body);font-weight:500;font-size:16px;color:white;display:block;margin-bottom:8px">Pega o que trava venda</strong>
-          <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6">Abre o produto que mais aparece na tua rotina ou o que mais te faz perder fechamento.</p>
-        </div>
-
-        <div class="step reveal">
-          <span style="font-family:var(--font-display);font-size:64px;color:rgba(255,255,255,.06);line-height:1;display:block;margin-bottom:16px">02</span>
-          <strong style="font-family:var(--font-body);font-weight:500;font-size:16px;color:white;display:block;margin-bottom:8px">Lê com olho de campo</strong>
-          <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6">Vai direto em regra, preço, objeção e script. O que destrava venda vem primeiro.</p>
-        </div>
-
-        <div class="step reveal">
-          <span style="font-family:var(--font-display);font-size:64px;color:rgba(255,255,255,.06);line-height:1;display:block;margin-bottom:16px">03</span>
-          <strong style="font-family:var(--font-body);font-weight:500;font-size:16px;color:white;display:block;margin-bottom:8px">Leva para a conversa</strong>
-          <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6">Testa no telefone, no WhatsApp e na reunião. Se virou fala boa, vira comissão.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
-    <div class="container" style="text-align:center">
-      <div class="footer__disclaimer" style="margin-bottom:16px">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        Uso Interno — Revier Brokers
-      </div>
-
-      <span class="footer__logo">REVIER<span> ACADEMY</span></span>
-
-      <p style="margin-top:16px">
-        Revier Corretora de Seguros Ltda.<br>
-        CNPJ 42.621.875/0001-50<br>
+    <div class="container">
+      <span class="footer__logo">REVIER BROKERS</span>
+      <p>Revier Corretora de Seguros Ltda. | CNPJ 42.621.875/0001-50</p>
+      <p style="margin-top:8px;">
         <a href="mailto:contato@reviercorretora.com.br">contato@reviercorretora.com.br</a> ·
-        <a href="tel:+551155559350">(11) 5555-9350</a><br>
+        <a href="tel:+551155559350">(11) 5555-9350</a> ·
         Santo André, SP
       </p>
-
       <span class="footer__copy">© 2026 Revier Brokers. Material de uso exclusivo para equipe interna.</span>
     </div>
   </footer>
-
-  <!-- ═══════════ JS ═══════════ -->
-  <script>
-    (function () {
-      'use strict';
-
-      /* Scroll reveal */
-      var els = document.querySelectorAll('.reveal');
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      els.forEach(function (el) { obs.observe(el); });
-
-      /* Hamburger */
-      var hamburger = document.getElementById('hamburgerBtn');
-      var mobileMenu = document.getElementById('mobileMenu');
-
-      hamburger.addEventListener('click', function () {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('open');
-        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-      });
-
-      window.closeMenu = function () {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      };
-
-      /* Smooth scroll */
-      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-        a.addEventListener('click', function (e) {
-          var t = document.querySelector(this.getAttribute('href'));
-          if (t) {
-            e.preventDefault();
-            t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-
-      /* Card click → navigate */
-      document.querySelectorAll('.trilha-card').forEach(function (card) {
-        card.addEventListener('click', function (e) {
-          if (e.target.closest('a')) return;
-          var link = card.querySelector('.card-link');
-          if (link) window.location.href = link.href;
-        });
-      });
-    })();
-  </script>
-
 </body>
-
 </html>

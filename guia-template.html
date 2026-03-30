@@ -1,85 +1,442 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{TITULO}} · Revier Academy</title>
+  <title>{{TITULO}} | Revier Academy</title>
   <meta name="description" content="{{META_DESCRIPTION}}">
   <link rel="stylesheet" href="../../style.css">
+  <style>
+    .guia-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .resumo-toggle {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: border-color var(--transition);
+      text-align: left;
+    }
+
+    .resumo-toggle:hover {
+      border-color: var(--dark);
+    }
+
+    .resumo-icon {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1;
+    }
+
+    .resumo-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      margin-top: 12px;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 0 24px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .resumo-body.open {
+      max-height: 400px;
+      padding: 20px 24px;
+    }
+
+    .resumo-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .resumo-body li {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .resumo-body li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .guia-sidebar {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    .guia-sidebar ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .guia-sidebar li {
+      margin: 0;
+    }
+
+    .sidebar-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: block;
+      padding: 6px 0 6px 12px;
+      border-left: 2px solid transparent;
+      transition: all 150ms ease;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .sidebar-link:hover {
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+
+    .sidebar-link.active {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .sidebar-toggle {
+      display: none;
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .guia-secao {
+      padding-top: 72px;
+      margin-top: 72px;
+      border-top: 1px solid var(--border);
+    }
+
+    .guia-secao:first-of-type {
+      padding-top: 0;
+      margin-top: 0;
+      border-top: none;
+    }
+
+    .secao-header {
+      margin-bottom: 18px;
+    }
+
+    .secao-header h2 {
+      margin-top: 10px;
+    }
+
+    .secao-body {
+      max-width: 680px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .secao-body p {
+      font-size: 15px;
+      color: var(--text-primary);
+    }
+
+    .bloco-dica {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 16px 20px;
+      border-radius: 0 4px 4px 0;
+      margin-block: 24px;
+    }
+
+    .bloco-atencao {
+      border-left: 3px solid #B45309;
+      background: #FFFBEB;
+      padding: 16px 20px;
+      border-radius: 0 4px 4px 0;
+      margin-block: 24px;
+    }
+
+    .bloco-script {
+      border-left: 3px solid var(--border);
+      background: var(--tag-bg);
+      padding: 16px 20px;
+      border-radius: 0 4px 4px 0;
+      margin-block: 24px;
+      font-style: italic;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-block: 24px;
+    }
+
+    .card-item {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px;
+      transition: border-color 150ms ease;
+      background: var(--surface);
+    }
+
+    .card-item:hover {
+      border-color: var(--dark);
+    }
+
+    .card-item__icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--tag-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .card-item__title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .card-item__desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .tabela-dados {
+      border-collapse: collapse;
+      width: 100%;
+      margin-block: 24px;
+    }
+
+    .tabela-dados th {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: var(--tag-bg);
+      padding: 10px 16px;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .tabela-dados td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .tabela-dados tr:hover td {
+      background: rgba(0, 0, 0, .02);
+    }
+
+    .lista-custom {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .lista-custom li {
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .lista-custom li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .barra-progressao {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-block: 24px;
+    }
+
+    .barra-item {
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .barra-item__label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .barra-item__track {
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .barra-item__fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .barra-item__valor {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    @media (max-width: 1024px) {
+      .guia-layout {
+        gap: 40px;
+      }
+
+      .barra-item {
+        grid-template-columns: 140px 1fr auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .guia-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .guia-sidebar {
+        position: static;
+        top: auto;
+        max-height: none;
+        overflow: visible;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 14px;
+        background: var(--surface);
+      }
+
+      .sidebar-toggle {
+        display: flex;
+      }
+
+      .guia-sidebar ol {
+        display: none;
+        margin-top: 6px;
+      }
+
+      .guia-sidebar.open ol {
+        display: block;
+      }
+
+      .guia-sidebar > .label {
+        display: none !important;
+      }
+
+      .barra-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .barra-item__valor {
+        justify-self: start;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-  <!-- ═══════════ NAVBAR ═══════════ -->
   <nav class="nav">
     <div class="container">
       <div class="nav__inner">
-        <a class="nav__logo" href="../../index.html">REVIER<span class="badge" style="margin-left:8px">GUIA</span></a>
+        <a class="nav__logo" href="#">REVIER<span class="badge" style="margin-left:8px">GUIA</span></a>
         <a class="nav__back" href="../../index.html">← Portal</a>
       </div>
     </div>
   </nav>
 
-  <!-- ═══════════ HERO DO GUIA ═══════════ -->
-  <section class="section" id="hero" style="padding-top:80px;padding-bottom:64px">
+  <section class="section" style="padding-top:80px;padding-bottom:64px">
     <div class="container">
-      <span class="label animate-fade-up">{{CATEGORIA}}</span>
-
-      <h1 class="animate-fade-up delay-1" style="margin-bottom:16px">
-        {{TITULO}}<br><em>{{TERMO_CHAVE}}</em>
+      <span class="label">{{CATEGORIA}}</span>
+      <h1 style="margin-top:18px">
+        {{TITULO}}<br>
+        <em>{{TERMO_CHAVE}}</em>
       </h1>
-
-      <p class="animate-fade-up delay-2" style="font-size:18px;color:var(--text-muted);max-width:520px;margin-bottom:32px;line-height:1.7">
+      <p style="font-size:18px;color:var(--text-muted);max-width:520px;margin-top:18px">
         {{SUBTITULO}}
       </p>
-
-      <div class="animate-fade-up delay-3" style="display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn btn--primary" href="#secao-1">
-          Abrir o guia →
-        </a>
-        <a class="btn btn--outline" href="#checklist">
-          Ver checklist
-        </a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+        <a class="btn btn--primary" href="#secao-1">Abrir o guia →</a>
+        <a class="btn btn--outline" href="#checklist">Ver checklist</a>
       </div>
     </div>
   </section>
 
-  <div class="container"><hr class="divider"></div>
+  <div class="container">
+    <hr class="divider">
+  </div>
 
-  <!-- ═══════════ RESUMO RÁPIDO ═══════════ -->
-  <section class="section" style="padding-top:48px;padding-bottom:0">
+  <section class="section" style="padding-top:36px;padding-bottom:24px">
     <div class="container">
       <button class="resumo-toggle" type="button">
         <span class="label" style="margin-bottom:0">Resumo Rápido — 30 Segundos</span>
         <span class="resumo-icon">▾</span>
       </button>
-
       <div class="resumo-body">
-        <div class="resumo-content">
-          <ul>
-            <li>{{RESUMO_ITEM_1}}</li>
-            <li>{{RESUMO_ITEM_2}}</li>
-            <li>{{RESUMO_ITEM_3}}</li>
-            <li>{{RESUMO_ITEM_4}}</li>
-            <li>{{RESUMO_ITEM_5}}</li>
-          </ul>
-        </div>
+        <ul>
+          {{RESUMO_ITEMS}}
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ CONTEÚDO PRINCIPAL ═══════════ -->
-  <section class="section" style="padding-top:48px">
+  <section class="section" style="padding-top:12px">
     <div class="container">
       <div class="guia-layout">
-
-        <!-- SIDEBAR -->
-        <nav class="guia-sidebar" aria-label="Índice do guia">
+        <nav class="guia-sidebar" aria-label="Navegação do guia">
           <span class="label" style="margin-bottom:16px;display:block">Índice</span>
-          <button class="sidebar-toggle" type="button">
-            Índice do Guia <span style="margin-left:auto">▾</span>
-          </button>
+          <button class="sidebar-toggle" type="button">Índice <span>▾</span></button>
           <ol>
             <li><a class="sidebar-link active" href="#secao-1">01 {{TITULO_SECAO_1}}</a></li>
             <li><a class="sidebar-link" href="#secao-2">02 {{TITULO_SECAO_2}}</a></li>
@@ -91,295 +448,219 @@
           </ol>
         </nav>
 
-        <!-- CONTEÚDO -->
         <main>
-
-          <!-- ——— SEÇÃO 1 ——— -->
           <section class="guia-secao" id="secao-1">
             <div class="secao-header">
               <span class="label">01 · {{LABEL_CATEGORIA}}</span>
-              <h2>{{TITULO_SECAO_1}}</h2>
             </div>
+            <h2>{{TITULO_SECAO_1}}</h2>
             <div class="secao-body">
-              <p>{{PARAGRAFO_INTRO}}</p>
+              <p>{{CONTEUDO_SECAO_1}}</p>
 
-              <!-- Exemplo: Cards grid -->
-              <div class="cards-grid">
-                <div class="card-item">
-                  <div class="card-item__icon">01</div>
-                  <div class="card-item__title">{{CARD_TITULO_1}}</div>
-                  <div class="card-item__desc">{{CARD_DESC_1}}</div>
-                </div>
-                <div class="card-item">
-                  <div class="card-item__icon">02</div>
-                  <div class="card-item__title">{{CARD_TITULO_2}}</div>
-                  <div class="card-item__desc">{{CARD_DESC_2}}</div>
-                </div>
-                <div class="card-item">
-                  <div class="card-item__icon">03</div>
-                  <div class="card-item__title">{{CARD_TITULO_3}}</div>
-                  <div class="card-item__desc">{{CARD_DESC_3}}</div>
-                </div>
-              </div>
-
-              <!-- Exemplo: Bloco dica -->
               <div class="bloco-dica">
                 <span class="label" style="color:var(--accent);margin-bottom:8px;display:block">Dica</span>
-                <p style="margin:0;font-size:14px;line-height:1.6">{{TEXTO_DICA}}</p>
+                <p>{{DICA_SECAO_1}}</p>
+              </div>
+
+              <div class="cards-grid">
+                <article class="card-item">
+                  <div class="card-item__icon">01</div>
+                  <h3 class="card-item__title">{{CARD_TITULO_1}}</h3>
+                  <p class="card-item__desc">{{CARD_DESC_1}}</p>
+                </article>
+                <article class="card-item">
+                  <div class="card-item__icon">02</div>
+                  <h3 class="card-item__title">{{CARD_TITULO_2}}</h3>
+                  <p class="card-item__desc">{{CARD_DESC_2}}</p>
+                </article>
+                <article class="card-item">
+                  <div class="card-item__icon">03</div>
+                  <h3 class="card-item__title">{{CARD_TITULO_3}}</h3>
+                  <p class="card-item__desc">{{CARD_DESC_3}}</p>
+                </article>
               </div>
             </div>
           </section>
 
-          <!-- ——— SEÇÃO 2 ——— -->
           <section class="guia-secao" id="secao-2">
             <div class="secao-header">
               <span class="label">02 · {{LABEL_CATEGORIA}}</span>
-              <h2>{{TITULO_SECAO_2}}</h2>
             </div>
+            <h2>{{TITULO_SECAO_2}}</h2>
             <div class="secao-body">
-              <p>{{PARAGRAFO}}</p>
+              <p>{{CONTEUDO_SECAO_2}}</p>
 
-              <!-- Exemplo: Lista custom -->
               <ul class="lista-custom">
-                <li>{{ITEM_1}}</li>
-                <li>{{ITEM_2}}</li>
-                <li>{{ITEM_3}}</li>
-                <li>{{ITEM_4}}</li>
+                <li>{{LISTA_ITEM_1}}</li>
+                <li>{{LISTA_ITEM_2}}</li>
+                <li>{{LISTA_ITEM_3}}</li>
+                <li>{{LISTA_ITEM_4}}</li>
               </ul>
 
-              <!-- Exemplo: Bloco atenção -->
               <div class="bloco-atencao">
                 <span class="label" style="color:#B45309;margin-bottom:8px;display:block">Atenção</span>
-                <p style="margin:0;font-size:14px;line-height:1.6">{{TEXTO_ATENCAO}}</p>
+                <p>{{ATENCAO_SECAO_2}}</p>
               </div>
             </div>
           </section>
 
-          <!-- ——— SEÇÃO 3 ——— -->
           <section class="guia-secao" id="secao-3">
             <div class="secao-header">
               <span class="label">03 · {{LABEL_CATEGORIA}}</span>
-              <h2>{{TITULO_SECAO_3}}</h2>
             </div>
+            <h2>{{TITULO_SECAO_3}}</h2>
             <div class="secao-body">
-              <p>{{PARAGRAFO}}</p>
+              <p>{{CONTEUDO_SECAO_3}}</p>
 
-              <!-- Exemplo: Tabela de dados -->
+              <div class="bloco-script">
+                <span class="label" style="margin-bottom:8px;display:block">Script</span>
+                <p>{{SCRIPT_SECAO_3}}</p>
+              </div>
+
               <table class="tabela-dados">
                 <thead>
                   <tr>
-                    <th>{{COL_1}}</th>
-                    <th>{{COL_2}}</th>
-                    <th>{{COL_3}}</th>
-                    <th>{{COL_4}}</th>
+                    <th>{{COLUNA_1}}</th>
+                    <th>{{COLUNA_2}}</th>
+                    <th>{{COLUNA_3}}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{DADO_1A}}</td>
-                    <td>{{DADO_1B}}</td>
-                    <td>{{DADO_1C}}</td>
-                    <td>{{DADO_1D}}</td>
+                    <td>{{LINHA_1_COL_1}}</td>
+                    <td>{{LINHA_1_COL_2}}</td>
+                    <td>{{LINHA_1_COL_3}}</td>
                   </tr>
                   <tr>
-                    <td>{{DADO_2A}}</td>
-                    <td>{{DADO_2B}}</td>
-                    <td>{{DADO_2C}}</td>
-                    <td>{{DADO_2D}}</td>
+                    <td>{{LINHA_2_COL_1}}</td>
+                    <td>{{LINHA_2_COL_2}}</td>
+                    <td>{{LINHA_2_COL_3}}</td>
                   </tr>
                   <tr>
-                    <td>{{DADO_3A}}</td>
-                    <td>{{DADO_3B}}</td>
-                    <td>{{DADO_3C}}</td>
-                    <td>{{DADO_3D}}</td>
+                    <td>{{LINHA_3_COL_1}}</td>
+                    <td>{{LINHA_3_COL_2}}</td>
+                    <td>{{LINHA_3_COL_3}}</td>
                   </tr>
                 </tbody>
               </table>
-
-              <!-- Exemplo: Bloco script -->
-              <div class="bloco-script">
-                <span class="label" style="margin-bottom:8px;display:block">Script</span>
-                <p style="margin:0;font-size:14px;line-height:1.6">{{TEXTO_SCRIPT}}</p>
-              </div>
             </div>
           </section>
 
-          <!-- ——— SEÇÃO 4 ——— -->
           <section class="guia-secao" id="secao-4">
             <div class="secao-header">
               <span class="label">04 · {{LABEL_CATEGORIA}}</span>
-              <h2>{{TITULO_SECAO_4}}</h2>
             </div>
+            <h2>{{TITULO_SECAO_4}}</h2>
             <div class="secao-body">
-              <p>{{PARAGRAFO}}</p>
+              <p>{{CONTEUDO_SECAO_4}}</p>
 
-              <!-- Exemplo: Barra de progressão -->
               <div class="barra-progressao">
                 <div class="barra-item">
                   <span class="barra-item__label">{{BARRA_LABEL_1}}</span>
                   <div class="barra-item__track">
-                    <div class="barra-item__fill" style="width:{{BARRA_PCT_1}}%"></div>
+                    <div class="barra-item__fill" style="width: {{BARRA_PERCENTUAL_1}}%;"></div>
                   </div>
-                  <span class="barra-item__valor">{{BARRA_PCT_1}}%</span>
+                  <span class="barra-item__valor">{{BARRA_PERCENTUAL_1}}%</span>
                 </div>
                 <div class="barra-item">
                   <span class="barra-item__label">{{BARRA_LABEL_2}}</span>
                   <div class="barra-item__track">
-                    <div class="barra-item__fill" style="width:{{BARRA_PCT_2}}%"></div>
+                    <div class="barra-item__fill" style="width: {{BARRA_PERCENTUAL_2}}%;"></div>
                   </div>
-                  <span class="barra-item__valor">{{BARRA_PCT_2}}%</span>
+                  <span class="barra-item__valor">{{BARRA_PERCENTUAL_2}}%</span>
                 </div>
                 <div class="barra-item">
                   <span class="barra-item__label">{{BARRA_LABEL_3}}</span>
                   <div class="barra-item__track">
-                    <div class="barra-item__fill" style="width:{{BARRA_PCT_3}}%"></div>
+                    <div class="barra-item__fill" style="width: {{BARRA_PERCENTUAL_3}}%;"></div>
                   </div>
-                  <span class="barra-item__valor">{{BARRA_PCT_3}}%</span>
+                  <span class="barra-item__valor">{{BARRA_PERCENTUAL_3}}%</span>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- ——— SEÇÃO 5 ——— -->
           <section class="guia-secao" id="secao-5">
             <div class="secao-header">
               <span class="label">05 · {{LABEL_CATEGORIA}}</span>
-              <h2>{{TITULO_SECAO_5}}</h2>
             </div>
+            <h2>{{TITULO_SECAO_5}}</h2>
             <div class="secao-body">
-              <p>{{PARAGRAFO}}</p>
-
-              <div class="bloco-dica">
-                <span class="label" style="color:var(--accent);margin-bottom:8px;display:block">Dica</span>
-                <p style="margin:0;font-size:14px;line-height:1.6">{{TEXTO_DICA}}</p>
-              </div>
+              <p>{{CONTEUDO_SECAO_5}}</p>
             </div>
           </section>
 
-          <!-- ——— SEÇÃO 6 ——— -->
           <section class="guia-secao" id="secao-6">
             <div class="secao-header">
               <span class="label">06 · {{LABEL_CATEGORIA}}</span>
-              <h2>{{TITULO_SECAO_6}}</h2>
             </div>
+            <h2>{{TITULO_SECAO_6}}</h2>
             <div class="secao-body">
-              <p>{{PARAGRAFO}}</p>
-
-              <div class="bloco-script">
-                <span class="label" style="margin-bottom:8px;display:block">Script</span>
-                <p style="margin:0;font-size:14px;line-height:1.6">{{TEXTO_SCRIPT}}</p>
-              </div>
+              <p>{{CONTEUDO_SECAO_6}}</p>
             </div>
           </section>
 
-          <!-- ——— CHECKLIST ——— -->
           <section class="guia-secao" id="checklist">
             <div class="secao-header">
               <span class="label">07 · Checklist</span>
-              <h2>Antes de fechar</h2>
             </div>
+            <h2>Checklist</h2>
             <div class="secao-body">
               <ul class="lista-custom">
-                <li>{{CHECK_1}}</li>
-                <li>{{CHECK_2}}</li>
-                <li>{{CHECK_3}}</li>
-                <li>{{CHECK_4}}</li>
-                <li>{{CHECK_5}}</li>
+                <li>{{CHECKLIST_ITEM_1}}</li>
+                <li>{{CHECKLIST_ITEM_2}}</li>
+                <li>{{CHECKLIST_ITEM_3}}</li>
+                <li>{{CHECKLIST_ITEM_4}}</li>
+                <li>{{CHECKLIST_ITEM_5}}</li>
               </ul>
             </div>
           </section>
-
         </main>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
-    <div class="container" style="text-align:center">
-      <div class="footer__disclaimer" style="margin-bottom:16px">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        Uso Interno — Revier Brokers
-      </div>
-
-      <span class="footer__logo">REVIER<span> ACADEMY</span></span>
-
-      <p style="margin-top:16px">
-        Revier Corretora de Seguros Ltda.<br>
-        CNPJ 42.621.875/0001-50<br>
+    <div class="container">
+      <span class="footer__logo">REVIER BROKERS</span>
+      <p>Revier Corretora de Seguros Ltda. | CNPJ 42.621.875/0001-50</p>
+      <p style="margin-top:8px;">
         <a href="mailto:contato@reviercorretora.com.br">contato@reviercorretora.com.br</a> ·
-        <a href="tel:+551155559350">(11) 5555-9350</a><br>
+        <a href="tel:+551155559350">(11) 5555-9350</a> ·
         Santo André, SP
       </p>
-
       <span class="footer__copy">© 2026 Revier Brokers. Material de uso exclusivo para equipe interna.</span>
     </div>
   </footer>
 
-  <!-- ═══════════ JS ═══════════ -->
   <script>
-    (function () {
-      'use strict';
+    // 1. Toggle resumo rápido
+    const btn = document.querySelector('.resumo-toggle');
+    const body = document.querySelector('.resumo-body');
+    const icon = document.querySelector('.resumo-icon');
+    btn?.addEventListener('click', () => {
+      body.classList.toggle('open');
+      icon.textContent = body.classList.contains('open') ? '▴' : '▾';
+    });
 
-      /* 1. Toggle resumo rápido */
-      var btn = document.querySelector('.resumo-toggle');
-      var body = document.querySelector('.resumo-body');
-      var icon = document.querySelector('.resumo-icon');
-      if (btn) {
-        btn.addEventListener('click', function () {
-          body.classList.toggle('open');
-          icon.textContent = body.classList.contains('open') ? '▴' : '▾';
-        });
-      }
-
-      /* 2. Sidebar — highlight seção ativa */
-      var sections = document.querySelectorAll('.guia-secao');
-      var links = document.querySelectorAll('.sidebar-link');
-      var sectionObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            links.forEach(function (l) { l.classList.remove('active'); });
-            var link = document.querySelector('.sidebar-link[href="#' + e.target.id + '"]');
-            if (link) link.classList.add('active');
-          }
-        });
-      }, { threshold: 0.3 });
-      sections.forEach(function (s) { sectionObserver.observe(s); });
-
-      /* 3. Mobile sidebar toggle */
-      var sidebarToggle = document.querySelector('.sidebar-toggle');
-      var sidebar = document.querySelector('.guia-sidebar');
-      if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', function () {
-          sidebar.classList.toggle('open');
-        });
-      }
-
-      /* 4. Smooth scroll */
-      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-        a.addEventListener('click', function (e) {
-          var t = document.querySelector(this.getAttribute('href'));
-          if (t) {
-            e.preventDefault();
-            t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
+    // 2. Sidebar — highlight seção ativa via IntersectionObserver
+    const sections = document.querySelectorAll('.guia-secao');
+    const links = document.querySelectorAll('.sidebar-link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`.sidebar-link[href="#${e.target.id}"]`);
+          link?.classList.add('active');
+        }
       });
+    }, { threshold: 0.3 });
+    sections.forEach(s => observer.observe(s));
 
-      /* 5. Scroll reveal */
-      var revealEls = document.querySelectorAll('.reveal');
-      var revealObs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            revealObs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      revealEls.forEach(function (el) { revealObs.observe(el); });
-    })();
+    // 3. Mobile sidebar toggle (se existir)
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebar = document.querySelector('.guia-sidebar');
+    sidebarToggle?.addEventListener('click', () => sidebar.classList.toggle('open'));
   </script>
-
 </body>
-
 </html>
