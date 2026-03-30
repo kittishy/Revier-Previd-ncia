@@ -21,6 +21,11 @@
       "sourceType": "github",
       "computedHash": "645b891da1edbae76ab79c7b088d4e73397464f8396edaf773c0e01971ce75d6"
     },
+    "firecrawl": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "computedHash": "c6fc0e3b85e52803da642789ab2b654f68e04c86b7cea61580286dc04028009d"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",
