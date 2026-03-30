@@ -118,7 +118,7 @@
 }
 
 .sidebar-nav a:hover { color: var(--text-primary); border-left-color: var(--border-strong, #CAC6BE); }
-.sidebar-nav a.active { color: var(--text-primary); font-weight: 500; border-left-color: var(--accent); }
+.sidebar-nav a.active { color: var(--text-primary); font-weight: 500; border-left-color: var(--accent-secondary, #0F76F7); }
 
 .sidebar-num {
   font-family: var(--font-mono);
