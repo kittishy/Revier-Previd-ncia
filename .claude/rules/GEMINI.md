@@ -71,6 +71,16 @@ When auto-applying an agent, inform the user:
 2. **Respect Overrides**: If user mentions `@agent`, use it.
 3. **Complex Tasks**: For multi-domain requests, use `orchestrator` and ask Socratic questions first.
 
+### 🩺 Revier Insurance Always-On Override
+
+For this workspace, always prioritize `@insurance-broker-specialist` as domain context guardian.
+
+Apply this policy before standard routing:
+
+1. If the request is about Revier, plano de saude, seguros, precificacao, reajuste, carencia, ANS, SUSEP, or sales scripts for these products, route to `@insurance-broker-specialist` first.
+2. If code/design work is also required, use `@orchestrator` and include `@insurance-broker-specialist` as mandatory reviewer for factual correctness.
+3. When in doubt, prefer including `@insurance-broker-specialist` rather than excluding it.
+
 ### ⚠️ AGENT ROUTING CHECKLIST (MANDATORY BEFORE EVERY CODE/DESIGN RESPONSE)
 
 **Before ANY code or design work, you MUST complete this mental checklist:**
