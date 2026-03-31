@@ -15,8 +15,19 @@ export async function generateMetadata({ params }) {
   const data = getGuideData(slug)
   if (!data) return {}
   return {
-    title: `${data.title} | Revier Academy`,
-    description: data.description,
+    title: data.title,
+    description: data.description || `Guia interno Revier sobre ${data.title}.`,
+    alternates: {
+      canonical: `/guias/${slug}`,
+    },
+    openGraph: {
+      type: 'article',
+      url: `/guias/${slug}`,
+      title: data.title,
+      description: data.description || `Guia interno Revier sobre ${data.title}.`,
+      locale: 'pt_BR',
+      siteName: 'Revier Academy',
+    },
   }
 }
 
@@ -25,14 +36,52 @@ export default async function GuidePage({ params }) {
   const data = getGuideData(slug)
   if (!data) notFound()
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.title,
+    description: data.description || `Guia interno Revier sobre ${data.title}.`,
+    inLanguage: 'pt-BR',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'Revier Academy',
+      url: 'https://revier-academy.vercel.app',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Revier Corretora de Seguros Ltda.',
+      url: 'https://revier-academy.vercel.app',
+    },
+    mainEntityOfPage: `https://revier-academy.vercel.app/guias/${slug}`,
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Portal',
+        item: 'https://revier-academy.vercel.app/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: data.title,
+        item: `https://revier-academy.vercel.app/guias/${slug}`,
+      },
+    ],
+  }
+
   return (
     <div className={styles.guidePage}>
-      <nav className={styles.guideNav}>
+      <nav className={styles.guideNav} aria-label="Navegacao do guia">
         <span className={styles.guideNavLogo}>REVIER BROKERS</span>
         <Link href="/" className={styles.guideNavBack}>← Portal</Link>
       </nav>
 
-      <aside className={styles.guideSidebar}>
+      <aside className={styles.guideSidebar} aria-label="Indice do guia">
         <span className={styles.sidebarLabel}>Neste guia</span>
         <ul className={styles.sidebarNav}>
           {data.sidebarItems.map(item => (
@@ -46,7 +95,7 @@ export default async function GuidePage({ params }) {
         </ul>
       </aside>
 
-      <main className={styles.guideMain}>
+      <main id="main-content" className={styles.guideMain}>
         <div className={styles.guideHero}>
           <p className={styles.guideHeroLabel}>Guia Interno · Material Exclusivo · Equipe Revier</p>
           <h1
@@ -103,6 +152,15 @@ export default async function GuidePage({ params }) {
 
         <SidebarObserver />
         <GuideEffects />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
       </main>
     </div>
   )
