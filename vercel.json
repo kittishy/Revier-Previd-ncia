@@ -1,10 +1,11 @@
 {
+  "outputDirectory": "out",
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     {
       "source": "/previdencia",
-      "destination": "/revier-previdencia",
+      "destination": "/guias/revier-previdencia",
       "permanent": true
     }
   ]
