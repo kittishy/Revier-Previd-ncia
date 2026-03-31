@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     /* ── HERO ── */
-    .hero-section { padding-top: 120px; padding-bottom: 96px; position: relative; }
+    .hero-section { padding-top: 136px; padding-bottom: 112px; position: relative; }
     .hero-section::before {
       content: '';
       position: absolute;
@@ -21,36 +21,36 @@
     .hero-section h1 { margin-top: 20px; font-weight: 400; }
     .hero-desc {
       font-family: var(--font-body);
-      font-size: 18px;
+      font-size: 21px;
       color: var(--text-secondary);
-      max-width: 520px;
-      margin-top: 20px;
-      line-height: 1.7;
+      max-width: 620px;
+      margin-top: 24px;
+      line-height: 1.75;
     }
     .hero-stat {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--text-muted);
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      margin-top: 20px;
+      gap: 8px;
+      margin-top: 24px;
     }
     .hero-stat-dot { color: var(--accent); }
     .hero-actions {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 32px;
     }
 
     /* ── GUIDES GRID ── */
     .trilhas-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 24px;
       counter-reset: guide-card;
     }
 
@@ -58,26 +58,23 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius, 6px);
-      padding: 32px 28px;
+      padding: 38px 32px;
       cursor: pointer;
       transition: transform var(--transition, 200ms), box-shadow var(--transition, 200ms), border-color var(--transition, 200ms);
       position: relative;
       counter-increment: guide-card;
-      border-left: 3px solid var(--card-accent, var(--border));
+      border-left: 4px solid var(--card-accent, var(--border));
     }
-    .trilha-card[data-category="saude"] { --card-accent: #16a34a; }
     .trilha-card[data-category="financeiro"] { --card-accent: #2563eb; }
-    .trilha-card[data-category="patrimonio"] { --card-accent: #d97706; }
-    .trilha-card[data-category="pet"] { --card-accent: #e11d48; }
-    .trilha-card[data-category="viagem"] { --card-accent: #0891b2; }
+    .trilha-card[data-category="protecao"] { --card-accent: #179c52; }
 
     /* Subtle auto-number per card — editorial touch */
     .trilha-card::after {
       content: counter(guide-card, decimal-leading-zero);
       position: absolute;
-      top: 28px; right: 24px;
+      top: 30px; right: 26px;
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--border-strong, #CAC6BE);
       letter-spacing: 0.06em;
       pointer-events: none;
@@ -94,35 +91,35 @@
       display: flex;
       gap: 6px;
       flex-wrap: wrap;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     /* Card title */
     .trilha-card h3 {
       font-family: var(--font-display);
-      font-size: 22px;
+      font-size: 30px;
       font-weight: 400;
-      margin-bottom: 10px;
-      line-height: 1.2;
+      margin-bottom: 14px;
+      line-height: 1.18;
     }
 
     /* Card description */
     .trilha-card > p {
-      font-size: 14px;
+      font-size: 17px;
       color: var(--text-muted, #5C5549);
-      margin-bottom: 20px;
-      line-height: 1.65;
+      margin-bottom: 26px;
+      line-height: 1.72;
     }
 
     /* Card CTA link */
     .trilha-card a[href] {
       display: inline-block;
-      font-size: 13px;
+      font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.01em;
       color: var(--text-primary, #0D0D0D);
       border-bottom: 1px solid var(--border, #E5E1D9);
-      padding-bottom: 2px;
+      padding-bottom: 3px;
       transition: border-color var(--transition-fast, 100ms);
     }
     .trilha-card a[href]:hover { border-color: var(--text-primary, #0D0D0D); }
@@ -132,31 +129,31 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      margin-top: 48px;
+      margin-top: 56px;
     }
-    .ritmo-step { padding: 0 48px 0 0; border-right: 1px solid rgba(255,255,255,0.08); }
-    .ritmo-step:not(:first-child) { padding-left: 48px; }
+    .ritmo-step { padding: 0 56px 0 0; border-right: 1px solid rgba(255,255,255,0.08); }
+    .ritmo-step:not(:first-child) { padding-left: 56px; }
     .ritmo-step:last-child { border-right: none; }
     .ritmo-num {
       font-family: var(--font-display);
-      font-size: 56px;
+      font-size: 64px;
       color: rgba(255,255,255,.9);
       display: block;
       line-height: 1;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     .ritmo-title {
       font-family: var(--font-body);
       font-weight: 500;
-      font-size: 18px;
+      font-size: 22px;
       line-height: 1.35;
       color: white;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .ritmo-desc {
-      font-size: 14px;
+      font-size: 16px;
       color: rgba(255,255,255,.55);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     /* ── RESPONSIVE ── */
@@ -176,7 +173,11 @@
     }
 
     @media (max-width: 480px) {
+      .hero-desc { font-size: 18px; }
       .hero-actions { flex-direction: column; align-items: stretch; }
+      .trilha-card { padding: 32px 24px; }
+      .trilha-card h3 { font-size: 26px; }
+      .trilha-card > p { font-size: 16px; }
     }
 
     /* ── MISC REMAINING ── */
@@ -243,7 +244,7 @@
           <a href="guias/revier-previdencia/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card" data-category="saude">
+        <article class="trilha-card" data-category="protecao">
           <div>
             <span class="badge badge--accent">Completo</span>
             <span class="badge">POPULAR</span>
@@ -254,7 +255,7 @@
           <a href="guias/planos-saude-pme/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card" data-category="financeiro">
+        <article class="trilha-card" data-category="protecao">
           <div>
             <span class="badge badge--accent">Completo</span>
             <span class="badge">POPULAR</span>
@@ -265,7 +266,7 @@
           <a href="guias/seguro-vida/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card" data-category="saude">
+        <article class="trilha-card" data-category="protecao">
           <div>
             <span class="badge badge--accent">Completo</span>
             <span class="badge">Essencial</span>
@@ -275,7 +276,7 @@
           <a href="guias/odonto/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card" data-category="patrimonio">
+        <article class="trilha-card" data-category="protecao">
           <div>
             <span class="badge badge--accent">Completo</span>
             <span class="badge">Essencial</span>
@@ -295,7 +296,7 @@
           <a href="guias/consorcio/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card" data-category="patrimonio">
+        <article class="trilha-card" data-category="protecao">
           <div>
             <span class="badge badge--accent">Completo</span>
             <span class="badge">Essencial</span>
@@ -305,7 +306,7 @@
           <a href="guias/seguro-residencial/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card" data-category="pet">
+        <article class="trilha-card" data-category="protecao">
           <div>
             <span class="badge badge--accent">Completo</span>
             <span class="badge">Essencial</span>
@@ -315,7 +316,7 @@
           <a href="guias/pet/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card" data-category="viagem">
+        <article class="trilha-card" data-category="protecao">
           <div>
             <span class="badge badge--accent">Completo</span>
             <span class="badge">Intermediário</span>
@@ -325,7 +326,7 @@
           <a href="guias/seguro-viagem/index.html">Acessar Guia →</a>
         </article>
 
-        <article class="trilha-card" data-category="patrimonio">
+        <article class="trilha-card" data-category="protecao">
           <div>
             <span class="badge badge--accent">Completo</span>
             <span class="badge">Avançado</span>
