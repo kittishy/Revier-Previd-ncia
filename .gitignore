@@ -8,3 +8,5 @@ nul
 .vercel
 .env*.local
 .firecrawl/
+.next/
+out/

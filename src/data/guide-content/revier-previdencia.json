@@ -1,0 +1,60 @@
+{
+  "slug": "revier-previdencia",
+  "title": "Previdência Privada · Revier Academy",
+  "description": "",
+  "heroTitle": "Previdência <em>Privada</em>",
+  "heroSub": "Previdência não se vende no slide bonito. Vende quando o cliente enxerga o buraco do INSS, o ganho fiscal e o que ele perde se deixar para depois.",
+  "sidebarItems": [
+    {
+      "id": "fundamentos",
+      "num": "01",
+      "label": "Abra a dor"
+    },
+    {
+      "id": "produtos",
+      "num": "02",
+      "label": "Acerta o produto"
+    },
+    {
+      "id": "tributacao",
+      "num": "03",
+      "label": "Escolhe o IR"
+    },
+    {
+      "id": "fundos",
+      "num": "04",
+      "label": "Ajusta o risco"
+    },
+    {
+      "id": "venda",
+      "num": "05",
+      "label": "Conduz a venda"
+    },
+    {
+      "id": "objecoes",
+      "num": "06",
+      "label": "Vira a objeção"
+    },
+    {
+      "id": "operadoras",
+      "num": "07",
+      "label": "Puxa a seguradora"
+    },
+    {
+      "id": "prioridade",
+      "num": "08",
+      "label": "Define o tipo"
+    },
+    {
+      "id": "checklist",
+      "num": "09",
+      "label": "Entra pronto"
+    }
+  ],
+  "quickSummary": [
+    "PGBL serve para CLT com IR completo; VGBL fica para o resto.",
+    "Tabela regressiva chega a 10% de IR depois de 10 anos.",
+    "Não entra em inventário e o beneficiário recebe direto."
+  ],
+  "guideContent": ""
+}

@@ -1,0 +1,233 @@
+/* 1. GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400&display=swap');
+
+/* 2. RESET */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Grain texture */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9998;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 250px 250px;
+  opacity: 0.032;
+}
+
+::selection { background: #0F76F7; color: white; }
+
+/* 3. DESIGN TOKENS */
+:root {
+  /* Surface — warm sand tones */
+  --bg: #F5F2EC;
+  --surface: #FDFCFA;
+  --surface-warm: #F0EBDF;
+  --surface-elevated: #FFFFFF;
+  --surface-dark: #0D0D0D;
+
+  /* Text — WCAG AA contrast */
+  --text-primary: #1A1714;
+  --text-secondary: #3D3629;
+  --text-muted: #5C5549;
+  --text-inverted: #FFFFFF;
+
+  /* Brand — Revier identity */
+  --accent: #E8820D;
+  --accent-soft: #FEF3E2;
+  --accent-secondary: #0F76F7;
+  --accent-warm: #D4740A;
+
+  /* Borders */
+  --border: #DDD8CE;
+  --border-strong: #C4BDAF;
+  --border-dark: rgba(255, 255, 255, 0.07);
+
+  /* Surfaces */
+  --tag-bg: #ECEADE;
+  --dark: #171310;
+
+  /* Shadows — layered, natural */
+  --shadow-xs: 0 1px 2px rgba(13,13,13,0.04);
+  --shadow-sm: 0 1px 3px rgba(13,13,13,0.06), 0 2px 8px rgba(13,13,13,0.03);
+  --shadow-md: 0 4px 12px rgba(13,13,13,0.07), 0 1px 4px rgba(13,13,13,0.04);
+  --shadow-lg: 0 8px 32px rgba(13,13,13,0.09), 0 2px 8px rgba(13,13,13,0.04);
+  --shadow-xl: 0 20px 60px rgba(13,13,13,0.12), 0 4px 16px rgba(13,13,13,0.06);
+  --shadow-hover: 0 20px 60px rgba(13,13,13,0.12), 0 4px 16px rgba(13,13,13,0.06);
+
+  /* Border-radius */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* Typography */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --max-w: 1200px;
+
+  /* Transitions — spring easing */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 100ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 4. BODY */
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Warm ambient gradient */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(232, 130, 13, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, rgba(15, 118, 247, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 5. TYPOGRAPHY */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+h1 { font-size: clamp(48px, 7vw, 88px); }
+h2 { font-size: clamp(32px, 4vw, 52px); }
+h3 { font-size: clamp(20px, 2.5vw, 28px); }
+h4 { font-size: 18px; }
+
+p { line-height: 1.7; }
+
+em { font-style: italic; color: var(--accent); }
+
+a { color: inherit; text-decoration: none; }
+
+/* 6. LAYOUT */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 64px);
+}
+
+.section { padding-block: clamp(72px, 9vw, 128px); }
+
+.section--dark { background: var(--dark); color: white; }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+.label--light { color: rgba(255,255,255,0.4); }
+
+.divider { border: none; border-top: 1px solid var(--border); }
+
+/* 7. BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 13px 24px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--dark);
+  color: white;
+  box-shadow: var(--shadow-xs), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.btn--primary:hover {
+  background: #1A1A1A;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn--primary:active { transform: translateY(0); box-shadow: var(--shadow-xs); }
+
+.btn--outline {
+  background: var(--surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn--outline:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible { outline: 2px solid var(--accent-secondary); outline-offset: 3px; }
+
+/* 8. BADGES */
+.badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  background: var(--tag-bg);
+  color: var(--text-muted);
+  display: inline-block;
+}
+
+.badge--accent {
+  background: var(--accent-soft);
+  border-color: rgba(247,144,15,0.24);
+  color: var(--accent);
+}
+
+.badge--dark {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.55);
+}
+
+/* 9. ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

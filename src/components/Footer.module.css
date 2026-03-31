@@ -1,0 +1,31 @@
+.footer {
+  background: var(--dark);
+  padding-block: clamp(40px, 5vw, 64px);
+  border-top: 3px solid var(--accent);
+  color: rgba(255,255,255,0.45);
+  font-size: 13px;
+}
+
+.logo {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: white;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.copy {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  display: block;
+  margin-top: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer a { color: rgba(255,255,255,0.4); transition: color var(--transition-fast); }
+.footer a:hover { color: rgba(255,255,255,0.8); }

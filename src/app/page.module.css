@@ -1,0 +1,181 @@
+.heroSection { padding-top: 136px; padding-bottom: 112px; position: relative; }
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(ellipse at 70% 30%, rgba(232,130,13,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroTitle { margin-top: 20px; font-weight: 400; }
+
+.heroDesc {
+  font-family: var(--font-body);
+  font-size: 21px;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin-top: 24px;
+  line-height: 1.75;
+}
+
+.heroStat {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* GUIDES GRID */
+.trilhasGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  counter-reset: guide-card;
+}
+
+.trilhaCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 6px);
+  padding: 38px 32px;
+  cursor: pointer;
+  transition: transform var(--transition, 200ms), box-shadow var(--transition, 200ms), border-color var(--transition, 200ms);
+  position: relative;
+  counter-increment: guide-card;
+  border-left: 4px solid var(--border);
+}
+
+.trilhaCard[data-category="financeiro"] { border-left-color: #2563eb; }
+.trilhaCard[data-category="protecao"] { border-left-color: #179c52; }
+
+.trilhaCard::after {
+  content: counter(guide-card, decimal-leading-zero);
+  position: absolute;
+  top: 30px; right: 26px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--border-strong, #CAC6BE);
+  letter-spacing: 0.06em;
+  pointer-events: none;
+}
+
+.trilhaCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(13,13,13,0.09), 0 2px 8px rgba(13,13,13,0.04);
+  border-color: var(--border-strong, #CAC6BE);
+}
+
+.cardBadges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 14px;
+  line-height: 1.18;
+}
+
+.cardDesc {
+  font-size: 17px;
+  color: var(--text-muted, #5C5549);
+  margin-bottom: 26px;
+  line-height: 1.72;
+}
+
+.cardLink {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text-primary, #0D0D0D);
+  border-bottom: 1px solid var(--border, #E5E1D9);
+  padding-bottom: 3px;
+  transition: border-color var(--transition-fast, 100ms);
+  text-decoration: none;
+}
+
+.cardLink:hover { border-color: var(--text-primary, #0D0D0D); }
+
+/* RITMO DE USO */
+.ritmoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 56px;
+}
+
+.ritmoStep { padding: 0 56px 0 0; border-right: 1px solid rgba(255,255,255,0.08); }
+.ritmoStep:not(:first-child) { padding-left: 56px; }
+.ritmoStep:last-child { border-right: none; }
+
+.ritmoNum {
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: rgba(255,255,255,.9);
+  display: block;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.ritmoTitle {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.35;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.ritmoDesc {
+  font-size: 16px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.75;
+}
+
+/* SECTION HEADING */
+.sectionHeading { margin-top: 16px; margin-bottom: 32px; }
+.sectionHeadingDark { margin-top: 16px; color: white; }
+.accentSlash { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .trilhasGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .trilhasGrid { grid-template-columns: 1fr; }
+  .ritmoGrid { grid-template-columns: 1fr; }
+  .ritmoStep {
+    padding: 0 0 28px !important;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .ritmoStep:last-child { border-bottom: none; padding-bottom: 0 !important; }
+}
+
+@media (max-width: 480px) {
+  .heroDesc { font-size: 18px; }
+  .heroActions { flex-direction: column; align-items: stretch; }
+  .trilhaCard { padding: 32px 24px; }
+  .cardTitle { font-size: 26px; }
+  .cardDesc { font-size: 16px; }
+}
