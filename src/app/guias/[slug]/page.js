@@ -1,10 +1,23 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getGuideData, getAllGuideSlugs } from '@/data/guide-loader'
+import { guides } from '@/data/guides'
 import SidebarObserver from '@/components/SidebarObserver'
 import GuideEffects from '@/components/GuideEffects'
 import '@/app/guide-content.css'
 import styles from './guide.module.css'
+
+function normalizeGuideTitle(title) {
+  return title.replace(/\s*[|·]\s*Revier Academy$/i, '').trim()
+}
+
+function getGuideMeta(slug, data) {
+  const guide = guides.find((item) => item.slug === slug)
+  return {
+    title: guide?.title || normalizeGuideTitle(data.title),
+    description: guide?.desc || data.description || `Guia interno Revier sobre ${normalizeGuideTitle(data.title)}.`,
+  }
+}
 
 export async function generateStaticParams() {
   return getAllGuideSlugs().map(slug => ({ slug }))
@@ -14,19 +27,25 @@ export async function generateMetadata({ params }) {
   const { slug } = await params
   const data = getGuideData(slug)
   if (!data) return {}
+  const meta = getGuideMeta(slug, data)
   return {
-    title: data.title,
-    description: data.description || `Guia interno Revier sobre ${data.title}.`,
+    title: meta.title,
+    description: meta.description,
     alternates: {
       canonical: `/guias/${slug}`,
     },
     openGraph: {
       type: 'article',
       url: `/guias/${slug}`,
-      title: data.title,
-      description: data.description || `Guia interno Revier sobre ${data.title}.`,
+      title: meta.title,
+      description: meta.description,
       locale: 'pt_BR',
       siteName: 'Revier Academy',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
     },
   }
 }
@@ -35,12 +54,13 @@ export default async function GuidePage({ params }) {
   const { slug } = await params
   const data = getGuideData(slug)
   if (!data) notFound()
+  const meta = getGuideMeta(slug, data)
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: data.title,
-    description: data.description || `Guia interno Revier sobre ${data.title}.`,
+    headline: meta.title,
+    description: meta.description,
     inLanguage: 'pt-BR',
     isPartOf: {
       '@type': 'WebSite',
@@ -68,7 +88,7 @@ export default async function GuidePage({ params }) {
       {
         '@type': 'ListItem',
         position: 2,
-        name: data.title,
+        name: meta.title,
         item: `https://revier-academy.vercel.app/guias/${slug}`,
       },
     ],

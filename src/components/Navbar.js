@@ -3,7 +3,7 @@ import styles from './Navbar.module.css'
 
 export default function Navbar() {
   return (
-    <nav className={styles.nav}>
+    <nav className={styles.nav} aria-label="Navegacao principal">
       <div className="container">
         <div className={styles.inner}>
           <Link className={styles.logo} href="/">

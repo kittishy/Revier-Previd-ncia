@@ -4,11 +4,25 @@ const siteUrl = 'https://revier-academy.vercel.app'
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: 'Revier Academy',
   title: {
     default: 'Revier Academy | Treino que vira fechamento',
     template: '%s | Revier Academy',
   },
   description: 'Portal interno de treinamento comercial da Revier Brokers.',
+  keywords: [
+    'revier academy',
+    'revier brokers',
+    'treinamento comercial',
+    'seguros',
+    'planos de saude',
+    'previdencia privada',
+    'guia interno de vendas',
+  ],
+  authors: [{ name: 'Revier Brokers' }],
+  creator: 'Revier Brokers',
+  publisher: 'Revier Brokers',
+  category: 'business',
   alternates: {
     canonical: '/',
   },
@@ -23,6 +37,11 @@ export const metadata = {
     description: 'Portal interno de treinamento comercial da Revier Brokers.',
     siteName: 'Revier Academy',
     locale: 'pt_BR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Revier Academy | Treino que vira fechamento',
+    description: 'Portal interno de treinamento comercial da Revier Brokers.',
   },
 }
 
