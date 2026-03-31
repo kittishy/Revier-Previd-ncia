@@ -58,8 +58,19 @@ for (const slug of slugs) {
   }
 
   // Extract the entire guide-content div (the main content)
-  const contentMatch = html.match(/<div class="guide-content">([\s\S]*?)<\/div>\s*<footer class="guide-footer">/)
-  const guideContent = contentMatch ? contentMatch[1].trim() : ''
+  // Use greedy match to capture all nested divs, stopping at the closing </div> before footer
+  const contentStart = html.indexOf('<div class="guide-content">')
+  const footerStart = html.indexOf('<footer class="guide-footer">')
+  let guideContent = ''
+  if (contentStart !== -1 && footerStart !== -1) {
+    const innerStart = contentStart + '<div class="guide-content">'.length
+    // Find the last </div> before the footer
+    const beforeFooter = html.substring(innerStart, footerStart)
+    const lastDivClose = beforeFooter.lastIndexOf('</div>')
+    if (lastDivClose !== -1) {
+      guideContent = beforeFooter.substring(0, lastDivClose).trim()
+    }
+  }
 
   const data = {
     slug,
