@@ -121,7 +121,7 @@
 - **Used Today:** 18 credits (ANS baseline scan)
 - **Remaining:** 1,382 credits
 - **Monthly Average:** ~30 credits (~$15)
-- **Cost per Deal:** Negligible (1st commission ~$300)
+- **Cost per Deal:** Negligible relative to operational gains
 - **ROI:** ✅ Break-even at 1st closed deal
 
 ---

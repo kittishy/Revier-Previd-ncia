@@ -46,10 +46,24 @@ graph TD
 | **Test**            | "test", "coverage", "unit", "e2e"          | `test-engineer`                             | ✅ YES       |
 | **Deployment**      | "deploy", "production", "CI/CD", "docker"  | `devops-engineer`                           | ✅ YES       |
 | **Security Review** | "security", "vulnerability", "exploit"     | `security-auditor` + `penetration-tester`   | ✅ YES       |
+| **Insurance Brokerage** | "plano de saude", "seguro", "apolice", "corretor", "beneficiario", "carencia", "reajuste", "ANS", "SUSEP" | `insurance-broker-specialist` | ✅ YES |
 | **Performance**     | "slow", "optimize", "performance", "speed" | `performance-optimizer`                     | ✅ YES       |
 | **Product Def**     | "requirements", "user story", "backlog", "MVP" | `product-owner`                             | ✅ YES       |
 | **New Feature**     | "build", "create", "implement", "new app"  | `orchestrator` → multi-agent                | ⚠️ ASK FIRST |
 | **Complex Task**    | Multiple domains detected                  | `orchestrator` → multi-agent                | ⚠️ ASK FIRST |
+
+### Revier Domain Priority Override (Always-On)
+
+For this workspace, treat insurance and health-plan intelligence as priority context.
+
+Apply this override before generic routing:
+
+1. If request references Revier, brokerage flow, insurance, or health-plan topics,
+    route to `insurance-broker-specialist` first.
+2. If task is implementation-heavy (code/design) and insurance domain is relevant,
+    route to `orchestrator` with mandatory participation of `insurance-broker-specialist`.
+3. If user explicitly requests another agent, respect override but keep
+    `insurance-broker-specialist` as reviewer when market-sensitive claims exist.
 
 ### 3. Automatic Routing Protocol
 
@@ -103,6 +117,7 @@ function analyzeRequest(userMessage) {
 | Domain          | Patterns                                   | Agent                   |
 | --------------- | ------------------------------------------ | ----------------------- |
 | **Security**    | auth, login, jwt, password, hash, token    | `security-auditor`      |
+| **Insurance**   | plano de saude, seguro, apolice, corretor, ans, susep, carencia, reajuste | `insurance-broker-specialist` |
 | **Frontend**    | component, react, vue, css, html, tailwind | `frontend-specialist`   |
 | **Backend**     | api, server, express, fastapi, node        | `backend-specialist`    |
 | **Mobile**      | react native, flutter, ios, android, expo  | `mobile-developer`      |

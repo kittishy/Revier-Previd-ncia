@@ -240,7 +240,7 @@ Monthly budget: ~25-30 credits (well within allocation)
 ### Cost Projections
 - **Monthly:** ~30 Firecrawl credits (~$15 at $0.50/credit)
 - **Annual:** ~360 credits (~$180)
-- **ROI:** Break-even at 1st closed deal (health plan average: $300+ commission)
+- **ROI:** Break-even at 1st closed deal (highly favorable cost/benefit)
 
 ---
 
