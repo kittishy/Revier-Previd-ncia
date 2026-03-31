@@ -423,3 +423,24 @@
 .define-row { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 14px; }
 .define-tag { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); padding: 3px 8px; border: 1px solid var(--border); border-radius: var(--radius-sm); white-space: nowrap; flex-shrink: 0; }
 .define-val { color: var(--text-muted); font-size: 13px; }
+
+/* GENERIC TABLES (inside guide-content) */
+.table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid var(--border); border-radius: var(--radius-md); }
+.guide-content table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.guide-content table th {
+  background: var(--tag-bg); font-family: var(--font-mono); font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);
+  padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+.guide-content table td {
+  padding: 10px 14px; border-bottom: 1px solid var(--border);
+  color: var(--text-muted); vertical-align: middle; line-height: 1.5;
+}
+.guide-content table tr:last-child td { border-bottom: none; }
+.guide-content table tr:hover td { background: var(--tag-bg); }
+.guide-content table td strong { color: var(--text-primary); font-weight: 600; }
+
+/* PRICING BADGES */
+.badge { display: inline-block; font-family: var(--font-mono); font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; vertical-align: middle; margin-right: 4px; }
+.badge--green { background: #d4edda; color: #155724; }
+.badge--blue { background: #d1ecf1; color: #0c5460; }
