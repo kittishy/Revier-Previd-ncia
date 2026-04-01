@@ -4,11 +4,15 @@ import { useEffect } from 'react'
 
 export default function GuideEffects() {
   useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduceMotion) return undefined
+
     // Scroll reveal animations
     const revealEls = document.querySelectorAll('.reveal')
+    let revealObs
     if (revealEls.length > 0) {
       document.documentElement.classList.add('reveal-anim')
-      const revealObs = new IntersectionObserver((entries) => {
+      revealObs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) e.target.classList.add('visible')
         })
@@ -18,8 +22,9 @@ export default function GuideEffects() {
 
     // Bar fill animations
     const bars = document.querySelectorAll('.bar-fill[data-width]')
+    let barObs
     if (bars.length > 0) {
-      const barObs = new IntersectionObserver((entries) => {
+      barObs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
             e.target.style.width = e.target.dataset.width + '%'
@@ -28,6 +33,11 @@ export default function GuideEffects() {
         })
       }, { threshold: 0.3 })
       bars.forEach(b => barObs.observe(b))
+    }
+
+    return () => {
+      if (revealObs) revealObs.disconnect()
+      if (barObs) barObs.disconnect()
     }
   }, [])
 

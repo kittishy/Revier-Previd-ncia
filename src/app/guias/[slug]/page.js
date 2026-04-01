@@ -8,7 +8,7 @@ import '@/app/guide-content.css'
 import styles from './guide.module.css'
 
 function normalizeGuideTitle(title) {
-  return title.replace(/\s*[|·]\s*Revier Academy$/i, '').trim()
+  return title.replace(/\s*[|]\s*(Revier Academy|Universidade Revier)$/i, '').trim()
 }
 
 function getGuideMeta(slug, data) {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }) {
       title: meta.title,
       description: meta.description,
       locale: 'pt_BR',
-      siteName: 'Revier Academy',
+      siteName: 'Universidade Revier',
     },
     twitter: {
       card: 'summary_large_image',
@@ -55,6 +55,7 @@ export default async function GuidePage({ params }) {
   const data = getGuideData(slug)
   if (!data) notFound()
   const meta = getGuideMeta(slug, data)
+  const quickSummary = Array.isArray(data.quickSummary) ? data.quickSummary : []
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -64,7 +65,7 @@ export default async function GuidePage({ params }) {
     inLanguage: 'pt-BR',
     isPartOf: {
       '@type': 'WebSite',
-      name: 'Revier Academy',
+      name: 'Universidade Revier',
       url: 'https://revier-academy.vercel.app',
     },
     publisher: {
@@ -82,7 +83,7 @@ export default async function GuidePage({ params }) {
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'Portal',
+        name: 'Universidade Revier',
         item: 'https://revier-academy.vercel.app/',
       },
       {
@@ -97,8 +98,8 @@ export default async function GuidePage({ params }) {
   return (
     <div className={styles.guidePage}>
       <nav className={styles.guideNav} aria-label="Navegacao do guia">
-        <span className={styles.guideNavLogo}>REVIER BROKERS</span>
-        <Link href="/" className={styles.guideNavBack}>← Portal</Link>
+        <span className={styles.guideNavLogo}>UNIVERSIDADE REVIER</span>
+        <Link href="/" className={styles.guideNavBack}>Voltar para a universidade</Link>
       </nav>
 
       <aside className={styles.guideSidebar} aria-label="Indice do guia">
@@ -117,7 +118,7 @@ export default async function GuidePage({ params }) {
 
       <main id="main-content" className={styles.guideMain}>
         <div className={styles.guideHero}>
-          <p className={styles.guideHeroLabel}>Guia Interno · Material Exclusivo · Equipe Revier</p>
+          <p className={styles.guideHeroLabel}>Universidade Interna | Formacao de Corretores | Equipe Revier</p>
           <h1
             className={styles.guideHeroTitle}
             dangerouslySetInnerHTML={{ __html: data.heroTitle }}
@@ -125,20 +126,32 @@ export default async function GuidePage({ params }) {
           <p className={styles.guideHeroSub}>{data.heroSub}</p>
           <div className={styles.guideHeroActions}>
             <a href={`#${data.sidebarItems[0]?.id || 'fundamentos'}`} className="btn btn--primary">
-              Abrir o guia →
+              Comecar leitura
             </a>
-            <a href="#checklist" className="btn btn--outline">Ver checklist</a>
+            <a href="#guide-mobile-nav" className="btn btn--outline">Indice e progresso</a>
           </div>
         </div>
 
-        {data.quickSummary.length > 0 && (
-          <details className={styles.quickSummary}>
+        <div className={styles.guideSessionMeta} aria-label="Resumo da jornada do guia">
+          <span className={styles.sessionMetaItem}>{data.sidebarItems.length} blocos praticos</span>
+          <span className={styles.sessionMetaItem}>{quickSummary.length || 3} pontos-chave</span>
+          <a href="#checklist" className={styles.sessionMetaLink}>Checklist final</a>
+        </div>
+
+        <SidebarObserver
+          items={data.sidebarItems}
+          checklistId="checklist"
+          title={meta.title}
+        />
+
+        {quickSummary.length > 0 && (
+          <details className={styles.quickSummary} open>
             <summary>
-              Resumo Rápido — 30 segundos
+              Briefing rapido - 30 segundos
               <span className={styles.summaryToggle}>+</span>
             </summary>
             <ul className={styles.summaryList}>
-              {data.quickSummary.map((item, i) => (
+              {quickSummary.map((item, i) => (
                 <li key={i} className={styles.summaryItem}>{item}</li>
               ))}
             </ul>
@@ -152,25 +165,24 @@ export default async function GuidePage({ params }) {
 
         <footer className={styles.guideFooter}>
           <div>
-            <div className={styles.guideFooterLogo}>REVIER BROKERS</div>
+            <div className={styles.guideFooterLogo}>UNIVERSIDADE REVIER</div>
           </div>
           <div>
             <div className={styles.guideFooterInfo}>
               Revier Corretora de Seguros Ltda.<br />
               CNPJ 42.621.875/0001-50<br />
               contato@reviercorretora.com.br<br />
-              Santo André, SP
+              Santo Andre, SP
             </div>
             <div className={styles.guideFooterInfo}>
-              Validação obrigatória antes da proposta: confirme regras vigentes em fontes oficiais (ANS, SUSEP e/ou Banco Central), condições por operadora/administradora e data de atualização comercial.
+              Validacao obrigatoria antes da proposta: confirme regras vigentes em fontes oficiais (ANS, SUSEP e/ou Banco Central), condicoes por operadora/administradora e data de atualizacao comercial.
             </div>
             <div className={styles.guideFooterCopy}>
-              © 2026 Revier Brokers. Material de uso exclusivo para equipe interna.
+              (c) 2026 Revier Brokers. Material de uso exclusivo da Universidade Revier para equipe interna.
             </div>
           </div>
         </footer>
 
-        <SidebarObserver />
         <GuideEffects />
 
         <script
@@ -185,3 +197,4 @@ export default async function GuidePage({ params }) {
     </div>
   )
 }
+
