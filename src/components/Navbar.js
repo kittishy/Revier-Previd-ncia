@@ -7,11 +7,11 @@ export default function Navbar() {
       <div className="container">
         <div className={styles.inner}>
           <Link className={styles.logo} href="/">
-            REVIER<span className={styles.logoSub}>ACADEMY</span>
+            REVIER<span className={styles.logoSub}>UNIVERSIDADE</span>
           </Link>
           <ul className={styles.links}>
             <li><Link className={styles.link} href="/#trilhas">Trilhas</Link></li>
-            <li><Link className={styles.link} href="/#como-usar">Ritmo</Link></li>
+            <li><Link className={styles.link} href="/#como-usar">Metodo</Link></li>
             <li><span className={styles.badge}>Uso Interno</span></li>
           </ul>
         </div>

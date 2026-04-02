@@ -10,3 +10,14 @@ nul
 .firecrawl/
 .next/
 out/
+
+# Development backups and archives
+backup/
+scripts/archive/
+reports/market-intelligence/simulacao-data/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
